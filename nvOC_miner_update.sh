@@ -150,6 +150,18 @@ else
   echo "Bminer is already v5.2.0"
 fi
 
+echo "Checking ANXccminer"
+  if [[ ! -d /home/m1/ANXccminer/ ]]
+then
+  echo "Downloading and making changes for ANXccminer"
+  mkdir -p /home/m1/ANXccminer/
+  wget -O- https://nvoc-mining-os.com/download/1177/ | tar -xzC /home/m1/ANXccminer/ --strip 1
+  chmod a+x /home/m1/ANXccminer/ccminer
+else
+  echo "ANXccminer is already added"
+fi
+
+
 echo""
 sleep 1
 
