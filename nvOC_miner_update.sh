@@ -140,14 +140,14 @@ echo""
 sleep 1
 
 echo "Checking Equihash Bminer"
-if [ ! $(cat /home/m1/zec/bminer/latest/version | grep 5.2.0) ]
+if [ ! $(cat /home/m1/zec/bminer/latest/version | grep 5.3.0) ]
 then
-  echo "Downloading and making changes for Bminer 5.2.0"
+  echo "Downloading and making changes for Bminer 5.3.0"
   mkdir -p /home/m1/zec/bminer/latest/
-  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/Bminer/bminer-v5.2.0.tar.gz | tar -xzC /home/m1/zec/bminer/latest/ --strip 1
+  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/Bminer/bminer-v5.3.0.tar.gz | tar -xzC /home/m1/zec/bminer/latest/ --strip 1
   chmod a+x /home/m1/zec/bminer/latest/bminer
 else
-  echo "Bminer is already v5.2.0"
+  echo "Bminer is already v5.3.0"
 fi
 
 echo "Checking ANXccminer"
