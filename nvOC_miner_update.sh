@@ -43,6 +43,7 @@ if [ ! $(cat /home/m1/TPccminer/version | grep 2.2.4) ]
 then
   cd /home/m1/Downloads/miners
   echo "Downloading Tpruvot 2.2.4"
+  mkdir -p /home/m1/TPccminer/
   wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/TPccminer/TPccminer.rar
   rar x -y TPccminer.rar
   cp -rf /home/m1/Downloads/miners/TPccminer/* /home/m1/TPccminer/
@@ -61,6 +62,7 @@ if [ ! $( cat /home/m1/KTccminer/version | grep 8.20) ]
 then
   cd /home/m1/Downloads/miners
   echo "Downloading Klaust ccminer 8.20"
+  mkdir -p /home/m1/KTccminer/
   wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/KTccminer/KTccminer.rar
   rar x -y KTccminer.rar
   cp -rf /home/m1/Downloads/miners/KTccminer/* /home/m1/KTccminer/
@@ -78,6 +80,7 @@ echo "Checking Vertminer v1.0-stable.2 Release"
 if [ ! $( cat /home/m1/vertminer/version | grep 1.0.2 ) ]
 then
   echo "Downloading vertminer-1.0-stable.2 Release"
+  mkdir -p /home/m1/vertminer/
   wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/vertminer/vertminer-nvidia-1.0-stable.2.rar
   rar x -y vertminer-nvidia-1.0-stable.2.rar
   cp -rf /home/m1/Downloads/miners/vertminer-nvidia-1.0-stable.2/* /home/m1/vertminer/
@@ -95,6 +98,7 @@ echo "Checking nanashi-ccminer-2.2-mod-r2"
 if [ ! $(cat /home/m1/NAccminer/version | grep 2.2-mod-r2 ) ]
 then
   echo "Downloading nanashi ccminer 2.2-mod-r2"
+  mkdir -p /home/m1/NAccminer
   wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/nanashi-ccminer/nanashi-ccminer-2.2-mod-r2.rar
   rar x -y  nanashi-ccminer-2.2-mod-r2.rar
   cp -rf /home/m1/Downloads/miners/nanashi-ccminer-2.2-mod-r2/* /home/m1/NAccminer/
@@ -126,6 +130,7 @@ echo "Checking KTccminer-cryptonight"
 if [ ! $( cat /home/m1/KTccminer-cryptonight/version | grep 2.06) ]
 then
   echo "Downloading KTccminer-cryptonight 2.06"
+  mkdir -p /home/m1/KTccminer
   wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/KTccminer-cryptonight/KTccminer-cryptonight.rar
   rar x -y  KTccminer-cryptonight.rar
   cp -rf /home/m1/Downloads/miners/KTccminer-cryptonight/* /home/m1/KTccminer-cryptonight/
