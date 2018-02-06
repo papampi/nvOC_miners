@@ -130,7 +130,7 @@ echo "Checking KTccminer-cryptonight"
 if [ ! $( cat /home/m1/KTccminer-cryptonight/version | grep 2.06) ]
 then
   echo "Downloading KTccminer-cryptonight 2.06"
-  mkdir -p /home/m1/KTccminer
+  mkdir -p /home/m1/KTccminer-cryptonight
   wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/KTccminer-cryptonight/KTccminer-cryptonight.rar
   rar x -y  KTccminer-cryptonight.rar
   cp -rf /home/m1/Downloads/miners/KTccminer-cryptonight/* /home/m1/KTccminer-cryptonight/
