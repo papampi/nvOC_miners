@@ -1,5 +1,6 @@
 #!/bin/bash
-#Script to download and compile miners for nnOV by papampi.
+#Script to download and compile nvOC miners by papampi.
+
 echo "Updating miners for nvOC V0019-2.x"
 sleep 1
 echo ""
