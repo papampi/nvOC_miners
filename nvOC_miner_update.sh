@@ -226,7 +226,7 @@ else
           echo ""
           echo "Finished compiling KlausT ccminer"
           ;;
-        [3]* ) echo -e "$choice\n"
+        [3]* ) echo -e "$choice"
           echo "Compiling KlausT ccminer cryptonight"
           echo " This could take a while ..."
           cd /home/m1/KTccminer-cryptonight
@@ -268,7 +268,7 @@ else
           /home/m1/SPccminer/build.sh
           sleep 1
           echo ""
-          echo "Finished compiling tpruvot ccminer"
+          echo "Finished compiling SPccminer"
           ;;
         [7]* ) echo -e "$choice"
           echo "Compiling tpruvot ccminer"
