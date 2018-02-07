@@ -1,7 +1,9 @@
 #!/bin/bash
-#Script to download and compile nvOC miners by papampi.
-
+#!/bin/bash
 echo "Updating miners for nvOC V0019-2.x"
+echo "Stopping miner and watchdog to reduce errors"
+pkill -f 5watcdog
+pkill -e screen
 sleep 1
 echo ""
 sudo -- sh -c 'sudo apt install rar -y'
@@ -171,6 +173,9 @@ read -n 1 ANSWER
 if [ ! "${ANSWER}" = "y" ] ; then
   echo ""
   echo "Canceled.."
+  echo "Re starting miner..."
+  pkill -f 3main
+  sleep 1
   exit 0
 else
   echo ""
@@ -227,7 +232,7 @@ else
           echo ""
           echo "Finished compiling KlausT ccminer"
           ;;
-        [3]* ) echo -e "$choice"
+        [3]* ) echo -e "$choice\n"
           echo "Compiling KlausT ccminer cryptonight"
           echo " This could take a while ..."
           cd /home/m1/KTccminer-cryptonight
@@ -269,7 +274,7 @@ else
           /home/m1/SPccminer/build.sh
           sleep 1
           echo ""
-          echo "Finished compiling SPccminer"
+          echo "Finished compiling tpruvot ccminer"
           ;;
         [7]* ) echo -e "$choice"
           echo "Compiling tpruvot ccminer"
@@ -301,4 +306,6 @@ else
     echo "Compilation finished, Want to compile more?"
     echo ""
   done
+  echo " Restarting miner"
+  pkill -f 3main
 fi
