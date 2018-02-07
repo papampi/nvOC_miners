@@ -7,7 +7,6 @@ sudo -- sh -c 'sudo apt install rar -y'
 
 
 echo ""
-sleep 1
 mkdir -p /home/m1/Downloads/miners
 cd /home/m1/Downloads/miners
 
@@ -23,7 +22,6 @@ else
 fi
 
 echo""
-sleep 1
 
 echo "Checking Claymore 10.6"
 if [ ! $(cat /home/m1/eth/claymore/latest/version | grep 10.6) ]
@@ -37,7 +35,6 @@ else
 fi
 
 echo""
-sleep 1
 
 echo "Checking Tpruvot ccminer-2.2.4"
 if [ ! $(cat /home/m1/TPccminer/version | grep 2.2.4) ]
@@ -56,7 +53,6 @@ else
 fi
 
 echo""
-sleep 1
 
 echo "Checking KlausT ccminer 8.20"
 if [ ! $( cat /home/m1/KTccminer/version | grep 8.20) ]
@@ -75,7 +71,6 @@ else
 fi
 
 echo""
-sleep 1
 
 echo "Checking Vertminer v1.0-stable.2 Release"
 if [ ! $( cat /home/m1/vertminer/version | grep 1.0.2 ) ]
@@ -93,7 +88,6 @@ else
 fi
 
 echo""
-sleep 1
 
 echo "Checking nanashi-ccminer-2.2-mod-r2"
 if [ ! $(cat /home/m1/NAccminer/version | grep 2.2-mod-r2 ) ]
@@ -111,7 +105,6 @@ else
 fi
 
 echo""
-sleep 1
 
 echo "Checking Ethminer 0.13.0"
 if [ ! $(cat /home/m1/eth/ethminer/latest/version | grep 0.13.0) ]
@@ -125,7 +118,6 @@ else
 fi
 
 echo""
-sleep 1
 
 echo "Checking KTccminer-cryptonight"
 if [ ! $( cat /home/m1/KTccminer-cryptonight/version | grep 2.06) ]
@@ -143,7 +135,6 @@ else
 fi
 
 echo""
-sleep 1
 
 echo "Checking Equihash Bminer"
 if [ ! $(cat /home/m1/zec/bminer/latest/version | grep 5.3.0) ]
@@ -202,16 +193,17 @@ else
 
   while true; do
     IFS=', '
-    echo "Select miners to compile, multiple comma separated choices"
+    echo "Select miners to compile (multiple comma separated values: 1,6,7)"
     echo "1- ASccminer"
     echo "2 -KTccminer"
     echo "3 -KTccminer-cryptonight"
     echo "4- KXccminer"
     echo "5 -NAccminer"
-    echo "6- TPccminer"
-    echo "7- vertminer"
+    echo "6- SPccminer"
+    echo "7- TPccminer"
+    echo "8- vertminer"
     echo ""
-    read -p "Do your Choice: [1] [2] [3] [4] [5] [6] [7] [E]xit: " -a array
+    read -p "Do your Choice: [1] [2] [3] [4] [5] [6] [7] [8] [E]xit: " -a array
     for choice in "${array[@]}"; do
       case "$choice" in
         [1]* ) echo -e "$choice"
@@ -268,6 +260,17 @@ else
           echo "Finished compiling Nanashi ccminer"
           ;;
         [6]* ) echo -e "$choice"
+          echo "Compiling SPccminer"
+          echo " This could take a while ..."
+          cd /home/m1/SPccminer
+          /home/m1/SPccminer/autogen.sh
+          /home/m1/SPccminer/configure
+          /home/m1/SPccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling tpruvot ccminer"
+          ;;
+        [7]* ) echo -e "$choice"
           echo "Compiling tpruvot ccminer"
           echo " This could take a while ..."
           cd /home/m1/TPccminer
@@ -278,7 +281,7 @@ else
           echo ""
           echo "Finished compiling tpruvot ccminer"
           ;;
-        [7]* ) echo -e "$choice"
+        [8]* ) echo -e "$choice"
           echo "Compiling Vertminer"
           echo " This could take a while ..."
           cd /home/m1/vertminer
@@ -289,6 +292,7 @@ else
           echo ""
           echo "Finished compiling vertminer"
           ;;
+
         [Ee]* ) echo "exited by user"; exit;;
         * ) echo "Are you kidding me???";;
       esac
