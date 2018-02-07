@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/bin/bash
 echo "Updating miners for nvOC V0019-2.x"
 sleep 1
 echo ""
@@ -156,7 +157,7 @@ else
 fi
 
 echo "Checking ANXccminer"
-  if [[ ! -d /home/m1/ANXccminer/ ]]
+if [[ ! -d /home/m1/ANXccminer/ ]]
 then
   echo "Downloading and making changes for ANXccminer"
   mkdir -p /home/m1/ANXccminer/
@@ -165,9 +166,134 @@ then
 else
   echo "ANXccminer is already added"
 fi
-
-
 echo""
-sleep 1
-
+echo""
 echo "Downloading and checking new miners for nvOC-v0019-2.x finished"
+echo""
+echo""
+sleep 2
+
+echo -n "Do you want to re-compile your miners (y/N)?  "
+sleep 1
+read -n 1 ANSWER
+if [ ! "${ANSWER}" = "y" ] ; then
+  echo ""
+  echo "Canceled.."
+  exit 0
+else
+  echo ""
+  echo ""
+  echo "Checking if bn.h bignum error is fixed for compiling miners or not"
+  if [ -e  /home/m1/Downloads/openssl-1.0.1e/bn.h.backup ]
+  then
+    echo "bn.h openssl already fixed for compiling miners"
+    echo ""
+  else
+    cd /home/m1/Downloads
+    wget http://www.openssl.org/source/openssl-1.0.1e.tar.gz
+    tar -xvzf openssl-1.0.1e.tar.gz
+    cp /usr/local/include/openssl/bn.h /home/m1/Downloads/openssl-1.0.1e/bn.h.backup
+    sudo cp /home/m1/Downloads/openssl-1.0.1e/crypto/bn/bn.h /usr/local/include/openssl/
+    sleep 1
+    echo ""
+    echo "bn.h openssl fixed for compiling miners"
+    echo ""
+  fi
+
+  while true; do
+    IFS=', '
+    echo "Select miners to compile, multiple comma separated choices"
+    echo "1- ASccminer"
+    echo "2 -KTccminer"
+    echo "3 -KTccminer-cryptonight"
+    echo "4- KXccminer"
+    echo "5 -NAccminer"
+    echo "6- TPccminer"
+    echo "7- vertminer"
+    echo ""
+    read -p "Do your Choice: [1] [2] [3] [4] [5] [6] [7] [E]xit: " -a array
+    for choice in "${array[@]}"; do
+      case "$choice" in
+        [1]* ) echo -e "$choice"
+          echo "Compiling ASccminer"
+          echo "This could take a while ..."
+          cd /home/m1/ASccminer
+          /home/m1/ASccminer/autogen.sh
+          /home/m1/ASccminer/configure
+          /home/m1/ASccminer/build.sh
+          echo "Finished compiling ASccminer"
+          ;;
+        [2]* ) echo -e "$choice"
+          echo "Compiling KlausT ccminer"
+          echo " This could take a while ..."
+          cd /home/m1/KTccminer
+          /home/m1/KTccminer/autogen.sh
+          /home/m1/KTccminer/configure
+          /home/m1/KTccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling KlausT ccminer"
+          ;;
+        [3]* ) echo -e "$choice\n"
+          echo "Compiling KlausT ccminer cryptonight"
+          echo " This could take a while ..."
+          cd /home/m1/KTccminer-cryptonight
+          /home/m1/KTccminer-cryptonight/autogen.sh
+          /home/m1/KTccminer-cryptonight/configure
+          /home/m1/KTccminer-cryptonight/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling KlausT ccminer cryptonight"
+          ;;
+        [4]* ) echo -e "$choice"
+          echo "Compiling krnlx ccminer"
+          echo " This could take a while ..."
+          cd /home/m1/KXccminer
+          /home/m1/KXccminer/autogen.sh
+          /home/m1/KXccminer/configure
+          /home/m1/KXccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling Krnlx ccminer"
+          ;;
+        [5]* ) echo -e "$choice"
+          echo "Compiling Nanashi ccminer"
+          echo " This could take a while ..."
+          cd /home/m1/NAccminer
+          /home/m1/NAccminer/autogen.sh
+          /home/m1/NAccminer/configure
+          /home/m1/NAccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling Nanashi ccminer"
+          ;;
+        [6]* ) echo -e "$choice"
+          echo "Compiling tpruvot ccminer"
+          echo " This could take a while ..."
+          cd /home/m1/TPccminer
+          /home/m1/TPccminer/autogen.sh
+          /home/m1/TPccminer/configure
+          /home/m1/TPccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling tpruvot ccminer"
+          ;;
+        [7]* ) echo -e "$choice"
+          echo "Compiling Vertminer"
+          echo " This could take a while ..."
+          cd /home/m1/vertminer
+          /home/m1/vertminer/autogen.sh
+          /home/m1/vertminer/configure
+          /home/m1/vertminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling vertminer"
+          ;;
+        [Ee]* ) echo "exited by user"; exit;;
+        * ) echo "Are you kidding me???";;
+      esac
+    done
+    echo "Compilation finished, Want to compile more?"
+    echo ""
+  done
+fi
