@@ -209,9 +209,102 @@ else
     echo "7- TPccminer"
     echo "8- vertminer"
     echo ""
-    read -p "Do your Choice: [1] [2] [3] [4] [5] [6] [7] [8] [E]xit: " -a array
+    read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [E]xit: " -a array
     for choice in "${array[@]}"; do
       case "$choice" in
+        [Aa]* ) echo "ALL"
+          echo "Compiling ASccminer"
+          echo "This could take a while ..."
+          cd /home/m1/ASccminer
+          /home/m1/ASccminer/autogen.sh
+          /home/m1/ASccminer/configure
+          /home/m1/ASccminer/build.sh
+          echo "Finished compiling ASccminer"
+          echo ""
+          sleep 1
+          echo ""
+          echo "Compiling KlausT ccminer"
+          echo " This could take a while ..."
+          cd /home/m1/KTccminer
+          /home/m1/KTccminer/autogen.sh
+          /home/m1/KTccminer/configure
+          /home/m1/KTccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling KlausT ccminer"
+          echo ""
+          sleep 1
+          echo ""
+          echo "Compiling KlausT ccminer cryptonight"
+          echo " This could take a while ..."
+          cd /home/m1/KTccminer-cryptonight
+          /home/m1/KTccminer-cryptonight/autogen.sh
+          /home/m1/KTccminer-cryptonight/configure
+          /home/m1/KTccminer-cryptonight/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling KlausT ccminer cryptonight"
+          echo ""
+          sleep 1
+          echo ""
+          echo "Compiling krnlx ccminer"
+          echo " This could take a while ..."
+          cd /home/m1/KXccminer
+          /home/m1/KXccminer/autogen.sh
+          /home/m1/KXccminer/configure
+          /home/m1/KXccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling Krnlx ccminer"
+          echo ""
+          sleep 1
+          echo ""
+          echo "Compiling Nanashi ccminer"
+          echo " This could take a while ..."
+          cd /home/m1/NAccminer
+          /home/m1/NAccminer/autogen.sh
+          /home/m1/NAccminer/configure
+          /home/m1/NAccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling Nanashi ccminer"
+          echo ""
+          sleep 1
+          echo ""
+          echo "Compiling SPccminer"
+          echo " This could take a while ..."
+          cd /home/m1/SPccminer
+          /home/m1/SPccminer/autogen.sh
+          /home/m1/SPccminer/configure
+          /home/m1/SPccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling tpruvot ccminer"
+          echo ""
+          sleep 1
+          echo ""
+          echo "Compiling tpruvot ccminer"
+          echo " This could take a while ..."
+          cd /home/m1/TPccminer
+          /home/m1/TPccminer/autogen.sh
+          /home/m1/TPccminer/configure
+          /home/m1/TPccminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling tpruvot ccminer"
+          echo ""
+          sleep 1
+          echo ""
+          echo "Compiling Vertminer"
+          echo " This could take a while ..."
+          cd /home/m1/vertminer
+          /home/m1/vertminer/autogen.sh
+          /home/m1/vertminer/configure
+          /home/m1/vertminer/build.sh
+          sleep 1
+          echo ""
+          echo "Finished compiling vertminer"
+          ;;
         [1]* ) echo -e "$choice"
           echo "Compiling ASccminer"
           echo "This could take a while ..."
