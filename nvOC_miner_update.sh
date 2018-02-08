@@ -8,7 +8,6 @@ sleep 1
 echo ""
 sudo -- sh -c 'sudo apt install rar -y'
 
-
 echo ""
 mkdir -p /home/m1/Downloads/miners
 cd /home/m1/Downloads/miners
@@ -221,7 +220,6 @@ else
           /home/m1/ASccminer/build.sh
           echo "Finished compiling ASccminer"
           echo ""
-          sleep 1
           echo ""
           echo "Compiling KlausT ccminer"
           echo " This could take a while ..."
@@ -229,11 +227,9 @@ else
           /home/m1/KTccminer/autogen.sh
           /home/m1/KTccminer/configure
           /home/m1/KTccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling KlausT ccminer"
           echo ""
-          sleep 1
           echo ""
           echo "Compiling KlausT ccminer cryptonight"
           echo " This could take a while ..."
@@ -241,11 +237,9 @@ else
           /home/m1/KTccminer-cryptonight/autogen.sh
           /home/m1/KTccminer-cryptonight/configure
           /home/m1/KTccminer-cryptonight/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling KlausT ccminer cryptonight"
           echo ""
-          sleep 1
           echo ""
           echo "Compiling krnlx ccminer"
           echo " This could take a while ..."
@@ -253,11 +247,9 @@ else
           /home/m1/KXccminer/autogen.sh
           /home/m1/KXccminer/configure
           /home/m1/KXccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling Krnlx ccminer"
           echo ""
-          sleep 1
           echo ""
           echo "Compiling Nanashi ccminer"
           echo " This could take a while ..."
@@ -265,11 +257,9 @@ else
           /home/m1/NAccminer/autogen.sh
           /home/m1/NAccminer/configure
           /home/m1/NAccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling Nanashi ccminer"
           echo ""
-          sleep 1
           echo ""
           echo "Compiling SPccminer"
           echo " This could take a while ..."
@@ -277,11 +267,9 @@ else
           /home/m1/SPccminer/autogen.sh
           /home/m1/SPccminer/configure
           /home/m1/SPccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling tpruvot ccminer"
           echo ""
-          sleep 1
           echo ""
           echo "Compiling tpruvot ccminer"
           echo " This could take a while ..."
@@ -289,11 +277,9 @@ else
           /home/m1/TPccminer/autogen.sh
           /home/m1/TPccminer/configure
           /home/m1/TPccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling tpruvot ccminer"
           echo ""
-          sleep 1
           echo ""
           echo "Compiling Vertminer"
           echo " This could take a while ..."
@@ -301,7 +287,6 @@ else
           /home/m1/vertminer/autogen.sh
           /home/m1/vertminer/configure
           /home/m1/vertminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling vertminer"
           ;;
@@ -321,7 +306,6 @@ else
           /home/m1/KTccminer/autogen.sh
           /home/m1/KTccminer/configure
           /home/m1/KTccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling KlausT ccminer"
           ;;
@@ -332,7 +316,6 @@ else
           /home/m1/KTccminer-cryptonight/autogen.sh
           /home/m1/KTccminer-cryptonight/configure
           /home/m1/KTccminer-cryptonight/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling KlausT ccminer cryptonight"
           ;;
@@ -343,7 +326,6 @@ else
           /home/m1/KXccminer/autogen.sh
           /home/m1/KXccminer/configure
           /home/m1/KXccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling Krnlx ccminer"
           ;;
@@ -354,7 +336,6 @@ else
           /home/m1/NAccminer/autogen.sh
           /home/m1/NAccminer/configure
           /home/m1/NAccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling Nanashi ccminer"
           ;;
@@ -365,7 +346,6 @@ else
           /home/m1/SPccminer/autogen.sh
           /home/m1/SPccminer/configure
           /home/m1/SPccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling tpruvot ccminer"
           ;;
@@ -376,7 +356,6 @@ else
           /home/m1/TPccminer/autogen.sh
           /home/m1/TPccminer/configure
           /home/m1/TPccminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling tpruvot ccminer"
           ;;
@@ -387,7 +366,6 @@ else
           /home/m1/vertminer/autogen.sh
           /home/m1/vertminer/configure
           /home/m1/vertminer/build.sh
-          sleep 1
           echo ""
           echo "Finished compiling vertminer"
           ;;
