@@ -33,7 +33,7 @@ then
   wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/claymore/Claymore.tar.gz | tar -xzC /home/m1/eth/claymore/latest/ --strip 1
   chmod a+x /home/m1/eth/claymore/latest/ethdcrminer64
 else
-  echo "Claymore is v11.0"
+  echo "Claymore is 11.0"
 fi
 
 echo""
