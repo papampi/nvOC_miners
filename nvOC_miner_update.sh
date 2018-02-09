@@ -25,15 +25,15 @@ fi
 
 echo""
 
-echo "Checking Claymore 10.6"
-if [ ! $(cat /home/m1/eth/claymore/latest/version | grep 10.6) ]
+echo "Checking Claymore v11.0"
+if [ ! $(cat /home/m1/eth/claymore/latest/version | grep 11.0) ]
 then
-  echo "Downloading and making changes for Claymore 10.6"
+  echo "Downloading and making changes for Claymore 11.0"
   mkdir -p /home/m1/eth/claymore/latest/
   wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/claymore/Claymore.tar.gz | tar -xzC /home/m1/eth/claymore/latest/ --strip 1
   chmod a+x /home/m1/eth/claymore/latest/ethdcrminer64
 else
-  echo "Claymore is v10.6"
+  echo "Claymore is v11.0"
 fi
 
 echo""
