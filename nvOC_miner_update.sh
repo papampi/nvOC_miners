@@ -207,8 +207,9 @@ else
     echo "6- SPccminer"
     echo "7- TPccminer"
     echo "8- vertminer"
+    echo "9- ANXccminer"
     echo ""
-    read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [E]xit: " -a array
+    read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [E]xit: " -a array
     for choice in "${array[@]}"; do
       case "$choice" in
         [Aa]* ) echo "ALL"
@@ -289,6 +290,16 @@ else
           /home/m1/vertminer/build.sh
           echo ""
           echo "Finished compiling vertminer"
+          echo ""
+          echo ""
+          echo "Compiling ANXccminer"
+          echo " This could take a while ..."
+          cd /home/m1/ANXccminer
+          /home/m1/ANXccminer/autogen.sh
+          /home/m1/ANXccminer/configure
+          /home/m1/ANXccminer/build.sh
+          echo ""
+          echo "Finished compiling ANXccminer"
           ;;
         [1]* ) echo -e "$choice"
           echo "Compiling ASccminer"
@@ -368,6 +379,16 @@ else
           /home/m1/vertminer/build.sh
           echo ""
           echo "Finished compiling vertminer"
+          ;;
+        [9]* ) echo -e "$choice"
+          echo "Compiling ANXccminer"
+          echo " This could take a while ..."
+          cd /home/m1/ANXccminer
+          /home/m1/ANXccminer/autogen.sh
+          /home/m1/ANXccminer/configure
+          /home/m1/ANXccminer/build.sh
+          echo ""
+          echo "Finished compiling ANXccminer"
           ;;
 
         [Ee]* ) echo "exited by user"; exit;;
