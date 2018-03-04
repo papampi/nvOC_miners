@@ -9,7 +9,7 @@ echo ""
 sudo -- sh -c 'sudo apt install rar -y'
 
 echo ""
-NVOC_MINERS=$(pwd)
+export NVOC_MINERS=$(pwd)
 
 echo "Checking Equihash DSTM zm_miner 0.6"
 if [ ! $(cat ${NVOC_MINERS}/zec/zm/latest/version | grep 0.6) ]
