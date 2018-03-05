@@ -40,16 +40,11 @@ echo""
 echo "Checking Tpruvot ccminer-2.2.4"
 if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.4) ]
 then
-  # cd ~/Downloads/miners
   echo "Extracting Tpruvot 2.2.4"
   mkdir -p ${NVOC_MINERS}/TPccminer/
-  # wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/TPccminer/TPccminer.rar
   cd ${NVOC_MINERS}/TPccminer
-  rar x -y TPccminer.rar
-  # cp -rf ~/Downloads/miners/TPccminer/* ${NVOC_MINERS}/TPccminer/
+  rar x -y -ap=TPccminer TPccminer.rar
   chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
-  # rm ~/Downloads/miners/TPccminer.rar
-  # rm -rf ~/Downloads/miners/TPccminer/
 else
   echo "Tpccminer-2.2.4 already downloaded"
 fi
@@ -59,15 +54,10 @@ echo""
 echo "Checking KlausT ccminer 8.20"
 if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.20) ]
 then
-  # cd ~/Downloads/miners
   echo "Extracting Klaust ccminer 8.20"
   mkdir -p ${NVOC_MINERS}/KTccminer/
-  # wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/KTccminer/KTccminer.rar
   cd ${NVOC_MINERS}/KTccminer
-  rar x -y KTccminer.rar
-  # cp -rf ~/Downloads/miners/KTccminer/* ${NVOC_MINERS}/KTccminer/
-  # rm ~/Downloads/miners/KTccminer.rar
-  # rm -rf ~/Downloads/miners/KTccminer/
+  rar x -y -ap=KTccminer KTccminer.rar
   chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
 else
   echo "KlausT ccminer is v8.20"
@@ -80,12 +70,8 @@ if [ ! $( cat ${NVOC_MINERS}/vertminer/version | grep 1.0.2 ) ]
 then
   echo "Extracting vertminer-1.0-stable.2 Release"
   mkdir -p ${NVOC_MINERS}/vertminer/
-  # wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/vertminer/vertminer-nvidia-1.0-stable.2.rar
   cd ${NVOC_MINERS}/vertminer
-  rar x -y vertminer-nvidia-1.0-stable.2.rar
-  # cp -rf ~/Downloads/miners/vertminer-nvidia-1.0-stable.2/* ${NVOC_MINERS}/vertminer/
-  # rm ~/Downloads/miners/vertminer-nvidia-1.0-stable.2.rar
-  # rm -rf ~/Downloads/miners/vertminer-nvidia-1.0-stable.2/
+  rar x -y -ap=vertminer-nvidia-1.0-stable.2 vertminer-nvidia-1.0-stable.2.rar
   chmod a+x ${NVOC_MINERS}/vertminer/vertminer
 else
   echo "Vertminer is v1.0-stable.2 Release"
@@ -98,12 +84,8 @@ if [ ! $(cat ${NVOC_MINERS}/NAccminer/version | grep 2.2-mod-r2 ) ]
 then
   echo "Extracting nanashi ccminer 2.2-mod-r2"
   mkdir -p ${NVOC_MINERS}/NAccminer/
-  # wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/nanashi-ccminer/nanashi-ccminer-2.2-mod-r2.rar
   cd ${NVOC_MINERS}/NAccminer
-  rar x -y  nanashi-ccminer-2.2-mod-r2.rar
-  # cp -rf ~/Downloads/miners/nanashi-ccminer-2.2-mod-r2/* ${NVOC_MINERS}/NAccminer/
-  # rm ~/Downloads/miners/nanashi-ccminer-2.2-mod-r2.rar
-  # rm -rf ~/Downloads/miners/nanashi-ccminer-2.2-mod-r2/
+  rar x -y -ap=nanashi-ccminer-2.2-mod-r2 nanashi-ccminer-2.2-mod-r2.rar
   chmod a+x ${NVOC_MINERS}/NAccminer/ccminer
 else
   echo "nanashi-ccminer is already 2.2-mod-r2"
@@ -137,12 +119,8 @@ if [ ! $( cat ${NVOC_MINERS}/KTccminer-cryptonight/version | grep 2.06) ]
 then
   echo "Extracting KTccminer-cryptonight 2.06"
   mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/
-  # wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/KTccminer-cryptonight/KTccminer-cryptonight.rar
   cd ${NVOC_MINERS}/KTccminer-cryptonight
-  rar x -y  KTccminer-cryptonight.rar
-  # cp -rf ~/Downloads/miners/KTccminer-cryptonight/* ${NVOC_MINERS}/KTccminer-cryptonight/
-  # rm ~/Downloads/miners/KTccminer-cryptonight.rar
-  # rm -rf ~/Downloads/miners/KTccminer-cryptonight/
+  rar x -y -ap=KTccminer-cryptonight KTccminer-cryptonight.rar
   chmod a+x ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
 else
   echo "KTccminer-cryptonight is already v2.06"
