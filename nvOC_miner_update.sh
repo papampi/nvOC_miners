@@ -56,6 +56,26 @@ fi
 
 echo""
 
+echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
+if [ ! $(cat /home/m1/MSFTccminer/version | grep 2.2.5) ]
+then
+  cd /home/m1/Downloads/miners
+  echo "Downloading MSFT Tpruvot 2.2.5"
+  mkdir -p /home/m1/MSFTccminer/
+  git clone https://github.com/MSFTserver/ccminer.git MSFTccminer
+  cd /home/m1/Downloads/miners/MSFTccminer
+  wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/MSFTccminer/MSFTccminer.rar
+  rar x -y MSFTccminer.rar
+  cd /home/m1/Downloads/miners
+  cp -rf /home/m1/Downloads/miners/MSFTccminer/* /home/m1/MSFTccminer/
+  chmod a+x /home/m1/MSFTccminer/ccminer
+  rm -rf /home/m1/Downloads/miners/MSFTccminer/
+else
+  echo "MSFTccminer-2.2.5 already downloaded"
+fi
+
+echo""
+
 echo "Checking KlausT ccminer 8.20"
 if [ ! $( cat /home/m1/KTccminer/version | grep 8.20) ]
 then
@@ -208,8 +228,9 @@ else
     echo "7- TPccminer"
     echo "8- vertminer"
     echo "9- ANXccminer"
+    echo "R- MSFTccminer (RVN)
     echo ""
-    read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [E]xit: " -a array
+    read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [E]xit: " -a array
     for choice in "${array[@]}"; do
       case "$choice" in
         [Aa]* ) echo "ALL"
@@ -280,6 +301,16 @@ else
           /home/m1/TPccminer/build.sh
           echo ""
           echo "Finished compiling tpruvot ccminer"
+          echo ""
+          echo ""
+          echo "Compiling MSFTccminer"
+          echo " This could take a while ..."
+          cd /home/m1/MSFTccminer
+          /home/m1/MSFTccminer/autogen.sh
+          /home/m1/MSFTccminer/configure
+          /home/m1/MSFTccminer/build.sh
+          echo ""
+          echo "Finished compiling MSFTccminer"
           echo ""
           echo ""
           echo "Compiling Vertminer"
@@ -389,6 +420,16 @@ else
           /home/m1/ANXccminer/build.sh
           echo ""
           echo "Finished compiling ANXccminer"
+          ;;
+        [R]* ) echo -e "$choice"
+          echo "Compiling MSFTccminer"
+          echo " This could take a while ..."
+          cd /home/m1/MSFTccminer
+          /home/m1/MSFTccminer/autogen.sh
+          /home/m1/MSFTccminer/configure
+          /home/m1/MSFTccminer/build.sh
+          echo ""
+          echo "Finished compiling MSFTccminer"
           ;;
 
         [Ee]* ) echo "exited by user"; exit;;
