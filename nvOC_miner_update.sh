@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 echo "Updating miners for nvOC V0019-2.x"
 echo "Stopping miner and watchdog to reduce errors"
 pkill -f 5watcdog
