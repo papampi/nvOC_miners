@@ -162,6 +162,7 @@ function compile-ASccminer {
           echo "Compiling ASccminer"
           echo "This could take a while ..."
           cd ${NVOC_MINERS}/ASccminer/src
+          git submodule update .
           ${NVOC_MINERS}/ASccminer/src/autogen.sh
           ${NVOC_MINERS}/ASccminer/src/configure
           ${NVOC_MINERS}/ASccminer/src/build.sh
@@ -173,6 +174,7 @@ function compile-KTccminer {
           echo "Compiling KlausT ccminer"
           echo " This could take a while ..."
           cd ${NVOC_MINERS}/KTccminer/src
+          git submodule update .
           ${NVOC_MINERS}/KTccminer/src/autogen.sh
           ${NVOC_MINERS}/KTccminer/src/configure
           ${NVOC_MINERS}/KTccminer/src/build.sh
@@ -185,6 +187,7 @@ function compile-KTccminer-cryptonight {
           echo "Compiling KlausT ccminer cryptonight"
           echo " This could take a while ..."
           cd ${NVOC_MINERS}/KTccminer-cryptonight/src
+          git submodule update .
           ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
           ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
           ${NVOC_MINERS}/KTccminer-cryptonight/src/build.sh
@@ -197,6 +200,7 @@ function compile-KXccminer {
           echo "Compiling krnlx ccminer"
           echo " This could take a while ..."
           cd ${NVOC_MINERS}/KXccminer/src
+          git submodule update .
           ${NVOC_MINERS}/KXccminer/src/autogen.sh
           ${NVOC_MINERS}/KXccminer/src/configure
           ${NVOC_MINERS}/KXccminer/src/build.sh
@@ -209,6 +213,7 @@ function compile-NAccminer {
           echo "Compiling Nanashi ccminer"
           echo " This could take a while ..."
           cd ${NVOC_MINERS}/NAccminer/src
+          git submodule update .
           ${NVOC_MINERS}/NAccminer/src/autogen.sh
           ${NVOC_MINERS}/NAccminer/src/configure
           ${NVOC_MINERS}/NAccminer/src/build.sh
@@ -221,6 +226,7 @@ function compile-SPccminer {
           echo "Compiling SPccminer"
           echo " This could take a while ..."
           cd ${NVOC_MINERS}/SPccminer/src
+          git submodule update .
           ${NVOC_MINERS}/SPccminer/src/autogen.sh
           ${NVOC_MINERS}/SPccminer/src/configure
           ${NVOC_MINERS}/SPccminer/src/build.sh
@@ -233,6 +239,7 @@ function compile-TPccminer {
           echo "Compiling tpruvot ccminer"
           echo " This could take a while ..."
           cd ${NVOC_MINERS}/TPccminer/src
+          git submodule update .
           ${NVOC_MINERS}/TPccminer/src/autogen.sh
           ${NVOC_MINERS}/TPccminer/src/configure
           ${NVOC_MINERS}/TPccminer/src/build.sh
@@ -245,6 +252,7 @@ function compile-vertminer {
           echo "Compiling Vertminer"
           echo " This could take a while ..."
           cd ${NVOC_MINERS}/vertminer/src
+          git submodule update .
           ${NVOC_MINERS}/vertminer/src/autogen.sh
           ${NVOC_MINERS}/vertminer/src/configure
           ${NVOC_MINERS}/vertminer/src/build.sh
@@ -257,6 +265,7 @@ function compile-ANXccminer {
           echo "Compiling ANXccminer"
           echo " This could take a while ..."
           cd ${NVOC_MINERS}/ANXccminer/src
+          git submodule update .
           ${NVOC_MINERS}/ANXccminer/src/autogen.sh
           ${NVOC_MINERS}/ANXccminer/src/configure
           ${NVOC_MINERS}/ANXccminer/src/build.sh
@@ -276,6 +285,7 @@ if [ ! "${ANSWER}" = "y" ] ; then
   sleep 1
   exit 0
 else
+  git submodule init
   echo ""
   echo ""
   echo "Checking if bn.h bignum error is fixed for compiling miners or not"
