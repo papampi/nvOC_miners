@@ -5,8 +5,6 @@ echo "Stopping miner and watchdog to reduce errors"
 pkill -f 5watcdog
 pkill -e screen
 sleep 1
-echo ""
-sudo -- sh -c 'sudo apt install rar -y'
 
 echo ""
 export NVOC_MINERS=$(pwd)
@@ -19,7 +17,7 @@ then
   cat ${NVOC_MINERS}/DSTM/DSTM_0.6.tar.gz | tar -xzC ${NVOC_MINERS}/zec/zm/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/zec/zm/latest/zm_miner
 else
-  echo "DSTM zm miner is v0.6"
+  echo "DSTM zm miner is already v0.6"
 fi
 
 echo""
@@ -32,7 +30,7 @@ then
   cat ${NVOC_MINERS}/claymore/Claymore.tar.gz | tar -xzC ${NVOC_MINERS}/eth/claymore/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/eth/claymore/latest/ethdcrminer64
 else
-  echo "Claymore is 11.2"
+  echo "Claymore is already v11.2"
 fi
 
 echo""
@@ -42,25 +40,10 @@ if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.4) ]
 then
   echo "Extracting Tpruvot 2.2.4"
   mkdir -p ${NVOC_MINERS}/TPccminer/
-  cd ${NVOC_MINERS}/TPccminer
-  rar x -y -ap=TPccminer TPccminer.rar
+  cat ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/TPccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
 else
-  echo "Tpccminer-2.2.4 already downloaded"
-fi
-
-echo""
-
-echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
-if [ ! $(cat ${NVOC_MINERS}/MSFTccminer/version | grep 2.2.5-rvn) ]
-then
-  echo "Downloading MSFT Tpruvot 2.2.5-rvn"
-  mkdir -p ${NVOC_MINERS}/MSFTccminer/
-  cd ${NVOC_MINERS}/MSFTccminer
-  rar x -y -ap=MSFTccminer MSFTccminer.rar
-  chmod a+x ${NVOC_MINERS}/MSFTccminer/ccminer
-else
-  echo "MSFTccminer-2.2.5-rvn already downloaded"
+  echo "Tpruvot ccminer is already v2.2.4"
 fi
 
 echo""
@@ -70,11 +53,10 @@ if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.20) ]
 then
   echo "Extracting Klaust ccminer 8.20"
   mkdir -p ${NVOC_MINERS}/KTccminer/
-  cd ${NVOC_MINERS}/KTccminer
-  rar x -y -ap=KTccminer KTccminer.rar
+  cat ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
 else
-  echo "KlausT ccminer is v8.20"
+  echo "KlausT ccminer is already v8.20"
 fi
 
 echo""
@@ -84,11 +66,10 @@ if [ ! $( cat ${NVOC_MINERS}/vertminer/version | grep 1.0.2 ) ]
 then
   echo "Extracting vertminer-1.0-stable.2 Release"
   mkdir -p ${NVOC_MINERS}/vertminer/
-  cd ${NVOC_MINERS}/vertminer
-  rar x -y -ap=vertminer-nvidia-1.0-stable.2 vertminer-nvidia-1.0-stable.2.rar
+  cat ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz | tar -xJC ${NVOC_MINERS}/vertminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/vertminer/vertminer
 else
-  echo "Vertminer is v1.0-stable.2 Release"
+  echo "Vertminer is already v1.0-stable.2 Release"
 fi
 
 echo""
@@ -98,8 +79,7 @@ if [ ! $(cat ${NVOC_MINERS}/NAccminer/version | grep 2.2-mod-r2 ) ]
 then
   echo "Extracting nanashi ccminer 2.2-mod-r2"
   mkdir -p ${NVOC_MINERS}/NAccminer/
-  cd ${NVOC_MINERS}/NAccminer
-  rar x -y -ap=nanashi-ccminer-2.2-mod-r2 nanashi-ccminer-2.2-mod-r2.rar
+  cat ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz | tar -xJC ${NVOC_MINERS}/NAccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/NAccminer/ccminer
 else
   echo "nanashi-ccminer is already 2.2-mod-r2"
@@ -133,8 +113,7 @@ if [ ! $( cat ${NVOC_MINERS}/KTccminer-cryptonight/version | grep 2.06) ]
 then
   echo "Extracting KTccminer-cryptonight 2.06"
   mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/
-  cd ${NVOC_MINERS}/KTccminer-cryptonight
-  rar x -y -ap=KTccminer-cryptonight KTccminer-cryptonight.rar
+  cat ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer-cryptonight/ --strip 1
   chmod a+x ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
 else
   echo "KTccminer-cryptonight is already v2.06"
@@ -156,15 +135,29 @@ fi
 echo""
 
 echo "Checking ANXccminer"
-if [[ ! -e ${NVOC_MINERS}/ANXccminer/ccminer ]]
+if [ ! $(cat ${NVOC_MINERS}/ANXccminer/ccminer/version | grep cd6fab68823e247bb84dd1fa0448d5f75ec4917d) ]
 then
   echo "Extracting and making changes for ANXccminer"
   mkdir -p ${NVOC_MINERS}/ANXccminer/
   cat ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ANXccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ANXccminer/ccminer
 else
-  echo "ANXccminer is already added"
+  echo "ANXccminer is already at revision cd6fab68823e247bb84dd1fa0448d5f75ec4917d"
 fi
+
+echo""
+
+echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
+if [ ! $(cat ${NVOC_MINERS}/MSFTccminer/version | grep 2.2.5-rvn) ]
+then
+  echo "Extracting MSFT Tpruvot 2.2.5-rvn"
+  mkdir -p ${NVOC_MINERS}/MSFTccminer/
+  cat ${NVOC_MINERS}/MSFTccminer/MSFTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/MSFTccminer/ --strip 1
+  chmod a+x ${NVOC_MINERS}/MSFTccminer/ccminer
+else
+  echo "MSFTccminer-2.2.5-rvn already downloaded"
+fi
+
 echo""
 echo""
 echo "Extracting and checking new miners for nvOC-v0019-2.x finished"
@@ -173,7 +166,7 @@ echo""
 sleep 2
 
 function compile-ASccminer {
-          echo "Compiling ASccminer"
+          echo "Compiling alexis ccminer"
           echo "This could take a while ..."
           git submodule update ${NVOC_MINERS}/ASccminer
           cd ${NVOC_MINERS}/ASccminer/src
@@ -181,7 +174,7 @@ function compile-ASccminer {
           ${NVOC_MINERS}/ASccminer/src/configure
           ${NVOC_MINERS}/ASccminer/src/build.sh
           cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
-          echo "Finished compiling ASccminer"
+          echo "Finished compiling alexis ccminer"
 }
 
 function compile-KTccminer {
@@ -276,7 +269,7 @@ function compile-vertminer {
 }
 
 function compile-ANXccminer {
-          echo "Compiling ANXccminer"
+          echo "Compiling anorganix ccminer"
           echo " This could take a while ..."
           git submodule update ${NVOC_MINERS}/ANXccminer
           cd ${NVOC_MINERS}/ANXccminer/src
@@ -285,7 +278,7 @@ function compile-ANXccminer {
           ${NVOC_MINERS}/ANXccminer/src/build.sh
           cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
           echo ""
-          echo "Finished compiling ANXccminer"
+          echo "Finished compiling anorganix ccminer"
 }
 
 function compile-MSFTccminer {
@@ -300,6 +293,7 @@ function compile-MSFTccminer {
           echo ""
           echo "Finished compiling MSFTccminer"
 }
+
 echo -n "Do you want to re-compile your miners (y/N)?  "
 sleep 1
 read -n 1 ANSWER
@@ -321,7 +315,7 @@ else
     echo ""
   else
     cd ~/Downloads
-    wget http://www.openssl.org/source/openssl-1.0.1e.tar.gz
+    wget -nv http://www.openssl.org/source/openssl-1.0.1e.tar.gz
     tar -xvzf openssl-1.0.1e.tar.gz
     cp /usr/local/include/openssl/bn.h ~/Downloads/openssl-1.0.1e/bn.h.backup
     sudo cp ~/Downloads/openssl-1.0.1e/crypto/bn/bn.h /usr/local/include/openssl/
