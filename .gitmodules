@@ -16,3 +16,6 @@
 [submodule "TPccminer/src"]
 	path = TPccminer/src
 	url = https://github.com/tpruvot/ccminer
+[submodule "MSFTccminer/src"]
+	path = MSFTccminer/src
+	url = https://github.com/MSFTserver/ccminer
