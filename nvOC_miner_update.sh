@@ -161,8 +161,8 @@ sleep 2
 function compile-ASccminer {
           echo "Compiling ASccminer"
           echo "This could take a while ..."
+          git submodule update ${NVOC_MINERS}/ASccminer
           cd ${NVOC_MINERS}/ASccminer/src
-          git submodule update .
           ${NVOC_MINERS}/ASccminer/src/autogen.sh
           ${NVOC_MINERS}/ASccminer/src/configure
           ${NVOC_MINERS}/ASccminer/src/build.sh
@@ -173,8 +173,8 @@ function compile-ASccminer {
 function compile-KTccminer {
           echo "Compiling KlausT ccminer"
           echo " This could take a while ..."
+          git submodule update ${NVOC_MINERS}/KTccminer
           cd ${NVOC_MINERS}/KTccminer/src
-          git submodule update .
           ${NVOC_MINERS}/KTccminer/src/autogen.sh
           ${NVOC_MINERS}/KTccminer/src/configure
           ${NVOC_MINERS}/KTccminer/src/build.sh
@@ -186,8 +186,8 @@ function compile-KTccminer {
 function compile-KTccminer-cryptonight {
           echo "Compiling KlausT ccminer cryptonight"
           echo " This could take a while ..."
+          git submodule update ${NVOC_MINERS}/KTccminer-cryptonight
           cd ${NVOC_MINERS}/KTccminer-cryptonight/src
-          git submodule update .
           ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
           ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
           ${NVOC_MINERS}/KTccminer-cryptonight/src/build.sh
@@ -199,8 +199,8 @@ function compile-KTccminer-cryptonight {
 function compile-KXccminer {
           echo "Compiling krnlx ccminer"
           echo " This could take a while ..."
+          git submodule update ${NVOC_MINERS}/KXccminer
           cd ${NVOC_MINERS}/KXccminer/src
-          git submodule update .
           ${NVOC_MINERS}/KXccminer/src/autogen.sh
           ${NVOC_MINERS}/KXccminer/src/configure
           ${NVOC_MINERS}/KXccminer/src/build.sh
@@ -212,8 +212,8 @@ function compile-KXccminer {
 function compile-NAccminer {
           echo "Compiling Nanashi ccminer"
           echo " This could take a while ..."
+          git submodule update ${NVOC_MINERS}/NAccminer
           cd ${NVOC_MINERS}/NAccminer/src
-          git submodule update .
           ${NVOC_MINERS}/NAccminer/src/autogen.sh
           ${NVOC_MINERS}/NAccminer/src/configure
           ${NVOC_MINERS}/NAccminer/src/build.sh
@@ -225,8 +225,8 @@ function compile-NAccminer {
 function compile-SPccminer {
           echo "Compiling SPccminer"
           echo " This could take a while ..."
+          git submodule update ${NVOC_MINERS}/SPccminer
           cd ${NVOC_MINERS}/SPccminer/src
-          git submodule update .
           ${NVOC_MINERS}/SPccminer/src/autogen.sh
           ${NVOC_MINERS}/SPccminer/src/configure
           ${NVOC_MINERS}/SPccminer/src/build.sh
@@ -238,8 +238,8 @@ function compile-SPccminer {
 function compile-TPccminer {
           echo "Compiling tpruvot ccminer"
           echo " This could take a while ..."
+          git submodule update ${NVOC_MINERS}/TPccminer
           cd ${NVOC_MINERS}/TPccminer/src
-          git submodule update .
           ${NVOC_MINERS}/TPccminer/src/autogen.sh
           ${NVOC_MINERS}/TPccminer/src/configure
           ${NVOC_MINERS}/TPccminer/src/build.sh
@@ -251,8 +251,8 @@ function compile-TPccminer {
 function compile-vertminer {
           echo "Compiling Vertminer"
           echo " This could take a while ..."
+          git submodule update ${NVOC_MINERS}/vertminer
           cd ${NVOC_MINERS}/vertminer/src
-          git submodule update .
           ${NVOC_MINERS}/vertminer/src/autogen.sh
           ${NVOC_MINERS}/vertminer/src/configure
           ${NVOC_MINERS}/vertminer/src/build.sh
@@ -264,8 +264,8 @@ function compile-vertminer {
 function compile-ANXccminer {
           echo "Compiling ANXccminer"
           echo " This could take a while ..."
+          git submodule update ${NVOC_MINERS}/ANXccminer
           cd ${NVOC_MINERS}/ANXccminer/src
-          git submodule update .
           ${NVOC_MINERS}/ANXccminer/src/autogen.sh
           ${NVOC_MINERS}/ANXccminer/src/configure
           ${NVOC_MINERS}/ANXccminer/src/build.sh
