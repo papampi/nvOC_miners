@@ -19,3 +19,12 @@
 [submodule "MSFTccminer/src"]
 	path = MSFTccminer/src
 	url = https://github.com/MSFTserver/ccminer
+[submodule "KXccminer/src"]
+	path = KXccminer/src
+	url = https://github.com/krnlx/ccminer-xevan
+[submodule "ASccminer/src"]
+	path = ASccminer/src
+	url = https://github.com/alexis78/ccminer
+[submodule "SPccminer/src"]
+	path = SPccminer/src
+	url = https://github.com/sp-hash/ccminer
