@@ -1,0 +1,18 @@
+[submodule "ANXccminer/src"]
+	path = ANXccminer/src
+	url = https://github.com/anorganix/ccminer-phi.git
+[submodule "KTccminer/src"]
+	path = KTccminer/src
+	url = https://github.com/KlausT/ccminer.git
+[submodule "KTccminer-cryptonight/src"]
+	path = KTccminer-cryptonight/src
+	url = https://github.com/KlausT/ccminer-cryptonight
+[submodule "NAccminer/src"]
+	path = NAccminer/src
+	url = https://github.com/Nanashi-Meiyo-Meijin/ccminer
+[submodule "vertminer/src"]
+	path = vertminer/src
+	url = https://github.com/vertcoin-project/vertminer-nvidia
+[submodule "TPccminer/src"]
+	path = TPccminer/src
+	url = https://github.com/tpruvot/ccminer

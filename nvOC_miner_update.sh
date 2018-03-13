@@ -158,6 +158,113 @@ echo""
 echo""
 sleep 2
 
+function compile-ASccminer {
+          echo "Compiling ASccminer"
+          echo "This could take a while ..."
+          cd ${NVOC_MINERS}/ASccminer/src
+          ${NVOC_MINERS}/ASccminer/src/autogen.sh
+          ${NVOC_MINERS}/ASccminer/src/configure
+          ${NVOC_MINERS}/ASccminer/src/build.sh
+          cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
+          echo "Finished compiling ASccminer"
+}
+
+function compile-KTccminer {
+          echo "Compiling KlausT ccminer"
+          echo " This could take a while ..."
+          cd ${NVOC_MINERS}/KTccminer/src
+          ${NVOC_MINERS}/KTccminer/src/autogen.sh
+          ${NVOC_MINERS}/KTccminer/src/configure
+          ${NVOC_MINERS}/KTccminer/src/build.sh
+          cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
+          echo ""
+          echo "Finished compiling KlausT ccminer"
+}
+
+function compile-KTccminer-cryptonight {
+          echo "Compiling KlausT ccminer cryptonight"
+          echo " This could take a while ..."
+          cd ${NVOC_MINERS}/KTccminer-cryptonight/src
+          ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
+          ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
+          ${NVOC_MINERS}/KTccminer-cryptonight/src/build.sh
+          cp ${NVOC_MINERS}/KTccminer-cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
+          echo ""
+          echo "Finished compiling KlausT ccminer cryptonight"
+}
+
+function compile-KXccminer {
+          echo "Compiling krnlx ccminer"
+          echo " This could take a while ..."
+          cd ${NVOC_MINERS}/KXccminer/src
+          ${NVOC_MINERS}/KXccminer/src/autogen.sh
+          ${NVOC_MINERS}/KXccminer/src/configure
+          ${NVOC_MINERS}/KXccminer/src/build.sh
+          cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
+          echo ""
+          echo "Finished compiling Krnlx ccminer"
+}
+
+function compile-NAccminer {
+          echo "Compiling Nanashi ccminer"
+          echo " This could take a while ..."
+          cd ${NVOC_MINERS}/NAccminer/src
+          ${NVOC_MINERS}/NAccminer/src/autogen.sh
+          ${NVOC_MINERS}/NAccminer/src/configure
+          ${NVOC_MINERS}/NAccminer/src/build.sh
+          cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
+          echo ""
+          echo "Finished compiling Nanashi ccminer"
+}
+
+function compile-SPccminer {
+          echo "Compiling SPccminer"
+          echo " This could take a while ..."
+          cd ${NVOC_MINERS}/SPccminer/src
+          ${NVOC_MINERS}/SPccminer/src/autogen.sh
+          ${NVOC_MINERS}/SPccminer/src/configure
+          ${NVOC_MINERS}/SPccminer/src/build.sh
+          cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
+          echo ""
+          echo "Finished compiling tpruvot ccminer"
+}
+
+function compile-TPccminer {
+          echo "Compiling tpruvot ccminer"
+          echo " This could take a while ..."
+          cd ${NVOC_MINERS}/TPccminer/src
+          ${NVOC_MINERS}/TPccminer/src/autogen.sh
+          ${NVOC_MINERS}/TPccminer/src/configure
+          ${NVOC_MINERS}/TPccminer/src/build.sh
+          cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
+          echo ""
+          echo "Finished compiling tpruvot ccminer"
+}
+
+function compile-vertminer {
+          echo "Compiling Vertminer"
+          echo " This could take a while ..."
+          cd ${NVOC_MINERS}/vertminer/src
+          ${NVOC_MINERS}/vertminer/src/autogen.sh
+          ${NVOC_MINERS}/vertminer/src/configure
+          ${NVOC_MINERS}/vertminer/src/build.sh
+          cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/vertminer
+          echo ""
+          echo "Finished compiling vertminer"
+}
+
+function compile-ANXccminer {
+          echo "Compiling ANXccminer"
+          echo " This could take a while ..."
+          cd ${NVOC_MINERS}/ANXccminer/src
+          ${NVOC_MINERS}/ANXccminer/src/autogen.sh
+          ${NVOC_MINERS}/ANXccminer/src/configure
+          ${NVOC_MINERS}/ANXccminer/src/build.sh
+          cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
+          echo ""
+          echo "Finished compiling ANXccminer"
+}
+
 echo -n "Do you want to re-compile your miners (y/N)?  "
 sleep 1
 read -n 1 ANSWER
@@ -205,182 +312,58 @@ else
     for choice in "${array[@]}"; do
       case "$choice" in
         [Aa]* ) echo "ALL"
-          echo "Compiling ASccminer"
-          echo "This could take a while ..."
-          cd ${NVOC_MINERS}/ASccminer
-          ${NVOC_MINERS}/ASccminer/autogen.sh
-          ${NVOC_MINERS}/ASccminer/configure
-          ${NVOC_MINERS}/ASccminer/build.sh
-          echo "Finished compiling ASccminer"
+          compile-ASccminer
           echo ""
           echo ""
-          echo "Compiling KlausT ccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/KTccminer
-          ${NVOC_MINERS}/KTccminer/autogen.sh
-          ${NVOC_MINERS}/KTccminer/configure
-          ${NVOC_MINERS}/KTccminer/build.sh
-          echo ""
-          echo "Finished compiling KlausT ccminer"
+          compile-KTccminer
           echo ""
           echo ""
-          echo "Compiling KlausT ccminer cryptonight"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/KTccminer-cryptonight
-          ${NVOC_MINERS}/KTccminer-cryptonight/autogen.sh
-          ${NVOC_MINERS}/KTccminer-cryptonight/configure
-          ${NVOC_MINERS}/KTccminer-cryptonight/build.sh
-          echo ""
-          echo "Finished compiling KlausT ccminer cryptonight"
+          compile-KTccminer-cryptonight
           echo ""
           echo ""
-          echo "Compiling krnlx ccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/KXccminer
-          ${NVOC_MINERS}/KXccminer/autogen.sh
-          ${NVOC_MINERS}/KXccminer/configure
-          ${NVOC_MINERS}/KXccminer/build.sh
-          echo ""
-          echo "Finished compiling Krnlx ccminer"
+          compile-KXccminer
           echo ""
           echo ""
-          echo "Compiling Nanashi ccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/NAccminer
-          ${NVOC_MINERS}/NAccminer/autogen.sh
-          ${NVOC_MINERS}/NAccminer/configure
-          ${NVOC_MINERS}/NAccminer/build.sh
-          echo ""
-          echo "Finished compiling Nanashi ccminer"
+          compile-NAccminer
           echo ""
           echo ""
-          echo "Compiling SPccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/SPccminer
-          ${NVOC_MINERS}/SPccminer/autogen.sh
-          ${NVOC_MINERS}/SPccminer/configure
-          ${NVOC_MINERS}/SPccminer/build.sh
-          echo ""
-          echo "Finished compiling tpruvot ccminer"
+          compile-SPccminer
           echo ""
           echo ""
-          echo "Compiling tpruvot ccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/TPccminer
-          ${NVOC_MINERS}/TPccminer/autogen.sh
-          ${NVOC_MINERS}/TPccminer/configure
-          ${NVOC_MINERS}/TPccminer/build.sh
-          echo ""
-          echo "Finished compiling tpruvot ccminer"
+          compile-TPccminer
           echo ""
           echo ""
-          echo "Compiling Vertminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/vertminer
-          ${NVOC_MINERS}/vertminer/autogen.sh
-          ${NVOC_MINERS}/vertminer/configure
-          ${NVOC_MINERS}/vertminer/build.sh
-          echo ""
-          echo "Finished compiling vertminer"
+          compile-vertminer
           echo ""
           echo ""
-          echo "Compiling ANXccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/ANXccminer
-          ${NVOC_MINERS}/ANXccminer/autogen.sh
-          ${NVOC_MINERS}/ANXccminer/configure
-          ${NVOC_MINERS}/ANXccminer/build.sh
-          echo ""
-          echo "Finished compiling ANXccminer"
+          compile-ANXccminer
           ;;
         [1]* ) echo -e "$choice"
-          echo "Compiling ASccminer"
-          echo "This could take a while ..."
-          cd ${NVOC_MINERS}/ASccminer
-          ${NVOC_MINERS}/ASccminer/autogen.sh
-          ${NVOC_MINERS}/ASccminer/configure
-          ${NVOC_MINERS}/ASccminer/build.sh
-          echo "Finished compiling ASccminer"
+          compile-ASccminer
           ;;
         [2]* ) echo -e "$choice"
-          echo "Compiling KlausT ccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/KTccminer
-          ${NVOC_MINERS}/KTccminer/autogen.sh
-          ${NVOC_MINERS}/KTccminer/configure
-          ${NVOC_MINERS}/KTccminer/build.sh
-          echo ""
-          echo "Finished compiling KlausT ccminer"
+          compile-KTccminer
           ;;
         [3]* ) echo -e "$choice\n"
-          echo "Compiling KlausT ccminer cryptonight"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/KTccminer-cryptonight
-          ${NVOC_MINERS}/KTccminer-cryptonight/autogen.sh
-          ${NVOC_MINERS}/KTccminer-cryptonight/configure
-          ${NVOC_MINERS}/KTccminer-cryptonight/build.sh
-          echo ""
-          echo "Finished compiling KlausT ccminer cryptonight"
+          compile-KTccminer-cryptonight
           ;;
         [4]* ) echo -e "$choice"
-          echo "Compiling krnlx ccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/KXccminer
-          ${NVOC_MINERS}/KXccminer/autogen.sh
-          ${NVOC_MINERS}/KXccminer/configure
-          ${NVOC_MINERS}/KXccminer/build.sh
-          echo ""
-          echo "Finished compiling Krnlx ccminer"
+          compile-KXccminer
           ;;
         [5]* ) echo -e "$choice"
-          echo "Compiling Nanashi ccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/NAccminer
-          ${NVOC_MINERS}/NAccminer/autogen.sh
-          ${NVOC_MINERS}/NAccminer/configure
-          ${NVOC_MINERS}/NAccminer/build.sh
-          echo ""
-          echo "Finished compiling Nanashi ccminer"
+          compile-NAccminer
           ;;
         [6]* ) echo -e "$choice"
-          echo "Compiling SPccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/SPccminer
-          ${NVOC_MINERS}/SPccminer/autogen.sh
-          ${NVOC_MINERS}/SPccminer/configure
-          ${NVOC_MINERS}/SPccminer/build.sh
-          echo ""
-          echo "Finished compiling tpruvot ccminer"
+          compile-SPccminer
           ;;
         [7]* ) echo -e "$choice"
-          echo "Compiling tpruvot ccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/TPccminer
-          ${NVOC_MINERS}/TPccminer/autogen.sh
-          ${NVOC_MINERS}/TPccminer/configure
-          ${NVOC_MINERS}/TPccminer/build.sh
-          echo ""
-          echo "Finished compiling tpruvot ccminer"
+          compile-TPccminer
           ;;
         [8]* ) echo -e "$choice"
-          echo "Compiling Vertminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/vertminer
-          ${NVOC_MINERS}/vertminer/autogen.sh
-          ${NVOC_MINERS}/vertminer/configure
-          ${NVOC_MINERS}/vertminer/build.sh
-          echo ""
-          echo "Finished compiling vertminer"
+          compile-vertminer
           ;;
         [9]* ) echo -e "$choice"
-          echo "Compiling ANXccminer"
-          echo " This could take a while ..."
-          cd ${NVOC_MINERS}/ANXccminer
-          ${NVOC_MINERS}/ANXccminer/autogen.sh
-          ${NVOC_MINERS}/ANXccminer/configure
-          ${NVOC_MINERS}/ANXccminer/build.sh
-          echo ""
-          echo "Finished compiling ANXccminer"
+          compile-ANXccminer
           ;;
 
         [Ee]* ) echo "exited by user"; exit;;
