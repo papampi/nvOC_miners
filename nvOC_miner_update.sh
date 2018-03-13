@@ -51,6 +51,20 @@ fi
 
 echo""
 
+echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
+if [ ! $(cat ${NVOC_MINERS}/MSFTccminer/version | grep 2.2.5-rvn) ]
+then
+  echo "Downloading MSFT Tpruvot 2.2.5-rvn"
+  mkdir -p ${NVOC_MINERS}/MSFTccminer/
+  cd ${NVOC_MINERS}/MSFTccminer
+  rar x -y -ap=MSFTccminer MSFTccminer.rar
+  chmod a+x ${NVOC_MINERS}/MSFTccminer/ccminer
+else
+  echo "MSFTccminer-2.2.5-rvn already downloaded"
+fi
+
+echo""
+
 echo "Checking KlausT ccminer 8.20"
 if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.20) ]
 then
@@ -274,6 +288,18 @@ function compile-ANXccminer {
           echo "Finished compiling ANXccminer"
 }
 
+function compile-MSFTccminer {
+          echo "Compiling MSFTccminer"
+          echo " This could take a while ..."
+          git submodule update ${NVOC_MINERS}/MSFTccminer
+          cd ${NVOC_MINERS}/MSFTccminer/src
+          ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
+          ${NVOC_MINERS}/MSFTccminer/src/configure
+          ${NVOC_MINERS}/MSFTccminer/src/build.sh
+          cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
+          echo ""
+          echo "Finished compiling MSFTccminer"
+}
 echo -n "Do you want to re-compile your miners (y/N)?  "
 sleep 1
 read -n 1 ANSWER
@@ -317,8 +343,9 @@ else
     echo "7- TPccminer"
     echo "8- vertminer"
     echo "9- ANXccminer"
+    echo "R- MSFTccminer (RVN)
     echo ""
-    read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [E]xit: " -a array
+    read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [E]xit: " -a array
     for choice in "${array[@]}"; do
       case "$choice" in
         [Aa]* ) echo "ALL"
@@ -347,6 +374,9 @@ else
           echo ""
           echo ""
           compile-ANXccminer
+		  echo ""
+		  echo ""
+		  compile-MSFTccminer
           ;;
         [1]* ) echo -e "$choice"
           compile-ASccminer
@@ -374,6 +404,9 @@ else
           ;;
         [9]* ) echo -e "$choice"
           compile-ANXccminer
+          ;;
+        [R]* ) echo -e "$choice"
+          compile-MSFTccminer
           ;;
 
         [Ee]* ) echo "exited by user"; exit;;
