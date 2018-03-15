@@ -227,7 +227,7 @@ else
     echo "7- TPccminer"
     echo "8- vertminer"
     echo "9- ANXccminer"
-    echo "R- MSFTccminer (RVN)
+    echo "R- MSFTccminer (RVN)"
     echo ""
     read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [E]xit: " -a array
     for choice in "${array[@]}"; do
