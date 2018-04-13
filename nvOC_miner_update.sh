@@ -100,7 +100,7 @@ then
   fi
   ln -s "${NVOC_MINERS}/ethminer/0.13.0" latest
   echo "Extracting and making changes for Ethminer 0.13.0"
-  cat ${NVOC_MINERS}/ethminer-0.13.0-Linux.tar.gz | tar -xzC ${NVOC_MINERS}/ethminer/latest/ --strip 1
+  cat ${NVOC_MINERS}/ethminer/ethminer-0.13.0-Linux.tar.gz | tar -xzC ${NVOC_MINERS}/ethminer/latest/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ethminer/latest/ethminer
 else
   echo "ethminer is already v0.13.0"
@@ -125,9 +125,9 @@ echo "Checking Equihash Bminer"
 if [ ! $(cat ${NVOC_MINERS}/zec/bminer/latest/version | grep 5.4.0) ]
 then
   echo "Extracting and making changes for Bminer 5.4.0"
-  mkdir -p ${NVOC_MINERS}/zec/bminer/latest/
-  cat ${NVOC_MINERS}/Bminer/bminer-v5.4.0.tar.gz | tar -xzC ${NVOC_MINERS}/zec/bminer/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/zec/bminer/latest/bminer
+  mkdir -p ${NVOC_MINERS}/bminer/latest/
+  cat ${NVOC_MINERS}/bminer/bminer-v5.4.0.tar.gz | tar -xzC ${NVOC_MINERS}/bminer/latest/ --strip 1
+  chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
 else
   echo "Bminer is already v5.4.0"
 fi
@@ -328,16 +328,16 @@ else
   while true; do
     IFS=', '
     echo "Select miners to compile (multiple comma separated values: 1,6,7)"
-    echo "1- ASccminer"
-    echo "2 -KTccminer"
-    echo "3 -KTccminer-cryptonight"
-    echo "4- KXccminer"
-    echo "5 -NAccminer"
-    echo "6- SPccminer"
-    echo "7- TPccminer"
-    echo "8- vertminer"
-    echo "9- ANXccminer"
-    echo "R- MSFTccminer (RVN)
+    echo "1 - ASccminer"
+    echo "2 - KTccminer"
+    echo "3 - KTccminer-cryptonight"
+    echo "4 - KXccminer"
+    echo "5 - NAccminer"
+    echo "6 - SPccminer"
+    echo "7 - TPccminer"
+    echo "8 - vertminer"
+    echo "9 - ANXccminer"
+    echo "R - MSFTccminer (RVN)"
     echo ""
     read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [E]xit: " -a array
     for choice in "${array[@]}"; do
