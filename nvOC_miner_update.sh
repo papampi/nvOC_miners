@@ -10,12 +10,12 @@ echo ""
 export NVOC_MINERS=$(pwd)
 
 echo "Checking Equihash DSTM zm_miner 0.6"
-if [ ! $(cat ${NVOC_MINERS}/zec/zm/latest/version | grep 0.6) ]
+if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6) ]
 then
   echo "Extracting and making changes for DSTM ZM miner 0.6"
-  mkdir -p ${NVOC_MINERS}/zec/zm/latest/
-  cat ${NVOC_MINERS}/DSTM/DSTM_0.6.tar.gz | tar -xzC ${NVOC_MINERS}/zec/zm/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/zec/zm/latest/zm_miner
+  mkdir -p ${NVOC_MINERS}/dstm/latest/
+  cat ${NVOC_MINERS}/dstm/DSTM_0.6.tar.gz | tar -xzC ${NVOC_MINERS}/dstm/latest/ --strip 1
+  chmod a+x ${NVOC_MINERS}/dstm/latest/zm_miner
 else
   echo "DSTM zm miner is already v0.6"
 fi
@@ -23,12 +23,12 @@ fi
 echo""
 
 echo "Checking Claymore v11.2"
-if [ ! $(cat ${NVOC_MINERS}/eth/claymore/latest/version | grep 11.2) ]
+if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.2) ]
 then
   echo "Extracting and making changes for Claymore 11.2"
-  mkdir -p ${NVOC_MINERS}/eth/claymore/latest/
-  cat ${NVOC_MINERS}/claymore/Claymore.tar.gz | tar -xzC ${NVOC_MINERS}/eth/claymore/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/eth/claymore/latest/ethdcrminer64
+  mkdir -p ${NVOC_MINERS}/claymore/latest/
+  cat ${NVOC_MINERS}/claymore/Claymore.tar.gz | tar -xzC ${NVOC_MINERS}/claymore/latest/ --strip 1
+  chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
 else
   echo "Claymore is already v11.2"
 fi
@@ -88,20 +88,20 @@ fi
 echo""
 
 echo "Checking Ethminer 0.13.0"
-if [ ! $(cat ${NVOC_MINERS}/eth/ethminer/latest/version | grep 0.13.0) ]
+if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep 0.13.0) ]
 then
-  mkdir -p ${NVOC_MINERS}/eth/ethminer/0.13.0/
-  cd ${NVOC_MINERS}/eth/ethminer
+  mkdir -p ${NVOC_MINERS}/ethminer/0.13.0/
+  cd ${NVOC_MINERS}/ethminer
   if [[ -L "latest" && -d "latest" ]]
   then
     rm latest
   else
     rm -rf latest
   fi
-  ln -s "${NVOC_MINERS}/eth/ethminer/0.13.0" latest
+  ln -s "${NVOC_MINERS}/ethminer/0.13.0" latest
   echo "Extracting and making changes for Ethminer 0.13.0"
-  cat ${NVOC_MINERS}/ethminer/ethminer-0.13.0-Linux.tar.gz | tar -xzC ${NVOC_MINERS}/eth/ethminer/latest/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/eth/ethminer/latest/ethminer
+  cat ${NVOC_MINERS}/ethminer-0.13.0-Linux.tar.gz | tar -xzC ${NVOC_MINERS}/ethminer/latest/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/ethminer/latest/ethminer
 else
   echo "ethminer is already v0.13.0"
 fi
