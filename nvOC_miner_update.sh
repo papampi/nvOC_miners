@@ -37,11 +37,11 @@ fi
 
 echo""
 
-echo "Checking Tpruvot ccminer-2.2.4"
-if [ ! $(cat /home/m1/TPccminer/version | grep 2.2.4) ]
+echo "Checking Tpruvot ccminer-2.2.5"
+if [ ! $(cat /home/m1/TPccminer/version | grep 2.2.5) ]
 then
   cd /home/m1/Downloads/miners
-  echo "Downloading Tpruvot 2.2.4"
+  echo "Downloading Tpruvot 2.2.5"
   mkdir -p /home/m1/TPccminer/
   wget -N https://raw.githubusercontent.com/papampi/nvOC_miners/master/TPccminer/TPccminer.rar
   rar x -y TPccminer.rar
@@ -50,7 +50,7 @@ then
   rm /home/m1/Downloads/miners/TPccminer.rar
   rm -rf /home/m1/Downloads/miners/TPccminer/
 else
-  echo "Tpccminer-2.2.4 already downloaded"
+  echo "Tpccminer-2.2.5 already downloaded"
 fi
 
 echo""
