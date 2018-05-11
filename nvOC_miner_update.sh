@@ -37,6 +37,18 @@ fi
 
 echo""
 
+echo "Checking z-enemy 1.09a"
+if [ ! $(cat /home/m1/ez-enemy/latest/version | grep 1.09a) ]
+then
+  echo "Downloading and making changes for z-enemy 1.09a"
+  mkdir -p /home/m1/z-enemy/latest
+  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/z-enemy/z-enemy-1.09a-cuda80.tar.gz | tar -xzC /home/m1/eth/claymore/latest/ --strip 1
+  chmod a+x /home/m1/z-enemy/latest/z-enemy_miner
+else
+  echo "z-enemy is 1.09a"
+fi
+
+echo""
 echo "Checking Tpruvot ccminer-2.2.5"
 if [ ! $(cat /home/m1/TPccminer/version | grep 2.2.5) ]
 then
