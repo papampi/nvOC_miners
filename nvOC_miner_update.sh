@@ -139,15 +139,15 @@ fi
 
 echo""
 
-echo "Checking Ethminer 0.13.0"
-if [ ! $(cat /home/m1/eth/ethminer/latest/version | grep 0.13.0) ]
+echo "Checking Ethminer 0.14.0"
+if [ ! $(cat /home/m1/eth/ethminer/latest/version | grep 0.14.0) ]
 then
   mkdir -p /home/m1/eth/ethminer/latest
-  echo "Downloading and making changes for Ethminer 0.13.0"
-  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/ethminer/ethminer-0.13.0-Linux.tar.gz | tar -xzC /home/m1/eth/ethminer/latest/ --strip 1
+  echo "Downloading and making changes for Ethminer 0.14.0"
+  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/ethminer/ethminer-0.14.0-Linux.tar.gz | tar -xzC /home/m1/eth/ethminer/latest/ --strip 1
   chmod a+x  /home/m1/eth/ethminer/latest/ethminer
 else
-  echo "ethminer is already v0.13.0"
+  echo "ethminer is already v0.14.0"
 fi
 
 echo""
