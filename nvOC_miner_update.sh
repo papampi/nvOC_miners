@@ -11,15 +11,15 @@ echo ""
 mkdir -p /home/m1/Downloads/miners
 cd /home/m1/Downloads/miners
 
-echo "Checking Equihash DSTM zm_miner 0.6"
-if [ ! $(cat /home/m1/zec/zm/latest/version | grep 0.6) ]
+echo "Checking Equihash DSTM zm_miner 0.6.1"
+if [ ! $(cat /home/m1/zec/zm/latest/version | grep 0.6.1) ]
 then
-  echo "Downloading and making changes for DSTM ZM miner 0.6"
+  echo "Downloading and making changes for DSTM ZM miner 0.6.1"
   mkdir -p /home/m1/zec/zm/latest
-  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/DSTM/DSTM_0.6.tar.gz | tar -xzC /home/m1/zec/zm/latest/ --strip 1
+  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/DSTM/DSTM_0.6.1.tar.gz | tar -xzC /home/m1/zec/zm/latest/ --strip 1
   chmod a+x /home/m1/zec/zm/latest/zm_miner
 else
-  echo "DSTM zm miner is v0.6"
+  echo "DSTM zm miner is v0.6.1"
 fi
 
 echo""
