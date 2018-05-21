@@ -37,15 +37,15 @@ fi
 
 echo""
 
-echo "Checking z-enemy 1.09a"
-if [ ! $(cat /home/m1/z-enemy/version | grep 1.09a) ]
+echo "Checking z-enemy 1.10"
+if [ ! $(cat /home/m1/z-enemy/version | grep 1.10) ]
 then
-  echo "Downloading and making changes for z-enemy 1.09a"
+  echo "Downloading and making changes for z-enemy 1.10"
   mkdir -p /home/m1/z-enemy/
-  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/z-enemy/z-enemy-1.09a-cuda80.tar.gz | tar -xzC /home/m1/z-enemy/ --strip 1
+  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/z-enemy/z-enemy-1.10-cuda80.tar.gz | tar -xzC /home/m1/z-enemy/ --strip 1
   chmod a+x /home/m1/z-enemy/z-enemy_miner
 else
-  echo "z-enemy is 1.09a"
+  echo "z-enemy is 1.10"
 fi
 
 echo""
