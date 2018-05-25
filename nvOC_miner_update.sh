@@ -33,6 +33,19 @@ fi
 
 echo ""
 
+echo "Checking xmr-stak 2.4.3"
+if [ ! $(cat  ${NVOC_MINERS}/xmr-stak/version | grep 2.4.3) ]
+then
+  echo "Downloading and making changes for xmr-stak 2.4.3"
+  mkdir -p ${NVOC_MINERS}/xmr-stak
+  cat ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.3.tar.gz | tar -xzC ${NVOC_MINERS}/xmr-stak/ --strip 1
+  chmod a+x ${NVOC_MINERS}/xmr-stak/bulid/bin/xmr-stak_miner
+else
+  echo "xmr-stak is 2.4.3"
+fi
+
+echo ""
+
 echo "Checking Silent Miner 1.1.0"
 if [ ! $(cat  ${NVOC_MINERS}/SILENTminer/version | grep 1.1.0) ]
 then
@@ -318,6 +331,17 @@ function compile-MSFTccminer {
           echo "Finished compiling MSFTccminer"
 }
 
+function build-xmr-stak {
+          echo "Building xmr-stak"
+          echo " This could take a while ..."
+          cd ${NVOC_MINERS}/xmr-stak/build
+          ${NVOC_MINERS}/xmr-stak/build/make ..
+          ${NVOC_MINERS}/xmr-stak/build/make install
+          cp ${NVOC_MINERS}/xmr-stak/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/build/bin/xmr-stak_miner
+          echo ""
+          echo "Finished compiling xmr-stak"
+}
+
 echo -n "Do you want to re-compile your miners (y/N)?  "
 sleep 1
 read -n 1 ANSWER
@@ -362,8 +386,9 @@ else
     echo "8 - vertminer"
     echo "9 - ANXccminer"
     echo "R - MSFTccminer (RVN)"
+    echo "X - xmr-stak"
     echo ""
-    read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [E]xit: " -a array
+    read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [X] [E]xit: " -a array
     for choice in "${array[@]}"; do
       case "$choice" in
         [Aa]* ) echo "ALL"
@@ -392,10 +417,13 @@ else
           echo ""
           echo ""
           compile-ANXccminer
-		  echo ""
-		  echo ""
-		  compile-MSFTccminer
-          ;;
+	  echo ""
+	  echo ""
+	  compile-MSFTccminer
+          echo ""
+	  echo ""
+	  build-xmr-stak
+	  ;;
         [1]* ) echo -e "$choice"
           compile-ASccminer
           ;;
@@ -426,7 +454,9 @@ else
         [R]* ) echo -e "$choice"
           compile-MSFTccminer
           ;;
-
+        [X]* ) echo -e "$choice"
+          build-xmr-stak
+          ;;
         [Ee]* ) echo "exited by user"; exit;;
         * ) echo "Are you kidding me???";;
       esac
