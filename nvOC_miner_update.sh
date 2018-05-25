@@ -163,7 +163,7 @@ if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep 8.0.0) ]
 then
   echo "Extracting and making changes for Bminer 8.0.0"
   mkdir -p ${NVOC_MINERS}/bminer/latest/
-  cat ${NVOC_MINERS}/bminer/bminer-v8.0.0.tar.gz | tar -xzC ${NVOC_MINERS}/bminer/latest/ --strip 1
+  cat ${NVOC_MINERS}/bminer/bminer-v8.0.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
 else
   echo "Bminer is already v8.0.0"
