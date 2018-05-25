@@ -17,7 +17,7 @@ then
   cat ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.gz | tar -xzC ${NVOC_MINERS}/dstm/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/dstm/latest/zm_miner
 else
-  echo "DSTM zm miner is already v0.6"
+  echo "DSTM zm miner is already v0.6.1"
 fi
 
 echo "Checking Z-Enemy 1.10"
