@@ -9,28 +9,52 @@ sleep 1
 echo ""
 export NVOC_MINERS=$(pwd)
 
-echo "Checking Equihash DSTM zm_miner 0.6"
-if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6) ]
+echo "Checking Equihash DSTM zm_miner 0.6.1"
+if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6.1) ]
 then
-  echo "Extracting and making changes for DSTM ZM miner 0.6"
+  echo "Extracting and making changes for DSTM ZM miner 0.6.1"
   mkdir -p ${NVOC_MINERS}/dstm/latest/
-  cat ${NVOC_MINERS}/dstm/DSTM_0.6.tar.gz | tar -xzC ${NVOC_MINERS}/dstm/latest/ --strip 1
+  cat ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.gz | tar -xzC ${NVOC_MINERS}/dstm/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/dstm/latest/zm_miner
 else
   echo "DSTM zm miner is already v0.6"
 fi
 
+echo "Checking Z-Enemy 1.10"
+if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep 1.10) ]
+then
+  echo "Downloading and making changes for z-enemy 1.10"
+  mkdir -p ${NVOC_MINERS}/ZENEMYminer
+  cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.gz | tar -xzC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
+  chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
+else
+  echo "z-enemy is 1.10"
+fi
+
+echo ""
+
+echo "Checking Silent Miner 1.1.0"
+if [ ! $(cat  ${NVOC_MINERS}/SILENTminer/version | grep 1.1.0) ]
+then
+  echo "Downloading and making changes for Silent Miner 1.1.0"
+  mkdir -p ${NVOC_MINERS}/SILENTminer
+  cat ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.gz | tar -xzC ${NVOC_MINERS}/SILENTminer/ --strip 1
+  chmod a+x ${NVOC_MINERS}/SILENTminer/ccminer
+else
+  echo "Silent Miner is 1.1.0"
+fi
+
 echo""
 
-echo "Checking Claymore v11.2"
-if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.2) ]
+echo "Checking Claymore v11.27"
+if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.7) ]
 then
-  echo "Extracting and making changes for Claymore 11.2"
+  echo "Extracting and making changes for Claymore 11.7"
   mkdir -p ${NVOC_MINERS}/claymore/latest/
-  cat ${NVOC_MINERS}/claymore/Claymore.tar.gz | tar -xzC ${NVOC_MINERS}/claymore/latest/ --strip 1
+  cat ${NVOC_MINERS}/claymore/Claymore-v11.7.tar.gz | tar -xzC ${NVOC_MINERS}/claymore/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
 else
-  echo "Claymore is already v11.2"
+  echo "Claymore is already v11.7"
 fi
 
 echo""
@@ -87,10 +111,10 @@ fi
 
 echo""
 
-echo "Checking Ethminer 0.13.0"
-if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep 0.13.0) ]
+echo "Checking Ethminer 0.14.0"
+if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep 0.14.0) ]
 then
-  mkdir -p ${NVOC_MINERS}/ethminer/0.13.0/
+  mkdir -p ${NVOC_MINERS}/ethminer/0.14.0/
   cd ${NVOC_MINERS}/ethminer
   if [[ -L "latest" && -d "latest" ]]
   then
@@ -98,12 +122,12 @@ then
   else
     rm -rf latest
   fi
-  ln -s "${NVOC_MINERS}/ethminer/0.13.0" latest
-  echo "Extracting and making changes for Ethminer 0.13.0"
-  cat ${NVOC_MINERS}/ethminer/ethminer-0.13.0-Linux.tar.gz | tar -xzC ${NVOC_MINERS}/ethminer/latest/ --strip 1
+  ln -s "${NVOC_MINERS}/ethminer/0.14.0" latest
+  echo "Extracting and making changes for Ethminer 0.14.0"
+  cat ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.gz | tar -xzC ${NVOC_MINERS}/ethminer/latest/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ethminer/latest/ethminer
 else
-  echo "ethminer is already v0.13.0"
+  echo "ethminer is already v0.14.0"
 fi
 
 echo""
@@ -122,14 +146,14 @@ fi
 echo""
 
 echo "Checking Equihash Bminer"
-if [ ! $(cat ${NVOC_MINERS}/zec/bminer/latest/version | grep 5.4.0) ]
+if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep 8.0.0) ]
 then
-  echo "Extracting and making changes for Bminer 5.4.0"
+  echo "Extracting and making changes for Bminer 8.0.0"
   mkdir -p ${NVOC_MINERS}/bminer/latest/
-  cat ${NVOC_MINERS}/bminer/bminer-v5.4.0.tar.gz | tar -xzC ${NVOC_MINERS}/bminer/latest/ --strip 1
+  cat ${NVOC_MINERS}/bminer/bminer-v8.0.0.tar.gz | tar -xzC ${NVOC_MINERS}/bminer/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
 else
-  echo "Bminer is already v5.4.0"
+  echo "Bminer is already v8.0.0"
 fi
 
 echo""
