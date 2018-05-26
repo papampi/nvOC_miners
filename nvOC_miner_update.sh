@@ -172,7 +172,7 @@ fi
 echo""
 
 echo "Checking ANXccminer"
-if [ ! $(cat ${NVOC_MINERS}/ANXccminer/ccminer/version | grep cd6fab68823e247bb84dd1fa0448d5f75ec4917d) ]
+if [ ! $(cat ${NVOC_MINERS}/ANXccminer/version | grep cd6fab68823e247bb84dd1fa0448d5f75ec4917d) ]
 then
   echo "Extracting and making changes for ANXccminer"
   mkdir -p ${NVOC_MINERS}/ANXccminer/
