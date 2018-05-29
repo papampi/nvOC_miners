@@ -74,6 +74,45 @@ fi
 
 echo""
 
+echo "Checking SP Mod ccminer-1.8.2"
+if [ ! $(cat ${NVOC_MINERS}/SPccminer/version | grep 1.8.2) ]
+then
+  echo "Extracting SPccminer"
+  mkdir -p ${NVOC_MINERS}/SPccminer/
+  cat ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/SPccminer/ --strip 1
+  chmod a+x ${NVOC_MINERS}/SPccminer/ccminer
+else
+  echo "SPccminer is already up-to-date"
+fi
+
+echo""
+
+echo "Checking alexis ccminer"
+if [ ! $(cat ${NVOC_MINERS}/ASccminer/version | grep 1.0) ]
+then
+  echo "Extracting ASccminer"
+  mkdir -p ${NVOC_MINERS}/ASccminer/
+  cat ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ASccminer/ --strip 1
+  chmod a+x ${NVOC_MINERS}/ASccminer/ccminer
+else
+  echo "ASccminer is already up-to-date"
+fi
+
+echo""
+
+echo "Checking Krnlx ccminer"
+if [ ! $(cat ${NVOC_MINERS}/KXccminer/version | grep skunk-krnlx) ]
+then
+  echo "Extracting KXccminer"
+  mkdir -p ${NVOC_MINERS}/KXccminer/
+  cat ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KXccminer/ --strip 1
+  chmod a+x ${NVOC_MINERS}/KXccminer/ccminer
+else
+  echo "KXccminer is already up-to-date"
+fi
+
+echo""
+
 echo "Checking Tpruvot ccminer-2.2.4"
 if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.4) ]
 then
