@@ -28,3 +28,6 @@
 [submodule "SPccminer/src"]
 	path = SPccminer/src
 	url = https://github.com/sp-hash/ccminer
+[submodule "xmr-stak/src"]
+	path = xmr-stak/src
+	url = https://github.com/fireice-uk/xmr-stak

@@ -9,26 +9,28 @@ sleep 1
 echo ""
 export NVOC_MINERS=$(pwd)
 
-echo "Checking Equihash DSTM zm_miner 0.6.1"
+echo "Checking Equihash DSTM zm miner 0.6.1"
 if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6.1) ]
 then
-  echo "Extracting and making changes for DSTM ZM miner 0.6.1"
+  echo "Extracting and making changes for DSTM zm miner"
   mkdir -p ${NVOC_MINERS}/dstm/latest/
-  cat ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.gz | tar -xzC ${NVOC_MINERS}/dstm/latest/ --strip 1
+  cat ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz | tar -xJC ${NVOC_MINERS}/dstm/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/dstm/latest/zm_miner
 else
-  echo "DSTM zm miner is already v0.6.1"
+  echo "DSTM zm miner is already up-to-date"
 fi
+
+echo ""
 
 echo "Checking Z-Enemy 1.10"
 if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep 1.10) ]
 then
-  echo "Downloading and making changes for z-enemy 1.10"
+  echo "Extracting and making changes for z-enemy"
   mkdir -p ${NVOC_MINERS}/ZENEMYminer
-  cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.gz | tar -xzC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
+  cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz | tar -xJC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
 else
-  echo "z-enemy is 1.10"
+  echo "z-enemy is already up-to-date"
 fi
 
 echo ""
@@ -36,12 +38,12 @@ echo ""
 echo "Checking xmr-stak 2.4.3"
 if [ ! $(cat  ${NVOC_MINERS}/xmr-stak/version | grep 2.4.3) ]
 then
-  echo "Downloading and making changes for xmr-stak 2.4.3"
+  echo "Extracting and making changes for xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr-stak
-  cat ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.3.tar.gz | tar -xzC ${NVOC_MINERS}/xmr-stak/ --strip 1
-  chmod a+x ${NVOC_MINERS}/xmr-stak/bulid/bin/xmr-stak_miner
+  cat ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.3.tar.xz | tar -xJC ${NVOC_MINERS}/xmr-stak/ --strip 1
+  chmod a+x ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
 else
-  echo "xmr-stak is 2.4.3"
+  echo "xmr-stak is already up-to-date"
 fi
 
 echo ""
@@ -49,25 +51,25 @@ echo ""
 echo "Checking Silent Miner 1.1.0"
 if [ ! $(cat  ${NVOC_MINERS}/SILENTminer/version | grep 1.1.0) ]
 then
-  echo "Downloading and making changes for Silent Miner 1.1.0"
+  echo "Extracting and making changes for Silent Miner"
   mkdir -p ${NVOC_MINERS}/SILENTminer
-  cat ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.gz | tar -xzC ${NVOC_MINERS}/SILENTminer/ --strip 1
+  cat ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz | tar -xJC ${NVOC_MINERS}/SILENTminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/SILENTminer/ccminer
 else
-  echo "Silent Miner is 1.1.0"
+  echo "Silent Miner is already up-to-date"
 fi
 
 echo""
 
-echo "Checking Claymore v11.27"
+echo "Checking Claymore v11.7"
 if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.7) ]
 then
-  echo "Extracting and making changes for Claymore 11.7"
+  echo "Extracting and making changes for Claymore"
   mkdir -p ${NVOC_MINERS}/claymore/latest/
-  cat ${NVOC_MINERS}/claymore/Claymore-v11.7.tar.gz | tar -xzC ${NVOC_MINERS}/claymore/latest/ --strip 1
+  cat ${NVOC_MINERS}/claymore/Claymore-v11.7.tar.xz | tar -xJC ${NVOC_MINERS}/claymore/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
 else
-  echo "Claymore is already v11.7"
+  echo "Claymore is already up-to-date"
 fi
 
 echo""
@@ -75,12 +77,12 @@ echo""
 echo "Checking Tpruvot ccminer-2.2.4"
 if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.4) ]
 then
-  echo "Extracting Tpruvot 2.2.4"
+  echo "Extracting Tpruvot"
   mkdir -p ${NVOC_MINERS}/TPccminer/
   cat ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/TPccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
 else
-  echo "Tpruvot ccminer is already v2.2.4"
+  echo "Tpruvot ccminer is already up-to-date"
 fi
 
 echo""
@@ -88,12 +90,12 @@ echo""
 echo "Checking KlausT ccminer 8.20"
 if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.20) ]
 then
-  echo "Extracting Klaust ccminer 8.20"
+  echo "Extracting Klaust ccminer"
   mkdir -p ${NVOC_MINERS}/KTccminer/
   cat ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
 else
-  echo "KlausT ccminer is already v8.20"
+  echo "KlausT ccminer is already up-to-date"
 fi
 
 echo""
@@ -101,12 +103,12 @@ echo""
 echo "Checking Vertminer v1.0-stable.2 Release"
 if [ ! $( cat ${NVOC_MINERS}/vertminer/version | grep 1.0.2 ) ]
 then
-  echo "Extracting vertminer-1.0-stable.2 Release"
+  echo "Extracting amd making changes for vertminer"
   mkdir -p ${NVOC_MINERS}/vertminer/
   cat ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz | tar -xJC ${NVOC_MINERS}/vertminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/vertminer/vertminer
 else
-  echo "Vertminer is already v1.0-stable.2 Release"
+  echo "Vertminer is already up-to-date"
 fi
 
 echo""
@@ -114,12 +116,12 @@ echo""
 echo "Checking nanashi-ccminer-2.2-mod-r2"
 if [ ! $(cat ${NVOC_MINERS}/NAccminer/version | grep 2.2-mod-r2 ) ]
 then
-  echo "Extracting nanashi ccminer 2.2-mod-r2"
+  echo "Extracting amd making changes for nanashi ccminer"
   mkdir -p ${NVOC_MINERS}/NAccminer/
   cat ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz | tar -xJC ${NVOC_MINERS}/NAccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/NAccminer/ccminer
 else
-  echo "nanashi-ccminer is already 2.2-mod-r2"
+  echo "nanashi-ccminer is already up-to-date"
 fi
 
 echo""
@@ -136,42 +138,42 @@ then
     rm -rf latest
   fi
   ln -s "${NVOC_MINERS}/ethminer/0.14.0" latest
-  echo "Extracting and making changes for Ethminer 0.14.0"
-  cat ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.gz | tar -xzC ${NVOC_MINERS}/ethminer/latest/ --strip 1
+  echo "Extracting and making changes for Ethminer"
+  cat ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz | tar -xJC ${NVOC_MINERS}/ethminer/latest/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ethminer/latest/ethminer
 else
-  echo "ethminer is already v0.14.0"
+  echo "ethminer is already up-to-date"
 fi
 
 echo""
 
-echo "Checking KTccminer-cryptonight"
+echo "Checking KTccminer-cryptonight v2.06"
 if [ ! $( cat ${NVOC_MINERS}/KTccminer-cryptonight/version | grep 2.06) ]
 then
-  echo "Extracting KTccminer-cryptonight 2.06"
+  echo "Extracting KTccminer-cryptonight"
   mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/
   cat ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer-cryptonight/ --strip 1
   chmod a+x ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
 else
-  echo "KTccminer-cryptonight is already v2.06"
+  echo "KTccminer-cryptonight is already up-to-date"
 fi
 
 echo""
 
-echo "Checking Equihash Bminer"
+echo "Checking Equihash Bminer 8.0.0"
 if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep 8.0.0) ]
 then
-  echo "Extracting and making changes for Bminer 8.0.0"
+  echo "Extracting and making changes for Bminer"
   mkdir -p ${NVOC_MINERS}/bminer/latest/
   cat ${NVOC_MINERS}/bminer/bminer-v8.0.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
 else
-  echo "Bminer is already v8.0.0"
+  echo "Bminer is already up-to-date"
 fi
 
 echo""
 
-echo "Checking ANXccminer"
+echo "Checking ANXccminer (git@cd6fab68823e247bb84dd1fa0448d5f75ec4917d)"
 if [ ! $(cat ${NVOC_MINERS}/ANXccminer/version | grep cd6fab68823e247bb84dd1fa0448d5f75ec4917d) ]
 then
   echo "Extracting and making changes for ANXccminer"
@@ -179,7 +181,7 @@ then
   cat ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ANXccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ANXccminer/ccminer
 else
-  echo "ANXccminer is already at revision cd6fab68823e247bb84dd1fa0448d5f75ec4917d"
+  echo "ANXccminer is already at up-to-date"
 fi
 
 echo""
@@ -187,12 +189,12 @@ echo""
 echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
 if [ ! $(cat ${NVOC_MINERS}/MSFTccminer/version | grep 2.2.5-rvn) ]
 then
-  echo "Extracting MSFT Tpruvot 2.2.5-rvn"
+  echo "Extracting MSFT Tpruvot ccminer"
   mkdir -p ${NVOC_MINERS}/MSFTccminer/
   cat ${NVOC_MINERS}/MSFTccminer/MSFTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/MSFTccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/MSFTccminer/ccminer
 else
-  echo "MSFTccminer-2.2.5-rvn already downloaded"
+  echo "MSFTccminer is already up-to-date"
 fi
 
 echo""
@@ -331,13 +333,15 @@ function compile-MSFTccminer {
           echo "Finished compiling MSFTccminer"
 }
 
-function build-xmr-stak {
-          echo "Building xmr-stak"
+function compile-xmr-stak {
+          echo "Compiling xmr-stak"
           echo " This could take a while ..."
-          cd ${NVOC_MINERS}/xmr-stak/build
-          ${NVOC_MINERS}/xmr-stak/build/make ..
-          ${NVOC_MINERS}/xmr-stak/build/make install
-          cp ${NVOC_MINERS}/xmr-stak/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/build/bin/xmr-stak_miner
+          git submodule update ${NVOC_MINERS}/xmr-stak
+          mkdir ${NVOC_MINERS}/xmr-stak/src/build
+          cd ${NVOC_MINERS}/xmr-stak/src/build
+          cmake ..
+          make install
+          cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
           echo ""
           echo "Finished compiling xmr-stak"
 }
@@ -417,12 +421,12 @@ else
           echo ""
           echo ""
           compile-ANXccminer
-	  echo ""
-	  echo ""
-	  compile-MSFTccminer
-          echo ""
-	  echo ""
-	  build-xmr-stak
+	        echo ""
+	        echo ""
+          compile-MSFTccminer
+	        echo ""
+	        echo ""
+	        compile-xmr-stak
 	  ;;
         [1]* ) echo -e "$choice"
           compile-ASccminer
@@ -455,7 +459,7 @@ else
           compile-MSFTccminer
           ;;
         [X]* ) echo -e "$choice"
-          build-xmr-stak
+          compile-xmr-stak
           ;;
         [Ee]* ) echo "exited by user"; exit;;
         * ) echo "Are you kidding me???";;
