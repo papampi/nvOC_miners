@@ -12,7 +12,9 @@ or alternatively init as standalone repo:
 
 Install or update miners (assuming no changes into miners local repo by user):
 `cd miners`
+
 `git pull origin master`
+
 `bash nvOC_miner_update.sh`
 
 otherwise either revert or stash before
@@ -25,10 +27,15 @@ For contributors, release a miner (added or updated) as binary package:
 If recompilation support is provided:
 - add the necessary section in `nvOC_mienr_update.sh`
 - add the source repo as submodule of this `nvOC_miners` repo:
+
 `cd miners/NEWminer`
+
 `git submodule add https://repo_url src`
+
 `cd src`
+
 `git checkout RELEASE_COMMIT_HASH`
+
 `cd ..`
 
 then check that all went fine with:
