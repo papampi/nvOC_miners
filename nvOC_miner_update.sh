@@ -341,7 +341,7 @@ function compile-xmr-stak {
           cd ${NVOC_MINERS}/xmr-stak/src/build
           cmake ..
           make install
-          cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
+          cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/src/build/bin/*.so ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
           echo ""
           echo "Finished compiling xmr-stak"
 }
