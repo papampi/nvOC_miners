@@ -207,7 +207,7 @@ sleep 2
 function compile-ASccminer {
           echo "Compiling alexis ccminer"
           echo "This could take a while ..."
-          git submodule update ${NVOC_MINERS}/ASccminer
+          git submodule update --init --depth 1 ${NVOC_MINERS}/ASccminer
           cd ${NVOC_MINERS}/ASccminer/src
           ${NVOC_MINERS}/ASccminer/src/autogen.sh
           ${NVOC_MINERS}/ASccminer/src/configure
@@ -219,7 +219,7 @@ function compile-ASccminer {
 function compile-KTccminer {
           echo "Compiling KlausT ccminer"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/KTccminer
+          git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer
           cd ${NVOC_MINERS}/KTccminer/src
           ${NVOC_MINERS}/KTccminer/src/autogen.sh
           ${NVOC_MINERS}/KTccminer/src/configure
@@ -232,7 +232,7 @@ function compile-KTccminer {
 function compile-KTccminer-cryptonight {
           echo "Compiling KlausT ccminer cryptonight"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/KTccminer-cryptonight
+          git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer-cryptonight
           cd ${NVOC_MINERS}/KTccminer-cryptonight/src
           ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
           ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
@@ -245,7 +245,7 @@ function compile-KTccminer-cryptonight {
 function compile-KXccminer {
           echo "Compiling krnlx ccminer"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/KXccminer
+          git submodule update --init --depth 1 ${NVOC_MINERS}/KXccminer
           cd ${NVOC_MINERS}/KXccminer/src
           ${NVOC_MINERS}/KXccminer/src/autogen.sh
           ${NVOC_MINERS}/KXccminer/src/configure
@@ -258,7 +258,7 @@ function compile-KXccminer {
 function compile-NAccminer {
           echo "Compiling Nanashi ccminer"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/NAccminer
+          git submodule update --init --depth 1 ${NVOC_MINERS}/NAccminer
           cd ${NVOC_MINERS}/NAccminer/src
           ${NVOC_MINERS}/NAccminer/src/autogen.sh
           ${NVOC_MINERS}/NAccminer/src/configure
@@ -271,7 +271,7 @@ function compile-NAccminer {
 function compile-SPccminer {
           echo "Compiling SPccminer"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/SPccminer
+          git submodule update --init --depth 1 ${NVOC_MINERS}/SPccminer
           cd ${NVOC_MINERS}/SPccminer/src
           ${NVOC_MINERS}/SPccminer/src/autogen.sh
           ${NVOC_MINERS}/SPccminer/src/configure
@@ -284,7 +284,7 @@ function compile-SPccminer {
 function compile-TPccminer {
           echo "Compiling tpruvot ccminer"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/TPccminer
+          git submodule update --init --depth 1 ${NVOC_MINERS}/TPccminer
           cd ${NVOC_MINERS}/TPccminer/src
           ${NVOC_MINERS}/TPccminer/src/autogen.sh
           ${NVOC_MINERS}/TPccminer/src/configure
@@ -297,7 +297,7 @@ function compile-TPccminer {
 function compile-vertminer {
           echo "Compiling Vertminer"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/vertminer
+          git submodule update --init --depth 1 ${NVOC_MINERS}/vertminer
           cd ${NVOC_MINERS}/vertminer/src
           ${NVOC_MINERS}/vertminer/src/autogen.sh
           ${NVOC_MINERS}/vertminer/src/configure
@@ -310,7 +310,7 @@ function compile-vertminer {
 function compile-ANXccminer {
           echo "Compiling anorganix ccminer"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/ANXccminer
+          git submodule update --init --depth 1 ${NVOC_MINERS}/ANXccminer
           cd ${NVOC_MINERS}/ANXccminer/src
           ${NVOC_MINERS}/ANXccminer/src/autogen.sh
           ${NVOC_MINERS}/ANXccminer/src/configure
@@ -323,7 +323,7 @@ function compile-ANXccminer {
 function compile-MSFTccminer {
           echo "Compiling MSFTccminer"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/MSFTccminer
+          git submodule update --init --depth 1 ${NVOC_MINERS}/MSFTccminer
           cd ${NVOC_MINERS}/MSFTccminer/src
           ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
           ${NVOC_MINERS}/MSFTccminer/src/configure
@@ -336,7 +336,7 @@ function compile-MSFTccminer {
 function compile-xmr-stak {
           echo "Compiling xmr-stak"
           echo " This could take a while ..."
-          git submodule update ${NVOC_MINERS}/xmr-stak
+          git submodule update --init --depth 1 ${NVOC_MINERS}/xmr-stak
           mkdir ${NVOC_MINERS}/xmr-stak/src/build
           cd ${NVOC_MINERS}/xmr-stak/src/build
           cmake ..
