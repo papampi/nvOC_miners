@@ -113,8 +113,8 @@ fi
 
 echo""
 
-echo "Checking Tpruvot ccminer-2.2.4"
-if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.4) ]
+echo "Checking Tpruvot ccminer-2.2.5"
+if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.5) ]
 then
   echo "Extracting Tpruvot"
   mkdir -p ${NVOC_MINERS}/TPccminer/
