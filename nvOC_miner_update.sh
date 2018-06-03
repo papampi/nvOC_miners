@@ -19,20 +19,20 @@ then
   wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/DSTM/DSTM_0.6.1.tar.gz | tar -xzC /home/m1/zec/zm/latest/ --strip 1
   chmod a+x /home/m1/zec/zm/latest/zm_miner
 else
-  echo "DSTM zm miner is v0.6.1"
+  echo "DSTM zm miner is up-to-date"
 fi
 
 echo""
 
-echo "Checking Claymore v11.7"
-if [ ! $(cat /home/m1/eth/claymore/latest/version | grep 11.7) ]
+echo "Checking Claymore v11.8"
+if [ ! $(cat /home/m1/eth/claymore/latest/version | grep 11.8) ]
 then
-  echo "Downloading and making changes for Claymore 11.7"
+  echo "Downloading and making changes for Claymore 11.8"
   mkdir -p /home/m1/eth/claymore/latest/
-  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/claymore/Claymore-v11.7.tar.gz | tar -xzC /home/m1/eth/claymore/latest/ --strip 1
+  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/claymore/Claymore-v11.8.tar.xz | tar -xJC /home/m1/eth/claymore/latest/  --strip 1
   chmod a+x /home/m1/eth/claymore/latest/ethdcrminer64
 else
-  echo "Claymore is 11.7"
+  echo "Claymore is up-to-date"
 fi
 
 echo""
@@ -45,7 +45,7 @@ then
   wget -O- https://github.com/papampi/nvOC_miners/raw/master/z-enemy/z-enemy-1.10-cuda80.tar.gz | tar -xzC /home/m1/z-enemy/ --strip 1
   chmod a+x /home/m1/z-enemy/z-enemy_miner
 else
-  echo "z-enemy is 1.10"
+  echo "z-enemy is up-to-date"
 fi
 
 echo""
@@ -62,7 +62,7 @@ then
   rm /home/m1/Downloads/miners/TPccminer.rar
   rm -rf /home/m1/Downloads/miners/TPccminer/
 else
-  echo "Tpccminer-2.2.5 already downloaded"
+  echo "Tpccminer-2.2.5 is up-to-date"
 fi
 
 echo""
@@ -82,7 +82,7 @@ then
   chmod a+x /home/m1/MSFTccminer/ccminer
   rm -rf /home/m1/Downloads/miners/MSFTccminer/
 else
-  echo "MSFTccminer-2.2.5 already downloaded"
+  echo "MSFTccminer-2.2.5 is up-to-date"
 fi
 
 echo""
@@ -100,7 +100,7 @@ then
   rm -rf /home/m1/Downloads/miners/KTccminer/
   chmod a+x /home/m1/KTccminer/ccminer
 else
-  echo "KlausT ccminer is v8.20"
+  echo "KlausT ccminer is up-to-date"
 fi
 
 echo""
@@ -117,7 +117,7 @@ then
   rm -rf /home/m1/Downloads/miners/vertminer-nvidia-1.0-stable.2/
   chmod a+x /home/m1/vertminer/vertminer
 else
-  echo "Vertminer is v1.0-stable.2 Release"
+  echo "Vertminer is is up-to-date"
 fi
 
 echo""
@@ -134,7 +134,7 @@ then
   rm -rf /home/m1/Downloads/miners/nanashi-ccminer-2.2-mod-r2/
   chmod a+x /home/m1/NAccminer/ccminer
 else
-  echo "nanashi-ccminer is already 2.2-mod-r2"
+  echo "nanashi-ccminer is up-to-date"
 fi
 
 echo""
@@ -147,7 +147,7 @@ then
   wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/ethminer/ethminer-0.14.0-Linux.tar.gz | tar -xzC /home/m1/eth/ethminer/latest/ --strip 1
   chmod a+x  /home/m1/eth/ethminer/latest/ethminer
 else
-  echo "ethminer is already v0.14.0"
+  echo "ethminer is up-to-date"
 fi
 
 echo""
@@ -164,7 +164,7 @@ then
   rm -rf /home/m1/Downloads/miners/KTccminer-cryptonight/
   chmod a+x /home/m1/KTccminer-cryptonight/ccminer
 else
-  echo "KTccminer-cryptonight is already v2.06"
+  echo "KTccminer-cryptonight is up-to-date"
 fi
 
 echo""
@@ -177,7 +177,7 @@ then
   wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/Bminer/bminer-v8.0.0.tar.gz | tar -xzC /home/m1/zec/bminer/latest/ --strip 1
   chmod a+x /home/m1/zec/bminer/latest/bminer
 else
-  echo "Bminer is already v8.0.0"
+  echo "Bminer is up-to-date"
 fi
 
 echo "Checking ANXccminer"
@@ -188,7 +188,7 @@ then
   wget -O- https://nvoc-mining-os.com/download/1177/ | tar -xzC /home/m1/ANXccminer/ --strip 1
   chmod a+x /home/m1/ANXccminer/ccminer
 else
-  echo "ANXccminer is already added"
+  echo "ANXccminer is up-to-date"
 fi
 echo""
 echo""
