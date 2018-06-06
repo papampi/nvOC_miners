@@ -61,12 +61,12 @@ fi
 
 echo""
 
-echo "Checking Claymore v11.7"
-if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.7) ]
+echo "Checking Claymore v11.8"
+if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.8) ]
 then
   echo "Extracting Claymore"
   mkdir -p ${NVOC_MINERS}/claymore/latest/
-  cat ${NVOC_MINERS}/claymore/Claymore-v11.7.tar.xz | tar -xJC ${NVOC_MINERS}/claymore/latest/ --strip 1
+  cat ${NVOC_MINERS}/claymore/Claymore-v11.8.tar.xz | tar -xJC ${NVOC_MINERS}/claymore/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
 else
   echo "Claymore is already up-to-date"
