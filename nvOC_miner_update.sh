@@ -12,7 +12,7 @@ export NVOC_MINERS=$(pwd)
 echo "Checking Equihash DSTM zm miner 0.6.1"
 if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6.1) ]
 then
-  echo "Extracting and making changes for DSTM zm miner"
+  echo "Extracting DSTM zm miner"
   mkdir -p ${NVOC_MINERS}/dstm/latest/
   cat ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz | tar -xJC ${NVOC_MINERS}/dstm/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/dstm/latest/zm_miner
@@ -25,7 +25,7 @@ echo ""
 echo "Checking Z-Enemy 1.10"
 if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep 1.10) ]
 then
-  echo "Extracting and making changes for z-enemy"
+  echo "Extracting z-enemy"
   mkdir -p ${NVOC_MINERS}/ZENEMYminer
   cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz | tar -xJC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
@@ -38,7 +38,7 @@ echo ""
 echo "Checking xmr-stak 2.4.3"
 if [ ! $(cat  ${NVOC_MINERS}/xmr-stak/version | grep 2.4.3) ]
 then
-  echo "Extracting and making changes for xmr-stak"
+  echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr-stak
   cat ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.3.tar.xz | tar -xJC ${NVOC_MINERS}/xmr-stak/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
@@ -51,7 +51,7 @@ echo ""
 echo "Checking Silent Miner 1.1.0"
 if [ ! $(cat  ${NVOC_MINERS}/SILENTminer/version | grep 1.1.0) ]
 then
-  echo "Extracting and making changes for Silent Miner"
+  echo "Extracting Silent Miner"
   mkdir -p ${NVOC_MINERS}/SILENTminer
   cat ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz | tar -xJC ${NVOC_MINERS}/SILENTminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/SILENTminer/ccminer
@@ -64,7 +64,7 @@ echo""
 echo "Checking Claymore v11.7"
 if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.7) ]
 then
-  echo "Extracting and making changes for Claymore"
+  echo "Extracting Claymore"
   mkdir -p ${NVOC_MINERS}/claymore/latest/
   cat ${NVOC_MINERS}/claymore/Claymore-v11.7.tar.xz | tar -xJC ${NVOC_MINERS}/claymore/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
@@ -142,7 +142,7 @@ echo""
 echo "Checking Vertminer v1.0-stable.2 Release"
 if [ ! $( cat ${NVOC_MINERS}/vertminer/version | grep 1.0.2 ) ]
 then
-  echo "Extracting amd making changes for vertminer"
+  echo "Extracting vertminer"
   mkdir -p ${NVOC_MINERS}/vertminer/
   cat ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz | tar -xJC ${NVOC_MINERS}/vertminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/vertminer/vertminer
@@ -155,7 +155,7 @@ echo""
 echo "Checking nanashi-ccminer-2.2-mod-r2"
 if [ ! $(cat ${NVOC_MINERS}/NAccminer/version | grep 2.2-mod-r2 ) ]
 then
-  echo "Extracting amd making changes for nanashi ccminer"
+  echo "Extracting nanashi ccminer"
   mkdir -p ${NVOC_MINERS}/NAccminer/
   cat ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz | tar -xJC ${NVOC_MINERS}/NAccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/NAccminer/ccminer
@@ -202,7 +202,7 @@ echo""
 echo "Checking Equihash Bminer 8.0.0"
 if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep 8.0.0) ]
 then
-  echo "Extracting and making changes for Bminer"
+  echo "Extracting Bminer"
   mkdir -p ${NVOC_MINERS}/bminer/latest/
   cat ${NVOC_MINERS}/bminer/bminer-v8.0.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
@@ -215,7 +215,7 @@ echo""
 echo "Checking ANXccminer (git@cd6fab68823e247bb84dd1fa0448d5f75ec4917d)"
 if [ ! $(cat ${NVOC_MINERS}/ANXccminer/version | grep cd6fab68823e247bb84dd1fa0448d5f75ec4917d) ]
 then
-  echo "Extracting and making changes for ANXccminer"
+  echo "Extracting ANXccminer"
   mkdir -p ${NVOC_MINERS}/ANXccminer/
   cat ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ANXccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ANXccminer/ccminer
@@ -248,10 +248,11 @@ function compile-ASccminer {
           echo "This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/ASccminer
           cd ${NVOC_MINERS}/ASccminer/src
-          ${NVOC_MINERS}/ASccminer/src/autogen.sh
-          ${NVOC_MINERS}/ASccminer/src/configure
-          ${NVOC_MINERS}/ASccminer/src/build.sh
+          bash ${NVOC_MINERS}/ASccminer/src/autogen.sh
+          bash ${NVOC_MINERS}/ASccminer/src/configure
+          bash ${NVOC_MINERS}/ASccminer/src/build.sh
           cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
+          cd ${NVOC_MINERS}
           echo "Finished compiling alexis ccminer"
 }
 
@@ -260,10 +261,11 @@ function compile-KTccminer {
           echo " This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer
           cd ${NVOC_MINERS}/KTccminer/src
-          ${NVOC_MINERS}/KTccminer/src/autogen.sh
-          ${NVOC_MINERS}/KTccminer/src/configure
-          ${NVOC_MINERS}/KTccminer/src/build.sh
+          bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
+          bash ${NVOC_MINERS}/KTccminer/src/configure
+          bash ${NVOC_MINERS}/KTccminer/src/build.sh
           cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling KlausT ccminer"
 }
@@ -273,10 +275,11 @@ function compile-KTccminer-cryptonight {
           echo " This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer-cryptonight
           cd ${NVOC_MINERS}/KTccminer-cryptonight/src
-          ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
-          ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
-          ${NVOC_MINERS}/KTccminer-cryptonight/src/build.sh
+          bash ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
+          bash ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
+          bash ${NVOC_MINERS}/KTccminer-cryptonight/src/build.sh
           cp ${NVOC_MINERS}/KTccminer-cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling KlausT ccminer cryptonight"
 }
@@ -286,10 +289,11 @@ function compile-KXccminer {
           echo " This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/KXccminer
           cd ${NVOC_MINERS}/KXccminer/src
-          ${NVOC_MINERS}/KXccminer/src/autogen.sh
-          ${NVOC_MINERS}/KXccminer/src/configure
-          ${NVOC_MINERS}/KXccminer/src/build.sh
+          bash ${NVOC_MINERS}/KXccminer/src/autogen.sh
+          bash ${NVOC_MINERS}/KXccminer/src/configure
+          bash ${NVOC_MINERS}/KXccminer/src/build.sh
           cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling Krnlx ccminer"
 }
@@ -299,10 +303,11 @@ function compile-NAccminer {
           echo " This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/NAccminer
           cd ${NVOC_MINERS}/NAccminer/src
-          ${NVOC_MINERS}/NAccminer/src/autogen.sh
-          ${NVOC_MINERS}/NAccminer/src/configure
-          ${NVOC_MINERS}/NAccminer/src/build.sh
+          bash ${NVOC_MINERS}/NAccminer/src/autogen.sh
+          bash ${NVOC_MINERS}/NAccminer/src/configure
+          bash ${NVOC_MINERS}/NAccminer/src/build.sh
           cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling Nanashi ccminer"
 }
@@ -312,10 +317,11 @@ function compile-SPccminer {
           echo " This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/SPccminer
           cd ${NVOC_MINERS}/SPccminer/src
-          ${NVOC_MINERS}/SPccminer/src/autogen.sh
-          ${NVOC_MINERS}/SPccminer/src/configure
-          ${NVOC_MINERS}/SPccminer/src/build.sh
+          bash ${NVOC_MINERS}/SPccminer/src/autogen.sh
+          bash ${NVOC_MINERS}/SPccminer/src/configure
+          bash ${NVOC_MINERS}/SPccminer/src/build.sh
           cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling tpruvot ccminer"
 }
@@ -325,10 +331,11 @@ function compile-TPccminer {
           echo " This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/TPccminer
           cd ${NVOC_MINERS}/TPccminer/src
-          ${NVOC_MINERS}/TPccminer/src/autogen.sh
-          ${NVOC_MINERS}/TPccminer/src/configure
-          ${NVOC_MINERS}/TPccminer/src/build.sh
+          bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
+          bash ${NVOC_MINERS}/TPccminer/src/configure
+          bash ${NVOC_MINERS}/TPccminer/src/build.sh
           cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling tpruvot ccminer"
 }
@@ -338,10 +345,11 @@ function compile-vertminer {
           echo " This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/vertminer
           cd ${NVOC_MINERS}/vertminer/src
-          ${NVOC_MINERS}/vertminer/src/autogen.sh
-          ${NVOC_MINERS}/vertminer/src/configure
-          ${NVOC_MINERS}/vertminer/src/build.sh
+          bash ${NVOC_MINERS}/vertminer/src/autogen.sh
+          bash ${NVOC_MINERS}/vertminer/src/configure
+          bash ${NVOC_MINERS}/vertminer/src/build.sh
           cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/vertminer
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling vertminer"
 }
@@ -351,10 +359,11 @@ function compile-ANXccminer {
           echo " This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/ANXccminer
           cd ${NVOC_MINERS}/ANXccminer/src
-          ${NVOC_MINERS}/ANXccminer/src/autogen.sh
-          ${NVOC_MINERS}/ANXccminer/src/configure
-          ${NVOC_MINERS}/ANXccminer/src/build.sh
+          bash ${NVOC_MINERS}/ANXccminer/src/autogen.sh
+          bash ${NVOC_MINERS}/ANXccminer/src/configure
+          bash ${NVOC_MINERS}/ANXccminer/src/build.sh
           cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling anorganix ccminer"
 }
@@ -364,10 +373,11 @@ function compile-MSFTccminer {
           echo " This could take a while ..."
           git submodule update --init --depth 1 ${NVOC_MINERS}/MSFTccminer
           cd ${NVOC_MINERS}/MSFTccminer/src
-          ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
-          ${NVOC_MINERS}/MSFTccminer/src/configure
-          ${NVOC_MINERS}/MSFTccminer/src/build.sh
+          bash ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
+          bash ${NVOC_MINERS}/MSFTccminer/src/configure
+          bash ${NVOC_MINERS}/MSFTccminer/src/build.sh
           cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling MSFTccminer"
 }
@@ -381,6 +391,7 @@ function compile-xmr-stak {
           cmake ..
           make install
           cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/src/build/bin/*.so ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
+          cd ${NVOC_MINERS}
           echo ""
           echo "Finished compiling xmr-stak"
 }
@@ -396,7 +407,6 @@ if [ ! "${ANSWER}" = "y" ] ; then
   sleep 1
   exit 0
 else
-  git submodule init
   echo ""
   echo ""
   echo "Checking if bn.h bignum error is fixed for compiling miners or not"
@@ -414,6 +424,7 @@ else
     echo ""
     echo "bn.h openssl fixed for compiling miners"
     echo ""
+    cd ${NVOC_MINERS}
   fi
 
   while true; do
@@ -466,7 +477,7 @@ else
 	        echo ""
 	        echo ""
 	        compile-xmr-stak
-	  ;;
+	        ;;
         [1]* ) echo -e "$choice"
           compile-ASccminer
           ;;
