@@ -174,7 +174,7 @@ if [ ! $(cat /home/m1/zec/bminer/latest/version | grep 8.0.0) ]
 then
   echo "Downloading and making changes for Bminer 8.0.0"
   mkdir -p /home/m1/zec/bminer/latest/
-  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/Bminer/bminer-v8.0.0.tar.gz | tar -xzC /home/m1/zec/bminer/latest/ --strip 1
+  wget -O- https://raw.githubusercontent.com/papampi/nvOC_miners/master/Bminer/bminer-v8.0.0.tar.xz | tar -xJC /home/m1/zec/bminer/latest/ --strip 1
   chmod a+x /home/m1/zec/bminer/latest/bminer
 else
   echo "Bminer is up-to-date"
