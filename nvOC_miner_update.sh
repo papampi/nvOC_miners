@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "Updating miners for nvOC V0019-2.x"
+echo "Updating miners for nvOC V0019-2.1"
+echo "Will check and restart miner if needed"
 sleep 1
 
 echo ""
@@ -384,9 +385,17 @@ function compile-ASccminer {
   bash ${NVOC_MINERS}/ASccminer/src/autogen.sh
   bash ${NVOC_MINERS}/ASccminer/src/configure
   bash ${NVOC_MINERS}/ASccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[A]Sccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
   cd ${NVOC_MINERS}
   echo "Finished compiling alexis ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-KTccminer {
@@ -397,10 +406,18 @@ function compile-KTccminer {
   bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
   bash ${NVOC_MINERS}/KTccminer/src/configure
   bash ${NVOC_MINERS}/KTccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[K]Tccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling KlausT ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-KTccminer-cryptonight {
@@ -411,10 +428,18 @@ function compile-KTccminer-cryptonight {
   bash ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
   bash ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
   bash ${NVOC_MINERS}/KTccminer-cryptonight/src/build.sh
+  if ps ax | grep miner | grep -q "[K]Tccminer-cryptonight"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/KTccminer-cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling KlausT ccminer cryptonight"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-KXccminer {
@@ -425,10 +450,18 @@ function compile-KXccminer {
   bash ${NVOC_MINERS}/KXccminer/src/autogen.sh
   bash ${NVOC_MINERS}/KXccminer/src/configure
   bash ${NVOC_MINERS}/KXccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[K]Xccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling Krnlx ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-NAccminer {
@@ -439,10 +472,18 @@ function compile-NAccminer {
   bash ${NVOC_MINERS}/NAccminer/src/autogen.sh
   bash ${NVOC_MINERS}/NAccminer/src/configure
   bash ${NVOC_MINERS}/NAccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[N]Accminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling Nanashi ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-SPccminer {
@@ -453,10 +494,18 @@ function compile-SPccminer {
   bash ${NVOC_MINERS}/SPccminer/src/autogen.sh
   bash ${NVOC_MINERS}/SPccminer/src/configure
   bash ${NVOC_MINERS}/SPccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[S]Pccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling tpruvot ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-TPccminer {
@@ -467,10 +516,18 @@ function compile-TPccminer {
   bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
   bash ${NVOC_MINERS}/TPccminer/src/configure
   bash ${NVOC_MINERS}/TPccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[T]Pccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling tpruvot ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-vertminer {
@@ -481,10 +538,18 @@ function compile-vertminer {
   bash ${NVOC_MINERS}/vertminer/src/autogen.sh
   bash ${NVOC_MINERS}/vertminer/src/configure
   bash ${NVOC_MINERS}/vertminer/src/build.sh
+  if ps ax | grep miner | grep -q "[v]ertminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/vertminer
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling vertminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-ANXccminer {
@@ -495,10 +560,18 @@ function compile-ANXccminer {
   bash ${NVOC_MINERS}/ANXccminer/src/autogen.sh
   bash ${NVOC_MINERS}/ANXccminer/src/configure
   bash ${NVOC_MINERS}/ANXccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[A]NXccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling anorganix ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-MSFTccminer {
@@ -509,10 +582,18 @@ function compile-MSFTccminer {
   bash ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
   bash ${NVOC_MINERS}/MSFTccminer/src/configure
   bash ${NVOC_MINERS}/MSFTccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[M]SFTccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling MSFTccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-xmr-stak {
@@ -523,10 +604,18 @@ function compile-xmr-stak {
   cd ${NVOC_MINERS}/xmr-stak/src/build
   cmake ..
   make install
+  if ps ax | grep miner | grep -q "[x]mr-stak"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/src/build/bin/*.so ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
   cd ${NVOC_MINERS}
   echo ""
   echo "Finished compiling xmr-stak"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 echo -n "Do you want to re-compile your miners (y/N)?  "
