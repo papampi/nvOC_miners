@@ -13,7 +13,7 @@ or alternatively init as standalone repo:
 Install or update miners (assuming no changes into miners local repo by user):
 `cd miners`
 
-`git pull origin master`
+`git pull origin 19-2.1`
 
 `bash nvOC_miner_update.sh`
 
