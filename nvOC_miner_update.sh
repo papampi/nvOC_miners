@@ -2,7 +2,6 @@
 
 echo "Updating miners for nvOC V0019-2.1"
 echo "Will check and restart miner if needed"
-sleep 1
 
 echo ""
 export NVOC_MINERS=$(pwd)
@@ -270,7 +269,6 @@ then
   else
     rm -rf latest
   fi
-  ln -s "${NVOC_MINERS}/ethminer/0.14.0" latest
   echo "Extracting and making changes for Ethminer"
   if ps ax | grep miner | grep -q "[e]thminer"
   then
@@ -278,6 +276,7 @@ then
     pkill -f 5watcdog
     pkill -e screen
   fi
+  ln -s "${NVOC_MINERS}/ethminer/0.14.0" latest
   cat ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz | tar -xJC ${NVOC_MINERS}/ethminer/latest/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ethminer/latest/ethminer
   echo "Restart miner"
