@@ -35,12 +35,12 @@ fi
 
 echo ""
 
-echo "Checking xmr-stak 2.4.3"
-if [ ! $(cat  ${NVOC_MINERS}/xmr-stak/version | grep 2.4.3) ]
+echo "Checking xmr-stak 2.4.4"
+if [ ! $(cat  ${NVOC_MINERS}/xmr-stak/version | grep 2.4.4) ]
 then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr-stak
-  cat ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.3.tar.xz | tar -xJC ${NVOC_MINERS}/xmr-stak/ --strip 1
+  cat ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.4.tar.xz | tar -xJC ${NVOC_MINERS}/xmr-stak/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
 else
   echo "xmr-stak is already up-to-date"
