@@ -1,10 +1,7 @@
 #!/bin/bash
 
-echo "Updating miners for nvOC V0019-2.x"
-echo "Stopping miner and watchdog to reduce errors"
-pkill -f 5watcdog
-pkill -e screen
-sleep 1
+echo "Updating miners for nvOC V0019-2.1"
+echo "Will check and restart miner if needed"
 
 echo ""
 export NVOC_MINERS=$(pwd)
@@ -14,8 +11,16 @@ if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6.1) ]
 then
   echo "Extracting DSTM zm miner"
   mkdir -p ${NVOC_MINERS}/dstm/latest/
+  if ps ax | grep miner | grep -q "[z]m_miner"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz | tar -xJC ${NVOC_MINERS}/dstm/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/dstm/latest/zm_miner
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "DSTM zm miner is already up-to-date"
 fi
@@ -27,8 +32,16 @@ if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep 1.10) ]
 then
   echo "Extracting z-enemy"
   mkdir -p ${NVOC_MINERS}/ZENEMYminer
+  if ps ax | grep miner | grep -q "[Z]ENEMYminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz | tar -xJC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "z-enemy is already up-to-date"
 fi
@@ -40,8 +53,16 @@ if [ ! $(cat  ${NVOC_MINERS}/xmr-stak/version | grep 2.4.4) ]
 then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr-stak
+  if ps ax | grep miner | grep -q "[x]mr-stak"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.4.tar.xz | tar -xJC ${NVOC_MINERS}/xmr-stak/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "xmr-stak is already up-to-date"
 fi
@@ -53,8 +74,16 @@ if [ ! $(cat  ${NVOC_MINERS}/SILENTminer/version | grep 1.1.0) ]
 then
   echo "Extracting Silent Miner"
   mkdir -p ${NVOC_MINERS}/SILENTminer
+  if ps ax | grep miner | grep -q "[S]ILENTminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz | tar -xJC ${NVOC_MINERS}/SILENTminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/SILENTminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "Silent Miner is already up-to-date"
 fi
@@ -66,8 +95,16 @@ if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.8) ]
 then
   echo "Extracting Claymore"
   mkdir -p ${NVOC_MINERS}/claymore/latest/
+  if ps ax | grep miner | grep -q "[e]thdcrminer64"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/claymore/Claymore-v11.8.tar.xz | tar -xJC ${NVOC_MINERS}/claymore/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "Claymore is already up-to-date"
 fi
@@ -79,8 +116,16 @@ if [ ! $(cat ${NVOC_MINERS}/SPccminer/version | grep 1.8.2) ]
 then
   echo "Extracting SPccminer"
   mkdir -p ${NVOC_MINERS}/SPccminer/
+  if ps ax | grep miner | grep -q "[S]Pccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/SPccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/SPccminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "SPccminer is already up-to-date"
 fi
@@ -92,8 +137,16 @@ if [ ! $(cat ${NVOC_MINERS}/ASccminer/version | grep 1.0) ]
 then
   echo "Extracting ASccminer"
   mkdir -p ${NVOC_MINERS}/ASccminer/
+  if ps ax | grep miner | grep -q "[A]Sccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ASccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ASccminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "ASccminer is already up-to-date"
 fi
@@ -105,8 +158,16 @@ if [ ! $(cat ${NVOC_MINERS}/KXccminer/version | grep skunk-krnlx) ]
 then
   echo "Extracting KXccminer"
   mkdir -p ${NVOC_MINERS}/KXccminer/
+  if ps ax | grep miner | grep -q "[K]Xccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KXccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/KXccminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "KXccminer is already up-to-date"
 fi
@@ -118,8 +179,16 @@ if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.5) ]
 then
   echo "Extracting Tpruvot"
   mkdir -p ${NVOC_MINERS}/TPccminer/
+  if ps ax | grep miner | grep -q "[T]Pccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/TPccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "Tpruvot ccminer is already up-to-date"
 fi
@@ -131,8 +200,16 @@ if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.20) ]
 then
   echo "Extracting Klaust ccminer"
   mkdir -p ${NVOC_MINERS}/KTccminer/
+  if ps ax | grep miner | grep -q "[K]Tccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "KlausT ccminer is already up-to-date"
 fi
@@ -144,8 +221,16 @@ if [ ! $( cat ${NVOC_MINERS}/vertminer/version | grep 1.0.2 ) ]
 then
   echo "Extracting vertminer"
   mkdir -p ${NVOC_MINERS}/vertminer/
+  if ps ax | grep miner | grep -q "[v]ertminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz | tar -xJC ${NVOC_MINERS}/vertminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/vertminer/vertminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "Vertminer is already up-to-date"
 fi
@@ -157,8 +242,16 @@ if [ ! $(cat ${NVOC_MINERS}/NAccminer/version | grep 2.2-mod-r2 ) ]
 then
   echo "Extracting nanashi ccminer"
   mkdir -p ${NVOC_MINERS}/NAccminer/
+  if ps ax | grep miner | grep -q "[N]Accminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz | tar -xJC ${NVOC_MINERS}/NAccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/NAccminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "nanashi-ccminer is already up-to-date"
 fi
@@ -176,10 +269,18 @@ then
   else
     rm -rf latest
   fi
-  ln -s "${NVOC_MINERS}/ethminer/0.14.0" latest
   echo "Extracting and making changes for Ethminer"
+  if ps ax | grep miner | grep -q "[e]thminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  ln -s "${NVOC_MINERS}/ethminer/0.14.0" latest
   cat ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz | tar -xJC ${NVOC_MINERS}/ethminer/latest/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ethminer/latest/ethminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "ethminer is already up-to-date"
 fi
@@ -191,8 +292,16 @@ if [ ! $( cat ${NVOC_MINERS}/KTccminer-cryptonight/version | grep 2.06) ]
 then
   echo "Extracting KTccminer-cryptonight"
   mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/
+  if ps ax | grep miner | grep -q "[K]Tccminer-cryptonight"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer-cryptonight/ --strip 1
   chmod a+x ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "KTccminer-cryptonight is already up-to-date"
 fi
@@ -204,8 +313,16 @@ if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep 8.0.0) ]
 then
   echo "Extracting Bminer"
   mkdir -p ${NVOC_MINERS}/bminer/latest/
+  if ps ax | grep miner | grep -q "[b]miner"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/bminer/bminer-v8.0.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "Bminer is already up-to-date"
 fi
@@ -217,8 +334,16 @@ if [ ! $(cat ${NVOC_MINERS}/ANXccminer/version | grep cd6fab68823e247bb84dd1fa04
 then
   echo "Extracting ANXccminer"
   mkdir -p ${NVOC_MINERS}/ANXccminer/
+  if ps ax | grep miner | grep -q "[A]NXccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ANXccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ANXccminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "ANXccminer is already at up-to-date"
 fi
@@ -230,8 +355,16 @@ if [ ! $(cat ${NVOC_MINERS}/MSFTccminer/version | grep 2.2.5-rvn) ]
 then
   echo "Extracting MSFT Tpruvot ccminer"
   mkdir -p ${NVOC_MINERS}/MSFTccminer/
+  if ps ax | grep miner | grep -q "[M]SFTccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
   cat ${NVOC_MINERS}/MSFTccminer/MSFTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/MSFTccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/MSFTccminer/ccminer
+  echo "Restart miner"
+  pkill -f 3main
 else
   echo "MSFTccminer is already up-to-date"
 fi
@@ -244,156 +377,244 @@ echo""
 sleep 2
 
 function compile-ASccminer {
-          echo "Compiling alexis ccminer"
-          echo "This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/ASccminer
-          cd ${NVOC_MINERS}/ASccminer/src
-          bash ${NVOC_MINERS}/ASccminer/src/autogen.sh
-          bash ${NVOC_MINERS}/ASccminer/src/configure
-          bash ${NVOC_MINERS}/ASccminer/src/build.sh
-          cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
-          cd ${NVOC_MINERS}
-          echo "Finished compiling alexis ccminer"
+  echo "Compiling alexis ccminer"
+  echo "This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/ASccminer
+  cd ${NVOC_MINERS}/ASccminer/src
+  bash ${NVOC_MINERS}/ASccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/ASccminer/src/configure
+  bash ${NVOC_MINERS}/ASccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[A]Sccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo "Finished compiling alexis ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-KTccminer {
-          echo "Compiling KlausT ccminer"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer
-          cd ${NVOC_MINERS}/KTccminer/src
-          bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
-          bash ${NVOC_MINERS}/KTccminer/src/configure
-          bash ${NVOC_MINERS}/KTccminer/src/build.sh
-          cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling KlausT ccminer"
+  echo "Compiling KlausT ccminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer
+  cd ${NVOC_MINERS}/KTccminer/src
+  bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/KTccminer/src/configure
+  bash ${NVOC_MINERS}/KTccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[K]Tccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling KlausT ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-KTccminer-cryptonight {
-          echo "Compiling KlausT ccminer cryptonight"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer-cryptonight
-          cd ${NVOC_MINERS}/KTccminer-cryptonight/src
-          bash ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
-          bash ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
-          bash ${NVOC_MINERS}/KTccminer-cryptonight/src/build.sh
-          cp ${NVOC_MINERS}/KTccminer-cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling KlausT ccminer cryptonight"
+  echo "Compiling KlausT ccminer cryptonight"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer-cryptonight
+  cd ${NVOC_MINERS}/KTccminer-cryptonight/src
+  bash ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
+  bash ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
+  bash ${NVOC_MINERS}/KTccminer-cryptonight/src/build.sh
+  if ps ax | grep miner | grep -q "[K]Tccminer-cryptonight"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/KTccminer-cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling KlausT ccminer cryptonight"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-KXccminer {
-          echo "Compiling krnlx ccminer"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/KXccminer
-          cd ${NVOC_MINERS}/KXccminer/src
-          bash ${NVOC_MINERS}/KXccminer/src/autogen.sh
-          bash ${NVOC_MINERS}/KXccminer/src/configure
-          bash ${NVOC_MINERS}/KXccminer/src/build.sh
-          cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling Krnlx ccminer"
+  echo "Compiling krnlx ccminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/KXccminer
+  cd ${NVOC_MINERS}/KXccminer/src
+  bash ${NVOC_MINERS}/KXccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/KXccminer/src/configure
+  bash ${NVOC_MINERS}/KXccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[K]Xccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling Krnlx ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-NAccminer {
-          echo "Compiling Nanashi ccminer"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/NAccminer
-          cd ${NVOC_MINERS}/NAccminer/src
-          bash ${NVOC_MINERS}/NAccminer/src/autogen.sh
-          bash ${NVOC_MINERS}/NAccminer/src/configure
-          bash ${NVOC_MINERS}/NAccminer/src/build.sh
-          cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling Nanashi ccminer"
+  echo "Compiling Nanashi ccminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/NAccminer
+  cd ${NVOC_MINERS}/NAccminer/src
+  bash ${NVOC_MINERS}/NAccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/NAccminer/src/configure
+  bash ${NVOC_MINERS}/NAccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[N]Accminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling Nanashi ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-SPccminer {
-          echo "Compiling SPccminer"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/SPccminer
-          cd ${NVOC_MINERS}/SPccminer/src
-          bash ${NVOC_MINERS}/SPccminer/src/autogen.sh
-          bash ${NVOC_MINERS}/SPccminer/src/configure
-          bash ${NVOC_MINERS}/SPccminer/src/build.sh
-          cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling tpruvot ccminer"
+  echo "Compiling SPccminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/SPccminer
+  cd ${NVOC_MINERS}/SPccminer/src
+  bash ${NVOC_MINERS}/SPccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/SPccminer/src/configure
+  bash ${NVOC_MINERS}/SPccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[S]Pccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling tpruvot ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-TPccminer {
-          echo "Compiling tpruvot ccminer"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/TPccminer
-          cd ${NVOC_MINERS}/TPccminer/src
-          bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
-          bash ${NVOC_MINERS}/TPccminer/src/configure
-          bash ${NVOC_MINERS}/TPccminer/src/build.sh
-          cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling tpruvot ccminer"
+  echo "Compiling tpruvot ccminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/TPccminer
+  cd ${NVOC_MINERS}/TPccminer/src
+  bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/TPccminer/src/configure
+  bash ${NVOC_MINERS}/TPccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[T]Pccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling tpruvot ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-vertminer {
-          echo "Compiling Vertminer"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/vertminer
-          cd ${NVOC_MINERS}/vertminer/src
-          bash ${NVOC_MINERS}/vertminer/src/autogen.sh
-          bash ${NVOC_MINERS}/vertminer/src/configure
-          bash ${NVOC_MINERS}/vertminer/src/build.sh
-          cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/vertminer
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling vertminer"
+  echo "Compiling Vertminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/vertminer
+  cd ${NVOC_MINERS}/vertminer/src
+  bash ${NVOC_MINERS}/vertminer/src/autogen.sh
+  bash ${NVOC_MINERS}/vertminer/src/configure
+  bash ${NVOC_MINERS}/vertminer/src/build.sh
+  if ps ax | grep miner | grep -q "[v]ertminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/vertminer
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling vertminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-ANXccminer {
-          echo "Compiling anorganix ccminer"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/ANXccminer
-          cd ${NVOC_MINERS}/ANXccminer/src
-          bash ${NVOC_MINERS}/ANXccminer/src/autogen.sh
-          bash ${NVOC_MINERS}/ANXccminer/src/configure
-          bash ${NVOC_MINERS}/ANXccminer/src/build.sh
-          cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling anorganix ccminer"
+  echo "Compiling anorganix ccminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/ANXccminer
+  cd ${NVOC_MINERS}/ANXccminer/src
+  bash ${NVOC_MINERS}/ANXccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/ANXccminer/src/configure
+  bash ${NVOC_MINERS}/ANXccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[A]NXccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling anorganix ccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-MSFTccminer {
-          echo "Compiling MSFTccminer"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/MSFTccminer
-          cd ${NVOC_MINERS}/MSFTccminer/src
-          bash ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
-          bash ${NVOC_MINERS}/MSFTccminer/src/configure
-          bash ${NVOC_MINERS}/MSFTccminer/src/build.sh
-          cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling MSFTccminer"
+  echo "Compiling MSFTccminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/MSFTccminer
+  cd ${NVOC_MINERS}/MSFTccminer/src
+  bash ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/MSFTccminer/src/configure
+  bash ${NVOC_MINERS}/MSFTccminer/src/build.sh
+  if ps ax | grep miner | grep -q "[M]SFTccminer"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling MSFTccminer"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 function compile-xmr-stak {
-          echo "Compiling xmr-stak"
-          echo " This could take a while ..."
-          git submodule update --init --depth 1 ${NVOC_MINERS}/xmr-stak
-          mkdir ${NVOC_MINERS}/xmr-stak/src/build
-          cd ${NVOC_MINERS}/xmr-stak/src/build
-          cmake ..
-          make install
-          cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/src/build/bin/*.so ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
-          cd ${NVOC_MINERS}
-          echo ""
-          echo "Finished compiling xmr-stak"
+  echo "Compiling xmr-stak"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/xmr-stak
+  mkdir ${NVOC_MINERS}/xmr-stak/src/build
+  cd ${NVOC_MINERS}/xmr-stak/src/build
+  cmake ..
+  make install
+  if ps ax | grep miner | grep -q "[x]mr-stak"
+  then
+    echo "Stopping miner"
+    pkill -f 5watcdog
+    pkill -e screen
+  fi
+  cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/src/build/bin/*.so ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
+  cd ${NVOC_MINERS}
+  echo ""
+  echo "Finished compiling xmr-stak"
+  echo "Restart miner"
+  pkill -f 3main
 }
 
 echo -n "Do you want to re-compile your miners (y/N)?  "
@@ -471,13 +692,13 @@ else
           echo ""
           echo ""
           compile-ANXccminer
-	        echo ""
-	        echo ""
+          echo ""
+          echo ""
           compile-MSFTccminer
-	        echo ""
-	        echo ""
-	        compile-xmr-stak
-	        ;;
+          echo ""
+          echo ""
+          compile-xmr-stak
+          ;;
         [1]* ) echo -e "$choice"
           compile-ASccminer
           ;;
@@ -518,6 +739,4 @@ else
     echo "Compilation finished, Want to compile more?"
     echo ""
   done
-  echo " Restarting miner"
-  pkill -f 3main
 fi
