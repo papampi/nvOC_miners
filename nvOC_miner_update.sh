@@ -14,7 +14,7 @@ then
   if ps ax | grep miner | grep -q "[z]m_miner"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz | tar -xJC ${NVOC_MINERS}/dstm/latest/ --strip 1
@@ -35,7 +35,7 @@ then
   if ps ax | grep miner | grep -q "[Z]ENEMYminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz | tar -xJC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
@@ -56,7 +56,7 @@ then
   if ps ax | grep miner | grep -q "[x]mr-stak"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.4.tar.xz | tar -xJC ${NVOC_MINERS}/xmr-stak/ --strip 1
@@ -77,7 +77,7 @@ then
   if ps ax | grep miner | grep -q "[S]ILENTminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz | tar -xJC ${NVOC_MINERS}/SILENTminer/ --strip 1
@@ -98,7 +98,7 @@ then
   if ps ax | grep miner | grep -q "[e]thdcrminer64"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/claymore/Claymore-v11.8.tar.xz | tar -xJC ${NVOC_MINERS}/claymore/latest/ --strip 1
@@ -119,7 +119,7 @@ then
   if ps ax | grep miner | grep -q "[S]Pccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/SPccminer/ --strip 1
@@ -140,7 +140,7 @@ then
   if ps ax | grep miner | grep -q "[A]Sccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ASccminer/ --strip 1
@@ -161,7 +161,7 @@ then
   if ps ax | grep miner | grep -q "[K]Xccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KXccminer/ --strip 1
@@ -182,7 +182,7 @@ then
   if ps ax | grep miner | grep -q "[T]Pccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/TPccminer/ --strip 1
@@ -203,7 +203,7 @@ then
   if ps ax | grep miner | grep -q "[K]Tccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer/ --strip 1
@@ -224,7 +224,7 @@ then
   if ps ax | grep miner | grep -q "[v]ertminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz | tar -xJC ${NVOC_MINERS}/vertminer/ --strip 1
@@ -245,7 +245,7 @@ then
   if ps ax | grep miner | grep -q "[N]Accminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz | tar -xJC ${NVOC_MINERS}/NAccminer/ --strip 1
@@ -273,7 +273,7 @@ then
   if ps ax | grep miner | grep -q "[e]thminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   ln -s "${NVOC_MINERS}/ethminer/0.14.0" latest
@@ -295,7 +295,7 @@ then
   if ps ax | grep miner | grep -q "[K]Tccminer-cryptonight"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer-cryptonight/ --strip 1
@@ -316,7 +316,7 @@ then
   if ps ax | grep miner | grep -q "[b]miner"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/bminer/bminer-v8.0.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
@@ -337,7 +337,7 @@ then
   if ps ax | grep miner | grep -q "[A]NXccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ANXccminer/ --strip 1
@@ -358,7 +358,7 @@ then
   if ps ax | grep miner | grep -q "[M]SFTccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cat ${NVOC_MINERS}/MSFTccminer/MSFTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/MSFTccminer/ --strip 1
@@ -387,7 +387,7 @@ function compile-ASccminer {
   if ps ax | grep miner | grep -q "[A]Sccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
@@ -408,7 +408,7 @@ function compile-KTccminer {
   if ps ax | grep miner | grep -q "[K]Tccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
@@ -430,7 +430,7 @@ function compile-KTccminer-cryptonight {
   if ps ax | grep miner | grep -q "[K]Tccminer-cryptonight"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/KTccminer-cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
@@ -452,7 +452,7 @@ function compile-KXccminer {
   if ps ax | grep miner | grep -q "[K]Xccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
@@ -474,7 +474,7 @@ function compile-NAccminer {
   if ps ax | grep miner | grep -q "[N]Accminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
@@ -496,7 +496,7 @@ function compile-SPccminer {
   if ps ax | grep miner | grep -q "[S]Pccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
@@ -518,7 +518,7 @@ function compile-TPccminer {
   if ps ax | grep miner | grep -q "[T]Pccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
@@ -540,7 +540,7 @@ function compile-vertminer {
   if ps ax | grep miner | grep -q "[v]ertminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/vertminer
@@ -562,7 +562,7 @@ function compile-ANXccminer {
   if ps ax | grep miner | grep -q "[A]NXccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
@@ -584,7 +584,7 @@ function compile-MSFTccminer {
   if ps ax | grep miner | grep -q "[M]SFTccminer"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
@@ -606,7 +606,7 @@ function compile-xmr-stak {
   if ps ax | grep miner | grep -q "[x]mr-stak"
   then
     echo "Stopping miner"
-    pkill -f 5watcdog
+    pkill -f 5watchdog
     pkill -e screen
   fi
   cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/src/build/bin/*.so ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
