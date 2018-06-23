@@ -4,7 +4,7 @@ echo "Updating miners for nvOC V0019-2.1"
 echo "Will check and restart miner if needed"
 
 echo ""
-export NVOC_MINERS=$(pwd)
+export NVOC_MINERS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "Checking Equihash DSTM zm miner 0.6.1"
 if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6.1) ]
