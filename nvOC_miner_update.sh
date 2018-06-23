@@ -3,7 +3,7 @@
 echo "Updating miners for nvOC V0019-2.1"
 echo "Will check and restart miner if needed"
 
-echo ""
+echo
 export NVOC_MINERS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 function stop-if-needed {
@@ -38,7 +38,7 @@ else
   echo "DSTM zm miner is already up-to-date"
 fi
 
-echo ""
+echo
 
 echo "Checking Z-Enemy 1.10"
 if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep 1.10) ]
@@ -53,7 +53,7 @@ else
   echo "z-enemy is already up-to-date"
 fi
 
-echo ""
+echo
 
 echo "Checking xmr-stak 2.4.4"
 if [ ! $(cat  ${NVOC_MINERS}/xmr-stak/version | grep 2.4.4) ]
@@ -68,7 +68,7 @@ else
   echo "xmr-stak is already up-to-date"
 fi
 
-echo ""
+echo
 
 echo "Checking Silent Miner 1.1.0"
 if [ ! $(cat  ${NVOC_MINERS}/SILENTminer/version | grep 1.1.0) ]
@@ -319,7 +319,7 @@ function compile-KTccminer {
   stop-if-needed "[K]Tccminer"
   cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling KlausT ccminer"
   restart-if-needed
 }
@@ -335,7 +335,7 @@ function compile-KTccminer-cryptonight {
   stop-if-needed "[K]Tccminer-cryptonight"
   cp ${NVOC_MINERS}/KTccminer-cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling KlausT ccminer cryptonight"
   restart-if-needed
 }
@@ -351,7 +351,7 @@ function compile-KXccminer {
   stop-if-needed "[K]Xccminer"
   cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling Krnlx ccminer"
   restart-if-needed
 }
@@ -367,7 +367,7 @@ function compile-NAccminer {
   stop-if-needed "[N]Accminer"
   cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling Nanashi ccminer"
   restart-if-needed
 }
@@ -383,7 +383,7 @@ function compile-SPccminer {
   stop-if-needed "[S]Pccminer"
   cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling tpruvot ccminer"
   restart-if-needed
 }
@@ -399,7 +399,7 @@ function compile-TPccminer {
   stop-if-needed "[T]Pccminer"
   cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling tpruvot ccminer"
   restart-if-needed
 }
@@ -415,7 +415,7 @@ function compile-vertminer {
   stop-if-needed "[v]ertminer"
   cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/vertminer
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling vertminer"
   restart-if-needed
 }
@@ -431,7 +431,7 @@ function compile-ANXccminer {
   stop-if-needed "[A]NXccminer"
   cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling anorganix ccminer"
   restart-if-needed
 }
@@ -447,7 +447,7 @@ function compile-MSFTccminer {
   stop-if-needed "[M]SFTccminer"
   cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling MSFTccminer"
   restart-if-needed
 }
@@ -463,7 +463,7 @@ function compile-xmr-stak {
   stop-if-needed "[x]mr-stak"
   cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/src/build/bin/*.so ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
   cd ${NVOC_MINERS}
-  echo ""
+  echo
   echo "Finished compiling xmr-stak"
   restart-if-needed
 }
@@ -478,19 +478,19 @@ else
   sleep 1
   read -n 1 ANSWER
   if [ ! "${ANSWER}" = "y" ] ; then
-    echo ""
+    echo
     echo "Done."
     exit 0
   fi
 fi
 
-echo ""
-echo ""
+echo
+echo
 echo "Checking if bn.h bignum error is fixed for compiling miners or not"
 if [ -e  ~/Downloads/openssl-1.0.1e/bn.h.backup ]
 then
   echo "bn.h openssl already fixed for compiling miners"
-  echo ""
+  echo
 else
   cd ~/Downloads
   wget -nv http://www.openssl.org/source/openssl-1.0.1e.tar.gz
@@ -498,9 +498,9 @@ else
   cp /usr/local/include/openssl/bn.h ~/Downloads/openssl-1.0.1e/bn.h.backup
   sudo cp ~/Downloads/openssl-1.0.1e/crypto/bn/bn.h /usr/local/include/openssl/
   sleep 1
-  echo ""
+  echo
   echo "bn.h openssl fixed for compiling miners"
-  echo ""
+  echo
   cd ${NVOC_MINERS}
 fi
 
@@ -518,41 +518,41 @@ while true; do
   echo "9 - ANXccminer"
   echo "R - MSFTccminer (RVN)"
   echo "X - xmr-stak"
-  echo ""
+  echo
   read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [X] [E]xit: " -a array
   for choice in "${array[@]}"; do
     case "$choice" in
       [Aa]* ) echo "ALL"
         compile-ASccminer
-        echo ""
-        echo ""
+        echo
+        echo
         compile-KTccminer
-        echo ""
-        echo ""
+        echo
+        echo
         compile-KTccminer-cryptonight
-        echo ""
-        echo ""
+        echo
+        echo
         compile-KXccminer
-        echo ""
-        echo ""
+        echo
+        echo
         compile-NAccminer
-        echo ""
-        echo ""
+        echo 
+        echo
         compile-SPccminer
-        echo ""
-        echo ""
+        echo
+        echo
         compile-TPccminer
-        echo ""
-        echo ""
+        echo
+        echo
         compile-vertminer
-        echo ""
-        echo ""
+        echo
+        echo
         compile-ANXccminer
-        echo ""
-        echo ""
+        echo
+        echo
         compile-MSFTccminer
-        echo ""
-        echo ""
+        echo
+        echo
         compile-xmr-stak
         ;;
       [1]* ) echo -e "$choice"
@@ -593,5 +593,5 @@ while true; do
     esac
   done
   echo "Compilation finished, Want to compile more?"
-  echo ""
+  echo
 done
