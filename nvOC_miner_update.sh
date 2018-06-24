@@ -183,6 +183,11 @@ then
   stop-if-needed "[v]ertminer"
   cat ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz | tar -xJC ${NVOC_MINERS}/vertminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/vertminer/vertminer
+  if [[ -e ${NVOC_MINERS}/vertminer/ccminer ]]
+  then
+    rm ${NVOC_MINERS}/vertminer/ccminer
+  fi
+  ln -s vertminer ${NVOC_MINERS}/vertminer/ccminer
   restart-if-needed
 else
   echo "Vertminer is already up-to-date"
@@ -213,14 +218,13 @@ then
   cat ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz | tar -xJC ${NVOC_MINERS}/ethminer/0.14.0/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ethminer/0.14.0/ethminer
   stop-if-needed "[e]thminer"
-  cd ${NVOC_MINERS}/ethminer
-  if [[ -L "latest" && -d "latest" ]]
+  if [[ -L "${NVOC_MINERS}/ethminer/latest" && -d "${NVOC_MINERS}/ethminer/latest" ]]
   then
-    rm latest
+    rm ${NVOC_MINERS}/ethminer/latest
   else
-    rm -rf latest
+    rm -rf ${NVOC_MINERS}/ethminer/latest
   fi
-  ln -s "${NVOC_MINERS}/ethminer/0.14.0" latest
+  ln -s 0.14.0 "${NVOC_MINERS}/ethminer/latest"
   restart-if-needed
 else
   echo "ethminer is already up-to-date"
