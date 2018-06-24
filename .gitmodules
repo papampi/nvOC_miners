@@ -31,3 +31,6 @@
 [submodule "xmr-stak/src"]
 	path = xmr-stak/src
 	url = https://github.com/fireice-uk/xmr-stak
+[submodule "SUPRminer/src"]
+	path = SUPRminer/src
+	url = https://github.com/ocminer/suprminer
