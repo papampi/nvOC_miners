@@ -34,3 +34,6 @@
 [submodule "SUPRminer/src"]
 	path = SUPRminer/src
 	url = https://github.com/ocminer/suprminer
+[submodule "cpuOPT/src"]
+	path = cpuOPT/src
+	url = https://github.com/JayDDee/cpuminer-opt
