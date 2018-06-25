@@ -2,7 +2,7 @@
 
 Here is a quick how-to for reference.
 
-##Init miners repo
+## Init miners repo
 as nvOC submodule from nvOC installation path:
 
 `git submodule update --init --depth 1 --remote miners`
@@ -11,7 +11,7 @@ or alternatively init as standalone repo:
 
 `git clone https://github.com/papampi/nvOC_miners miners`
 
-##Install or update miners
+## Install or update miners
 assuming no changes into local miners repo:
 
 `cd miners`
@@ -26,7 +26,7 @@ assuming no changes into local miners repo:
 
 otherwise either revert or stash before
 
-##For contributors: release a miner (added or updated) as binary package:
+## For contributors: release a miner (added or updated) as binary package:
 - create the installer section in the first part of `nvOC_miner_update.sh`
 - create a coherent compressed tarball (in XZ format) with only the binaries needed to run and a `version` test file containing either the version number as it appears in the name of github release tag in the miner developer repository, or a specific commit reference (hash)
 - place this tarball in a new folder inside `miners`, for example `mienrs/NEWminer`
