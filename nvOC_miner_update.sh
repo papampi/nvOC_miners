@@ -290,6 +290,19 @@ else
   echo "MSFTccminer is already up-to-date"
 fi
 
+echo "Checking SUPRminer 1.5"
+if [ ! $(cat ${NVOC_MINERS}/SUPRminer/version | grep 1.5) ]
+then
+  echo "Extracting SUPRminer"
+  mkdir -p ${NVOC_MINERS}/SUPRminer/
+  stop-if-needed "[S]UPRminer"
+  cat ${NVOC_MINERS}/SUPRminer/SUPRminer-1.5.tar.xz | tar -xJC ${NVOC_MINERS}/SUPRminer/ --strip 1
+  chmod a+x ${NVOC_MINERS}/SUPRminer/ccminer
+  restart-if-needed
+else
+  echo "SUPRminer is already up-to-date"
+fi
+
 echo""
 echo""
 echo "Extracting and checking new miners for nvOC-v0019-2.x finished"
@@ -456,6 +469,22 @@ function compile-MSFTccminer {
   restart-if-needed
 }
 
+function compile-SUPRccminer {
+  echo "Compiling SUPRminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/SUPRminer
+  cd ${NVOC_MINERS}/SUPRminer/src
+  bash ${NVOC_MINERS}/SUPRminer/src/autogen.sh
+  bash ${NVOC_MINERS}/SUPRminer/src/configure
+  bash ${NVOC_MINERS}/SUPRminer/src/build.sh
+  stop-if-needed "[S]UPRminer"
+  cp ${NVOC_MINERS}/SUPRminer/src/ccminer ${NVOC_MINERS}/SUPRminer/ccminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling SUPRminer"
+  restart-if-needed
+}
+
 function compile-xmr-stak {
   echo "Compiling xmr-stak"
   echo " This could take a while ..."
@@ -521,9 +550,10 @@ while true; do
   echo "8 - vertminer"
   echo "9 - ANXccminer"
   echo "R - MSFTccminer (RVN)"
+  echo "U - SUPRminer"
   echo "X - xmr-stak"
   echo
-  read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [X] [E]xit: " -a array
+  read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [U] [X] [E]xit: " -a array
   for choice in "${array[@]}"; do
     case "$choice" in
       [Aa]* ) echo "ALL"
@@ -557,6 +587,9 @@ while true; do
         compile-MSFTccminer
         echo
         echo
+        compile-SUPRminer
+        echo
+        echo
         compile-xmr-stak
         ;;
       [1]* ) echo -e "$choice"
@@ -588,6 +621,9 @@ while true; do
         ;;
       [R]* ) echo -e "$choice"
         compile-MSFTccminer
+        ;;
+      [U]* ) echo -e "$choice"
+        compile-SUPRminer
         ;;
       [X]* ) echo -e "$choice"
         compile-xmr-stak
