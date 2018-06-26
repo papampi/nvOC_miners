@@ -304,7 +304,7 @@ else
 fi
 
 echo "Checking cpuminer-opt "
-if [ ! $(cat ${NVOC_MINERS}/cpuOPT/version | grep 3.6.3) ]
+if [ ! $(cat ${NVOC_MINERS}/cpuOPT/version | grep 3.8.8.1) ]
 then
   echo "Extracting cpuminer"
   mkdir -p ${NVOC_MINERS}/cpuOPT/
