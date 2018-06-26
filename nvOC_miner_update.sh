@@ -514,8 +514,6 @@ function compile-xmr-stak {
   restart-if-needed
 }
 
-}
-
 function compile-cpuminer {
   echo "Compiling cpuminer"
   echo " This could take a while ..."
