@@ -303,6 +303,19 @@ else
   echo "SUPRminer is already up-to-date"
 fi
 
+echo "Checking cpuminer-opt "
+if [ ! $(cat ${NVOC_MINERS}/cpuOPT/version | grep 3.8.8.1) ]
+then
+  echo "Extracting cpuminer"
+  mkdir -p ${NVOC_MINERS}/cpuOPT/
+  stop-if-needed "[c]puminer"
+  cat ${NVOC_MINERS}/cpuOPT/cpuOPT.tar.xz | tar -xJC ${NVOC_MINERS}/cpuOPT/ --strip 1
+  chmod a+x ${NVOC_MINERS}/cpuOPT/cpuminer
+  restart-if-needed
+else
+  echo "cpuminer is already up-to-date"
+fi
+
 echo""
 echo""
 echo "Extracting and checking new miners for nvOC-v0019-2.x finished"
@@ -501,6 +514,24 @@ function compile-xmr-stak {
   restart-if-needed
 }
 
+}
+
+function compile-cpuminer {
+  echo "Compiling cpuminer"
+  echo " This could take a while ..."
+  git submodule update --init --depth 1 ${NVOC_MINERS}/cpuOPT
+  mkdir ${NVOC_MINERS}/cpuOPT/src/build
+  cd ${NVOC_MINERS}/cpuOPT/src/build
+  cmake ..
+  make install
+  stop-if-needed "[c]puminer"
+  cp ${NVOC_MINERS}/cpuOPT/src/build/cpuminer ${NVOC_MINERS}/cpuOPT/cpuminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling cpuminer"
+  restart-if-needed
+}
+
 if [[ $1 == "--no-recompile" ]]; then
   echo "Done."
   echo "Recompilation skipped."
@@ -549,11 +580,12 @@ while true; do
   echo "7 - TPccminer"
   echo "8 - vertminer"
   echo "9 - ANXccminer"
+  echo "C - cpuminer"
   echo "R - MSFTccminer (RVN)"
   echo "U - SUPRminer"
   echo "X - xmr-stak"
   echo
-  read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [R] [U] [X] [E]xit: " -a array
+  read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [C] [R] [U] [X] [E]xit: " -a array
   for choice in "${array[@]}"; do
     case "$choice" in
       [Aa]* ) echo "ALL"
@@ -591,6 +623,9 @@ while true; do
         echo
         echo
         compile-xmr-stak
+        echo
+        echo
+        compile-cpuminer
         ;;
       [1]* ) echo -e "$choice"
         compile-ASccminer
@@ -618,6 +653,9 @@ while true; do
         ;;
       [9]* ) echo -e "$choice"
         compile-ANXccminer
+        ;;
+      [C]* ) echo -e "$choice"
+        compile-cpuminer
         ;;
       [R]* ) echo -e "$choice"
         compile-MSFTccminer
