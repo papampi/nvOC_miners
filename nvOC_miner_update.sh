@@ -7,7 +7,7 @@ echo
 export NVOC_MINERS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 function stop-if-needed {
-  if ps ax | grep miner | grep -q $1
+  if ps ax | grep miner | grep -q "$1"
   then
     echo "Stopping miner"
     pkill -f 5watchdog
