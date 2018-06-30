@@ -83,7 +83,7 @@ else
   echo "Silent Miner is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking Claymore v11.8"
 if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.8) ]
@@ -98,7 +98,7 @@ else
   echo "Claymore is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking SP Mod ccminer-1.8.2"
 if [ ! $(cat ${NVOC_MINERS}/SPccminer/version | grep 1.8.2) ]
@@ -113,7 +113,7 @@ else
   echo "SPccminer is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking alexis ccminer"
 if [ ! $(cat ${NVOC_MINERS}/ASccminer/version | grep 1.0) ]
@@ -128,7 +128,7 @@ else
   echo "ASccminer is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking Krnlx ccminer"
 if [ ! $(cat ${NVOC_MINERS}/KXccminer/version | grep skunk-krnlx) ]
@@ -143,7 +143,7 @@ else
   echo "KXccminer is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking Tpruvot ccminer-2.2.5"
 if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.5) ]
@@ -158,7 +158,7 @@ else
   echo "Tpruvot ccminer is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking KlausT ccminer 8.20"
 if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.20) ]
@@ -173,7 +173,7 @@ else
   echo "KlausT ccminer is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking Vertminer v1.0-stable.2 Release"
 if [ ! $( cat ${NVOC_MINERS}/vertminer/version | grep 1.0.2 ) ]
@@ -193,7 +193,7 @@ else
   echo "Vertminer is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking nanashi-ccminer-2.2-mod-r2"
 if [ ! $(cat ${NVOC_MINERS}/NAccminer/version | grep 2.2-mod-r2 ) ]
@@ -208,7 +208,7 @@ else
   echo "nanashi-ccminer is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking Ethminer 0.14.0"
 if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep 0.14.0) ]
@@ -230,7 +230,7 @@ else
   echo "ethminer is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking KTccminer-cryptonight v2.06"
 if [ ! $( cat ${NVOC_MINERS}/KTccminer-cryptonight/version | grep 2.06) ]
@@ -245,7 +245,7 @@ else
   echo "KTccminer-cryptonight is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking Equihash Bminer 8.0.0"
 if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep 8.0.0) ]
@@ -260,7 +260,7 @@ else
   echo "Bminer is already up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking ANXccminer (git@cd6fab68823e247bb84dd1fa0448d5f75ec4917d)"
 if [ ! $(cat ${NVOC_MINERS}/ANXccminer/version | grep cd6fab68823e247bb84dd1fa0448d5f75ec4917d) ]
@@ -275,7 +275,7 @@ else
   echo "ANXccminer is already at up-to-date"
 fi
 
-echo""
+echo
 
 echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
 if [ ! $(cat ${NVOC_MINERS}/MSFTccminer/version | grep 2.2.5-rvn) ]
@@ -290,6 +290,8 @@ else
   echo "MSFTccminer is already up-to-date"
 fi
 
+echo
+
 echo "Checking SUPRminer 1.5"
 if [ ! $(cat ${NVOC_MINERS}/SUPRminer/version | grep 1.5) ]
 then
@@ -302,6 +304,8 @@ then
 else
   echo "SUPRminer is already up-to-date"
 fi
+
+echo
 
 echo "Checking cpuminer-opt "
 if [ ! $(cat ${NVOC_MINERS}/cpuOPT/version | grep 3.8.8.1) ]
@@ -316,11 +320,11 @@ else
   echo "cpuminer is already up-to-date"
 fi
 
-echo""
-echo""
+echo
+echo
 echo "Extracting and checking new miners for nvOC-v0019-2.x finished"
-echo""
-echo""
+echo
+echo
 sleep 2
 
 function compile-ASccminer {
