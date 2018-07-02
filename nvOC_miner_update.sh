@@ -496,7 +496,7 @@ function compile-MSFTccminer {
   restart-if-needed
 }
 
-function compile-SUPRccminer {
+function compile-SUPRminer {
   echo "Compiling SUPRminer"
   echo " This could take a while ..."
   get-sources SUPRminer
