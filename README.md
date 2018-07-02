@@ -43,13 +43,15 @@ If recompilation support is needed:
 
 `git -C NEWminer submodule add https://repo_url src`
 
+- checkout the source tree referenced by its commit hash:
+
 `git -C NEWminer/src checkout RELEASE_COMMIT_HASH`
 
-then check that all went fine with:
+- then check that all went fine with:
 
 `git submodule status`
 
-And finally commit and push as usual:
+- finally, commit and push as usual:
 
 `git commit -m "Added NEWminer v0.1"`
 
@@ -72,13 +74,19 @@ If recompilation support is needed:
 
 `git -C NEWminer submodule update --init src`
 
+- it's likely your local repo has been previously cloned in shallow mode (nvOC miners compiling scripts attempt this by default to download less data) so to be able to checkout the latest release you have to unshallow it first:
+
+`git -C NEWminer/src fetch --unshallow`
+
+- checkout the updated tree referenced by its commit hash:
+
 `git -C NEWminer/src checkout RELEASE_COMMIT_HASH`
 
-then check that all went fine with:
+- hen check that all went fine with:
 
 `git submodule status`
 
-And finally commit and push as usual:
+- finally, commit and push as usual:
 
 `git commit -m "Updated NEWminer to v0.2"`
 

@@ -25,6 +25,16 @@ function restart-if-needed {
   fi
 }
 
+function get-sources {
+  SU_CMD="git -C ${NVOC_MINERS} submodule update --init --depth 1 $1"
+  if ${SU_CMD} | grep -q "fatal: reference is not a tree"
+  then
+    echo "Submodule target is not in tips, fetching full repo..."
+    git -C "${NVOC_MINERS}/$1/src" fetch --unshallow
+    ${SU_CMD}
+  fi
+}
+
 echo "Checking Equihash DSTM zm miner 0.6.1"
 if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6.1) ]
 then
@@ -330,7 +340,7 @@ sleep 2
 function compile-ASccminer {
   echo "Compiling alexis ccminer"
   echo "This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/ASccminer
+  get-sources ASccminer
   cd ${NVOC_MINERS}/ASccminer/src
   bash ${NVOC_MINERS}/ASccminer/src/autogen.sh
   bash ${NVOC_MINERS}/ASccminer/src/configure
@@ -345,7 +355,7 @@ function compile-ASccminer {
 function compile-KTccminer {
   echo "Compiling KlausT ccminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer
+  get-sources KTccminer
   cd ${NVOC_MINERS}/KTccminer/src
   bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
   bash ${NVOC_MINERS}/KTccminer/src/configure
@@ -361,7 +371,7 @@ function compile-KTccminer {
 function compile-KTccminer-cryptonight {
   echo "Compiling KlausT ccminer cryptonight"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/KTccminer-cryptonight
+  get-sources KTccminer-cryptonight
   cd ${NVOC_MINERS}/KTccminer-cryptonight/src
   bash ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
   bash ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
@@ -377,7 +387,7 @@ function compile-KTccminer-cryptonight {
 function compile-KXccminer {
   echo "Compiling krnlx ccminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/KXccminer
+  get-sources KXccminer
   cd ${NVOC_MINERS}/KXccminer/src
   bash ${NVOC_MINERS}/KXccminer/src/autogen.sh
   bash ${NVOC_MINERS}/KXccminer/src/configure
@@ -393,7 +403,7 @@ function compile-KXccminer {
 function compile-NAccminer {
   echo "Compiling Nanashi ccminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/NAccminer
+  get-sources NAccminer
   cd ${NVOC_MINERS}/NAccminer/src
   bash ${NVOC_MINERS}/NAccminer/src/autogen.sh
   bash ${NVOC_MINERS}/NAccminer/src/configure
@@ -409,7 +419,7 @@ function compile-NAccminer {
 function compile-SPccminer {
   echo "Compiling SPccminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/SPccminer
+  get-sources SPccminer
   cd ${NVOC_MINERS}/SPccminer/src
   bash ${NVOC_MINERS}/SPccminer/src/autogen.sh
   bash ${NVOC_MINERS}/SPccminer/src/configure
@@ -425,7 +435,7 @@ function compile-SPccminer {
 function compile-TPccminer {
   echo "Compiling tpruvot ccminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/TPccminer
+  get-sources TPccminer
   cd ${NVOC_MINERS}/TPccminer/src
   bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
   bash ${NVOC_MINERS}/TPccminer/src/configure
@@ -441,7 +451,7 @@ function compile-TPccminer {
 function compile-vertminer {
   echo "Compiling Vertminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/vertminer
+  get-sources vertminer
   cd ${NVOC_MINERS}/vertminer/src
   bash ${NVOC_MINERS}/vertminer/src/autogen.sh
   bash ${NVOC_MINERS}/vertminer/src/configure
@@ -457,7 +467,7 @@ function compile-vertminer {
 function compile-ANXccminer {
   echo "Compiling anorganix ccminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/ANXccminer
+  get-sources ANXccminer
   cd ${NVOC_MINERS}/ANXccminer/src
   bash ${NVOC_MINERS}/ANXccminer/src/autogen.sh
   bash ${NVOC_MINERS}/ANXccminer/src/configure
@@ -473,7 +483,7 @@ function compile-ANXccminer {
 function compile-MSFTccminer {
   echo "Compiling MSFTccminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/MSFTccminer
+  get-sources MSFTccminer
   cd ${NVOC_MINERS}/MSFTccminer/src
   bash ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
   bash ${NVOC_MINERS}/MSFTccminer/src/configure
@@ -489,7 +499,7 @@ function compile-MSFTccminer {
 function compile-SUPRccminer {
   echo "Compiling SUPRminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/SUPRminer
+  get-sources SUPRminer
   cd ${NVOC_MINERS}/SUPRminer/src
   bash ${NVOC_MINERS}/SUPRminer/src/autogen.sh
   bash ${NVOC_MINERS}/SUPRminer/src/configure
@@ -505,7 +515,7 @@ function compile-SUPRccminer {
 function compile-xmr-stak {
   echo "Compiling xmr-stak"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/xmr-stak
+  get-sources xmr-stak
   mkdir ${NVOC_MINERS}/xmr-stak/src/build
   cd ${NVOC_MINERS}/xmr-stak/src/build
   cmake ..
@@ -521,7 +531,7 @@ function compile-xmr-stak {
 function compile-cpuminer {
   echo "Compiling cpuminer"
   echo " This could take a while ..."
-  git submodule update --init --depth 1 ${NVOC_MINERS}/cpuOPT
+  get-sources cpuOPT
   mkdir ${NVOC_MINERS}/cpuOPT/src/build
   cd ${NVOC_MINERS}/cpuOPT/src/build
   cmake ..
