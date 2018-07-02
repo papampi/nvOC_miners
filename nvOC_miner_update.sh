@@ -27,9 +27,9 @@ function restart-if-needed {
 
 function get-sources {
   SU_CMD="git -C ${NVOC_MINERS} submodule update --init --depth 1 $1"
-  if ${SU_CMD} | grep -q "fatal: reference is not a tree"
+  if ! ${SU_CMD}
   then
-    echo "Submodule target is not in tips, fetching full repo..."
+    echo "Update from shallow clone failed, fetching full repo..."
     git -C "${NVOC_MINERS}/$1/src" fetch --unshallow
     ${SU_CMD}
   fi
