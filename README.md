@@ -51,11 +51,18 @@ If recompilation support is needed:
 
 `git submodule status`
 
-- finally, commit and push as usual:
+- finally, add and commit the change as usual:
+
+`git add NEWminer/src`
 
 `git commit -m "Added NEWminer v0.1"`
 
+From now on, every time a submodule update is performed that tree will be checked out.
+If you have write access to nvOC_miners repo or you worked from your own fork, you could now do
+
 `git push`
+
+to publish your update on the remote GitHub repo and open a new Pull Request for your miner addition proposal to share it with all nvOC users.
 
 ## For contributors: update an existing miner to this repo
 
@@ -68,9 +75,11 @@ If recompilation support is needed:
 ### Update source code submodule & compiler
 If recompilation support is needed:
 - check that necessary compile function in the second part of `nvOC_mienr_update.sh` is still working for the updated source tree
-- update the existing submodule reference:
+- reinit the existing submodule reference:
 
 `cd miners`
+
+`git -C NEWminer submodule deinit --force src`
 
 `git -C NEWminer submodule update --init src`
 
@@ -82,13 +91,19 @@ If recompilation support is needed:
 
 `git -C NEWminer/src checkout RELEASE_COMMIT_HASH`
 
-- hen check that all went fine with:
+- then check that all went fine with:
 
 `git submodule status`
 
-- finally, commit and push as usual:
+- finally, add and commit the change as usual:
+
+`git add NEWminer/src`
 
 `git commit -m "Updated NEWminer to v0.2"`
 
+From now on, every time a submodule update is performed the new release tree will be checked out.
+If you have write access to nvOC_miners repo or you worked from your own fork, you could now do
+
 `git push`
 
+to publish your update on the remote GitHub repo and open a new Pull Request for your miner update proposal to share it with all nvOC users.
