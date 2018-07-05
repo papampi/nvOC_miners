@@ -83,9 +83,13 @@ If recompilation support is needed:
 
 `git -C NEWminer submodule update --init src`
 
-- it's likely your local repo has been previously cloned in shallow mode (nvOC miners compiling scripts attempt this by default to download less data) so to be able to checkout the latest release you have to unshallow it first:
+- it's likely your local repo has been previously cloned in shallow mode (nvOC miners compiling scripts attempt this by default to download less data) so in case you want to checkout an older release you have to unshallow it first:
 
 `git -C NEWminer/src fetch --unshallow`
+
+- if you intend to update to a newer release you have to fetch into your previously cloned repo new commits:
+
+`git -C NEWminer/src fetch`
 
 - checkout the updated tree referenced by its commit hash:
 
