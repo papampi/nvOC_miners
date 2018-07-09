@@ -589,108 +589,104 @@ else
   cd ${NVOC_MINERS}
 fi
 
-while true; do
-  IFS=', '
-  echo "Select miners to compile (multiple comma separated values: 1,6,7)"
-  echo "1 - ASccminer"
-  echo "2 - KTccminer"
-  echo "3 - KTccminer-cryptonight"
-  echo "4 - KXccminer"
-  echo "5 - NAccminer"
-  echo "6 - SPccminer"
-  echo "7 - TPccminer"
-  echo "8 - vertminer"
-  echo "9 - ANXccminer"
-  echo "C - cpuminer"
-  echo "R - MSFTccminer (RVN)"
-  echo "U - SUPRminer"
-  echo "X - xmr-stak"
-  echo
-  read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [C] [R] [U] [X] [E]xit: " -a array
-  for choice in "${array[@]}"; do
-    case "$choice" in
-      [Aa]* ) echo "ALL"
-        compile-ASccminer
-        echo
-        echo
-        compile-KTccminer
-        echo
-        echo
-        compile-KTccminer-cryptonight
-        echo
-        echo
-        compile-KXccminer
-        echo
-        echo
-        compile-NAccminer
-        echo 
-        echo
-        compile-SPccminer
-        echo
-        echo
-        compile-TPccminer
-        echo
-        echo
-        compile-vertminer
-        echo
-        echo
-        compile-ANXccminer
-        echo
-        echo
-        compile-MSFTccminer
-        echo
-        echo
-        compile-SUPRminer
-        echo
-        echo
-        compile-xmr-stak
-        echo
-        echo
-        compile-cpuminer
-        ;;
-      [1]* ) echo -e "$choice"
-        compile-ASccminer
-        ;;
-      [2]* ) echo -e "$choice"
-        compile-KTccminer
-        ;;
-      [3]* ) echo -e "$choice\n"
-        compile-KTccminer-cryptonight
-        ;;
-      [4]* ) echo -e "$choice"
-        compile-KXccminer
-        ;;
-      [5]* ) echo -e "$choice"
-        compile-NAccminer
-        ;;
-      [6]* ) echo -e "$choice"
-        compile-SPccminer
-        ;;
-      [7]* ) echo -e "$choice"
-        compile-TPccminer
-        ;;
-      [8]* ) echo -e "$choice"
-        compile-vertminer
-        ;;
-      [9]* ) echo -e "$choice"
-        compile-ANXccminer
-        ;;
-      [C]* ) echo -e "$choice"
-        compile-cpuminer
-        ;;
-      [R]* ) echo -e "$choice"
-        compile-MSFTccminer
-        ;;
-      [U]* ) echo -e "$choice"
-        compile-SUPRminer
-        ;;
-      [X]* ) echo -e "$choice"
-        compile-xmr-stak
-        ;;
-      [Ee]* ) echo "exited by user"; exit;;
-      * ) echo "Are you kidding me???";;
-    esac
-  done
-  echo "Compilation finished, Want to compile more?"
-  echo
+IFS=', '
+echo "Select miners to compile (multiple comma separated values: 1,6,7)"
+echo "1 - ASccminer"
+echo "2 - KTccminer"
+echo "3 - KTccminer-cryptonight"
+echo "4 - KXccminer"
+echo "5 - NAccminer"
+echo "6 - SPccminer"
+echo "7 - TPccminer"
+echo "8 - vertminer"
+echo "9 - ANXccminer"
+echo "C - cpuminer"
+echo "R - MSFTccminer (RVN)"
+echo "U - SUPRminer"
+echo "X - xmr-stak"
+echo
+read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [C] [R] [U] [X] [E]xit: " -a array
+for choice in "${array[@]}"; do
+  case "$choice" in
+    [Aa]* ) echo "ALL"
+      compile-ASccminer
+      echo
+      echo
+      compile-KTccminer
+      echo
+      echo
+      compile-KTccminer-cryptonight
+      echo
+      echo
+      compile-KXccminer
+      echo
+      echo
+      compile-NAccminer
+      echo 
+      echo
+      compile-SPccminer
+      echo
+      echo
+      compile-TPccminer
+      echo
+      echo
+      compile-vertminer
+      echo
+      echo
+      compile-ANXccminer
+      echo
+      echo
+      compile-MSFTccminer
+      echo
+      echo
+      compile-SUPRminer
+      echo
+      echo
+      compile-xmr-stak
+      echo
+      echo
+      compile-cpuminer
+      ;;
+    [1]* ) echo -e "$choice"
+      compile-ASccminer
+      ;;
+    [2]* ) echo -e "$choice"
+      compile-KTccminer
+      ;;
+    [3]* ) echo -e "$choice\n"
+      compile-KTccminer-cryptonight
+      ;;
+    [4]* ) echo -e "$choice"
+      compile-KXccminer
+      ;;
+    [5]* ) echo -e "$choice"
+      compile-NAccminer
+      ;;
+    [6]* ) echo -e "$choice"
+      compile-SPccminer
+      ;;
+    [7]* ) echo -e "$choice"
+      compile-TPccminer
+      ;;
+    [8]* ) echo -e "$choice"
+      compile-vertminer
+      ;;
+    [9]* ) echo -e "$choice"
+      compile-ANXccminer
+      ;;
+    [C]* ) echo -e "$choice"
+      compile-cpuminer
+      ;;
+    [R]* ) echo -e "$choice"
+      compile-MSFTccminer
+      ;;
+    [U]* ) echo -e "$choice"
+      compile-SUPRminer
+      ;;
+    [X]* ) echo -e "$choice"
+      compile-xmr-stak
+      ;;
+    [Ee]* ) echo "exited by user"; break;;
+    * ) echo "Are you kidding me???";;
+  esac
 done
