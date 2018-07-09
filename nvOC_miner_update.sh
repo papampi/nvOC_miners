@@ -29,9 +29,18 @@ function get-sources {
   SU_CMD="git -C ${NVOC_MINERS}/$1 submodule update --init --force --depth 1 src"
   if ! ${SU_CMD}
   then
-    echo "Update from shallow clone failed, reinit and fetching old commits..."
+    echo "Update from shallow clone failed, fetching old commits..."
     git -C "${NVOC_MINERS}/$1/src" fetch --unshallow
-    ${SU_CMD}
+    if ! ${SU_CMD}
+    then
+      echo "Update from default branch failed, fetching other branches..."
+      git -C "${NVOC_MINERS}/$1/src" remote set-branches origin '*'
+      git -C "${NVOC_MINERS}/$1/src" fetch
+      if ! ${SU_CMD}
+      then
+        echo "Unable to update submodule, can't find target commit."
+      fi
+    fi
   fi
 }
 
