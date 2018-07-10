@@ -55,7 +55,7 @@ then
   chmod a+x ${NVOC_MINERS}/ewbf/v0_3/miner
   chmod a+x ${NVOC_MINERS}/ewbf/3_4/miner
   chmod a+x ${NVOC_MINERS}/ewbf/3_3/miner
-  stop-if-needed "[m]iner"
+  stop-if-needed "[e]wbf"
   if [[ -L "${NVOC_MINERS}/ewbf/latest" && -d "${NVOC_MINERS}/ewbf/latest" ]]
   then
     rm ${NVOC_MINERS}/ewbf/latest
