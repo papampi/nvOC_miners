@@ -53,12 +53,17 @@ then
   cat ${NVOC_MINERS}/ewbf/0.3.4b.tar.xz	.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/3_4/ --strip 1
   cat ${NVOC_MINERS}/ewbf/0.3.3b.tar.xz	.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/3_3/ --strip 1
   cat ${NVOC_MINERS}/ewbf/v0.3.tar.xz	.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/v0_3/ --strip 1
-  cat ${NVOC_MINERS}/ewbf/v0.3.tar.xz	.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ewbf/latest/miner  
   chmod a+x ${NVOC_MINERS}/ewbf/v0_3/miner
   chmod a+x ${NVOC_MINERS}/ewbf/3_4/miner
   chmod a+x ${NVOC_MINERS}/ewbf/3_3/miner
   restart-if-needed
+  if [[ -L "${NVOC_MINERS}/ewbf/latest" && -d "${NVOC_MINERS}/ewbf/latest" ]]
+  then
+    rm ${NVOC_MINERS}/ewbf/latest
+  else
+    rm -rf ${NVOC_MINERS}/ewbf/latest
+  fi
+  ln -s ${NVOC_MINERS}/ewbf/v0_3 "${NVOC_MINERS}/ewbf/latest"
 else
   echo "EWBF Equihash miner is already up-to-date"
 fi
