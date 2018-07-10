@@ -44,6 +44,32 @@ function get-sources {
   fi
 }
 
+echo "Checking EWBF Equihash miner "
+if [ ! $(cat ${NVOC_MINERS}/ewbf/latest/version | grep v0.3) ]
+then
+  echo "Extracting EWBF Equihash miner"
+  mkdir -p ${NVOC_MINERS}/ewbf/{latest,v0_3,3_4,3_3}
+  cat ${NVOC_MINERS}/ewbf/0.3.4b.tar.xz	.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/3_4/ --strip 1
+  cat ${NVOC_MINERS}/ewbf/0.3.3b.tar.xz	.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/3_3/ --strip 1
+  cat ${NVOC_MINERS}/ewbf/v0.3.tar.xz	.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/v0_3/ --strip 1
+  chmod a+x ${NVOC_MINERS}/ewbf/v0_3/miner
+  chmod a+x ${NVOC_MINERS}/ewbf/3_4/miner
+  chmod a+x ${NVOC_MINERS}/ewbf/3_3/miner
+  stop-if-needed "[e]wbf"
+  if [[ -L "${NVOC_MINERS}/ewbf/latest" && -d "${NVOC_MINERS}/ewbf/latest" ]]
+  then
+    rm ${NVOC_MINERS}/ewbf/latest
+  else
+    rm -rf ${NVOC_MINERS}/ewbf/latest
+  fi
+  ln -s ${NVOC_MINERS}/ewbf/v0_3 "${NVOC_MINERS}/ewbf/latest"
+  restart-if-needed
+else
+  echo "EWBF Equihash miner is already up-to-date"
+fi
+
+echo
+
 echo "Checking Equihash DSTM zm miner 0.6.1"
 if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6.1) ]
 then
