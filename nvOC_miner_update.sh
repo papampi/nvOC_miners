@@ -130,13 +130,13 @@ fi
 
 echo
 
-echo "Checking Claymore v11.8"
-if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.8) ]
+echo "Checking Claymore v11.9"
+if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.9) ]
 then
   echo "Extracting Claymore"
   mkdir -p ${NVOC_MINERS}/claymore/latest/
   stop-if-needed "[e]thdcrminer64"
-  cat ${NVOC_MINERS}/claymore/Claymore-v11.8.tar.xz | tar -xJC ${NVOC_MINERS}/claymore/latest/ --strip 1
+  cat ${NVOC_MINERS}/claymore/Claymore-v11.9.tar.xz | tar -xJC ${NVOC_MINERS}/claymore/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
   restart-if-needed
 else
