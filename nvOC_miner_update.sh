@@ -73,7 +73,7 @@ if [ ! $(cat ${NVOC_MINERS}/z_ewbf/latest/version | grep v0.3) ]
 then
   echo "Extracting EWBF ZHASH miner"
   mkdir -p ${NVOC_MINERS}/z_ewbf/{latest,v0_3}
-  cat ${NVOC_MINERS}/z_ewbf/v0.3.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/v0_3/ --strip 1
+  cat ${NVOC_MINERS}/z_ewbf/v0.3.tar.xz | tar -xJC ${NVOC_MINERS}/z_ewbf/v0_3/ --strip 1
   chmod a+x ${NVOC_MINERS}/z_ewbf/v0_3/miner
   stop-if-needed "[z]_ewbf"
   if [[ -L "${NVOC_MINERS}/z_ewbf/latest" && -d "${NVOC_MINERS}/z_ewbf/latest" ]]
