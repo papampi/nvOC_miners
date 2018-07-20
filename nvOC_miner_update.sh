@@ -60,7 +60,7 @@ then
   else
     rm -rf ${NVOC_MINERS}/ewbf/latest
   fi
-  ln -s ${NVOC_MINERS}/ewbf/v3_4 "${NVOC_MINERS}/ewbf/latest"
+  ln -s ${NVOC_MINERS}/ewbf/3_4 "${NVOC_MINERS}/ewbf/latest"
   restart-if-needed
 else
   echo "EWBF Equihash miner is already up-to-date"
