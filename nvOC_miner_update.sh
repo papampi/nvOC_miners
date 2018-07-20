@@ -74,7 +74,7 @@ then
   echo "Extracting EWBF ZHASH miner"
   mkdir -p ${NVOC_MINERS}/z_ewbf/latest/
   stop-if-needed "[z]_ewbf"
-  cat ${NVOC_MINERS}/z_ewbf/v0.3.tar.xz | tar -xJC ${NVOC_MINERS}/z_ewbf/latest/ --strip 1
+  cat ${NVOC_MINERS}/z_ewbf/z_ewbf_v0.3.tar.xz | tar -xJC ${NVOC_MINERS}/z_ewbf/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/z_ewbf/latest/miner
   restart-if-needed
 else
