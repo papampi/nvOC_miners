@@ -45,14 +45,12 @@ function get-sources {
 }
 
 echo "Checking EWBF Equihash miner "
-if [ ! $(cat ${NVOC_MINERS}/ewbf/latest/version | grep v0.3) ]
+if [ ! $(cat ${NVOC_MINERS}/ewbf/latest/version | grep 0.3.4b) ]
 then
   echo "Extracting EWBF Equihash miner"
-  mkdir -p ${NVOC_MINERS}/ewbf/{latest,v0_3,3_4,3_3}
+  mkdir -p ${NVOC_MINERS}/ewbf/{3_4,3_3}
   cat ${NVOC_MINERS}/ewbf/0.3.4b.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/3_4/ --strip 1
   cat ${NVOC_MINERS}/ewbf/0.3.3b.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/3_3/ --strip 1
-  cat ${NVOC_MINERS}/ewbf/v0.3.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/v0_3/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ewbf/v0_3/miner
   chmod a+x ${NVOC_MINERS}/ewbf/3_4/miner
   chmod a+x ${NVOC_MINERS}/ewbf/3_3/miner
   stop-if-needed "[e]wbf"
@@ -62,10 +60,25 @@ then
   else
     rm -rf ${NVOC_MINERS}/ewbf/latest
   fi
-  ln -s ${NVOC_MINERS}/ewbf/v0_3 "${NVOC_MINERS}/ewbf/latest"
+  ln -s ${NVOC_MINERS}/ewbf/v3_4 "${NVOC_MINERS}/ewbf/latest"
   restart-if-needed
 else
   echo "EWBF Equihash miner is already up-to-date"
+fi
+
+echo
+
+echo "Checking EWBF ZHASH miner "
+if [ ! $(cat ${NVOC_MINERS}/z_ewbf/latest/version | grep v0.3) ]
+then
+  echo "Extracting EWBF ZHASH miner"
+  mkdir -p ${NVOC_MINERS}/z_ewbf/latest/
+  stop-if-needed "[z]_ewbf"
+  cat ${NVOC_MINERS}/z_ewbf/v0.3.tar.xz | tar -xJC ${NVOC_MINERS}/z_ewbf/latest/ --strip 1
+  chmod a+x ${NVOC_MINERS}/z_ewbf/latest/miner
+  restart-if-needed
+else
+  echo "EWBF ZHASH miner is already up-to-date"
 fi
 
 echo
@@ -292,13 +305,13 @@ fi
 
 echo
 
-echo "Checking Equihash Bminer 8.0.0"
-if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep 8.0.0) ]
+echo "Checking Equihash Bminer 9.0.0"
+if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep v9.0.0) ]
 then
   echo "Extracting Bminer"
   mkdir -p ${NVOC_MINERS}/bminer/latest/
   stop-if-needed "[b]miner"
-  cat ${NVOC_MINERS}/bminer/bminer-v8.0.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
+  cat ${NVOC_MINERS}/bminer/bminer-v9.0.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
   restart-if-needed
 else
