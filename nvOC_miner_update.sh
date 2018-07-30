@@ -580,12 +580,10 @@ function compile-cpuminer {
   echo "Compiling cpuminer"
   echo " This could take a while ..."
   get-sources cpuOPT
-  mkdir ${NVOC_MINERS}/cpuOPT/src/build
-  cd ${NVOC_MINERS}/cpuOPT/src/build
-  cmake ..
-  make install
+  cd ${NVOC_MINERS}/cpuOPT/src
+  bash ${NVOC_MINERS}/cpuOPT/src/build.sh
   stop-if-needed "[c]puminer"
-  cp ${NVOC_MINERS}/cpuOPT/src/build/cpuminer ${NVOC_MINERS}/cpuOPT/cpuminer
+  cp ${NVOC_MINERS}/cpuOPT/src/cpuminer ${NVOC_MINERS}/cpuOPT/cpuminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling cpuminer"
