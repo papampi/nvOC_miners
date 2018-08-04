@@ -305,13 +305,13 @@ fi
 
 echo
 
-echo "Checking Equihash Bminer 9.0.0"
-if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep v9.0.0) ]
+echo "Checking Equihash Bminer 9.1.0"
+if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep v9.1.0) ]
 then
   echo "Extracting Bminer"
   mkdir -p ${NVOC_MINERS}/bminer/latest/
   stop-if-needed "[b]miner"
-  cat ${NVOC_MINERS}/bminer/bminer-v9.0.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
+  cat ${NVOC_MINERS}/bminer/bminer-v9.1.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
   restart-if-needed
 else
