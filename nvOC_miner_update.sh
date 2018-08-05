@@ -31,6 +31,7 @@ function restart-if-needed {
   fi
 }
 
+# Need dual source update for new miners with cuda 9 support
 function get-sources {
   SU_CMD="git -C ${NVOC_MINERS}/$1 submodule update --init --force --depth 1 src"
   if ! ${SU_CMD}
@@ -483,15 +484,27 @@ function compile-KTccminer {
   echo "Compiling KlausT ccminer"
   echo " This could take a while ..."
   get-sources KTccminer
-  cd ${NVOC_MINERS}/KTccminer/src
-  bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/KTccminer/src/configure
-  bash ${NVOC_MINERS}/KTccminer/src/build.sh
-  stop-if-needed "[K]Tccminer"
-  cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling KlausT ccminer"
+  if [[ $CUDA_VER == "8" ]]
+  then
+    cd ${NVOC_MINERS}/KTccminer/cuda-8_src
+    bash ${NVOC_MINERS}/KTccminer/cuda-8_src/autogen.sh
+    bash ${NVOC_MINERS}/KTccminer/cuda-8_src/configure --with-cuda=/usr/local/cuda-8
+    bash ${NVOC_MINERS}/KTccminer/cuda-8_src/build.sh
+    stop-if-needed "[K]Tccminer"
+    cp ${NVOC_MINERS}/KTccminer/cuda-8_src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
+    cd ${NVOC_MINERS}
+    echo
+  elif [[ $CUDA_VER == "9.2" ]]
+  then
+    cd ${NVOC_MINERS}/KTccminer/src
+    bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
+    bash ${NVOC_MINERS}/KTccminer/src/configure
+    bash ${NVOC_MINERS}/KTccminer/src/build.sh
+    stop-if-needed "[K]Tccminer"
+    cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
+    cd ${NVOC_MINERS}
+  fi
+  echo "Finished compiling KlausT ccminer with cuda $CUDA_VER"
   restart-if-needed
 }
 
