@@ -479,19 +479,65 @@ fi
 echo
 echo
 
-echo "Checking KTccminer-cryptonight v2.06"
-if ! grep -q "2.06" ${NVOC_MINERS}/KTccminer-cryptonight/version
+echo "Checking KTccminer-cryptonight"
+if ! grep -q "2.06" ${NVOC_MINERS}/KTccminer-cryptonight/2.06/version
 then
-  echo "Extracting KTccminer-cryptonight"
-  mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/
-  stop-if-needed "[K]Tccminer-cryptonight"
-  tar -xvJf ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight.tar.xz -C ${NVOC_MINERS}/KTccminer-cryptonight/ --strip 1
-  chmod a+x ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
+  echo "Extracting KTccminer-cryptonight 2.06 and making changes for CUDA-8"
+  mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/2.06/
+  tar -xvJf ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight.tar.xz -C ${NVOC_MINERS}/KTccminer-cryptonight/2.06/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/KTccminer-cryptonight/2.06/ccminer
+  stop-if-needed "[Z]ENEMYminer"
+  echo "KTccminer-cryptonight for CUDA-8 updated"
+  echo "Use 2.06 or recommended for KTccminer-cryptonight_VERSION in 1bash"
+  if [[ $CUDA_VER == "8" ]]
+  then
+    if [[ -L "${NVOC_MINERS}/KTccminer-cryptonight/recommended" && -d "${NVOC_MINERS}/KTccminer-cryptonight/recommended" ]]
+    then
+      rm ${NVOC_MINERS}/KTccminer-cryptonight/recommended
+    else
+      rm -rf ${NVOC_MINERS}/KTccminer-cryptonight/recommended
+    fi
+    ln -s "${NVOC_MINERS}/KTccminer-cryptonight/2.06" "${NVOC_MINERS}/KTccminer-cryptonight/recommended"
+  fi
   restart-if-needed
 else
-  echo "KTccminer-cryptonight is already up-to-date"
+  echo "KTccminer-cryptonight for CUDA-8 is already up-to-date"
+  echo "Use KTccminer-cryptonight_VERSION 2.06 or recommended in 1bash"
 fi
 
+if ! grep -q "3.05" ${NVOC_MINERS}/KTccminer-cryptonight/3.05/version
+then
+  echo "Extracting KTccminer-cryptonight and making changes for CUDA-9.2"
+  mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/3.05/
+  tar -xvJf ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight-3.05.tar.xz -C ${NVOC_MINERS}/KTccminer-cryptonight/3.05/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/KTccminer-cryptonight/3.05/ccminer
+  stop-if-needed "[Z]ENEMYminer"
+  echo "KTccminer-cryptonight for CUDA-9.2 updated"
+  echo "Use latest or recommended or 3.05 for KTccminer-cryptonight_VERSION in 1bash"
+  if [[ $CUDA_VER == "9.2" ]]
+  then
+    if [[ -L "${NVOC_MINERS}/KTccminer-cryptonight/latest" && -d "${NVOC_MINERS}/KTccminer-cryptonight/latest" ]]
+    then
+      rm ${NVOC_MINERS}/KTccminer-cryptonight/latest
+    else
+      rm -rf ${NVOC_MINERS}/KTccminer-cryptonight/latest
+    fi
+    if [[ -L "${NVOC_MINERS}/KTccminer-cryptonight/recommended" && -d "${NVOC_MINERS}/KTccminer-cryptonight/recommended" ]]
+    then
+      rm ${NVOC_MINERS}/KTccminer-cryptonight/recommended
+    else
+      rm -rf ${NVOC_MINERS}/KTccminer-cryptonight/recommended
+    fi
+    ln -s "${NVOC_MINERS}/KTccminer-cryptonight/3.05" "${NVOC_MINERS}/KTccminer-cryptonight/recommended"
+    ln -s "${NVOC_MINERS}/KTccminer-cryptonight/3.05" "${NVOC_MINERS}/KTccminer-cryptonight/latest"
+  fi
+  restart-if-needed
+else
+  echo "KTccminer-cryptonight for CUDA-9.2 is already up-to-date"
+  echo "Use KTccminer-cryptonight_VERSION latest or recommended or 3.05 in 1bash"
+fi
+
+echo
 echo
 
 echo "Checking Equihash Bminer 9.1.0"
