@@ -106,49 +106,67 @@ else
 fi
 
 echo
+echo
 
 echo "Checking Z-ENEMY miner"
-if [[ $CUDA_VER == "8" ]]
+if ! grep -q "1.10" ${NVOC_MINERS}/ZENEMYminer/1.10/version
 then
-  if ! grep -q "1.10" ${NVOC_MINERS}/ZENEMYminer/1.10/version
+  echo "Extracting Z-ENEMY miner 1.10 and making changes for CUDA-8"
+  mkdir -p ${NVOC_MINERS}/ZENEMYminer/1.10/
+  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/1.10/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/ZENEMYminer/1.10/ccminer
+  stop-if-needed "[Z]ENEMYminer"
+  echo "Z-ENEMY miner for CUDA-8 updated"
+  echo "Use 1.10 or recommended for ZENEMYminer_VERSION in bash"
+  if [[ $CUDA_VER == "8" ]]
   then
-    echo "Extracting and making changes Z-ENEMY miner for CUDA-8"
-    mkdir -p ${NVOC_MINERS}/ZENEMYminer/1.10/
-    tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/1.10/ --strip 1
-    chmod a+x  ${NVOC_MINERS}/ZENEMYminer/1.10/ccminer
-    stop-if-needed "[Z]ENEMYminer"
-    restart-if-needed
-    echo "Z-ENEMY miner for CUDA-8 updated"
-    echo "Use 1.10 for ZENEMYminer_VERSION in bash"
-  else
-    echo "Z-ENEMY miner for CUDA-8 is already up-to-date"
-    echo "Use 1.10 for ZENEMYminer_VERSION in bash"
+    if [[ -L "${NVOC_MINERS}/ZENEMYminer/recommended" && -d "${NVOC_MINERS}/ZENEMYminer/recommended" ]]
+    then
+      rm ${NVOC_MINERS}/ZENEMYminer/recommended
+    else
+      rm -rf ${NVOC_MINERS}/ZENEMYminer/recommended
+    fi
+    ln -s "${NVOC_MINERS}/ZENEMYminer/1.10" "${NVOC_MINERS}/ZENEMYminer/recommended"
   fi
-elif [[ $CUDA_VER == "9.2" ]]
+  restart-if-needed
+else
+  echo "Z-ENEMY miner for CUDA-8 is already up-to-date"
+  echo "Use ZENEMYminer_VERSION 1.10 or recommended in bash"
+fi
+
+if ! grep -q "1.14" ${NVOC_MINERS}/ZENEMYminer/1.14/version
 then
-  if ! grep -q "1.14" ${NVOC_MINERS}/ZENEMYminer/latest/version
+  echo "Extracting Z-ENEMY miner and making changes for CUDA-9.2"
+  mkdir -p ${NVOC_MINERS}/ZENEMYminer/1.14/
+  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.14-cuda92.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/1.14/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/ZENEMYminer/1.14/ccminer
+  stop-if-needed "[Z]ENEMYminer"
+  echo "Z-ENEMY miner for CUDA-9.2 updated"
+  echo "Use latest or recommended or 1.14 for ZENEMYminer_VERSION in bash"
+  if [[ $CUDA_VER == "9.2" ]]
   then
-    echo "Extracting and making changes Z-ENEMY miner for CUDA-9.2"
-    mkdir -p ${NVOC_MINERS}/ZENEMYminer/1.14/
-    tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.14-cuda92.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/1.14/ --strip 1
-    chmod a+x  ${NVOC_MINERS}/ZENEMYminer/1.14/ccminer
-    stop-if-needed "[Z]ENEMYminer"
     if [[ -L "${NVOC_MINERS}/ZENEMYminer/latest" && -d "${NVOC_MINERS}/ZENEMYminer/latest" ]]
     then
       rm ${NVOC_MINERS}/ZENEMYminer/latest
     else
       rm -rf ${NVOC_MINERS}/ZENEMYminer/latest
     fi
+    if [[ -L "${NVOC_MINERS}/ZENEMYminer/recommended" && -d "${NVOC_MINERS}/ZENEMYminer/recommended" ]]
+    then
+      rm ${NVOC_MINERS}/ZENEMYminer/recommended
+    else
+      rm -rf ${NVOC_MINERS}/ZENEMYminer/recommended
+    fi
+    ln -s "${NVOC_MINERS}/ZENEMYminer/1.14" "${NVOC_MINERS}/ZENEMYminer/recommended"
     ln -s "${NVOC_MINERS}/ZENEMYminer/1.14" "${NVOC_MINERS}/ZENEMYminer/latest"
-    restart-if-needed
-    echo "Z-ENEMY miner for CUDA-9.2 updated"
-    echo "Use 1.14 or latest for ZENEMYminer_VERSION in bash"
-  else
-    echo "Z-ENEMY miner for CUDA-9.2 is already up-to-date"
-    echo "Use 1.14 or latest for ZENEMYminer_VERSION in bash"
   fi
+  restart-if-needed
+else
+  echo "Z-ENEMY miner for CUDA-9.2 is already up-to-date"
+  echo "Use ZENEMYminer_VERSION latest or recommended or 1.14 in bash"
 fi
 
+echo
 echo
 
 echo "Checking xmr-stak 2.4.4"
