@@ -6,6 +6,12 @@ echo "Will check and restart miner if needed"
 echo
 export NVOC_MINERS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+CUDA_VER="8"
+if  nvcc --version | grep -v grep | grep -q "9.2"
+then
+  CUDA_VER="9.2"
+fi
+
 function stop-if-needed {
   if ps ax | grep miner | grep -q "$1"
   then
@@ -15,12 +21,6 @@ function stop-if-needed {
     NEED_RESTART="YES"
   fi
 }
-
-CUDA_VER="8"
-if  nvcc --version | grep -v grep | grep -q "9.2"
-then
-  CUDA_VER="9.2"
-fi
 
 function restart-if-needed {
   if [[ $NEED_RESTART == YES ]]
