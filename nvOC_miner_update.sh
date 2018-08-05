@@ -54,7 +54,7 @@ function get-sources {
 
 
 echo "Checking EWBF Equihash miner "
-if [ ! $(cat ${NVOC_MINERS}/ewbf/latest/version | grep -q "0.3.4b") ]
+if ! cat ${NVOC_MINERS}/ewbf/latest/version | grep -q "0.3.4b"
 then
   echo "Extracting EWBF Equihash miner"
   mkdir -p ${NVOC_MINERS}/ewbf/{3_4,3_3}
@@ -78,7 +78,7 @@ fi
 echo
 
 echo "Checking EWBF ZHASH miner "
-if [ ! $(cat ${NVOC_MINERS}/z_ewbf/latest/version | grep -q "v0.5") ]
+if ! cat ${NVOC_MINERS}/z_ewbf/latest/version | grep -q "v0.5"
 then
   echo "Extracting EWBF ZHASH miner"
   mkdir -p ${NVOC_MINERS}/z_ewbf/latest/
@@ -93,7 +93,7 @@ fi
 echo
 
 echo "Checking Equihash DSTM zm miner 0.6.1"
-if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep -q "0.6.1") ]
+if ! cat ${NVOC_MINERS}/dstm/latest/version | grep -q "0.6.1"
 then
   echo "Extracting DSTM zm miner"
   mkdir -p ${NVOC_MINERS}/dstm/latest/
@@ -110,7 +110,7 @@ echo
 echo "Checking Z-Enemy miner"
 if [[ $CUDA_VER == "8" ]]
 then
-  if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep -q "1.10") ]
+  if ! cat ${NVOC_MINERS}/ZENEMYminer/version | grep -q "1.10"
   then
     echo "Extracting z-enemy"
     mkdir -p ${NVOC_MINERS}/ZENEMYminer
@@ -123,7 +123,7 @@ then
   fi
 elif [[ $CUDA_VER == "9.2" ]]
 then
-  if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep -q "1.14") ]
+  if ! cat ${NVOC_MINERS}/ZENEMYminer/version | grep -q "1.14"
   then
     echo "Extracting z-enemy"
     mkdir -p ${NVOC_MINERS}/ZENEMYminer
@@ -139,7 +139,7 @@ fi
 echo
 
 echo "Checking xmr-stak 2.4.4"
-if [ ! $(cat  ${NVOC_MINERS}/xmr-stak/version | grep -q "2.4.4") ]
+if ! cat ${NVOC_MINERS}/xmr-stak/version | grep -q "2.4.4"
 then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr-stak
@@ -154,7 +154,7 @@ fi
 echo
 
 echo "Checking Silent Miner 1.1.0"
-if [ ! $(cat  ${NVOC_MINERS}/SILENTminer/version | grep -q "1.1.0") ]
+if ! cat  ${NVOC_MINERS}/SILENTminer/version | grep -q "1.1.0"
 then
   echo "Extracting Silent Miner"
   mkdir -p ${NVOC_MINERS}/SILENTminer
@@ -169,7 +169,7 @@ fi
 echo
 
 echo "Checking Claymore v11.9"
-if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep -q "11.9") ]
+if ! cat ${NVOC_MINERS}/claymore/latest/version | grep -q "11.9"
 then
   echo "Extracting Claymore"
   mkdir -p ${NVOC_MINERS}/claymore/latest/
@@ -184,7 +184,7 @@ fi
 echo
 
 echo "Checking SP Mod ccminer-1.8.2"
-if [ ! $(cat ${NVOC_MINERS}/SPccminer/version | grep -q "1.8.2") ]
+if ! cat ${NVOC_MINERS}/SPccminer/version | grep -q "1.8.2"
 then
   echo "Extracting SPccminer"
   mkdir -p ${NVOC_MINERS}/SPccminer/
@@ -199,7 +199,7 @@ fi
 echo
 
 echo "Checking alexis ccminer"
-if [ ! $(cat ${NVOC_MINERS}/ASccminer/version | grep -q "1.0") ]
+if ! cat ${NVOC_MINERS}/ASccminer/version | grep -q "1.0"
 then
   echo "Extracting ASccminer"
   mkdir -p ${NVOC_MINERS}/ASccminer/
@@ -214,7 +214,7 @@ fi
 echo
 
 echo "Checking Krnlx ccminer"
-if [ ! $(cat ${NVOC_MINERS}/KXccminer/version | grep -q "skunk-krnlx") ]
+if ! cat ${NVOC_MINERS}/KXccminer/version | grep -q "skunk-krnlx"
 then
   echo "Extracting KXccminer"
   mkdir -p ${NVOC_MINERS}/KXccminer/
@@ -231,7 +231,7 @@ echo
 echo "Checking Tpruvot ccminer"
 if [[ $CUDA_VER == "8" ]]
 then
-  if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep -q "2.2.5") ]
+  if ! cat ${NVOC_MINERS}/TPccminer/version | grep -q "2.2.5"
   then
     echo "Extracting Tpruvot"
     mkdir -p ${NVOC_MINERS}/TPccminer/
@@ -244,7 +244,7 @@ then
   fi
 elif [[ $CUDA_VER == "9.2" ]]
 then
-  if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep -q "2.3") ]
+  if ! cat ${NVOC_MINERS}/TPccminer/version | grep -q "2.3"
   then
     echo "Extracting Tpruvot"
     mkdir -p ${NVOC_MINERS}/TPccminer/
@@ -262,7 +262,7 @@ echo
 echo "Checking KlausT ccminer"
 if [[ $CUDA_VER == "8" ]]
 then
-  if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep -q "8.20") ]
+  if ! cat ${NVOC_MINERS}/KTccminer/version | grep -q "8.20"
   then
     echo "Extracting Klaust ccminer"
     mkdir -p ${NVOC_MINERS}/KTccminer/
@@ -275,7 +275,7 @@ then
   fi
 elif [[ $CUDA_VER == "9.2" ]]
 then
-  if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep -q "8.22") ]
+  if ! cat ${NVOC_MINERS}/KTccminer/version | grep -q "8.22"
   then
     echo "Extracting Klaust ccminer"
     mkdir -p ${NVOC_MINERS}/KTccminer/
@@ -291,7 +291,7 @@ fi
 echo
 
 echo "Checking Vertminer v1.0-stable.2 Release"
-if [ ! $( cat ${NVOC_MINERS}/vertminer/version | grep -q "1.0.2") ]
+if ! cat ${NVOC_MINERS}/vertminer/version | grep -q "1.0.2"
 then
   echo "Extracting vertminer"
   mkdir -p ${NVOC_MINERS}/vertminer/
@@ -311,7 +311,7 @@ fi
 echo
 
 echo "Checking nanashi-ccminer-2.2-mod-r2"
-if [ ! $(cat ${NVOC_MINERS}/NAccminer/version | grep -q "2.2-mod-r2" ) ]
+if ! cat ${NVOC_MINERS}/NAccminer/version | grep -q "2.2-mod-r2"
 then
   echo "Extracting nanashi ccminer"
   mkdir -p ${NVOC_MINERS}/NAccminer/
@@ -328,7 +328,7 @@ echo
 echo "Checking Ethminer"
 if [[ $CUDA_VER == "8" ]]
 then
-  if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep -q "0.14.0" ) ]
+  if ! cat ${NVOC_MINERS}/ethminer/latest/version | grep -q "0.14.0"
   then
     echo "Extracting and making changes for Ethminer"
     mkdir -p ${NVOC_MINERS}/ethminer/0.14.0/
@@ -348,7 +348,7 @@ then
   fi
 elif [[ $CUDA_VER == "9.2" ]]
 then
-  if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep -q "0.15.0" ) ]
+  if ! cat ${NVOC_MINERS}/ethminer/latest/version | grep -q "0.15.0"
   then
     echo "Extracting and making changes for Ethminer"
     mkdir -p ${NVOC_MINERS}/ethminer/0.15.0/
@@ -371,7 +371,7 @@ fi
 echo
 
 echo "Checking KTccminer-cryptonight v2.06"
-if [ ! $( cat ${NVOC_MINERS}/KTccminer-cryptonight/version | grep -q "2.06" ) ]
+if ! cat ${NVOC_MINERS}/KTccminer-cryptonight/version | grep -q "2.06"
 then
   echo "Extracting KTccminer-cryptonight"
   mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/
@@ -386,7 +386,7 @@ fi
 echo
 
 echo "Checking Equihash Bminer 9.1.0"
-if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep -q "v9.1.0" ) ]
+if ! cat ${NVOC_MINERS}/bminer/latest/version | grep -q "v9.1.0"
 then
   echo "Extracting Bminer"
   mkdir -p ${NVOC_MINERS}/bminer/latest/
@@ -401,7 +401,7 @@ fi
 echo
 
 echo "Checking ANXccminer (git@cd6fab68823e247bb84dd1fa0448d5f75ec4917d)"
-if [ ! $(cat ${NVOC_MINERS}/ANXccminer/version | grep -q "cd6fab68823e247bb84dd1fa0448d5f75ec4917d") ]
+if ! cat ${NVOC_MINERS}/ANXccminer/version | grep -q "cd6fab68823e247bb84dd1fa0448d5f75ec4917d"
 then
   echo "Extracting ANXccminer"
   mkdir -p ${NVOC_MINERS}/ANXccminer/
@@ -416,7 +416,7 @@ fi
 echo
 
 echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
-if [ ! $(cat ${NVOC_MINERS}/MSFTccminer/version | grep -q "2.2.5-rvn") ]
+if ! cat ${NVOC_MINERS}/MSFTccminer/version | grep -q "2.2.5-rvn"
 then
   echo "Extracting MSFT Tpruvot ccminer"
   mkdir -p ${NVOC_MINERS}/MSFTccminer/
@@ -431,7 +431,7 @@ fi
 echo
 
 echo "Checking SUPRminer 1.5"
-if [ ! $(cat ${NVOC_MINERS}/SUPRminer/version | grep -q "1.5" ) ]
+if ! cat ${NVOC_MINERS}/SUPRminer/version | grep -q "1.5"
 then
   echo "Extracting SUPRminer"
   mkdir -p ${NVOC_MINERS}/SUPRminer/
@@ -446,7 +446,7 @@ fi
 echo
 
 echo "Checking cpuminer-opt "
-if [ ! $(cat ${NVOC_MINERS}/cpuOPT/version | grep -q "3.8.8.1" ) ]
+if ! cat ${NVOC_MINERS}/cpuOPT/version | grep -q "3.8.8.1"
 then
   echo "Extracting cpuminer"
   mkdir -p ${NVOC_MINERS}/cpuOPT/
