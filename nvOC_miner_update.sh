@@ -58,8 +58,8 @@ if ! grep -q "0.3.4b" ${NVOC_MINERS}/ewbf/latest/version
 then
   echo "Extracting EWBF Equihash miner"
   mkdir -p ${NVOC_MINERS}/ewbf/{3_4,3_3}
-  tar -xvf ${NVOC_MINERS}/ewbf/0.3.4b.tar.xz -C ${NVOC_MINERS}/ewbf/3_4/ --strip 1
-  tar -xvf ${NVOC_MINERS}/ewbf/0.3.3b.tar.xz -C ${NVOC_MINERS}/ewbf/3_3/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ewbf/0.3.4b.tar.xz -C ${NVOC_MINERS}/ewbf/3_4/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ewbf/0.3.3b.tar.xz -C ${NVOC_MINERS}/ewbf/3_3/ --strip 1
   chmod a+x ${NVOC_MINERS}/ewbf/3_4/miner
   chmod a+x ${NVOC_MINERS}/ewbf/3_3/miner
   stop-if-needed "[e]wbf"
@@ -83,7 +83,7 @@ then
   echo "Extracting EWBF ZHASH miner"
   mkdir -p ${NVOC_MINERS}/z_ewbf/latest/
   stop-if-needed "[z]_ewbf"
-  tar -xvf ${NVOC_MINERS}/z_ewbf/z_ewbf_v0.5.tar.xz -C ${NVOC_MINERS}/z_ewbf/latest/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/z_ewbf/z_ewbf_v0.5.tar.xz -C ${NVOC_MINERS}/z_ewbf/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/z_ewbf/latest/miner
   restart-if-needed
 else
@@ -98,7 +98,7 @@ then
   echo "Extracting DSTM zm miner"
   mkdir -p ${NVOC_MINERS}/dstm/latest/
   stop-if-needed "[z]m_miner"
-  tar -xvf ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz -C ${NVOC_MINERS}/dstm/latest/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz -C ${NVOC_MINERS}/dstm/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/dstm/latest/zm_miner
   restart-if-needed
 else
@@ -115,7 +115,7 @@ then
     echo "Extracting z-enemy"
     mkdir -p ${NVOC_MINERS}/ZENEMYminer
     stop-if-needed "[Z]ENEMYminer"
-    tar -xvf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/ --strip 1
+    tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/ --strip 1
     chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
     restart-if-needed
   else
@@ -128,7 +128,7 @@ then
     echo "Extracting z-enemy"
     mkdir -p ${NVOC_MINERS}/ZENEMYminer
     stop-if-needed "[Z]ENEMYminer"
-    tar -xvf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.14-cuda92.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/ --strip 1
+    tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.14-cuda92.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/ --strip 1
     chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
     restart-if-needed
   else
@@ -144,7 +144,7 @@ then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr-stak
   stop-if-needed "[x]mr-stak"
-  tar -xvf ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr-stak/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr-stak/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
   restart-if-needed
 else
@@ -159,7 +159,7 @@ then
   echo "Extracting Silent Miner"
   mkdir -p ${NVOC_MINERS}/SILENTminer
   stop-if-needed "[S]ILENTminer"
-  tar -xvf ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz -C ${NVOC_MINERS}/SILENTminer/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz -C ${NVOC_MINERS}/SILENTminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/SILENTminer/ccminer
   restart-if-needed
 else
@@ -174,7 +174,7 @@ then
   echo "Extracting Claymore"
   mkdir -p ${NVOC_MINERS}/claymore/latest/
   stop-if-needed "[e]thdcrminer64"
-  tar -xvf ${NVOC_MINERS}/claymore/Claymore-v11.9.tar.xz -C ${NVOC_MINERS}/claymore/latest/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/claymore/Claymore-v11.9.tar.xz -C ${NVOC_MINERS}/claymore/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
   restart-if-needed
 else
@@ -189,7 +189,7 @@ then
   echo "Extracting SPccminer"
   mkdir -p ${NVOC_MINERS}/SPccminer/
   stop-if-needed "[S]Pccminer"
-  tar -xvf ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz -C ${NVOC_MINERS}/SPccminer/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz -C ${NVOC_MINERS}/SPccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/SPccminer/ccminer
   restart-if-needed
 else
@@ -204,7 +204,7 @@ then
   echo "Extracting ASccminer"
   mkdir -p ${NVOC_MINERS}/ASccminer/
   stop-if-needed "[A]Sccminer"
-  tar -xvf ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz -C ${NVOC_MINERS}/ASccminer/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz -C ${NVOC_MINERS}/ASccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ASccminer/ccminer
   restart-if-needed
 else
@@ -219,7 +219,7 @@ then
   echo "Extracting KXccminer"
   mkdir -p ${NVOC_MINERS}/KXccminer/
   stop-if-needed "[K]Xccminer"
-  tar -xvf ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz -C ${NVOC_MINERS}/KXccminer/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz -C ${NVOC_MINERS}/KXccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/KXccminer/ccminer
   restart-if-needed
 else
@@ -236,7 +236,7 @@ then
     echo "Extracting Tpruvot"
     mkdir -p ${NVOC_MINERS}/TPccminer/
     stop-if-needed "[T]Pccminer"
-    tar -xvf ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz -C ${NVOC_MINERS}/TPccminer/ --strip 1
+    tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz -C ${NVOC_MINERS}/TPccminer/ --strip 1
     chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
     restart-if-needed
   else
@@ -249,7 +249,7 @@ then
     echo "Extracting Tpruvot"
     mkdir -p ${NVOC_MINERS}/TPccminer/
     stop-if-needed "[T]Pccminer"
-    tar -xvf ${NVOC_MINERS}/TPccminer/TPccminer-2.3.tar.xz -C ${NVOC_MINERS}/TPccminer/ --strip 1
+    tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer-2.3.tar.xz -C ${NVOC_MINERS}/TPccminer/ --strip 1
     chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
     restart-if-needed
   else
@@ -267,7 +267,7 @@ then
     echo "Extracting Klaust ccminer"
     mkdir -p ${NVOC_MINERS}/KTccminer/
     stop-if-needed "[K]Tccminer"
-    tar -xvf ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz -C ${NVOC_MINERS}/KTccminer/ --strip 1
+    tar -xvJf ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz -C ${NVOC_MINERS}/KTccminer/ --strip 1
     chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
     restart-if-needed
   else
@@ -280,7 +280,7 @@ then
     echo "Extracting Klaust ccminer"
     mkdir -p ${NVOC_MINERS}/KTccminer/
     stop-if-needed "[K]Tccminer"
-    tar -xvf ${NVOC_MINERS}/KTccminer/KTccminer-8.22.tar.xz -C ${NVOC_MINERS}/KTccminer/ --strip 1
+    tar -xvJf ${NVOC_MINERS}/KTccminer/KTccminer-8.22.tar.xz -C ${NVOC_MINERS}/KTccminer/ --strip 1
     chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
     restart-if-needed
   else
@@ -296,7 +296,7 @@ then
   echo "Extracting vertminer"
   mkdir -p ${NVOC_MINERS}/vertminer/
   stop-if-needed "[v]ertminer"
-  tar -xvf ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz -C ${NVOC_MINERS}/vertminer/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz -C ${NVOC_MINERS}/vertminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/vertminer/vertminer
   if [[ -e ${NVOC_MINERS}/vertminer/ccminer ]]
   then
@@ -316,7 +316,7 @@ then
   echo "Extracting nanashi ccminer"
   mkdir -p ${NVOC_MINERS}/NAccminer/
   stop-if-needed "[N]Accminer"
-  tar -xvf ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz -C ${NVOC_MINERS}/NAccminer/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz -C ${NVOC_MINERS}/NAccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/NAccminer/ccminer
   restart-if-needed
 else
@@ -332,7 +332,7 @@ then
   then
     echo "Extracting and making changes for Ethminer"
     mkdir -p ${NVOC_MINERS}/ethminer/0.14.0/
-    tar -xvf ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz -C ${NVOC_MINERS}/ethminer/0.14.0/ --strip 1
+    tar -xvJf ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz -C ${NVOC_MINERS}/ethminer/0.14.0/ --strip 1
     chmod a+x  ${NVOC_MINERS}/ethminer/0.14.0/ethminer
     stop-if-needed "[e]thminer"
     if [[ -L "${NVOC_MINERS}/ethminer/latest" && -d "${NVOC_MINERS}/ethminer/latest" ]]
@@ -352,7 +352,7 @@ then
   then
     echo "Extracting and making changes for Ethminer"
     mkdir -p ${NVOC_MINERS}/ethminer/0.15.0/
-    tar -xvf ${NVOC_MINERS}/ethminer/ethminer-0.15.0.tar.xz -C ${NVOC_MINERS}/ethminer/0.15.0/ --strip 1
+    tar -xvJf ${NVOC_MINERS}/ethminer/ethminer-0.15.0.tar.xz -C ${NVOC_MINERS}/ethminer/0.15.0/ --strip 1
     chmod a+x  ${NVOC_MINERS}/ethminer/0.15.0/ethminer
     stop-if-needed "[e]thminer"
     if [[ -L "${NVOC_MINERS}/ethminer/latest" && -d "${NVOC_MINERS}/ethminer/latest" ]]
@@ -376,7 +376,7 @@ then
   echo "Extracting KTccminer-cryptonight"
   mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/
   stop-if-needed "[K]Tccminer-cryptonight"
-  tar -xvf ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight.tar.xz -C ${NVOC_MINERS}/KTccminer-cryptonight/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight.tar.xz -C ${NVOC_MINERS}/KTccminer-cryptonight/ --strip 1
   chmod a+x ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
   restart-if-needed
 else
@@ -391,7 +391,7 @@ then
   echo "Extracting Bminer"
   mkdir -p ${NVOC_MINERS}/bminer/latest/
   stop-if-needed "[b]miner"
-  tar -xvf ${NVOC_MINERS}/bminer/bminer-v9.1.0.tar.xz -C ${NVOC_MINERS}/bminer/latest/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/bminer/bminer-v9.1.0.tar.xz -C ${NVOC_MINERS}/bminer/latest/ --strip 1
   chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
   restart-if-needed
 else
@@ -406,7 +406,7 @@ then
   echo "Extracting ANXccminer"
   mkdir -p ${NVOC_MINERS}/ANXccminer/
   stop-if-needed "[A]NXccminer"
-  tar -xvf ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz -C ${NVOC_MINERS}/ANXccminer/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz -C ${NVOC_MINERS}/ANXccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/ANXccminer/ccminer
   restart-if-needed
 else
@@ -421,7 +421,7 @@ then
   echo "Extracting MSFT Tpruvot ccminer"
   mkdir -p ${NVOC_MINERS}/MSFTccminer/
   stop-if-needed "[M]SFTccminer"
-  tar -xvf ${NVOC_MINERS}/MSFTccminer/MSFTccminer.tar.xz -C ${NVOC_MINERS}/MSFTccminer/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/MSFTccminer/MSFTccminer.tar.xz -C ${NVOC_MINERS}/MSFTccminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/MSFTccminer/ccminer
   restart-if-needed
 else
@@ -436,7 +436,7 @@ then
   echo "Extracting SUPRminer"
   mkdir -p ${NVOC_MINERS}/SUPRminer/
   stop-if-needed "[S]UPRminer"
-  tar -xvf ${NVOC_MINERS}/SUPRminer/SUPRminer-1.5.tar.xz -C ${NVOC_MINERS}/SUPRminer/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/SUPRminer/SUPRminer-1.5.tar.xz -C ${NVOC_MINERS}/SUPRminer/ --strip 1
   chmod a+x ${NVOC_MINERS}/SUPRminer/ccminer
   restart-if-needed
 else
@@ -451,7 +451,7 @@ then
   echo "Extracting cpuminer"
   mkdir -p ${NVOC_MINERS}/cpuOPT/
   stop-if-needed "[c]puminer"
-  tar -xvf ${NVOC_MINERS}/cpuOPT/cpuOPT.tar.xz -C ${NVOC_MINERS}/cpuOPT/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/cpuOPT/cpuOPT.tar.xz -C ${NVOC_MINERS}/cpuOPT/ --strip 1
   chmod a+x ${NVOC_MINERS}/cpuOPT/cpuminer
   restart-if-needed
 else
