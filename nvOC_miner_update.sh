@@ -16,6 +16,12 @@ function stop-if-needed {
   fi
 }
 
+CUDA_VER="8"
+if  nvcc --version | grep -v grep | grep -q "9.2"
+then
+  CUDA_VER="9.2"
+fi
+
 function restart-if-needed {
   if [[ $NEED_RESTART == YES ]]
   then
@@ -43,6 +49,8 @@ function get-sources {
     fi
   fi
 }
+
+
 
 echo "Checking EWBF Equihash miner "
 if [ ! $(cat ${NVOC_MINERS}/ewbf/latest/version | grep 0.3.4b) ]
@@ -98,17 +106,33 @@ fi
 
 echo
 
-echo "Checking Z-Enemy 1.10"
-if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep 1.10) ]
+echo "Checking Z-Enemy miner"
+if [[ $CUDA_VER == "8" ]]
 then
-  echo "Extracting z-enemy"
-  mkdir -p ${NVOC_MINERS}/ZENEMYminer
-  stop-if-needed "[Z]ENEMYminer"
-  cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz | tar -xJC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
-  restart-if-needed
-else
-  echo "z-enemy is already up-to-date"
+  if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep 1.10) ]
+  then
+    echo "Extracting z-enemy"
+    mkdir -p ${NVOC_MINERS}/ZENEMYminer
+    stop-if-needed "[Z]ENEMYminer"
+    cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz | tar -xJC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
+    chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
+    restart-if-needed
+  else
+    echo "z-enemy is already up-to-date"
+  fi
+elif [[ $CUDA_VER == "9.2" ]]
+then
+  if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep 1.14) ]
+  then
+    echo "Extracting z-enemy"
+    mkdir -p ${NVOC_MINERS}/ZENEMYminer
+    stop-if-needed "[Z]ENEMYminer"
+    cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.14-cuda92.tar.xz | tar -xJC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
+    chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
+    restart-if-needed
+  else
+    echo "z-enemy is already up-to-date"
+  fi
 fi
 
 echo
@@ -203,32 +227,64 @@ fi
 
 echo
 
-echo "Checking Tpruvot ccminer-2.2.5"
-if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.5) ]
+echo "Checking Tpruvot ccminer"
+if [[ $CUDA_VER == "8" ]]
 then
-  echo "Extracting Tpruvot"
-  mkdir -p ${NVOC_MINERS}/TPccminer/
-  stop-if-needed "[T]Pccminer"
-  cat ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/TPccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
-  restart-if-needed
-else
-  echo "Tpruvot ccminer is already up-to-date"
+  if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.5) ]
+  then
+    echo "Extracting Tpruvot"
+    mkdir -p ${NVOC_MINERS}/TPccminer/
+    stop-if-needed "[T]Pccminer"
+    cat ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/TPccminer/ --strip 1
+    chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
+    restart-if-needed
+  else
+    echo "Tpruvot ccminer is already up-to-date"
+  fi
+elif [[ $CUDA_VER == "9.2" ]]
+then
+  if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.3) ]
+  then
+    echo "Extracting Tpruvot"
+    mkdir -p ${NVOC_MINERS}/TPccminer/
+    stop-if-needed "[T]Pccminer"
+    cat ${NVOC_MINERS}/TPccminer/TPccminer-2.3.tar.xz | tar -xJC ${NVOC_MINERS}/TPccminer/ --strip 1
+    chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
+    restart-if-needed
+  else
+    echo "Tpruvot ccminer is already up-to-date"
+  fi
 fi
 
 echo
 
-echo "Checking KlausT ccminer 8.20"
-if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.20) ]
+echo "Checking KlausT ccminer"
+if [[ $CUDA_VER == "8" ]]
 then
-  echo "Extracting Klaust ccminer"
-  mkdir -p ${NVOC_MINERS}/KTccminer/
-  stop-if-needed "[K]Tccminer"
-  cat ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
-  restart-if-needed
-else
-  echo "KlausT ccminer is already up-to-date"
+  if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.20) ]
+  then
+    echo "Extracting Klaust ccminer"
+    mkdir -p ${NVOC_MINERS}/KTccminer/
+    stop-if-needed "[K]Tccminer"
+    cat ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer/ --strip 1
+    chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
+    restart-if-needed
+  else
+    echo "KlausT ccminer is already up-to-date"
+  fi
+elif [[ $CUDA_VER == "9.2" ]]
+then
+  if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.22) ]
+  then
+    echo "Extracting Klaust ccminer"
+    mkdir -p ${NVOC_MINERS}/KTccminer/
+    stop-if-needed "[K]Tccminer"
+    cat ${NVOC_MINERS}/KTccminer/KTccminer-8.22.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer/ --strip 1
+    chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
+    restart-if-needed
+  else
+    echo "KlausT ccminer is already up-to-date"
+  fi
 fi
 
 echo
@@ -268,24 +324,47 @@ fi
 
 echo
 
-echo "Checking Ethminer 0.14.0"
-if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep 0.14.0) ]
+echo "Checking Ethminer"
+if [[ $CUDA_VER == "8" ]]
 then
-  echo "Extracting and making changes for Ethminer"
-  mkdir -p ${NVOC_MINERS}/ethminer/0.14.0/
-  cat ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz | tar -xJC ${NVOC_MINERS}/ethminer/0.14.0/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/ethminer/0.14.0/ethminer
-  stop-if-needed "[e]thminer"
-  if [[ -L "${NVOC_MINERS}/ethminer/latest" && -d "${NVOC_MINERS}/ethminer/latest" ]]
+  if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep 0.14.0) ]
   then
-    rm ${NVOC_MINERS}/ethminer/latest
+    echo "Extracting and making changes for Ethminer"
+    mkdir -p ${NVOC_MINERS}/ethminer/0.14.0/
+    cat ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz | tar -xJC ${NVOC_MINERS}/ethminer/0.14.0/ --strip 1
+    chmod a+x  ${NVOC_MINERS}/ethminer/0.14.0/ethminer
+    stop-if-needed "[e]thminer"
+    if [[ -L "${NVOC_MINERS}/ethminer/latest" && -d "${NVOC_MINERS}/ethminer/latest" ]]
+    then
+      rm ${NVOC_MINERS}/ethminer/latest
+    else
+      rm -rf ${NVOC_MINERS}/ethminer/latest
+    fi
+    ln -s 0.14.0 "${NVOC_MINERS}/ethminer/latest"
+    restart-if-needed
   else
-    rm -rf ${NVOC_MINERS}/ethminer/latest
+    echo "ethminer is already up-to-date"
   fi
-  ln -s 0.14.0 "${NVOC_MINERS}/ethminer/latest"
-  restart-if-needed
-else
-  echo "ethminer is already up-to-date"
+elif [[ $CUDA_VER == "9.2" ]]
+then
+  if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep 0.15.0) ]
+  then
+    echo "Extracting and making changes for Ethminer"
+    mkdir -p ${NVOC_MINERS}/ethminer/0.15.0/
+    cat ${NVOC_MINERS}/ethminer/ethminer-0.15.0.tar.xz | tar -xJC ${NVOC_MINERS}/ethminer/0.15.0/ --strip 1
+    chmod a+x  ${NVOC_MINERS}/ethminer/0.15.0/ethminer
+    stop-if-needed "[e]thminer"
+    if [[ -L "${NVOC_MINERS}/ethminer/latest" && -d "${NVOC_MINERS}/ethminer/latest" ]]
+    then
+      rm ${NVOC_MINERS}/ethminer/latest
+    else
+      rm -rf ${NVOC_MINERS}/ethminer/latest
+    fi
+    ln -s 0.15.0 "${NVOC_MINERS}/ethminer/latest"
+    restart-if-needed
+  else
+    echo "ethminer is already up-to-date"
+  fi
 fi
 
 echo
@@ -593,7 +672,7 @@ function compile-cpuminer {
 if [[ $1 == "--no-recompile" ]]; then
   echo "Done."
   echo "Recompilation skipped."
-  # complete unattended script execution
+# complete unattended script execution
   exit 0
 else
   echo -n "Do you want to re-compile your miners (y/N)?  "
@@ -659,7 +738,7 @@ for choice in "${array[@]}"; do
       echo
       echo
       compile-NAccminer
-      echo 
+      echo
       echo
       compile-SPccminer
       echo
