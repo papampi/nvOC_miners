@@ -484,7 +484,7 @@ if ! grep -q "2.06" ${NVOC_MINERS}/KTccminer_cryptonight/2.06/version
 then
   echo "Extracting KTccminer_cryptonight 2.06 and making changes for CUDA-8"
   mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/2.06/
-  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/KTccminer_cryptonight.tar.xz -C ${NVOC_MINERS}/KTccminer_cryptonight/2.06/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/KTccminer-cryptonight.tar.xz -C ${NVOC_MINERS}/KTccminer_cryptonight/2.06/ --strip 1
   chmod a+x  ${NVOC_MINERS}/KTccminer_cryptonight/2.06/ccminer
   stop-if-needed "[K]Tccminer_cryptonight"
   echo "KTccminer_cryptonight for CUDA-8 updated"
@@ -509,7 +509,7 @@ if ! grep -q "3.05" ${NVOC_MINERS}/KTccminer_cryptonight/3.05/version
 then
   echo "Extracting KTccminer_cryptonight and making changes for CUDA-9.2"
   mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/3.05/
-  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/KTccminer_cryptonight-3.05.tar.xz -C ${NVOC_MINERS}/KTccminer_cryptonight/3.05/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/KTccminer-cryptonight-3.05.tar.xz -C ${NVOC_MINERS}/KTccminer_cryptonight/3.05/ --strip 1
   chmod a+x  ${NVOC_MINERS}/KTccminer_cryptonight/3.05/ccminer
   stop-if-needed "[K]Tccminer_cryptonight"
   echo "KTccminer_cryptonight for CUDA-9.2 updated"
