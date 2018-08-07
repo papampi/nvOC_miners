@@ -106,8 +106,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/z_ewbf/latest
   fi
-  ln -s "${NVOC_MINERS}/z_ewbf/0.6.1/" "${NVOC_MINERS}/z_ewbf/recommended"
-  ln -s "${NVOC_MINERS}/z_ewbf/0.6.1/" "${NVOC_MINERS}/z_ewbf/latest"
+  ln -s "${NVOC_MINERS}/z_ewbf/0.5/" "${NVOC_MINERS}/z_ewbf/recommended"
+  ln -s "${NVOC_MINERS}/z_ewbf/0.5/" "${NVOC_MINERS}/z_ewbf/latest"
   restart-if-needed
 else
   echo "EWBF ZHASH miner is already up-to-date"
@@ -208,20 +208,27 @@ echo
 echo
 
 echo "Checking xmr-stak 2.4.4"
-if ! grep -q "2.4.4" ${NVOC_MINERS}/xmr-stak/2.4.4/version
+if ! grep -q "2.4.4" ${NVOC_MINERS}/xmr_stak/2.4.4/version
 then
   echo "Extracting xmr-stak"
-  mkdir -p ${NVOC_MINERS}/xmr-stak2.4.4/
+  mkdir -p ${NVOC_MINERS}/xmr_stak/2.4.4/
   stop-if-needed "[x]mr-stak"
-  tar -xvJf ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr-stak/2.4.4/ --strip 1
-  chmod a+x ${NVOC_MINERS}/xmr-stak/2.4.4/xmr-stak_miner
-  if [[ -L "${NVOC_MINERS}/xmr-stak/recommended" && -d "${NVOC_MINERS}/xmr-stak/recommended" ]]
+  tar -xvJf ${NVOC_MINERS}/xmr_stakxmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr_stak/2.4.4/ --strip 1
+  chmod a+x ${NVOC_MINERS}/xmr_stak/2.4.4/xmr_stak_miner
+  if [[ -L "${NVOC_MINERS}/xmr_stak/recommended" && -d "${NVOC_MINERS}/xmr_stak/recommended" ]]
   then
-    rm ${NVOC_MINERS}/xmr-stak/recommended
+    rm ${NVOC_MINERS}/xmr_stak/recommended
   else
-    rm -rf ${NVOC_MINERS}/xmr-stak/recommended
+    rm -rf ${NVOC_MINERS}/xmr_stak/recommended
   fi
-  ln -s "${NVOC_MINERS}/xmr-stak/2.4.4" "${NVOC_MINERS}/xmr-stak/recommended"
+  if [[ -L "${NVOC_MINERS}/xmr_stak/latest" && -d "${NVOC_MINERS}/xmr_stak/latest" ]]
+  then
+    rm ${NVOC_MINERS}/xmr_stak/latest
+  else
+    rm -rf ${NVOC_MINERS}/xmr_stak/latest
+  fi
+  ln -s "${NVOC_MINERS}/xmr_stak/2.4.4" "${NVOC_MINERS}/xmr_stak/recommended"
+  ln -s "${NVOC_MINERS}/xmr_stak/2.4.4" "${NVOC_MINERS}/xmr_stak/latest"
 
   restart-if-needed
 else
@@ -244,7 +251,14 @@ then
   else
     rm -rf ${NVOC_MINERS}/SILENTminer/recommended
   fi
+  if [[ -L "${NVOC_MINERS}/SILENTminer/latest" && -d "${NVOC_MINERS}/SILENTminer/latest" ]]
+  then
+    rm ${NVOC_MINERS}/SILENTminer/latest
+  else
+    rm -rf ${NVOC_MINERS}/SILENTminer/latest
+  fi
   ln -s "${NVOC_MINERS}/SILENTminer/1.1.0" "${NVOC_MINERS}/SILENTminer/recommended"
+  ln -s "${NVOC_MINERS}/SILENTminer/1.1.0" "${NVOC_MINERS}/SILENTminer/latest"
   restart-if-needed
 else
   echo "Silent Miner is already up-to-date"
@@ -295,7 +309,14 @@ then
   else
     rm -rf ${NVOC_MINERS}/SPccminer/recommended
   fi
+  if [[ -L "${NVOC_MINERS}/SPccminer/latest" && -d "${NVOC_MINERS}/SPccminer/latest" ]]
+  then
+    rm ${NVOC_MINERS}/SPccminer/latest
+  else
+    rm -rf ${NVOC_MINERS}/SPccminer/latest
+  fi
   ln -s "${NVOC_MINERS}/SPccminer/1.8.2" "${NVOC_MINERS}/SPccminer/recommended"
+  ln -s "${NVOC_MINERS}/SPccminer/1.8.2" "${NVOC_MINERS}/SPccminer/latest"
   restart-if-needed
 else
   echo "SPccminer is already up-to-date"
@@ -317,7 +338,14 @@ then
   else
     rm -rf ${NVOC_MINERS}/ASccminer/recommended
   fi
+  if [[ -L "${NVOC_MINERS}/ASccminer/latest" && -d "${NVOC_MINERS}/ASccminer/latest" ]]
+  then
+    rm ${NVOC_MINERS}/ASccminer/latest
+  else
+    rm -rf ${NVOC_MINERS}/ASccminer/latest
+  fi
   ln -s "${NVOC_MINERS}/ASccminer/1.0" "${NVOC_MINERS}/ASccminer/recommended"
+  ln -s "${NVOC_MINERS}/ASccminer/1.0" "${NVOC_MINERS}/ASccminer/latest"
   restart-if-needed
 else
   echo "ASccminer is already up-to-date"
@@ -339,7 +367,14 @@ then
   else
     rm -rf ${NVOC_MINERS}/KXccminer/recommended
   fi
+  if [[ -L "${NVOC_MINERS}/KXccminer/latest" && -d "${NVOC_MINERS}/KXccminer/latest" ]]
+  then
+    rm ${NVOC_MINERS}/KXccminer/latest
+  else
+    rm -rf ${NVOC_MINERS}/KXccminer/latest
+  fi
   ln -s "${NVOC_MINERS}/KXccminer/0.1" "${NVOC_MINERS}/KXccminer/recommended"
+  ln -s "${NVOC_MINERS}/KXccminer/0.1" "${NVOC_MINERS}/KXccminer/latest"
   restart-if-needed
 else
   echo "KXccminer is already up-to-date"
@@ -484,7 +519,14 @@ then
   else
     rm -rf ${NVOC_MINERS}/vertminer/recommended
   fi
+  if [[ -L "${NVOC_MINERS}/vertminer/latest" && -d "${NVOC_MINERS}/vertminer/latest" ]]
+  then
+    rm ${NVOC_MINERS}/vertminer/latest
+  else
+    rm -rf ${NVOC_MINERS}/vertminer/latest
+  fi
   ln -s "${NVOC_MINERS}/vertminer/1.0.2" "${NVOC_MINERS}/vertminer/recommended"
+  ln -s "${NVOC_MINERS}/vertminer/1.0.2" "${NVOC_MINERS}/vertminer/latest"
   restart-if-needed
 else
   echo "Vertminer is already up-to-date"
@@ -506,7 +548,14 @@ then
   else
     rm -rf ${NVOC_MINERS}/NAccminer/recommended
   fi
-  ln -s "${NVOC_MINERS}/NAccminer/2.2" "${NVOC_MINERS}/NAccminer/recommended"
+  if [[ -L "${NVOC_MINERS}/NAccminer/latest" && -d "${NVOC_MINERS}/NAccminer/latest" ]]
+  then
+    rm ${NVOC_MINERS}/NAccminer/latest
+  else
+    rm -rf ${NVOC_MINERS}/NAccminer/latest
+  fi
+  ln -s "${NVOC_MINERS}/NAccminer/2.2" "${NVOC_MINERS}/NAccminer/latest"
+  ln -s "${NVOC_MINERS}/NAccminer/2.2" "${NVOC_MINERS}/NAccminer/latest"
   restart-if-needed
 
 else
