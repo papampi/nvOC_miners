@@ -54,7 +54,7 @@ function get-sources {
 
 
 echo "Checking EWBF Equihash miner "
-if ! grep -q "0.3.4b" ${NVOC_MINERS}/ewbf/latest/version
+if ! grep -q "0.3.4b" ${NVOC_MINERS}/ewbf/3_4/version
 then
   echo "Extracting EWBF Equihash miner"
   mkdir -p ${NVOC_MINERS}/ewbf/{3_4,3_3}
@@ -69,7 +69,16 @@ then
   else
     rm -rf ${NVOC_MINERS}/ewbf/latest
   fi
+  if [[ -L "${NVOC_MINERS}/ewbf/recommended" && -d "${NVOC_MINERS}/ewbf/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/ewbf/recommended
+  else
+    rm -rf ${NVOC_MINERS}/ewbf/recommended
+  fi
+  if [[ -L "${NVOC_MINERS}/ewbf/latest" && -d "${NVOC_MINERS}/ewbf/latest" ]]
   ln -s ${NVOC_MINERS}/ewbf/3_4 "${NVOC_MINERS}/ewbf/latest"
+  ln -s ${NVOC_MINERS}/ewbf/3_4 "${NVOC_MINERS}/ewbf/recommended"
+
   restart-if-needed
 else
   echo "EWBF Equihash miner is already up-to-date"
@@ -78,13 +87,27 @@ fi
 echo
 
 echo "Checking EWBF ZHASH miner "
-if ! grep -q "v0.5" ${NVOC_MINERS}/z_ewbf/latest/version
+if ! grep -q "v0.5" ${NVOC_MINERS}/z_ewbf/0.5/version
 then
   echo "Extracting EWBF ZHASH miner"
-  mkdir -p ${NVOC_MINERS}/z_ewbf/latest/
+  mkdir -p ${NVOC_MINERS}/z_ewbf/0.5/
   stop-if-needed "[z]_ewbf"
-  tar -xvJf ${NVOC_MINERS}/z_ewbf/z_ewbf_v0.5.tar.xz -C ${NVOC_MINERS}/z_ewbf/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/z_ewbf/latest/miner
+  tar -xvJf ${NVOC_MINERS}/z_ewbf/z_ewbf_v0.5.tar.xz -C ${NVOC_MINERS}/z_ewbf/0.5/ --strip 1
+  chmod a+x ${NVOC_MINERS}/z_ewbf/0.5/miner
+  if [[ -L "${NVOC_MINERS}/z_ewbf/recommended" && -d "${NVOC_MINERS}/z_ewbf/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/z_ewbf/recommended
+  else
+    rm -rf ${NVOC_MINERS}/z_ewbf/recommended
+  fi
+  if [[ -L "${NVOC_MINERS}/z_ewbf/latest" && -d "${NVOC_MINERS}/z_ewbf/latest" ]]
+  then
+    rm ${NVOC_MINERS}/z_ewbf/latest
+  else
+    rm -rf ${NVOC_MINERS}/z_ewbf/latest
+  fi
+  ln -s "${NVOC_MINERS}/z_ewbf/0.6.1/" "${NVOC_MINERS}/z_ewbf/recommended"
+  ln -s "${NVOC_MINERS}/z_ewbf/0.6.1/" "${NVOC_MINERS}/z_ewbf/latest"
   restart-if-needed
 else
   echo "EWBF ZHASH miner is already up-to-date"
@@ -93,13 +116,28 @@ fi
 echo
 
 echo "Checking Equihash DSTM zm miner 0.6.1"
-if ! grep -q "0.6.1" ${NVOC_MINERS}/dstm/latest/version
+if ! grep -q "0.6.1" ${NVOC_MINERS}/dstm/0.6.1/version
 then
   echo "Extracting DSTM zm miner"
-  mkdir -p ${NVOC_MINERS}/dstm/latest/
+  mkdir -p ${NVOC_MINERS}/dstm/0.6.1/
   stop-if-needed "[z]m_miner"
-  tar -xvJf ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz -C ${NVOC_MINERS}/dstm/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/dstm/latest/zm_miner
+  tar -xvJf ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz -C ${NVOC_MINERS}/dstm/0.6.1/ --strip 1
+  chmod a+x ${NVOC_MINERS}/dstm/0.6.1/zm_miner
+  if [[ -L "${NVOC_MINERS}/dstm/recommended" && -d "${NVOC_MINERS}/dstm/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/dstm/recommended
+  else
+    rm -rf ${NVOC_MINERS}/dstm/recommended
+  fi
+  if [[ -L "${NVOC_MINERS}/dstm/latest" && -d "${NVOC_MINERS}/dstm/latest" ]]
+  then
+    rm ${NVOC_MINERS}/dstm/latest
+  else
+    rm -rf ${NVOC_MINERS}/dstm/latest
+  fi
+  ln -s "${NVOC_MINERS}/dstm/0.6.1/" "${NVOC_MINERS}/dstm/recommended"
+  ln -s "${NVOC_MINERS}/dstm/0.6.1/" "${NVOC_MINERS}/dstm/latest"
+
   restart-if-needed
 else
   echo "DSTM zm miner is already up-to-date"
@@ -170,13 +208,21 @@ echo
 echo
 
 echo "Checking xmr-stak 2.4.4"
-if ! grep -q "2.4.4" ${NVOC_MINERS}/xmr-stak/version
+if ! grep -q "2.4.4" ${NVOC_MINERS}/xmr-stak/2.4.4/version
 then
   echo "Extracting xmr-stak"
-  mkdir -p ${NVOC_MINERS}/xmr-stak
+  mkdir -p ${NVOC_MINERS}/xmr-stak2.4.4/
   stop-if-needed "[x]mr-stak"
-  tar -xvJf ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr-stak/ --strip 1
-  chmod a+x ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
+  tar -xvJf ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr-stak/2.4.4/ --strip 1
+  chmod a+x ${NVOC_MINERS}/xmr-stak/2.4.4/xmr-stak_miner
+  if [[ -L "${NVOC_MINERS}/xmr-stak/recommended" && -d "${NVOC_MINERS}/xmr-stak/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/xmr-stak/recommended
+  else
+    rm -rf ${NVOC_MINERS}/xmr-stak/recommended
+  fi
+  ln -s "${NVOC_MINERS}/xmr-stak/2.4.4" "${NVOC_MINERS}/xmr-stak/recommended"
+
   restart-if-needed
 else
   echo "xmr-stak is already up-to-date"
@@ -185,13 +231,20 @@ fi
 echo
 
 echo "Checking Silent Miner 1.1.0"
-if ! grep -q "1.1.0" ${NVOC_MINERS}/SILENTminer/version
+if ! grep -q "1.1.0" ${NVOC_MINERS}/SILENTminer/1.1.0/version
 then
   echo "Extracting Silent Miner"
-  mkdir -p ${NVOC_MINERS}/SILENTminer
+  mkdir -p ${NVOC_MINERS}/SILENTminer/1.1.0
   stop-if-needed "[S]ILENTminer"
-  tar -xvJf ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz -C ${NVOC_MINERS}/SILENTminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/SILENTminer/ccminer
+  tar -xvJf ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz -C ${NVOC_MINERS}/SILENTminer/1.1.0/ --strip 1
+  chmod a+x ${NVOC_MINERS}/SILENTminer/1.1.0/ccminer
+  if [[ -L "${NVOC_MINERS}/SILENTminer/recommended" && -d "${NVOC_MINERS}/SILENTminer/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/SILENTminer/recommended
+  else
+    rm -rf ${NVOC_MINERS}/SILENTminer/recommended
+  fi
+  ln -s "${NVOC_MINERS}/SILENTminer/1.1.0" "${NVOC_MINERS}/SILENTminer/recommended"
   restart-if-needed
 else
   echo "Silent Miner is already up-to-date"
@@ -200,13 +253,27 @@ fi
 echo
 
 echo "Checking Claymore v11.9"
-if ! grep -q "11.9" ${NVOC_MINERS}/claymore/latest/version
+if ! grep -q "11.9" ${NVOC_MINERS}/claymore/11.9/version
 then
   echo "Extracting Claymore"
-  mkdir -p ${NVOC_MINERS}/claymore/latest/
+  mkdir -p ${NVOC_MINERS}/claymore/11.9/
   stop-if-needed "[e]thdcrminer64"
-  tar -xvJf ${NVOC_MINERS}/claymore/Claymore-v11.9.tar.xz -C ${NVOC_MINERS}/claymore/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
+  tar -xvJf ${NVOC_MINERS}/claymore/Claymore-v11.9.tar.xz -C ${NVOC_MINERS}/claymore/11.9/ --strip 1
+  chmod a+x ${NVOC_MINERS}/claymore/11.9//ethdcrminer64
+  if [[ -L "${NVOC_MINERS}/claymore/recommended" && -d "${NVOC_MINERS}/claymore/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/claymore/recommended
+  else
+    rm -rf ${NVOC_MINERS}/claymore/recommended
+  fi
+  if [[ -L "${NVOC_MINERS}/claymore/latest" && -d "${NVOC_MINERS}/claymore/latest" ]]
+  then
+    rm ${NVOC_MINERS}/claymore/latest
+  else
+    rm -rf ${NVOC_MINERS}/claymore/latest
+  fi
+  ln -s "${NVOC_MINERS}/claymore/11.9/" "${NVOC_MINERS}/claymore/recommended"
+  ln -s "${NVOC_MINERS}/claymore/11.9/" "${NVOC_MINERS}/claymore/latest"
   restart-if-needed
 else
   echo "Claymore is already up-to-date"
@@ -215,13 +282,20 @@ fi
 echo
 
 echo "Checking SP Mod ccminer-1.8.2"
-if ! grep -q "1.8.2" ${NVOC_MINERS}/SPccminer/version
+if ! grep -q "1.8.2" ${NVOC_MINERS}/SPccminer/1.8.2/version
 then
   echo "Extracting SPccminer"
-  mkdir -p ${NVOC_MINERS}/SPccminer/
+  mkdir -p ${NVOC_MINERS}/SPccminer/1.8.2/
   stop-if-needed "[S]Pccminer"
-  tar -xvJf ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz -C ${NVOC_MINERS}/SPccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/SPccminer/ccminer
+  tar -xvJf ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz -C ${NVOC_MINERS}/SPccminer/1.8.2/ --strip 1
+  chmod a+x ${NVOC_MINERS}/SPccminer/1.8.2/ccminer
+  if [[ -L "${NVOC_MINERS}/SPccminer/recommended" && -d "${NVOC_MINERS}/SPccminer/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/SPccminer/recommended
+  else
+    rm -rf ${NVOC_MINERS}/SPccminer/recommended
+  fi
+  ln -s "${NVOC_MINERS}/SPccminer/1.8.2" "${NVOC_MINERS}/SPccminer/recommended"
   restart-if-needed
 else
   echo "SPccminer is already up-to-date"
@@ -230,13 +304,20 @@ fi
 echo
 
 echo "Checking alexis ccminer"
-if ! grep -q "1.0" ${NVOC_MINERS}/ASccminer/version
+if ! grep -q "1.0" ${NVOC_MINERS}/ASccminer/1.0/version
 then
   echo "Extracting ASccminer"
-  mkdir -p ${NVOC_MINERS}/ASccminer/
+  mkdir -p ${NVOC_MINERS}/ASccminer/1.0/
   stop-if-needed "[A]Sccminer"
-  tar -xvJf ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz -C ${NVOC_MINERS}/ASccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ASccminer/ccminer
+  tar -xvJf ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz -C ${NVOC_MINERS}/ASccminer/1.0/ --strip 1
+  chmod a+x ${NVOC_MINERS}/ASccminer/1.0/ccminer
+  if [[ -L "${NVOC_MINERS}/ASccminer/recommended" && -d "${NVOC_MINERS}/ASccminer/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/ASccminer/recommended
+  else
+    rm -rf ${NVOC_MINERS}/ASccminer/recommended
+  fi
+  ln -s "${NVOC_MINERS}/ASccminer/1.0" "${NVOC_MINERS}/ASccminer/recommended"
   restart-if-needed
 else
   echo "ASccminer is already up-to-date"
@@ -245,13 +326,20 @@ fi
 echo
 
 echo "Checking Krnlx ccminer"
-if ! grep -q "skunk-krnlx" ${NVOC_MINERS}/KXccminer/version
+if ! grep -q "skunk-krnlx" ${NVOC_MINERS}/KXccminer/0.1/version
 then
   echo "Extracting KXccminer"
-  mkdir -p ${NVOC_MINERS}/KXccminer/
+  mkdir -p ${NVOC_MINERS}/KXccminer/0.1/
   stop-if-needed "[K]Xccminer"
-  tar -xvJf ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz -C ${NVOC_MINERS}/KXccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/KXccminer/ccminer
+  tar -xvJf ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz -C ${NVOC_MINERS}/KXccminer/0.1/ --strip 1
+  chmod a+x ${NVOC_MINERS}/KXccminer/0.1/ccminer
+  if [[ -L "${NVOC_MINERS}/KXccminer/recommended" && -d "${NVOC_MINERS}/KXccminer/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/KXccminer/recommended
+  else
+    rm -rf ${NVOC_MINERS}/KXccminer/recommended
+  fi
+  ln -s "${NVOC_MINERS}/KXccminer/0.1" "${NVOC_MINERS}/KXccminer/recommended"
   restart-if-needed
 else
   echo "KXccminer is already up-to-date"
@@ -383,18 +471,20 @@ echo
 echo
 
 echo "Checking Vertminer v1.0-stable.2 Release"
-if ! grep -q "1.0.2" ${NVOC_MINERS}/vertminer/version
+if ! grep -q "1.0.2" ${NVOC_MINERS}/vertminer/1.0.2/version
 then
   echo "Extracting vertminer"
-  mkdir -p ${NVOC_MINERS}/vertminer/
+  mkdir -p ${NVOC_MINERS}/vertminer/1.0.2/
   stop-if-needed "[v]ertminer"
-  tar -xvJf ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz -C ${NVOC_MINERS}/vertminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/vertminer/vertminer
-  if [[ -e ${NVOC_MINERS}/vertminer/ccminer ]]
+  tar -xvJf ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz -C ${NVOC_MINERS}/vertminer/1.0.2/ --strip 1
+  chmod a+x ${NVOC_MINERS}/vertminer/1.0.2/vertminer
+  if [[ -L "${NVOC_MINERS}/vertminer/recommended" && -d "${NVOC_MINERS}/vertminer/recommended" ]]
   then
-    rm ${NVOC_MINERS}/vertminer/ccminer
+    rm ${NVOC_MINERS}/vertminer/recommended
+  else
+    rm -rf ${NVOC_MINERS}/vertminer/recommended
   fi
-  ln -s vertminer ${NVOC_MINERS}/vertminer/ccminer
+  ln -s "${NVOC_MINERS}/vertminer/1.0.2" "${NVOC_MINERS}/vertminer/recommended"
   restart-if-needed
 else
   echo "Vertminer is already up-to-date"
@@ -403,14 +493,22 @@ fi
 echo
 
 echo "Checking nanashi-ccminer-2.2-mod-r2"
-if ! grep -q "2.2-mod-r2" ${NVOC_MINERS}/NAccminer/version
+if ! grep -q "2.2-mod-r2" ${NVOC_MINERS}/NAccminer/2.2/version
 then
   echo "Extracting nanashi ccminer"
-  mkdir -p ${NVOC_MINERS}/NAccminer/
+  mkdir -p ${NVOC_MINERS}/NAccminer/2.2/
   stop-if-needed "[N]Accminer"
-  tar -xvJf ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz -C ${NVOC_MINERS}/NAccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/NAccminer/ccminer
+  tar -xvJf ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz -C ${NVOC_MINERS}/NAccminer/2.2/ --strip 1
+  chmod a+x ${NVOC_MINERS}/NAccminer/2.2/ccminer
+  if [[ -L "${NVOC_MINERS}/NAccminer/recommended" && -d "${NVOC_MINERS}/NAccminer/recommended" ]]
+  then
+    rm ${NVOC_MINERS}/NAccminer/recommended
+  else
+    rm -rf ${NVOC_MINERS}/NAccminer/recommended
+  fi
+  ln -s "${NVOC_MINERS}/NAccminer/2.2" "${NVOC_MINERS}/NAccminer/recommended"
   restart-if-needed
+
 else
   echo "nanashi-ccminer is already up-to-date"
 fi
