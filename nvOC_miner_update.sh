@@ -33,24 +33,44 @@ function restart-if-needed {
 
 # Need dual source update for new miners with cuda 9 support
 function get-sources {
-  SU_CMD="git -C ${NVOC_MINERS}/$1 submodule update --init --force --depth 1 src"
-  if ! ${SU_CMD}
+  if [[ $CUDA_VER == "8" ]]
   then
-    echo "Update from shallow clone failed, fetching old commits..."
-    git -C "${NVOC_MINERS}/$1/src" fetch --unshallow
+    SU_CMD="git -C ${NVOC_MINERS}/$1 submodule update --init --force --depth 1 src_cuda_8"
     if ! ${SU_CMD}
     then
-      echo "Update from default branch failed, fetching other branches..."
-      git -C "${NVOC_MINERS}/$1/src" remote set-branches origin '*'
-      git -C "${NVOC_MINERS}/$1/src" fetch
+      echo "Update from shallow clone failed, fetching old commits..."
+      git -C "${NVOC_MINERS}/$1/src_cuda_8" fetch --unshallow
       if ! ${SU_CMD}
       then
-        echo "Unable to update submodule, can't find target commit."
+        echo "Update from default branch failed, fetching other branches..."
+        git -C "${NVOC_MINERS}/$1/src_cuda_8" remote set-branches origin '*'
+        git -C "${NVOC_MINERS}/$1/src_cuda_8" fetch
+        if ! ${SU_CMD}
+        then
+          echo "Unable to update submodule, can't find target commit."
+        fi
+      fi
+    fi
+  elif [[ $CUDA_VER == "9.2" ]]
+  then
+    SU_CMD="git -C ${NVOC_MINERS}/$1 submodule update --init --force --depth 1 src_cuda_9"
+    if ! ${SU_CMD}
+    then
+      echo "Update from shallow clone failed, fetching old commits..."
+      git -C "${NVOC_MINERS}/$1/src_cuda_9" fetch --unshallow
+      if ! ${SU_CMD}
+      then
+        echo "Update from default branch failed, fetching other branches..."
+        git -C "${NVOC_MINERS}/$1/src_cuda_9" remote set-branches origin '*'
+        git -C "${NVOC_MINERS}/$1/src_cuda_9" fetch
+        if ! ${SU_CMD}
+        then
+          echo "Unable to update submodule, can't find target commit."
+        fi
       fi
     fi
   fi
 }
-
 
 
 echo "Checking EWBF Equihash miner "
@@ -75,10 +95,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/ewbf/recommended
   fi
-  if [[ -L "${NVOC_MINERS}/ewbf/latest" && -d "${NVOC_MINERS}/ewbf/latest" ]]
   ln -s ${NVOC_MINERS}/ewbf/3_4 "${NVOC_MINERS}/ewbf/latest"
   ln -s ${NVOC_MINERS}/ewbf/3_4 "${NVOC_MINERS}/ewbf/recommended"
-
   restart-if-needed
 else
   echo "EWBF Equihash miner is already up-to-date"
@@ -325,13 +343,14 @@ fi
 echo
 
 echo "Checking alexis ccminer"
-if ! grep -q "1.0" ${NVOC_MINERS}/ASccminer/1.0/version
+ASccminer_ver="1.0"
+if ! grep -q "1.0" ${NVOC_MINERS}/ASccminer/${ASccminer_ver}/version
 then
   echo "Extracting ASccminer"
-  mkdir -p ${NVOC_MINERS}/ASccminer/1.0/
+  mkdir -p ${NVOC_MINERS}/ASccminer/${ASccminer_ver}/
   stop-if-needed "[A]Sccminer"
-  tar -xvJf ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz -C ${NVOC_MINERS}/ASccminer/1.0/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ASccminer/1.0/ccminer
+  tar -xvJf ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz -C ${NVOC_MINERS}/ASccminer/${ASccminer_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/ASccminer/${ASccminer_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/ASccminer/recommended" && -d "${NVOC_MINERS}/ASccminer/recommended" ]]
   then
     rm ${NVOC_MINERS}/ASccminer/recommended
@@ -344,8 +363,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/ASccminer/latest
   fi
-  ln -s "${NVOC_MINERS}/ASccminer/1.0" "${NVOC_MINERS}/ASccminer/recommended"
-  ln -s "${NVOC_MINERS}/ASccminer/1.0" "${NVOC_MINERS}/ASccminer/latest"
+  ln -s "${NVOC_MINERS}/ASccminer/${ASccminer_ver}" "${NVOC_MINERS}/ASccminer/recommended"
+  ln -s "${NVOC_MINERS}/ASccminer/${ASccminer_ver}" "${NVOC_MINERS}/ASccminer/latest"
   restart-if-needed
 else
   echo "ASccminer is already up-to-date"
@@ -354,13 +373,14 @@ fi
 echo
 
 echo "Checking Krnlx ccminer"
-if ! grep -q "skunk-krnlx" ${NVOC_MINERS}/KXccminer/0.1/version
+KXccminer_ver="0.1"
+if ! grep -q "skunk-krnlx" ${NVOC_MINERS}/KXccminer/${KXccminer_ver}/version
 then
   echo "Extracting KXccminer"
-  mkdir -p ${NVOC_MINERS}/KXccminer/0.1/
+  mkdir -p ${NVOC_MINERS}/KXccminer/${KXccminer_ver}/
   stop-if-needed "[K]Xccminer"
-  tar -xvJf ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz -C ${NVOC_MINERS}/KXccminer/0.1/ --strip 1
-  chmod a+x ${NVOC_MINERS}/KXccminer/0.1/ccminer
+  tar -xvJf ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz -C ${NVOC_MINERS}/KXccminer/${KXccminer_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/KXccminer/${KXccminer_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/KXccminer/recommended" && -d "${NVOC_MINERS}/KXccminer/recommended" ]]
   then
     rm ${NVOC_MINERS}/KXccminer/recommended
@@ -373,8 +393,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/KXccminer/latest
   fi
-  ln -s "${NVOC_MINERS}/KXccminer/0.1" "${NVOC_MINERS}/KXccminer/recommended"
-  ln -s "${NVOC_MINERS}/KXccminer/0.1" "${NVOC_MINERS}/KXccminer/latest"
+  ln -s "${NVOC_MINERS}/KXccminer/${KXccminer_ver}" "${NVOC_MINERS}/KXccminer/recommended"
+  ln -s "${NVOC_MINERS}/KXccminer/${KXccminer_ver}" "${NVOC_MINERS}/KXccminer/latest"
   restart-if-needed
 else
   echo "KXccminer is already up-to-date"
@@ -384,42 +404,42 @@ echo
 echo
 
 echo "Checking tpruvot ccminer"
-if ! grep -q "2.2.5" ${NVOC_MINERS}/TPccminer/2.2.5/version
+if [[ $CUDA_VER == "8" ]]
 then
-  echo "Extracting tpruvot ccminer 2.2.5 and making changes for CUDA-8"
-  mkdir -p ${NVOC_MINERS}/TPccminer/2.2.5/
-  tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz -C ${NVOC_MINERS}/TPccminer/2.2.5/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/TPccminer/2.2.5/ccminer
-  stop-if-needed "[T]Pccminer"
-  echo "tpruvot ccminer for CUDA-8 updated"
-  echo "Use 2.2.5 or recommended for TPccminer_VERSION in 1bash"
-  if [[ $CUDA_VER == "8" ]]
+  TPccminer_ver="2.2.5"
+  if ! grep -q "${TPccminer_ver}" ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/version
   then
+    echo "Extracting tpruvot ccminer ${TPccminer_ver} and making changes for CUDA-8"
+    mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/
+    tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ --strip 1
+    chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ccminer
+    stop-if-needed "[T]Pccminer"
+    echo "tpruvot ccminer for CUDA-8 updated"
+    echo "Use ${TPccminer_ver} or recommended for TPccminer_VERSION in 1bash"
     if [[ -L "${NVOC_MINERS}/TPccminer/recommended" && -d "${NVOC_MINERS}/TPccminer/recommended" ]]
     then
       rm ${NVOC_MINERS}/TPccminer/recommended
     else
       rm -rf ${NVOC_MINERS}/TPccminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/TPccminer/2.2.5" "${NVOC_MINERS}/TPccminer/recommended"
+    ln -s "${NVOC_MINERS}/TPccminer/${TPccminer_ver}" "${NVOC_MINERS}/TPccminer/recommended"
+    restart-if-needed
+  else
+    echo "tpruvot ccminer for CUDA-8 is already up-to-date"
+    echo "Use TPccminer_VERSION 2.2.5 or recommended in 1bash"
   fi
-  restart-if-needed
-else
-  echo "tpruvot ccminer for CUDA-8 is already up-to-date"
-  echo "Use TPccminer_VERSION 2.2.5 or recommended in 1bash"
-fi
-
-if ! grep -q "2.3" ${NVOC_MINERS}/TPccminer/2.3/version
+elif [[ $CUDA_VER == "9.2" ]]
 then
-  echo "Extracting tpruvot ccminer and making changes for CUDA-9.2"
-  mkdir -p ${NVOC_MINERS}/TPccminer/2.3/
-  tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer-2.3.tar.xz -C ${NVOC_MINERS}/TPccminer/2.3/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/TPccminer/2.3/ccminer
-  stop-if-needed "[T]Pccminer"
-  echo "tpruvot ccminer for CUDA-9.2 updated"
-  echo "Use latest or recommended or 2.3 for TPccminer_VERSION in 1bash"
-  if [[ $CUDA_VER == "9.2" ]]
+  TPccminer_ver="2.3"
+  if ! grep -q "${TPccminer_ver}" ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/version
   then
+    echo "Extracting tpruvot ccminer and making changes for CUDA-9.2"
+    mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/
+    tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer-2.3.tar.xz -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ --strip 1
+    chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ccminer
+    stop-if-needed "[T]Pccminer"
+    echo "tpruvot ccminer for CUDA-9.2 updated"
+    echo "Use latest or recommended or ${TPccminer_ver} for TPccminer_VERSION in 1bash"
     if [[ -L "${NVOC_MINERS}/TPccminer/latest" && -d "${NVOC_MINERS}/TPccminer/latest" ]]
     then
       rm ${NVOC_MINERS}/TPccminer/latest
@@ -432,13 +452,13 @@ then
     else
       rm -rf ${NVOC_MINERS}/TPccminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/TPccminer/2.3" "${NVOC_MINERS}/TPccminer/recommended"
-    ln -s "${NVOC_MINERS}/TPccminer/2.3" "${NVOC_MINERS}/TPccminer/latest"
+    ln -s "${NVOC_MINERS}/TPccminer/${TPccminer_ver}" "${NVOC_MINERS}/TPccminer/recommended"
+    ln -s "${NVOC_MINERS}/TPccminer/${TPccminer_ver}" "${NVOC_MINERS}/TPccminer/latest"
   fi
   restart-if-needed
 else
   echo "tpruvot ccminer for CUDA-9.2 is already up-to-date"
-  echo "Use TPccminer_VERSION latest or recommended or 2.3 in 1bash"
+  echo "Use TPccminer_VERSION latest or recommended or ${TPccminer_ver} in 1bash"
 fi
 
 echo
@@ -837,6 +857,38 @@ echo
 echo
 sleep 2
 
+function compile-TPccminer {
+  echo "Compiling tpruvot ccminer"
+  echo " This could take a while ..."
+  if [[ $CUDA_VER == "8" ]]
+  then
+    get-sources TPccminer
+    cd ${NVOC_MINERS}/TPccminer/src_cuda_8
+    bash ${NVOC_MINERS}/TPccminer/src_cuda_8/autogen.sh
+    bash ${NVOC_MINERS}/TPccminer/src_cuda_8/configure --with-cuda=/usr/local/cuda-8.0
+    bash ${NVOC_MINERS}/TPccminer/src_cuda_8/build.sh
+    stop-if-needed "[T]Pccminer"
+    cp ${NVOC_MINERS}/TPccminer/src_cuda_8/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ccminer
+    cd ${NVOC_MINERS}
+    echo
+    echo "Finished compiling tpruvot ccminer"
+    restart-if-needed
+  elif [[ $CUDA_VER == "9.2" ]]
+  then
+    get-sources TPccminer
+    cd ${NVOC_MINERS}/TPccminer/src_cuda_9
+    bash ${NVOC_MINERS}/TPccminer/src_cuda_9/autogen.sh
+    bash ${NVOC_MINERS}/TPccminer/src_cuda_9/configure --with-cuda=/usr/local/cuda-9.2
+    bash ${NVOC_MINERS}/TPccminer/src_cuda_9/build.sh
+    stop-if-needed "[T]Pccminer"
+    cp ${NVOC_MINERS}/TPccminer/src_cuda_9/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ccminer
+    cd ${NVOC_MINERS}
+    echo
+    echo "Finished compiling tpruvot ccminer"
+    restart-if-needed
+  fi
+}
+
 function compile-ASccminer {
   echo "Compiling alexis ccminer"
   echo "This could take a while ..."
@@ -938,22 +990,6 @@ function compile-SPccminer {
   bash ${NVOC_MINERS}/SPccminer/src/build.sh
   stop-if-needed "[S]Pccminer"
   cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling tpruvot ccminer"
-  restart-if-needed
-}
-
-function compile-TPccminer {
-  echo "Compiling tpruvot ccminer"
-  echo " This could take a while ..."
-  get-sources TPccminer
-  cd ${NVOC_MINERS}/TPccminer/src
-  bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/TPccminer/src/configure
-  bash ${NVOC_MINERS}/TPccminer/src/build.sh
-  stop-if-needed "[T]Pccminer"
-  cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling tpruvot ccminer"
