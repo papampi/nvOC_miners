@@ -225,13 +225,13 @@ fi
 echo
 echo
 
-echo "Checking xmr-stak 2.4.4"
+echo "Checking xmr_stak 2.4.4"
 if ! grep -q "2.4.4" ${NVOC_MINERS}/xmr_stak/2.4.4/version
 then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr_stak/2.4.4/
   stop-if-needed "[x]mr-stak"
-  tar -xvJf ${NVOC_MINERS}/xmr_stakxmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr_stak/2.4.4/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/xmr_stak/xmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr_stak/2.4.4/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr_stak/2.4.4/xmr_stak_miner
   if [[ -L "${NVOC_MINERS}/xmr_stak/recommended" && -d "${NVOC_MINERS}/xmr_stak/recommended" ]]
   then
