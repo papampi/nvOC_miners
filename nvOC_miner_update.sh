@@ -104,7 +104,7 @@ claymore_tarball="Claymore-v11.9.tar.xz"
 dstm_ver="0.6.1"
 dstm_tarball="DSTM_0.6.1.tar.xz"
 
-ewbf_ver="3_4"
+ewbf_ver="3.4"
 ewbf_tarball="0.3.4b.tar.xz"
 
 z_ewbf_ver="0.5"
@@ -177,14 +177,14 @@ function get-sources {
 
 
 echo "Checking EWBF Equihash miner "
-if ! grep -q "0.3.4b" ${NVOC_MINERS}/ewbf/3_4/version
+if ! grep -q "${ewbf_ver}" ${NVOC_MINERS}/ewbf/${ewbf_ver}/version
 then
   echo "Extracting EWBF Equihash miner"
-  mkdir -p ${NVOC_MINERS}/ewbf/{3_4,3_3}
-  tar -xvJf ${NVOC_MINERS}/ewbf/${ewbf_tarball} -C ${NVOC_MINERS}/ewbf/3_4/ --strip 1
-  tar -xvJf ${NVOC_MINERS}/ewbf/0.3.3b.tar.xz -C ${NVOC_MINERS}/ewbf/3_3/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ewbf/3_4/miner
-  chmod a+x ${NVOC_MINERS}/ewbf/3_3/miner
+  mkdir -p ${NVOC_MINERS}/ewbf/{3.4,3.3}
+  tar -xvJf ${NVOC_MINERS}/ewbf/${ewbf_tarball} -C ${NVOC_MINERS}/ewbf/${ewbf_ver}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ewbf/0.3.3b.tar.xz -C ${NVOC_MINERS}/ewbf/3.3/ --strip 1
+  chmod a+x ${NVOC_MINERS}/ewbf/${ewbf_ver}/miner
+  chmod a+x ${NVOC_MINERS}/ewbf/3.3/miner
   stop-if-needed "[e]wbf"
   if [[ -L "${NVOC_MINERS}/ewbf/latest" && -d "${NVOC_MINERS}/ewbf/latest" ]]
   then
@@ -198,8 +198,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/ewbf/recommended
   fi
-  ln -s ${NVOC_MINERS}/ewbf/3_4 "${NVOC_MINERS}/ewbf/latest"
-  ln -s ${NVOC_MINERS}/ewbf/3_4 "${NVOC_MINERS}/ewbf/recommended"
+  ln -s ${NVOC_MINERS}/ewbf/${ewbf_ver} "${NVOC_MINERS}/ewbf/latest"
+  ln -s ${NVOC_MINERS}/ewbf/${ewbf_ver} "${NVOC_MINERS}/ewbf/recommended"
   restart-if-needed
 else
   echo "EWBF Equihash miner is already up-to-date"
