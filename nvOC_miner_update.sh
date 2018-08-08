@@ -12,38 +12,34 @@ then
   CUDA_VER="9.2"
 fi
 
-if [[ $CUDA_VER == "8" ]]
-then
-  ANXccminer_ver="1.0"
-  ASccminer_ver="1.0"
-  ethminer_ver="0.14.0"
-  KTccminer_ver="8.20"
-  KTccminer_cryptonight_ver="2.06"
-  KXccminer_ver="0.1"
-  MSFTccminer_ver="2.2.5"
-  NAccminer_ver="2.2"
-  SILENTminer_ver="1.10"
-  SPccminer_ver="1.8.2"
-  SUPRminer_ver="1.5"
-  TPccminer_ver="2.2.5"
-  vertminer_ver="1.0.2"
-  xmr_stak_ver="2.4.4"
-  ZENEMYminer_ver="1.10"
-elif [[ $CUDA_VER == "9.2" ]]
-then
-  ethminer_ver="0.15.0"
-  KTccminer_ver="8.22"
-  KTccminer_cryptonight_ver="2.06"
-  TPccminer_ver="2.3"
-  ZENEMYminer_ver="1.14"
-  xmr_stak_ver="2.4.7"
-fi
+ANXccminer_8_ver="1.0"
+ASccminer_8_ver="1.0"
+ethminer_8_ver="0.14.0"
+KTccminer_8_ver="8.20"
+KTccminer_cryptonight_8_ver="2.06"
+KXccminer_8_ver="0.1"
+MSFTccminer_8_ver="2.2.5"
+NAccminer_8_ver="2.2"
+SILENTminer_8_ver="1.10"
+SPccminer_8_ver="1.8.2"
+SUPRminer_8_ver="1.5"
+TPccminer_8_ver="2.2.5"
+vertminer_8_ver="1.0.2"
+xmr_stak_8_ver="2.4.4"
+ZENEMYminer_8_ver="1.10"
+
+ethminer_9_ver="0.15.0"
+KTccminer_9_ver="8.22"
+KTccminer_cryptonight_9_ver="3.05"
+TPccminer_9_ver="2.3"
+ZENEMYminer_9_ver="1.14"
+xmr_stak_9_ver="2.4.7"
 
 bminer_ver="9.1.0"
 claymore="11.9"
 dstm_ver="0.6.1"
 ewbf_ver="3_4"
-z_ewbf="0.5"
+z_ewbf_ver="0.5"
 
 cpuOPT_ver="3.8.8.1"
 
@@ -140,13 +136,13 @@ fi
 echo
 
 echo "Checking EWBF ZHASH miner "
-if ! grep -q "v0.5" ${NVOC_MINERS}/z_ewbf/0.5/version
+if ! grep -q "${z_ewbf_ver}" ${NVOC_MINERS}/z_ewbf/${z_ewbf_ver}/version
 then
   echo "Extracting EWBF ZHASH miner"
-  mkdir -p ${NVOC_MINERS}/z_ewbf/0.5/
+  mkdir -p ${NVOC_MINERS}/z_ewbf/${z_ewbf_ver}/
   stop-if-needed "[z]_ewbf"
-  tar -xvJf ${NVOC_MINERS}/z_ewbf/z_ewbf_v0.5.tar.xz -C ${NVOC_MINERS}/z_ewbf/0.5/ --strip 1
-  chmod a+x ${NVOC_MINERS}/z_ewbf/0.5/miner
+  tar -xvJf ${NVOC_MINERS}/z_ewbf/z_ewbf_v0.5.tar.xz -C ${NVOC_MINERS}/z_ewbf/${z_ewbf_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/z_ewbf/${z_ewbf_ver}/miner
   if [[ -L "${NVOC_MINERS}/z_ewbf/recommended" && -d "${NVOC_MINERS}/z_ewbf/recommended" ]]
   then
     rm ${NVOC_MINERS}/z_ewbf/recommended
@@ -159,8 +155,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/z_ewbf/latest
   fi
-  ln -s "${NVOC_MINERS}/z_ewbf/0.5/" "${NVOC_MINERS}/z_ewbf/recommended"
-  ln -s "${NVOC_MINERS}/z_ewbf/0.5/" "${NVOC_MINERS}/z_ewbf/latest"
+  ln -s "${NVOC_MINERS}/z_ewbf/${z_ewbf_ver}/" "${NVOC_MINERS}/z_ewbf/recommended"
+  ln -s "${NVOC_MINERS}/z_ewbf/${z_ewbf_ver}/" "${NVOC_MINERS}/z_ewbf/latest"
   restart-if-needed
 else
   echo "EWBF ZHASH miner is already up-to-date"
@@ -168,14 +164,14 @@ fi
 
 echo
 
-echo "Checking Equihash DSTM zm miner 0.6.1"
-if ! grep -q "0.6.1" ${NVOC_MINERS}/dstm/0.6.1/version
+echo "Checking Equihash DSTM zm miner ${dstm_ver}"
+if ! grep -q "${dstm_ver}" ${NVOC_MINERS}/dstm/${dstm_ver}/version
 then
   echo "Extracting DSTM zm miner"
-  mkdir -p ${NVOC_MINERS}/dstm/0.6.1/
+  mkdir -p ${NVOC_MINERS}/dstm/${dstm_ver}/
   stop-if-needed "[z]m_miner"
-  tar -xvJf ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz -C ${NVOC_MINERS}/dstm/0.6.1/ --strip 1
-  chmod a+x ${NVOC_MINERS}/dstm/0.6.1/zm_miner
+  tar -xvJf ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz -C ${NVOC_MINERS}/dstm/${dstm_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/dstm/${dstm_ver}/zm_miner
   if [[ -L "${NVOC_MINERS}/dstm/recommended" && -d "${NVOC_MINERS}/dstm/recommended" ]]
   then
     rm ${NVOC_MINERS}/dstm/recommended
@@ -188,8 +184,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/dstm/latest
   fi
-  ln -s "${NVOC_MINERS}/dstm/0.6.1/" "${NVOC_MINERS}/dstm/recommended"
-  ln -s "${NVOC_MINERS}/dstm/0.6.1/" "${NVOC_MINERS}/dstm/latest"
+  ln -s "${NVOC_MINERS}/dstm/${dstm_ver}/" "${NVOC_MINERS}/dstm/recommended"
+  ln -s "${NVOC_MINERS}/dstm/${dstm_ver}/" "${NVOC_MINERS}/dstm/latest"
 
   restart-if-needed
 else
@@ -200,15 +196,15 @@ echo
 echo
 
 echo "Checking Z-ENEMY miner"
-if ! grep -q "1.10" ${NVOC_MINERS}/ZENEMYminer/1.10/version
+if ! grep -q "${ZENEMYminer_8_ver}" ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_8_ver}/version
 then
-  echo "Extracting Z-ENEMY miner 1.10 and making changes for CUDA-8"
-  mkdir -p ${NVOC_MINERS}/ZENEMYminer/1.10/
-  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/1.10/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/ZENEMYminer/1.10/ccminer
+  echo "Extracting Z-ENEMY miner ${ZENEMYminer_8_ver} and making changes for CUDA-8"
+  mkdir -p ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_8_ver}/
+  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_8_ver}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_8_ver}/ccminer
   stop-if-needed "[Z]ENEMYminer"
   echo "Z-ENEMY miner for CUDA-8 updated"
-  echo "Use 1.10 or recommended for ZENEMYminer_VERSION in bash"
+  echo "Use ${ZENEMYminer_8_ver} or recommended for ZENEMYminer_VERSION in bash"
   if [[ $CUDA_VER == "8" ]]
   then
     if [[ -L "${NVOC_MINERS}/ZENEMYminer/recommended" && -d "${NVOC_MINERS}/ZENEMYminer/recommended" ]]
@@ -217,23 +213,23 @@ then
     else
       rm -rf ${NVOC_MINERS}/ZENEMYminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/ZENEMYminer/1.10" "${NVOC_MINERS}/ZENEMYminer/recommended"
+    ln -s "${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_8_ver}" "${NVOC_MINERS}/ZENEMYminer/recommended"
   fi
   restart-if-needed
 else
   echo "Z-ENEMY miner for CUDA-8 is already up-to-date"
-  echo "Use ZENEMYminer_VERSION 1.10 or recommended in bash"
+  echo "Use ZENEMYminer_VERSION ${ZENEMYminer_8_ver} or recommended in bash"
 fi
 
-if ! grep -q "1.14" ${NVOC_MINERS}/ZENEMYminer/1.14/version
+if ! grep -q "${ZENEMYminer_9_ver}" ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_9_ver}/version
 then
   echo "Extracting Z-ENEMY miner and making changes for CUDA-9.2"
-  mkdir -p ${NVOC_MINERS}/ZENEMYminer/1.14/
-  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.14-cuda92.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/1.14/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/ZENEMYminer/1.14/ccminer
+  mkdir -p ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_9_ver}/
+  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.14-cuda92.tar.xz -C ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_9_ver}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_9_ver}/ccminer
   stop-if-needed "[Z]ENEMYminer"
   echo "Z-ENEMY miner for CUDA-9.2 updated"
-  echo "Use latest or recommended or 1.14 for ZENEMYminer_VERSION in bash"
+  echo "Use latest or recommended or ${ZENEMYminer_9_ver} for ZENEMYminer_VERSION in bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
     if [[ -L "${NVOC_MINERS}/ZENEMYminer/latest" && -d "${NVOC_MINERS}/ZENEMYminer/latest" ]]
@@ -248,19 +244,19 @@ then
     else
       rm -rf ${NVOC_MINERS}/ZENEMYminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/ZENEMYminer/1.14" "${NVOC_MINERS}/ZENEMYminer/recommended"
-    ln -s "${NVOC_MINERS}/ZENEMYminer/1.14" "${NVOC_MINERS}/ZENEMYminer/latest"
+    ln -s "${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_9_ver}" "${NVOC_MINERS}/ZENEMYminer/recommended"
+    ln -s "${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_9_ver}" "${NVOC_MINERS}/ZENEMYminer/latest"
   fi
   restart-if-needed
 else
   echo "Z-ENEMY miner for CUDA-9.2 is already up-to-date"
-  echo "Use ZENEMYminer_VERSION latest or recommended or 1.14 in bash"
+  echo "Use ZENEMYminer_VERSION latest or recommended or ${ZENEMYminer_9_ver} in bash"
 fi
 
 echo
 echo
 
-echo "Checking xmr-stak 2.4.4"
+echo "Checking xmr_stak 2.4.4"
 if ! grep -q "2.4.4" ${NVOC_MINERS}/xmr_stak/2.4.4/version
 then
   echo "Extracting xmr-stak"
@@ -290,14 +286,14 @@ fi
 
 echo
 
-echo "Checking Silent Miner 1.1.0"
-if ! grep -q "1.1.0" ${NVOC_MINERS}/SILENTminer/1.1.0/version
+echo "Checking Silent Miner ${SILENTminer_8_ver}"
+if ! grep -q "${SILENTminer_8_ver}" ${NVOC_MINERS}/SILENTminer/${SILENTminer_8_ver}/version
 then
   echo "Extracting Silent Miner"
-  mkdir -p ${NVOC_MINERS}/SILENTminer/1.1.0
+  mkdir -p ${NVOC_MINERS}/SILENTminer/${SILENTminer_8_ver}
   stop-if-needed "[S]ILENTminer"
-  tar -xvJf ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz -C ${NVOC_MINERS}/SILENTminer/1.1.0/ --strip 1
-  chmod a+x ${NVOC_MINERS}/SILENTminer/1.1.0/ccminer
+  tar -xvJf ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz -C ${NVOC_MINERS}/SILENTminer/${SILENTminer_8_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/SILENTminer/${SILENTminer_8_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/SILENTminer/recommended" && -d "${NVOC_MINERS}/SILENTminer/recommended" ]]
   then
     rm ${NVOC_MINERS}/SILENTminer/recommended
@@ -310,8 +306,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/SILENTminer/latest
   fi
-  ln -s "${NVOC_MINERS}/SILENTminer/1.1.0" "${NVOC_MINERS}/SILENTminer/recommended"
-  ln -s "${NVOC_MINERS}/SILENTminer/1.1.0" "${NVOC_MINERS}/SILENTminer/latest"
+  ln -s "${NVOC_MINERS}/SILENTminer/${SILENTminer_8_ver}" "${NVOC_MINERS}/SILENTminer/recommended"
+  ln -s "${NVOC_MINERS}/SILENTminer/${SILENTminer_8_ver}" "${NVOC_MINERS}/SILENTminer/latest"
   restart-if-needed
 else
   echo "Silent Miner is already up-to-date"
@@ -319,14 +315,14 @@ fi
 
 echo
 
-echo "Checking Claymore v11.9"
-if ! grep -q "11.9" ${NVOC_MINERS}/claymore/11.9/version
+echo "Checking Claymore v${claymore_ver}"
+if ! grep -q "${claymore_ver}" ${NVOC_MINERS}/claymore/${claymore_ver}/version
 then
   echo "Extracting Claymore"
-  mkdir -p ${NVOC_MINERS}/claymore/11.9/
+  mkdir -p ${NVOC_MINERS}/claymore/${claymore_ver}/
   stop-if-needed "[e]thdcrminer64"
-  tar -xvJf ${NVOC_MINERS}/claymore/Claymore-v11.9.tar.xz -C ${NVOC_MINERS}/claymore/11.9/ --strip 1
-  chmod a+x ${NVOC_MINERS}/claymore/11.9//ethdcrminer64
+  tar -xvJf ${NVOC_MINERS}/claymore/Claymore-v11.9.tar.xz -C ${NVOC_MINERS}/claymore/${claymore_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/claymore/${claymore_ver}//ethdcrminer64
   if [[ -L "${NVOC_MINERS}/claymore/recommended" && -d "${NVOC_MINERS}/claymore/recommended" ]]
   then
     rm ${NVOC_MINERS}/claymore/recommended
@@ -339,8 +335,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/claymore/latest
   fi
-  ln -s "${NVOC_MINERS}/claymore/11.9/" "${NVOC_MINERS}/claymore/recommended"
-  ln -s "${NVOC_MINERS}/claymore/11.9/" "${NVOC_MINERS}/claymore/latest"
+  ln -s "${NVOC_MINERS}/claymore/${claymore_ver}/" "${NVOC_MINERS}/claymore/recommended"
+  ln -s "${NVOC_MINERS}/claymore/${claymore_ver}/" "${NVOC_MINERS}/claymore/latest"
   restart-if-needed
 else
   echo "Claymore is already up-to-date"
@@ -348,14 +344,14 @@ fi
 
 echo
 
-echo "Checking SP Mod ccminer-1.8.2"
-if ! grep -q "1.8.2" ${NVOC_MINERS}/SPccminer/1.8.2/version
+echo "Checking SP Mod ccminer-${SPccminer_8_ver}"
+if ! grep -q "${SPccminer_8_ver}" ${NVOC_MINERS}/SPccminer/${SPccminer_8_ver}/version
 then
   echo "Extracting SPccminer"
-  mkdir -p ${NVOC_MINERS}/SPccminer/1.8.2/
+  mkdir -p ${NVOC_MINERS}/SPccminer/${SPccminer_8_ver}/
   stop-if-needed "[S]Pccminer"
-  tar -xvJf ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz -C ${NVOC_MINERS}/SPccminer/1.8.2/ --strip 1
-  chmod a+x ${NVOC_MINERS}/SPccminer/1.8.2/ccminer
+  tar -xvJf ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz -C ${NVOC_MINERS}/SPccminer/${SPccminer_8_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/SPccminer/${SPccminer_8_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/SPccminer/recommended" && -d "${NVOC_MINERS}/SPccminer/recommended" ]]
   then
     rm ${NVOC_MINERS}/SPccminer/recommended
@@ -368,8 +364,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/SPccminer/latest
   fi
-  ln -s "${NVOC_MINERS}/SPccminer/1.8.2" "${NVOC_MINERS}/SPccminer/recommended"
-  ln -s "${NVOC_MINERS}/SPccminer/1.8.2" "${NVOC_MINERS}/SPccminer/latest"
+  ln -s "${NVOC_MINERS}/SPccminer/${SPccminer_8_ver}" "${NVOC_MINERS}/SPccminer/recommended"
+  ln -s "${NVOC_MINERS}/SPccminer/${SPccminer_8_ver}" "${NVOC_MINERS}/SPccminer/latest"
   restart-if-needed
 else
   echo "SPccminer is already up-to-date"
@@ -378,13 +374,13 @@ fi
 echo
 
 echo "Checking alexis ccminer"
-if ! grep -q "1.0" ${NVOC_MINERS}/ASccminer/${ASccminer_ver}/version
+if ! grep -q "${ASccminer_8_ver}" ${NVOC_MINERS}/ASccminer/${ASccminer_8_ver}/version
 then
   echo "Extracting ASccminer"
-  mkdir -p ${NVOC_MINERS}/ASccminer/${ASccminer_ver}/
+  mkdir -p ${NVOC_MINERS}/ASccminer/${ASccminer_8_ver}/
   stop-if-needed "[A]Sccminer"
-  tar -xvJf ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz -C ${NVOC_MINERS}/ASccminer/${ASccminer_ver}/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ASccminer/${ASccminer_ver}/ccminer
+  tar -xvJf ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz -C ${NVOC_MINERS}/ASccminer/${ASccminer_8_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/ASccminer/${ASccminer_8_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/ASccminer/recommended" && -d "${NVOC_MINERS}/ASccminer/recommended" ]]
   then
     rm ${NVOC_MINERS}/ASccminer/recommended
@@ -397,8 +393,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/ASccminer/latest
   fi
-  ln -s "${NVOC_MINERS}/ASccminer/${ASccminer_ver}" "${NVOC_MINERS}/ASccminer/recommended"
-  ln -s "${NVOC_MINERS}/ASccminer/${ASccminer_ver}" "${NVOC_MINERS}/ASccminer/latest"
+  ln -s "${NVOC_MINERS}/ASccminer/${ASccminer_8_ver}" "${NVOC_MINERS}/ASccminer/recommended"
+  ln -s "${NVOC_MINERS}/ASccminer/${ASccminer_8_ver}" "${NVOC_MINERS}/ASccminer/latest"
   restart-if-needed
 else
   echo "ASccminer is already up-to-date"
@@ -407,13 +403,13 @@ fi
 echo
 
 echo "Checking Krnlx ccminer"
-if ! grep -q "skunk-krnlx" ${NVOC_MINERS}/KXccminer/${KXccminer_ver}/version
+if ! grep -q "${KXccminer_8_ver}" ${NVOC_MINERS}/KXccminer/${KXccminer_8_ver}/version
 then
   echo "Extracting KXccminer"
-  mkdir -p ${NVOC_MINERS}/KXccminer/${KXccminer_ver}/
+  mkdir -p ${NVOC_MINERS}/KXccminer/${KXccminer_8_ver}/
   stop-if-needed "[K]Xccminer"
-  tar -xvJf ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz -C ${NVOC_MINERS}/KXccminer/${KXccminer_ver}/ --strip 1
-  chmod a+x ${NVOC_MINERS}/KXccminer/${KXccminer_ver}/ccminer
+  tar -xvJf ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz -C ${NVOC_MINERS}/KXccminer/${KXccminer_8_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/KXccminer/${KXccminer_8_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/KXccminer/recommended" && -d "${NVOC_MINERS}/KXccminer/recommended" ]]
   then
     rm ${NVOC_MINERS}/KXccminer/recommended
@@ -426,8 +422,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/KXccminer/latest
   fi
-  ln -s "${NVOC_MINERS}/KXccminer/${KXccminer_ver}" "${NVOC_MINERS}/KXccminer/recommended"
-  ln -s "${NVOC_MINERS}/KXccminer/${KXccminer_ver}" "${NVOC_MINERS}/KXccminer/latest"
+  ln -s "${NVOC_MINERS}/KXccminer/${KXccminer_8_ver}" "${NVOC_MINERS}/KXccminer/recommended"
+  ln -s "${NVOC_MINERS}/KXccminer/${KXccminer_8_ver}" "${NVOC_MINERS}/KXccminer/latest"
   restart-if-needed
 else
   echo "KXccminer is already up-to-date"
@@ -439,38 +435,38 @@ echo
 echo "Checking tpruvot ccminer"
 if [[ $CUDA_VER == "8" ]]
 then
-  if ! grep -q "${TPccminer_ver}" ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/version
+  if ! grep -q "${TPccminer_8_ver}" ${NVOC_MINERS}/TPccminer/${TPccminer_8_ver}/version
   then
-    echo "Extracting tpruvot ccminer ${TPccminer_ver} and making changes for CUDA-8"
-    mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/
-    tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ --strip 1
-    chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ccminer
+    echo "Extracting tpruvot ccminer ${TPccminer_8_ver} and making changes for CUDA-8"
+    mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_8_ver}/
+    tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz -C ${NVOC_MINERS}/TPccminer/${TPccminer_8_ver}/ --strip 1
+    chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_8_ver}/ccminer
     stop-if-needed "[T]Pccminer"
     echo "tpruvot ccminer for CUDA-8 updated"
-    echo "Use ${TPccminer_ver} or recommended for TPccminer_VERSION in 1bash"
+    echo "Use ${TPccminer_8_ver} or recommended for TPccminer_VERSION in 1bash"
     if [[ -L "${NVOC_MINERS}/TPccminer/recommended" && -d "${NVOC_MINERS}/TPccminer/recommended" ]]
     then
       rm ${NVOC_MINERS}/TPccminer/recommended
     else
       rm -rf ${NVOC_MINERS}/TPccminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/TPccminer/${TPccminer_ver}" "${NVOC_MINERS}/TPccminer/recommended"
+    ln -s "${NVOC_MINERS}/TPccminer/${TPccminer_8_ver}" "${NVOC_MINERS}/TPccminer/recommended"
     restart-if-needed
   else
     echo "tpruvot ccminer for CUDA-8 is already up-to-date"
-    echo "Use TPccminer_VERSION 2.2.5 or recommended in 1bash"
+    echo "Use TPccminer_VERSION ${TPccminer_8_ver} or recommended in 1bash"
   fi
 elif [[ $CUDA_VER == "9.2" ]]
 then
-  if ! grep -q "${TPccminer_ver}" ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/version
+  if ! grep -q "${TPccminer_9_ver}" ${NVOC_MINERS}/TPccminer/${TPccminer_9_ver}/version
   then
     echo "Extracting tpruvot ccminer and making changes for CUDA-9.2"
-    mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/
-    tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer-2.3.tar.xz -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ --strip 1
-    chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ccminer
+    mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_9_ver}/
+    tar -xvJf ${NVOC_MINERS}/TPccminer/TPccminer-2.3.tar.xz -C ${NVOC_MINERS}/TPccminer/${TPccminer_9_ver}/ --strip 1
+    chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_9_ver}/ccminer
     stop-if-needed "[T]Pccminer"
     echo "tpruvot ccminer for CUDA-9.2 updated"
-    echo "Use latest or recommended or ${TPccminer_ver} for TPccminer_VERSION in 1bash"
+    echo "Use latest or recommended or ${TPccminer_9_ver} for TPccminer_VERSION in 1bash"
     if [[ -L "${NVOC_MINERS}/TPccminer/latest" && -d "${NVOC_MINERS}/TPccminer/latest" ]]
     then
       rm ${NVOC_MINERS}/TPccminer/latest
@@ -483,28 +479,28 @@ then
     else
       rm -rf ${NVOC_MINERS}/TPccminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/TPccminer/${TPccminer_ver}" "${NVOC_MINERS}/TPccminer/recommended"
-    ln -s "${NVOC_MINERS}/TPccminer/${TPccminer_ver}" "${NVOC_MINERS}/TPccminer/latest"
+    ln -s "${NVOC_MINERS}/TPccminer/${TPccminer_9_ver}" "${NVOC_MINERS}/TPccminer/recommended"
+    ln -s "${NVOC_MINERS}/TPccminer/${TPccminer_9_ver}" "${NVOC_MINERS}/TPccminer/latest"
   fi
   restart-if-needed
 else
   echo "tpruvot ccminer for CUDA-9.2 is already up-to-date"
-  echo "Use TPccminer_VERSION latest or recommended or ${TPccminer_ver} in 1bash"
+  echo "Use TPccminer_VERSION latest or recommended or ${TPccminer_9_ver} in 1bash"
 fi
 
 echo
 echo
 
 echo "Checking Klaust ccminer"
-if ! grep -q "8.20" ${NVOC_MINERS}/KTccminer/8.20/version
+if ! grep -q "${KTccminer_8_ver}" ${NVOC_MINERS}/KTccminer/${KTccminer_8_ver}/version
 then
-  echo "Extracting Klaust ccminer 8.20 and making changes for CUDA-8"
-  mkdir -p ${NVOC_MINERS}/KTccminer/8.20/
-  tar -xvJf ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz -C ${NVOC_MINERS}/KTccminer/8.20/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/KTccminer/8.20/ccminer
+  echo "Extracting Klaust ccminer ${KTccminer_8_ver} and making changes for CUDA-8"
+  mkdir -p ${NVOC_MINERS}/KTccminer/${KTccminer_8_ver}/
+  tar -xvJf ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz -C ${NVOC_MINERS}/KTccminer/${KTccminer_8_ver}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/KTccminer/${KTccminer_8_ver}/ccminer
   stop-if-needed "[K]Tccminer"
   echo "Klaust ccminer for CUDA-8 updated"
-  echo "Use 8.20 or recommended for KTccminer_VERSION in 1bash"
+  echo "Use ${KTccminer_8_ver} or recommended for KTccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "8" ]]
   then
     if [[ -L "${NVOC_MINERS}/KTccminer/recommended" && -d "${NVOC_MINERS}/KTccminer/recommended" ]]
@@ -513,23 +509,23 @@ then
     else
       rm -rf ${NVOC_MINERS}/KTccminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/KTccminer/8.20" "${NVOC_MINERS}/KTccminer/recommended"
+    ln -s "${NVOC_MINERS}/KTccminer/${KTccminer_8_ver}" "${NVOC_MINERS}/KTccminer/recommended"
   fi
   restart-if-needed
 else
   echo "Klaust ccminer for CUDA-8 is already up-to-date"
-  echo "Use KTccminer_VERSION 8.20 or recommended in 1bash"
+  echo "Use KTccminer_VERSION ${KTccminer_8_ver} or recommended in 1bash"
 fi
 
-if ! grep -q "8.22" ${NVOC_MINERS}/KTccminer/8.22/version
+if ! grep -q "${KTccminer_9_ver}" ${NVOC_MINERS}/KTccminer/${KTccminer_9_ver}/version
 then
   echo "Extracting Klaust ccminer and making changes for CUDA-9.2"
-  mkdir -p ${NVOC_MINERS}/KTccminer/8.22/
-  tar -xvJf ${NVOC_MINERS}/KTccminer/KTccminer-8.22.tar.xz -C ${NVOC_MINERS}/KTccminer/8.22/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/KTccminer/8.22/ccminer
+  mkdir -p ${NVOC_MINERS}/KTccminer/${KTccminer_9_ver}/
+  tar -xvJf ${NVOC_MINERS}/KTccminer/KTccminer-8.22.tar.xz -C ${NVOC_MINERS}/KTccminer/${KTccminer_9_ver}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/KTccminer/${KTccminer_9_ver}/ccminer
   stop-if-needed "[K]Tccminer"
   echo "Klaust ccminer for CUDA-9.2 updated"
-  echo "Use latest or recommended or 8.22 for KTccminer_VERSION in 1bash"
+  echo "Use latest or recommended or ${KTccminer_9_ver} for KTccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
     if [[ -L "${NVOC_MINERS}/KTccminer/latest" && -d "${NVOC_MINERS}/KTccminer/latest" ]]
@@ -544,26 +540,26 @@ then
     else
       rm -rf ${NVOC_MINERS}/KTccminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/KTccminer/8.22" "${NVOC_MINERS}/KTccminer/recommended"
-    ln -s "${NVOC_MINERS}/KTccminer/8.22" "${NVOC_MINERS}/KTccminer/latest"
+    ln -s "${NVOC_MINERS}/KTccminer/${KTccminer_9_ver}" "${NVOC_MINERS}/KTccminer/recommended"
+    ln -s "${NVOC_MINERS}/KTccminer/${KTccminer_9_ver}" "${NVOC_MINERS}/KTccminer/latest"
   fi
   restart-if-needed
 else
   echo "Klaust ccminer for CUDA-9.2 is already up-to-date"
-  echo "Use KTccminer_VERSION latest or recommended or 8.22 in 1bash"
+  echo "Use KTccminer_VERSION latest or recommended or ${KTccminer_9_ver} in 1bash"
 fi
 
 echo
 echo
 
-echo "Checking Vertminer v1.0-stable.2 Release"
-if ! grep -q "1.0.2" ${NVOC_MINERS}/vertminer/1.0.2/version
+echo "Checking Vertminer ${vertminer_8_ver}"
+if ! grep -q "${vertminer_8_ver}" ${NVOC_MINERS}/vertminer/${vertminer_8_ver}/version
 then
   echo "Extracting vertminer"
-  mkdir -p ${NVOC_MINERS}/vertminer/1.0.2/
+  mkdir -p ${NVOC_MINERS}/vertminer/${vertminer_8_ver}/
   stop-if-needed "[v]ertminer"
-  tar -xvJf ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz -C ${NVOC_MINERS}/vertminer/1.0.2/ --strip 1
-  chmod a+x ${NVOC_MINERS}/vertminer/1.0.2/vertminer
+  tar -xvJf ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz -C ${NVOC_MINERS}/vertminer/${vertminer_8_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/vertminer/${vertminer_8_ver}/vertminer
   if [[ -L "${NVOC_MINERS}/vertminer/recommended" && -d "${NVOC_MINERS}/vertminer/recommended" ]]
   then
     rm ${NVOC_MINERS}/vertminer/recommended
@@ -576,8 +572,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/vertminer/latest
   fi
-  ln -s "${NVOC_MINERS}/vertminer/1.0.2" "${NVOC_MINERS}/vertminer/recommended"
-  ln -s "${NVOC_MINERS}/vertminer/1.0.2" "${NVOC_MINERS}/vertminer/latest"
+  ln -s "${NVOC_MINERS}/vertminer/${vertminer_8_ver}" "${NVOC_MINERS}/vertminer/recommended"
+  ln -s "${NVOC_MINERS}/vertminer/${vertminer_8_ver}" "${NVOC_MINERS}/vertminer/latest"
   restart-if-needed
 else
   echo "Vertminer is already up-to-date"
@@ -586,13 +582,13 @@ fi
 echo
 
 echo "Checking nanashi-ccminer "
-if ! grep -q "2.2" ${NVOC_MINERS}/NAccminer/2.2/version
+if ! grep -q "${NAccminer_8_ver}" ${NVOC_MINERS}/NAccminer/${NAccminer_8_ver}/version
 then
   echo "Extracting nanashi ccminer"
-  mkdir -p ${NVOC_MINERS}/NAccminer/2.2/
+  mkdir -p ${NVOC_MINERS}/NAccminer/${NAccminer_8_ver}/
   stop-if-needed "[N]Accminer"
-  tar -xvJf ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz -C ${NVOC_MINERS}/NAccminer/2.2/ --strip 1
-  chmod a+x ${NVOC_MINERS}/NAccminer/2.2/ccminer
+  tar -xvJf ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz -C ${NVOC_MINERS}/NAccminer/${NAccminer_8_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/NAccminer/${NAccminer_8_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/NAccminer/recommended" && -d "${NVOC_MINERS}/NAccminer/recommended" ]]
   then
     rm ${NVOC_MINERS}/NAccminer/recommended
@@ -605,8 +601,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/NAccminer/latest
   fi
-  ln -s "${NVOC_MINERS}/NAccminer/2.2" "${NVOC_MINERS}/NAccminer/latest"
-  ln -s "${NVOC_MINERS}/NAccminer/2.2" "${NVOC_MINERS}/NAccminer/latest"
+  ln -s "${NVOC_MINERS}/NAccminer/${NAccminer_8_ver}" "${NVOC_MINERS}/NAccminer/latest"
+  ln -s "${NVOC_MINERS}/NAccminer/${NAccminer_8_ver}" "${NVOC_MINERS}/NAccminer/latest"
   restart-if-needed
 
 else
@@ -617,15 +613,15 @@ echo
 echo
 
 echo "Checking Ethminer"
-if ! grep -q "0.14.0" ${NVOC_MINERS}/ethminer/0.14.0/version
+if ! grep -q "${ethminer_8_ver}" ${NVOC_MINERS}/ethminer/${ethminer_8_ver}/version
 then
-  echo "Extracting Ethminer 0.14.0 and making changes for CUDA-8"
-  mkdir -p ${NVOC_MINERS}/ethminer/0.14.0/
-  tar -xvJf ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz -C ${NVOC_MINERS}/ethminer/0.14.0/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/ethminer/0.14.0/ccminer
+  echo "Extracting Ethminer ${ethminer_8_ver} and making changes for CUDA-8"
+  mkdir -p ${NVOC_MINERS}/ethminer/${ethminer_8_ver}/
+  tar -xvJf ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz -C ${NVOC_MINERS}/ethminer/${ethminer_8_ver}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/ethminer/${ethminer_8_ver}/ccminer
   stop-if-needed "[e]thminer"
   echo "Ethminer for CUDA-8 updated"
-  echo "Use 0.14.0 or recommended for ethminer_VERSION in 1bash"
+  echo "Use ${ethminer_8_ver} or recommended for ethminer_VERSION in 1bash"
   if [[ $CUDA_VER == "8" ]]
   then
     if [[ -L "${NVOC_MINERS}/ethminer/recommended" && -d "${NVOC_MINERS}/ethminer/recommended" ]]
@@ -634,23 +630,23 @@ then
     else
       rm -rf ${NVOC_MINERS}/ethminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/ethminer/0.14.0" "${NVOC_MINERS}/ethminer/recommended"
+    ln -s "${NVOC_MINERS}/ethminer/${ethminer_8_ver}" "${NVOC_MINERS}/ethminer/recommended"
   fi
   restart-if-needed
 else
   echo "Ethminer for CUDA-8 is already up-to-date"
-  echo "Use ethminer_VERSION 0.14.0 or recommended in 1bash"
+  echo "Use ethminer_VERSION ${ethminer_8_ver} or recommended in 1bash"
 fi
 
-if ! grep -q "0.15.0" ${NVOC_MINERS}/ethminer/0.15.0/version
+if ! grep -q "${ethminer_9_ver}" ${NVOC_MINERS}/ethminer/${ethminer_9_ver}/version
 then
   echo "Extracting Ethminer and making changes for CUDA-9.2"
-  mkdir -p ${NVOC_MINERS}/ethminer/0.15.0/
-  tar -xvJf ${NVOC_MINERS}/ethminer/ethminer-0.15.0.tar.xz -C ${NVOC_MINERS}/ethminer/0.15.0/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/ethminer/0.15.0/ccminer
+  mkdir -p ${NVOC_MINERS}/ethminer/${ethminer_9_ver}/
+  tar -xvJf ${NVOC_MINERS}/ethminer/ethminer-0.15.0.tar.xz -C ${NVOC_MINERS}/ethminer/${ethminer_9_ver}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/ethminer/${ethminer_9_ver}/ccminer
   stop-if-needed "[e]thminer"
   echo "Ethminer for CUDA-9.2 updated"
-  echo "Use latest or recommended or 0.15.0 for ethminer_VERSION in 1bash"
+  echo "Use latest or recommended or ${ethminer_9_ver} for ethminer_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
     if [[ -L "${NVOC_MINERS}/ethminer/latest" && -d "${NVOC_MINERS}/ethminer/latest" ]]
@@ -665,28 +661,28 @@ then
     else
       rm -rf ${NVOC_MINERS}/ethminer/recommended
     fi
-    ln -s "${NVOC_MINERS}/ethminer/0.15.0" "${NVOC_MINERS}/ethminer/recommended"
-    ln -s "${NVOC_MINERS}/ethminer/0.15.0" "${NVOC_MINERS}/ethminer/latest"
+    ln -s "${NVOC_MINERS}/ethminer/${ethminer_9_ver}" "${NVOC_MINERS}/ethminer/recommended"
+    ln -s "${NVOC_MINERS}/ethminer/${ethminer_9_ver}" "${NVOC_MINERS}/ethminer/latest"
   fi
   restart-if-needed
 else
   echo "Ethminer for CUDA-9.2 is already up-to-date"
-  echo "Use ethminer_VERSION latest or recommended or 0.15.0 in 1bash"
+  echo "Use ethminer_VERSION latest or recommended or ${ethminer_9_ver} in 1bash"
 fi
 
 echo
 echo
 
 echo "Checking KTccminer_cryptonight"
-if ! grep -q "2.06" ${NVOC_MINERS}/KTccminer_cryptonight/2.06/version
+if ! grep -q "${KTccminer_cryptonight_8_ver}" ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_8_ver}/version
 then
-  echo "Extracting KTccminer_cryptonight 2.06 and making changes for CUDA-8"
-  mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/2.06/
-  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/KTccminer-cryptonight.tar.xz -C ${NVOC_MINERS}/KTccminer_cryptonight/2.06/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/KTccminer_cryptonight/2.06/ccminer
+  echo "Extracting KTccminer_cryptonight ${KTccminer_cryptonight_8_ver} and making changes for CUDA-8"
+  mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_8_ver}/
+  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/KTccminer-cryptonight.tar.xz -C ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_8_ver}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_8_ver}/ccminer
   stop-if-needed "[K]Tccminer_cryptonight"
   echo "KTccminer_cryptonight for CUDA-8 updated"
-  echo "Use 2.06 or recommended for KTccminer_cryptonight_VERSION in 1bash"
+  echo "Use ${KTccminer_cryptonight_8_ver} or recommended for KTccminer_cryptonight_VERSION in 1bash"
   if [[ $CUDA_VER == "8" ]]
   then
     if [[ -L "${NVOC_MINERS}/KTccminer_cryptonight/recommended" && -d "${NVOC_MINERS}/KTccminer_cryptonight/recommended" ]]
@@ -695,23 +691,23 @@ then
     else
       rm -rf ${NVOC_MINERS}/KTccminer_cryptonight/recommended
     fi
-    ln -s "${NVOC_MINERS}/KTccminer_cryptonight/2.06" "${NVOC_MINERS}/KTccminer_cryptonight/recommended"
+    ln -s "${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_8_ver}" "${NVOC_MINERS}/KTccminer_cryptonight/recommended"
   fi
   restart-if-needed
 else
   echo "KTccminer_cryptonight for CUDA-8 is already up-to-date"
-  echo "Use KTccminer_cryptonight_VERSION 2.06 or recommended in 1bash"
+  echo "Use KTccminer_cryptonight_VERSION ${KTccminer_cryptonight_8_ver} or recommended in 1bash"
 fi
 
-if ! grep -q "3.05" ${NVOC_MINERS}/KTccminer_cryptonight/3.05/version
+if ! grep -q "${KTccminer_cryptonight_9_ver}" ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_9_ver}/version
 then
   echo "Extracting KTccminer_cryptonight and making changes for CUDA-9.2"
-  mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/3.05/
-  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/KTccminer-cryptonight-3.05.tar.xz -C ${NVOC_MINERS}/KTccminer_cryptonight/3.05/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/KTccminer_cryptonight/3.05/ccminer
+  mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_9_ver}/
+  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/KTccminer-cryptonight-3.05.tar.xz -C ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_9_ver}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_9_ver}/ccminer
   stop-if-needed "[K]Tccminer_cryptonight"
   echo "KTccminer_cryptonight for CUDA-9.2 updated"
-  echo "Use latest or recommended or 3.05 for KTccminer_cryptonight_VERSION in 1bash"
+  echo "Use latest or recommended or ${KTccminer_cryptonight_9_ver} for KTccminer_cryptonight_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
     if [[ -L "${NVOC_MINERS}/KTccminer_cryptonight/latest" && -d "${NVOC_MINERS}/KTccminer_cryptonight/latest" ]]
@@ -726,26 +722,26 @@ then
     else
       rm -rf ${NVOC_MINERS}/KTccminer_cryptonight/recommended
     fi
-    ln -s "${NVOC_MINERS}/KTccminer_cryptonight/3.05" "${NVOC_MINERS}/KTccminer_cryptonight/recommended"
-    ln -s "${NVOC_MINERS}/KTccminer_cryptonight/3.05" "${NVOC_MINERS}/KTccminer_cryptonight/latest"
+    ln -s "${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_9_ver}" "${NVOC_MINERS}/KTccminer_cryptonight/recommended"
+    ln -s "${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_9_ver}" "${NVOC_MINERS}/KTccminer_cryptonight/latest"
   fi
   restart-if-needed
 else
   echo "KTccminer_cryptonight for CUDA-9.2 is already up-to-date"
-  echo "Use KTccminer_cryptonight_VERSION latest or recommended or 3.05 in 1bash"
+  echo "Use KTccminer_cryptonight_VERSION latest or recommended or ${KTccminer_cryptonight_9_ver} in 1bash"
 fi
 
 echo
 echo
 
-echo "Checking Equihash Bminer 9.1.0"
-if ! grep -q "v9.1.0" ${NVOC_MINERS}/bminer/9.1.0/version
+echo "Checking Equihash Bminer ${bminer_ver}"
+if ! grep -q "v${bminer_ver}" ${NVOC_MINERS}/bminer/${bminer_ver}/version
 then
   echo "Extracting Bminer"
-  mkdir -p ${NVOC_MINERS}/bminer/9.1.0/
+  mkdir -p ${NVOC_MINERS}/bminer/${bminer_ver}/
   stop-if-needed "[b]miner"
-  tar -xvJf ${NVOC_MINERS}/bminer/bminer-v9.1.0.tar.xz -C ${NVOC_MINERS}/bminer/9.1.0/ --strip 1
-  chmod a+x ${NVOC_MINERS}/bminer/9.1.0/bminer
+  tar -xvJf ${NVOC_MINERS}/bminer/bminer-v9.1.0.tar.xz -C ${NVOC_MINERS}/bminer/${bminer_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/bminer/${bminer_ver}/bminer
   if [[ -L "${NVOC_MINERS}/bminer/latest" && -d "${NVOC_MINERS}/bminer/latest" ]]
   then
     rm ${NVOC_MINERS}/bminer/latest
@@ -758,8 +754,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/bminer/recommended
   fi
-  ln -s "${NVOC_MINERS}/bminer/9.1.0" "${NVOC_MINERS}/bminer/recommended"
-  ln -s "${NVOC_MINERS}/bminer/9.1.0" "${NVOC_MINERS}/bminer/latest"
+  ln -s "${NVOC_MINERS}/bminer/${bminer_ver}" "${NVOC_MINERS}/bminer/recommended"
+  ln -s "${NVOC_MINERS}/bminer/${bminer_ver}" "${NVOC_MINERS}/bminer/latest"
   restart-if-needed
 else
   echo "Bminer is already up-to-date"
@@ -767,14 +763,14 @@ fi
 
 echo
 
-echo "Checking ANXccminer 1.0"
-if ! grep -q "1.0" ${NVOC_MINERS}/ANXccminer/1.0/version
+echo "Checking ANXccminer ${ANXccminer_8_ver}"
+if ! grep -q "${ANXccminer_8_ver}" ${NVOC_MINERS}/ANXccminer/${ANXccminer_8_ver}/version
 then
   echo "Extracting ANXccminer"
-  mkdir -p ${NVOC_MINERS}/ANXccminer/1.0/
+  mkdir -p ${NVOC_MINERS}/ANXccminer/${ANXccminer_8_ver}/
   stop-if-needed "[A]NXccminer"
-  tar -xvJf ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz -C ${NVOC_MINERS}/ANXccminer/1.0/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ANXccminer/1.0/ccminer
+  tar -xvJf ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz -C ${NVOC_MINERS}/ANXccminer/${ANXccminer_8_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/ANXccminer/${ANXccminer_8_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/ANXccminer/latest" && -d "${NVOC_MINERS}/ANXccminer/latest" ]]
   then
     rm ${NVOC_MINERS}/ANXccminer/latest
@@ -787,8 +783,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/ANXccminer/recommended
   fi
-  ln -s "${NVOC_MINERS}/ANXccminer/1.0" "${NVOC_MINERS}/ANXccminer/recommended"
-  ln -s "${NVOC_MINERS}/ANXccminer/1.0" "${NVOC_MINERS}/ANXccminer/latest"
+  ln -s "${NVOC_MINERS}/ANXccminer/${ANXccminer_8_ver}" "${NVOC_MINERS}/ANXccminer/recommended"
+  ln -s "${NVOC_MINERS}/ANXccminer/${ANXccminer_8_ver}" "${NVOC_MINERS}/ANXccminer/latest"
   restart-if-needed
 else
   echo "ANXccminer is already at up-to-date"
@@ -796,14 +792,14 @@ fi
 
 echo
 
-echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
-if ! grep -q "2.2.5" ${NVOC_MINERS}/MSFTccminer/2.2.5/version
+echo "Checking MSFT Tpruvot ccminer-${MSFTccminer_8_ver} (RVN)"
+if ! grep -q "${MSFTccminer_8_ver}" ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_8_ver}/version
 then
   echo "Extracting MSFT Tpruvot ccminer"
-  mkdir -p ${NVOC_MINERS}/MSFTccminer/2.2.5/
+  mkdir -p ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_8_ver}/
   stop-if-needed "[M]SFTccminer"
-  tar -xvJf ${NVOC_MINERS}/MSFTccminer/MSFTccminer.tar.xz -C ${NVOC_MINERS}/MSFTccminer/2.2.5/ --strip 1
-  chmod a+x ${NVOC_MINERS}/MSFTccminer/2.2.5/ccminer
+  tar -xvJf ${NVOC_MINERS}/MSFTccminer/MSFTccminer.tar.xz -C ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_8_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_8_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/MSFTccminer/latest" && -d "${NVOC_MINERS}/MSFTccminer/latest" ]]
   then
     rm ${NVOC_MINERS}/MSFTccminer/latest
@@ -816,8 +812,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/MSFTccminer/recommended
   fi
-  ln -s "${NVOC_MINERS}/MSFTccminer/2.2.5" "${NVOC_MINERS}/MSFTccminer/recommended"
-  ln -s "${NVOC_MINERS}/MSFTccminer/2.2.5" "${NVOC_MINERS}/MSFTccminer/latest"
+  ln -s "${NVOC_MINERS}/MSFTccminer/${MSFTccminer_8_ver}" "${NVOC_MINERS}/MSFTccminer/recommended"
+  ln -s "${NVOC_MINERS}/MSFTccminer/${MSFTccminer_8_ver}" "${NVOC_MINERS}/MSFTccminer/latest"
   restart-if-needed
 else
   echo "MSFTccminer is already up-to-date"
@@ -825,14 +821,14 @@ fi
 
 echo
 
-echo "Checking SUPRminer 1.5"
-if ! grep -q "1.5" ${NVOC_MINERS}/SUPRminer/1.5/version
+echo "Checking SUPRminer ${SUPRminer_8_ver}"
+if ! grep -q "${SUPRminer_8_ver}" ${NVOC_MINERS}/SUPRminer/${SUPRminer_8_ver}/version
 then
   echo "Extracting SUPRminer"
-  mkdir -p ${NVOC_MINERS}/SUPRminer/1.5/
+  mkdir -p ${NVOC_MINERS}/SUPRminer/${SUPRminer_8_ver}/
   stop-if-needed "[S]UPRminer"
-  tar -xvJf ${NVOC_MINERS}/SUPRminer/SUPRminer-1.5.tar.xz -C ${NVOC_MINERS}/SUPRminer/1.5/ --strip 1
-  chmod a+x ${NVOC_MINERS}/SUPRminer/1.5/ccminer
+  tar -xvJf ${NVOC_MINERS}/SUPRminer/SUPRminer-1.5.tar.xz -C ${NVOC_MINERS}/SUPRminer/${SUPRminer_8_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/SUPRminer/${SUPRminer_8_ver}/ccminer
   if [[ -L "${NVOC_MINERS}/SUPRminer/latest" && -d "${NVOC_MINERS}/SUPRminer/latest" ]]
   then
     rm ${NVOC_MINERS}/SUPRminer/latest
@@ -845,8 +841,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/SUPRminer/recommended
   fi
-  ln -s "${NVOC_MINERS}/SUPRminer/1.5" "${NVOC_MINERS}/SUPRminer/recommended"
-  ln -s "${NVOC_MINERS}/SUPRminer/1.5" "${NVOC_MINERS}/SUPRminer/latest"
+  ln -s "${NVOC_MINERS}/SUPRminer/${SUPRminer_8_ver}" "${NVOC_MINERS}/SUPRminer/recommended"
+  ln -s "${NVOC_MINERS}/SUPRminer/${SUPRminer_8_ver}" "${NVOC_MINERS}/SUPRminer/latest"
   restart-if-needed
 else
   echo "SUPRminer is already up-to-date"
@@ -855,13 +851,13 @@ fi
 echo
 
 echo "Checking cpuminer-opt "
-if ! grep -q "3.8.8.1" ${NVOC_MINERS}/cpuOPT/3.8.8.1/version
+if ! grep -q "${cpuOPT_ver}" ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/version
 then
   echo "Extracting cpuminer"
-  mkdir -p ${NVOC_MINERS}/cpuOPT/3.8.8.1/
+  mkdir -p ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/
   stop-if-needed "[c]puminer"
-  tar -xvJf ${NVOC_MINERS}/cpuOPT/cpuOPT.tar.xz -C ${NVOC_MINERS}/cpuOPT/3.8.8.1/ --strip 1
-  chmod a+x ${NVOC_MINERS}/cpuOPT/3.8.8.1/cpuminer
+  tar -xvJf ${NVOC_MINERS}/cpuOPT/cpuOPT.tar.xz -C ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/ --strip 1
+  chmod a+x ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/cpuminer
   if [[ -L "${NVOC_MINERS}/cpuOPT/latest" && -d "${NVOC_MINERS}/cpuOPT/latest" ]]
   then
     rm ${NVOC_MINERS}/cpuOPT/latest
@@ -874,8 +870,8 @@ then
   else
     rm -rf ${NVOC_MINERS}/cpuOPT/recommended
   fi
-  ln -s "${NVOC_MINERS}/cpuOPT/3.8.8.1" "${NVOC_MINERS}/cpuOPT/recommended"
-  ln -s "${NVOC_MINERS}/cpuOPT/3.8.8.1" "${NVOC_MINERS}/cpuOPT/latest"
+  ln -s "${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}" "${NVOC_MINERS}/cpuOPT/recommended"
+  ln -s "${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}" "${NVOC_MINERS}/cpuOPT/latest"
   restart-if-needed
 else
   echo "cpuminer is already up-to-date"
