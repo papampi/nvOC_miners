@@ -16,55 +16,53 @@ fi
 
 ANXccminer_8_ver="1.0"
 ANXccminer_8_tarball="ANXccminer.tar.xz"
-ANXccminer_8_src_ver=""
+ANXccminer_8_src_ver="cd6fab68823e247bb84dd1fa0448d5f75ec4917d"
 
 ASccminer_8_ver="1.0"
 ASccminer_8_tarball="ASccminer.tar.xz"
-ASccminer_8_src_ver=""
+ASccminer_8_src_ver="aafe2d19b6d9eb07d942d70ced3049e9aed1c241"
 
 ethminer_8_ver="0.14.0"
 ethminer_8_tarball="ethminer-0.14.0-Linux.tar.xz"
-ethminer_8_src_ver=""
 
 KTccminer_8_ver="8.20"
 KTccminer_8_tarball="KTccminer.tar.xz"
-KTccminer_8_src_ver=""
+KTccminer_8_src_ver="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
 
 KTccminer_cryptonight_8_ver="2.06"
 KTccminer_cryptonight_8_tarball="KTccminer-cryptonight.tar.xz"
-KTccminer_cryptonight_8_src_ver=""
+KTccminer_cryptonight_8_src_ver="bedaf007d4619fc4157aeafb59b44850f08d93f1"
 
 KXccminer_8_ver="0.1"
 KXccminer_8_tarball="KXccminer.tar.xz"
-KXccminer_8_src_ver=""
+KXccminer_8_src_ver="7d41d49b92db27b9ab80270adaa92f6b06d1ef78"
 
 MSFTccminer_8_ver="2.2.5"
 MSFTccminer_8_tarball="MSFTccminer.tar.xz"
-MSFTccminer_8_src_ver=""
+MSFTccminer_8_src_ver="78dad7dd659eae72a07d2448de62b1946c1f2b41"
 
 NAccminer_8_ver="2.2"
 NAccminer_8_tarball="nanashi-ccminer-2.2-mod-r2.tar.xz"
-NAccminer_8_src_ver=""
+NAccminer_8_src_ver="8affcb9cd09edd917d33c1ed450f23400f571bdb"
 
 SILENTminer_8_ver="1.10"
 SILENTminer_8_tarball="SILENTminer.v1.1.0.tar.xz"
-SILENTminer_8_src_ver=""
 
 SPccminer_8_ver="1.8.2"
 SPccminer_8_tarball="SPccminer.tar.xz"
-SPccminer_8_src_ver=""
+SPccminer_8_src_ver="9e86bdd24ed7911b698f1d0ef61a4028fcbd13c5"
 
 SUPRminer_8_ver="1.5"
 SUPRminer_8_tarball="SUPRminer-1.5.tar.xz"
-SUPRminer_8_src_ver=""
+SUPRminer_8_src_ver="c800f1a803e1b2074ed2a7c15023c096d0772048"
 
 TPccminer_8_ver="2.2.5"
 TPccminer_8_tarball="TPccminer.tar.xz"
-TPccminer_8_src_ver=""
+TPccminer_8_src_ver="a81ab0f7a557a12a21d716dd03537bc8633fd176"
 
 vertminer_8_ver="1.0.2"
 vertminer_8_tarball="vertminer-nvidia-1.0-stable.2.tar.xz"
-vertminer_8_src_ver=""
+vertminer_8_src_ver="48b170a5828256600ca71e66d4c114af4e114236"
 
 xmr_stak_8_ver="2.4.4"
 xmr_stak_8_tarball="xmr-stak-2.4.4.tar.xz"
@@ -80,15 +78,15 @@ ethminer_9_src_ver=""
 
 KTccminer_9_ver="8.22"
 KTccminer_9_tarball="KTccminer-8.22.tar.xz"
-KTccminer_9_src_ver=""
+KTccminer_9_src_ver="2e457923f3125fbaedf5d8ba1f7d0fafc85b0ba8"
 
 KTccminer_cryptonight_9_ver="3.05"
 KTccminer_cryptonight_9_tarball="KTccminer-cryptonight-3.05.tar.xz"
-KTccminer_cryptonight_9_src_ver=""
+KTccminer_cryptonight_9_src_ver="7061f3c78e52a03f7ff5d0743900312de5bb24fc"
 
 TPccminer_9_ver="2.3"
 TPccminer_9_tarball="TPccminer-2.3.tar.xz"
-TPccminer_9_src_ver=""
+TPccminer_9_src_ver="370684f7435d1256cbabef4410a57ed5bc705fdc"
 
 xmr_stak_9_ver="2.4.7"
 xmr_stak_9_tarball="xmr-stak-2.4.7.tar.xz"
@@ -96,16 +94,19 @@ xmr_stak_9_src_ver=""
 
 ZENEMYminer_9_ver="1.14"
 ZENEMYminer_9_tarball="z-enemy-1.14-cuda92.tar.xz"
-ZENEMYminer_9_src_ver=""
 
 bminer_ver="9.1.0"
 bminer_tarball="bminer-v9.1.0.tar.xz"
+
 claymore_ver="11.9"
 claymore_tarball="Claymore-v11.9.tar.xz"
+
 dstm_ver="0.6.1"
 dstm_tarball="DSTM_0.6.1.tar.xz"
+
 ewbf_ver="3_4"
 ewbf_tarball="0.3.4b.tar.xz"
+
 z_ewbf_ver="0.5"
 z_ewbf_tarball="z_ewbf_v0.5.tar.xz"
 
