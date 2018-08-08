@@ -24,6 +24,7 @@ ASccminer_8_src_ver="aafe2d19b6d9eb07d942d70ced3049e9aed1c241"
 
 ethminer_8_ver="0.14.0"
 ethminer_8_tarball="ethminer-0.14.0-Linux.tar.xz"
+ethminer_8_src_ver="24c65cf166bbb3332d60e2baef859ceb604e5d49"
 
 KTccminer_8_ver="8.20"
 KTccminer_8_tarball="KTccminer.tar.xz"
@@ -70,11 +71,10 @@ xmr_stak_8_src_ver=""
 
 ZENEMYminer_8_ver="1.10"
 ZENEMYminer_8_tarball="z-enemy-1.10-cuda80.tar.xz"
-ZENEMYminer_8_src_ver=""
 
 ethminer_9_ver="0.15.0"
 ethminer_9_tarball="ethminer-0.15.0-Linux.tar.xz"
-ethminer_9_src_ver=""
+ethminer_9_src_ver="11d7e3c4c087f6c669013e360af84f6d617c02f4"
 
 KTccminer_9_ver="8.22"
 KTccminer_9_tarball="KTccminer-8.22.tar.xz"
