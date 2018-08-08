@@ -12,6 +12,41 @@ then
   CUDA_VER="9.2"
 fi
 
+if [[ $CUDA_VER == "8" ]]
+then
+  ANXccminer_ver="1.0"
+  ASccminer_ver="1.0"
+  ethminer_ver="0.14.0"
+  KTccminer_ver="8.20"
+  KTccminer_cryptonight_ver="2.06"
+  KXccminer_ver="0.1"
+  MSFTccminer_ver="2.2.5"
+  NAccminer_ver="2.2"
+  SILENTminer_ver="1.10"
+  SPccminer_ver="1.8.2"
+  SUPRminer_ver="1.5"
+  TPccminer_ver="2.2.5"
+  vertminer_ver="1.0.2"
+  xmr_stak_ver="2.4.4"
+  ZENEMYminer_ver="1.10"
+elif [[ $CUDA_VER == "9.2" ]]
+then
+  ethminer_ver="0.15.0"
+  KTccminer_ver="8.22"
+  KTccminer_cryptonight_ver="2.06"
+  TPccminer_ver="2.3"
+  ZENEMYminer_ver="1.14"
+  xmr_stak_ver="2.4.7"
+fi
+
+bminer_ver="9.1.0"
+claymore="11.9"
+dstm_ver="0.6.1"
+ewbf_ver="3_4"
+z_ewbf="0.5"
+
+cpuOPT_ver="3.8.8.1"
+
 function stop-if-needed {
   if ps ax | grep miner | grep -q "$1"
   then
@@ -225,13 +260,13 @@ fi
 echo
 echo
 
-echo "Checking xmr_stak 2.4.4"
+echo "Checking xmr-stak 2.4.4"
 if ! grep -q "2.4.4" ${NVOC_MINERS}/xmr_stak/2.4.4/version
 then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr_stak/2.4.4/
   stop-if-needed "[x]mr-stak"
-  tar -xvJf ${NVOC_MINERS}/xmr_stak/xmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr_stak/2.4.4/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/xmr_stakxmr-stak-2.4.4.tar.xz -C ${NVOC_MINERS}/xmr_stak/2.4.4/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr_stak/2.4.4/xmr_stak_miner
   if [[ -L "${NVOC_MINERS}/xmr_stak/recommended" && -d "${NVOC_MINERS}/xmr_stak/recommended" ]]
   then
@@ -343,7 +378,6 @@ fi
 echo
 
 echo "Checking alexis ccminer"
-ASccminer_ver="1.0"
 if ! grep -q "1.0" ${NVOC_MINERS}/ASccminer/${ASccminer_ver}/version
 then
   echo "Extracting ASccminer"
@@ -373,7 +407,6 @@ fi
 echo
 
 echo "Checking Krnlx ccminer"
-KXccminer_ver="0.1"
 if ! grep -q "skunk-krnlx" ${NVOC_MINERS}/KXccminer/${KXccminer_ver}/version
 then
   echo "Extracting KXccminer"
@@ -406,7 +439,6 @@ echo
 echo "Checking tpruvot ccminer"
 if [[ $CUDA_VER == "8" ]]
 then
-  TPccminer_ver="2.2.5"
   if ! grep -q "${TPccminer_ver}" ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/version
   then
     echo "Extracting tpruvot ccminer ${TPccminer_ver} and making changes for CUDA-8"
@@ -430,7 +462,6 @@ then
   fi
 elif [[ $CUDA_VER == "9.2" ]]
 then
-  TPccminer_ver="2.3"
   if ! grep -q "${TPccminer_ver}" ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/version
   then
     echo "Extracting tpruvot ccminer and making changes for CUDA-9.2"
@@ -554,8 +585,8 @@ fi
 
 echo
 
-echo "Checking nanashi-ccminer-2.2-mod-r2"
-if ! grep -q "2.2-mod-r2" ${NVOC_MINERS}/NAccminer/2.2/version
+echo "Checking nanashi-ccminer "
+if ! grep -q "2.2" ${NVOC_MINERS}/NAccminer/2.2/version
 then
   echo "Extracting nanashi ccminer"
   mkdir -p ${NVOC_MINERS}/NAccminer/2.2/
@@ -766,7 +797,7 @@ fi
 echo
 
 echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
-if ! grep -q "2.2.5-rvn" ${NVOC_MINERS}/MSFTccminer/2.2.5/version
+if ! grep -q "2.2.5" ${NVOC_MINERS}/MSFTccminer/2.2.5/version
 then
   echo "Extracting MSFT Tpruvot ccminer"
   mkdir -p ${NVOC_MINERS}/MSFTccminer/2.2.5/
