@@ -67,7 +67,7 @@ vertminer_8_src_ver="48b170a5828256600ca71e66d4c114af4e114236"
 
 xmr_stak_8_ver="2.4.4"
 xmr_stak_8_tarball="xmr-stak-2.4.4.tar.xz"
-xmr_stak_8_src_ver=""
+xmr_stak_8_src_ver="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
 
 ZENEMYminer_8_ver="1.10"
 ZENEMYminer_8_tarball="z-enemy-1.10-cuda80.tar.xz"
@@ -90,7 +90,7 @@ TPccminer_9_src_ver="370684f7435d1256cbabef4410a57ed5bc705fdc"
 
 xmr_stak_9_ver="2.4.7"
 xmr_stak_9_tarball="xmr-stak-2.4.7.tar.xz"
-xmr_stak_9_src_ver=""
+xmr_stak_9_src_ver="c5f0505de039545585811585f2c189828dfc3ec2"
 
 ZENEMYminer_9_ver="1.14"
 ZENEMYminer_9_tarball="z-enemy-1.14-cuda92.tar.xz"
