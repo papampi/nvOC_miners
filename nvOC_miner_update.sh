@@ -728,7 +728,7 @@ then
   stop-if-needed "[Z]ENEMYminer"
   echo "Z-ENEMY miner for CUDA-8 updated"
   echo "Use ${ZENEMYminer_ver_8} or recommended for ZENEMYminer_VERSION in 1bash"
-  if [[ $CUDA_VER == "8" ]]
+  if [[ $CUDA_VER == "8.0" ]]
   then
     update-symlink ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_ver_8} recommended
   fi
@@ -786,15 +786,15 @@ sleep 2
 function compile-TPccminer {
   echo "Compiling tpruvot ccminer"
   echo " This could take a while ..."
-  if [[ $CUDA_VER == "8" ]]
+  if [[ $CUDA_VER == "8.0" ]]
   then
     get-sources TPccminer
-    cd ${NVOC_MINERS}/TPccminer/{TPccminer_src_hash_ver_9}
+    cd ${NVOC_MINERS}/TPccminer/src_cuda_8
     bash ${NVOC_MINERS}/TPccminer/src_cuda_8/autogen.sh
     bash ${NVOC_MINERS}/TPccminer/src_cuda_8/configure --with-cuda=/usr/local/cuda-8.0
     bash ${NVOC_MINERS}/TPccminer/src_cuda_8/build.sh
     stop-if-needed "[T]Pccminer"
-    cp ${NVOC_MINERS}/TPccminer/src_cuda_8/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ccminer
+    cp ${NVOC_MINERS}/TPccminer/src_cuda_8/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ccminer
     cd ${NVOC_MINERS}
     echo
     echo "Finished compiling tpruvot ccminer"
@@ -807,7 +807,7 @@ function compile-TPccminer {
     bash ${NVOC_MINERS}/TPccminer/src_cuda_9/configure --with-cuda=/usr/local/cuda-9.2
     bash ${NVOC_MINERS}/TPccminer/src_cuda_9/build.sh
     stop-if-needed "[T]Pccminer"
-    cp ${NVOC_MINERS}/TPccminer/src_cuda_9/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver}/ccminer
+    cp ${NVOC_MINERS}/TPccminer/src_cuda_9/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ccminer
     cd ${NVOC_MINERS}
     echo
     echo "Finished compiling tpruvot ccminer"
@@ -824,7 +824,7 @@ function compile-ASccminer {
   bash ${NVOC_MINERS}/ASccminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/ASccminer/src/build.sh
   stop-if-needed "[A]Sccminer"
-  cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
+  cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8}/ccminer
   cd ${NVOC_MINERS}
   echo "Finished compiling alexis ccminer"
   restart-if-needed
@@ -834,14 +834,14 @@ function compile-KTccminer {
   echo "Compiling KlausT ccminer"
   echo " This could take a while ..."
   get-sources KTccminer
-  if [[ $CUDA_VER == "8" ]]
+  if [[ $CUDA_VER == "8.0" ]]
   then
     cd ${NVOC_MINERS}/KTccminer/cuda-8_src
     bash ${NVOC_MINERS}/KTccminer/cuda-8_src/autogen.sh
     bash ${NVOC_MINERS}/KTccminer/cuda-8_src/configure --with-cuda=/usr/local/cuda-8.0
     bash ${NVOC_MINERS}/KTccminer/cuda-8_src/build.sh
     stop-if-needed "[K]Tccminer"
-    cp ${NVOC_MINERS}/KTccminer/cuda-8_src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
+    cp ${NVOC_MINERS}/KTccminer/cuda-8_src/ccminer ${NVOC_MINERS}/KTccminer/${KTccminer_ver_8}/ccminer
     cd ${NVOC_MINERS}
     echo
   elif [[ $CUDA_VER == "9.2" ]]
@@ -851,7 +851,7 @@ function compile-KTccminer {
     bash ${NVOC_MINERS}/KTccminer/src/configure
     bash ${NVOC_MINERS}/KTccminer/src/build.sh
     stop-if-needed "[K]Tccminer"
-    cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
+    cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9}/ccminer
     cd ${NVOC_MINERS}
   fi
   echo "Finished compiling KlausT ccminer with cuda $CUDA_VER"
@@ -867,7 +867,7 @@ function compile-KTccminer_cryptonight {
   bash ${NVOC_MINERS}/KTccminer_cryptonight/src/configure
   bash ${NVOC_MINERS}/KTccminer_cryptonight/src/build.sh
   stop-if-needed "[K]Tccminer-cryptonight"
-  cp ${NVOC_MINERS}/KTccminer_cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer_cryptonight/ccminer
+  cp ${NVOC_MINERS}/KTccminer_cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_8}/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling KlausT ccminer cryptonight"
@@ -883,7 +883,7 @@ function compile-KXccminer {
   bash ${NVOC_MINERS}/KXccminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/KXccminer/src/build.sh
   stop-if-needed "[K]Xccminer"
-  cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
+  cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/${KXccminer_ver_8}/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling Krnlx ccminer"
@@ -899,7 +899,7 @@ function compile-NAccminer {
   bash ${NVOC_MINERS}/NAccminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/NAccminer/src/build.sh
   stop-if-needed "[N]Accminer"
-  cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
+  cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/${NAccminer_ver_8}/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling Nanashi ccminer"
@@ -915,7 +915,7 @@ function compile-SPccminer {
   bash ${NVOC_MINERS}/SPccminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/SPccminer/src/build.sh
   stop-if-needed "[S]Pccminer"
-  cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
+  cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/${NAccminer_ver_8}/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling tpruvot ccminer"
@@ -931,7 +931,7 @@ function compile-vertminer {
   bash ${NVOC_MINERS}/vertminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/vertminer/src/build.sh
   stop-if-needed "[v]ertminer"
-  cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/vertminer
+  cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/${vertminer_ver_8}/vertminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling vertminer"
@@ -947,7 +947,7 @@ function compile-ANXccminer {
   bash ${NVOC_MINERS}/ANXccminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/ANXccminer/src/build.sh
   stop-if-needed "[A]NXccminer"
-  cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
+  cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8}/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling anorganix ccminer"
@@ -963,7 +963,7 @@ function compile-MSFTccminer {
   bash ${NVOC_MINERS}/MSFTccminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/MSFTccminer/src/build.sh
   stop-if-needed "[M]SFTccminer"
-  cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
+  cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_ver_8}/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling MSFTccminer"
@@ -979,7 +979,7 @@ function compile-SUPRminer {
   bash ${NVOC_MINERS}/SUPRminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/SUPRminer/src/build.sh
   stop-if-needed "[S]UPRminer"
-  cp ${NVOC_MINERS}/SUPRminer/src/ccminer ${NVOC_MINERS}/SUPRminer/ccminer
+  cp ${NVOC_MINERS}/SUPRminer/src/ccminer ${NVOC_MINERS}/SUPRminer/${SUPRminer_ver_8}/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling SUPRminer"
@@ -990,12 +990,12 @@ function compile-xmr-stak {
   echo "Compiling xmr-stak"
   echo " This could take a while ..."
   get-sources xmr-stak
-  mkdir ${NVOC_MINERS}/xmr-stak/src/build
-  cd ${NVOC_MINERS}/xmr-stak/src/build
+  mkdir ${NVOC_MINERS}/xmr_stak/src/build
+  cd ${NVOC_MINERS}/xmr_stak/src/build
   cmake ..
   make install
   stop-if-needed "[x]mr-stak"
-  cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/src/build/bin/*.so ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
+  cp ${NVOC_MINERS}/xmr_stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr_stak/src/build/bin/*.so ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/xmr-stak
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling xmr-stak"
@@ -1009,7 +1009,7 @@ function compile-cpuminer {
   cd ${NVOC_MINERS}/cpuOPT/src
   bash ${NVOC_MINERS}/cpuOPT/src/build.sh
   stop-if-needed "[c]puminer"
-  cp ${NVOC_MINERS}/cpuOPT/src/cpuminer ${NVOC_MINERS}/cpuOPT/cpuminer
+  cp ${NVOC_MINERS}/cpuOPT/src/cpuminer ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/cpuminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling cpuminer"
