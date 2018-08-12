@@ -16,11 +16,11 @@ fi
 
 ANXccminer_ver_8="1.0"
 ANXccminer_tarball_ver_8="ANXccminer.tar.xz"
-ANXccminer_ver_8_src="cd6fab68823e247bb84dd1fa0448d5f75ec4917d"
+ANXccminer_src_hash_ver_8="cd6fab68823e247bb84dd1fa0448d5f75ec4917d"
 
 ASccminer_ver_8="1.0"
 ASccminer_tarball_ver_8="ASccminer.tar.xz"
-ASccminer_ver_8_src="aafe2d19b6d9eb07d942d70ced3049e9aed1c241"
+ASccminer_src_hash_ver_8="aafe2d19b6d9eb07d942d70ced3049e9aed1c241"
 
 bminer_ver="9.1.0"
 bminer_tarball="bminer-v9.1.0.tar.xz"
@@ -33,11 +33,11 @@ dstm_tarball="DSTM_0.6.1.tar.xz"
 
 ethminer_ver_8="0.14.0"
 ethminer_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
-ethminer_ver_8_src="24c65cf166bbb3332d60e2baef859ceb604e5d49"
+ethminer_src_hash_ver_8="24c65cf166bbb3332d60e2baef859ceb604e5d49"
 
 ethminer_ver_9="0.15.0"
 ethminer_tarball_ver_9="ethminer-0.15.0-Linux.tar.xz"
-ethminer_src_ver_9="11d7e3c4c087f6c669013e360af84f6d617c02f4"
+ethminer_src_hash_ver_9="11d7e3c4c087f6c669013e360af84f6d617c02f4"
 
 ewbf_ver="3.4"
 ewbf_tarball="0.3.4b.tar.xz"
@@ -47,62 +47,62 @@ z_ewbf_tarball="z_ewbf_v0.5.tar.xz"
 
 KTccminer_ver_8="8.20"
 KTccminer_tarball_ver_8="KTccminer.tar.xz"
-KTccminer_ver_8_src="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
+KTccminer_src_hash_ver_8="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
 
 KTccminer_ver_9="8.22"
 KTccminer_tarball_ver_9="KTccminer-8.22.tar.xz"
-KTccminer_src_ver_9="2e457923f3125fbaedf5d8ba1f7d0fafc85b0ba8"
+KTccminer_src_hash_ver_9="2e457923f3125fbaedf5d8ba1f7d0fafc85b0ba8"
 
 KTccminer_cryptonight_ver_8="2.06"
 KTccminer_cryptonight_tarball_ver_8="KTccminer-cryptonight.tar.xz"
-KTccminer_cryptonight_ver_8_src="bedaf007d4619fc4157aeafb59b44850f08d93f1"
+KTccminer_cryptonight_src_hash_ver_8="bedaf007d4619fc4157aeafb59b44850f08d93f1"
 
 KTccminer_cryptonight_ver_9="3.05"
 KTccminer_cryptonight_tarball_ver_9="KTccminer-cryptonight-3.05.tar.xz"
-KTccminer_cryptonight_src_ver_9="7061f3c78e52a03f7ff5d0743900312de5bb24fc"
+KTccminer_cryptonight_src_hash_ver_9="7061f3c78e52a03f7ff5d0743900312de5bb24fc"
 
 KXccminer_ver_8="0.1"
 KXccminer_tarball_ver_8="KXccminer.tar.xz"
-KXccminer_ver_8_src="7d41d49b92db27b9ab80270adaa92f6b06d1ef78"
+KXccminer_src_hash_ver_8="7d41d49b92db27b9ab80270adaa92f6b06d1ef78"
 
 MSFTccminer_ver_8="2.2.5"
 MSFTccminer_tarball_ver_8="MSFTccminer.tar.xz"
-MSFTccminer_ver_8_src="78dad7dd659eae72a07d2448de62b1946c1f2b41"
+MSFTccminer_src_hash_ver_8="78dad7dd659eae72a07d2448de62b1946c1f2b41"
 
 NAccminer_ver_8="2.2"
 NAccminer_tarball_ver_8="nanashi-ccminer-2.2-mod-r2.tar.xz"
-NAccminer_ver_8_src="8affcb9cd09edd917d33c1ed450f23400f571bdb"
+NAccminer_src_hash_ver_8="8affcb9cd09edd917d33c1ed450f23400f571bdb"
 
 SILENTminer_ver_8="1.10"
 SILENTminer_tarball_ver_8="SILENTminer.v1.1.0.tar.xz"
 
 SPccminer_ver_8="1.8.2"
 SPccminer_tarball_ver_8="SPccminer.tar.xz"
-SPccminer_ver_8_src="9e86bdd24ed7911b698f1d0ef61a4028fcbd13c5"
+SPccminer_src_hash_ver_8="9e86bdd24ed7911b698f1d0ef61a4028fcbd13c5"
 
 SUPRminer_ver_8="1.5"
 SUPRminer_tarball_ver_8="SUPRminer-1.5.tar.xz"
-SUPRminer_ver_8_src="c800f1a803e1b2074ed2a7c15023c096d0772048"
+SUPRminer_src_hash_ver_8="c800f1a803e1b2074ed2a7c15023c096d0772048"
 
 TPccminer_ver_8="2.2.5"
 TPccminer_tarball_ver_8="TPccminer.tar.xz"
-TPccminer_ver_8_src="a81ab0f7a557a12a21d716dd03537bc8633fd176"
+TPccminer_src_hash_ver_8="a81ab0f7a557a12a21d716dd03537bc8633fd176"
 
 TPccminer_ver_9="2.3"
 TPccminer_tarball_ver_9="TPccminer-2.3.tar.xz"
-TPccminer_src_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
+TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
 
 vertminer_ver_8="1.0.2"
 vertminer_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
-vertminer_ver_8_src="48b170a5828256600ca71e66d4c114af4e114236"
+vertminer_src_hash_ver_8="48b170a5828256600ca71e66d4c114af4e114236"
 
 xmr_stak_ver_8="2.4.4"
 xmr_stak_tarball_ver_8="xmr-stak-2.4.4.tar.xz"
-xmr_stak_ver_8_src="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
+xmr_stak_src_hash_ver_8="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
 
 xmr_stak_ver_9="2.4.7"
 xmr_stak_tarball_ver_9="xmr-stak-2.4.7.tar.xz"
-xmr_stak_src_ver_9="c5f0505de039545585811585f2c189828dfc3ec2"
+xmr_stak_src_hash_ver_9="c5f0505de039545585811585f2c189828dfc3ec2"
 
 ZENEMYminer_ver_8="1.10"
 ZENEMYminer_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
@@ -169,13 +169,13 @@ function update-symlink {
   ln -s "$1" "$1/$2"
 }
 
-function pluggable-installer {
+#function pluggable-installer {
 ## To do
-}
+#}
 
-function pluggable-compiler {
+#function pluggable-compiler {
 ## To do
-}
+#}
 
 
 
@@ -261,8 +261,8 @@ then
   stop-if-needed "[A]Sccminer"
   tar -xvJf ${NVOC_MINERS}/ASccminer/${ASccminer_tarball_ver_8} -C ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8}/ccminer
-      update-symlink ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8} recommended
-      update-symlink ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8} latest
+  update-symlink ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8} recommended
+  update-symlink ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8} latest
   restart-if-needed
 else
   echo "ASccminer is already up-to-date"
@@ -279,8 +279,8 @@ then
   stop-if-needed "[A]NXccminer"
   tar -xvJf ${NVOC_MINERS}/ANXccminer/${ANXccminer_tarball_ver_8} -C ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8}/ccminer
-      update-symlink ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8} recommended
-      update-symlink ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8} latest
+  update-symlink ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8} recommended
+  update-symlink ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8} latest
   restart-if-needed
 else
   echo "ANXccminer is already at up-to-date"
@@ -297,8 +297,8 @@ then
   stop-if-needed "[b]miner"
   tar -xvJf ${NVOC_MINERS}/bminer/${bminer_tarball} -C ${NVOC_MINERS}/bminer/${bminer_ver}/ --strip 1
   chmod a+x ${NVOC_MINERS}/bminer/${bminer_ver}/bminer
-      update-symlink ${NVOC_MINERS}/bminer/${bminer_ver}/ recommended
-      update-symlink ${NVOC_MINERS}/bminer/${bminer_ver}/ latest
+  update-symlink ${NVOC_MINERS}/bminer/${bminer_ver}/ recommended
+  update-symlink ${NVOC_MINERS}/bminer/${bminer_ver}/ latest
   restart-if-needed
 else
   echo "Bminer is already up-to-date"
@@ -315,8 +315,8 @@ then
   stop-if-needed "[e]thdcrminer64"
   tar -xvJf ${NVOC_MINERS}/claymore/${claymore_tarball} -C ${NVOC_MINERS}/claymore/${claymore_ver}/ --strip 1
   chmod a+x ${NVOC_MINERS}/claymore/${claymore_ver}/ethdcrminer64
-      update-symlink ${NVOC_MINERS}/claymore/${claymore_ver}/ recommended
-      update-symlink ${NVOC_MINERS}/claymore/${claymore_ver}/ latest
+  update-symlink ${NVOC_MINERS}/claymore/${claymore_ver}/ recommended
+  update-symlink ${NVOC_MINERS}/claymore/${claymore_ver}/ latest
   restart-if-needed
 else
   echo "Claymore is already up-to-date"
@@ -333,8 +333,8 @@ then
   stop-if-needed "[z]m_miner"
   tar -xvJf ${NVOC_MINERS}/dstm/${dstm_tarball} -C ${NVOC_MINERS}/dstm/${dstm_ver}/ --strip 1
   chmod a+x ${NVOC_MINERS}/dstm/${dstm_ver}/zm_miner
-      update-symlink ${NVOC_MINERS}/dstm/${dstm_ver}/ recommended
-      update-symlink ${NVOC_MINERS}/dstm/${dstm_ver}/ latest
+  update-symlink ${NVOC_MINERS}/dstm/${dstm_ver}/ recommended
+  update-symlink ${NVOC_MINERS}/dstm/${dstm_ver}/ latest
   restart-if-needed
 else
   echo "DSTM zm miner is already up-to-date"
@@ -355,7 +355,7 @@ then
   echo "Use ${ethminer_ver_8} or recommended for ethminer_VERSION in 1bash"
   if [[ $CUDA_VER == "8" ]]
   then
-      update-symlink ${NVOC_MINERS}/ethminer/${ethminer_ver_8}/ recommended
+    update-symlink ${NVOC_MINERS}/ethminer/${ethminer_ver_8}/ recommended
   fi
   restart-if-needed
 else
@@ -374,8 +374,8 @@ then
   echo "Use latest or recommended or ${ethminer_ver_9} for ethminer_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
-      update-symlink ${NVOC_MINERS}/ethminer/${ethminer_ver_9}/ recommended
-      update-symlink ${NVOC_MINERS}/ethminer/${ethminer_ver_9}/ latest
+    update-symlink ${NVOC_MINERS}/ethminer/${ethminer_ver_9}/ recommended
+    update-symlink ${NVOC_MINERS}/ethminer/${ethminer_ver_9}/ latest
   fi
   restart-if-needed
 else
@@ -396,7 +396,7 @@ then
   chmod a+x ${NVOC_MINERS}/ewbf/${ewbf_ver}/miner
   chmod a+x ${NVOC_MINERS}/ewbf/3.3/miner
   stop-if-needed "[e]wbf"
- update-symlink ${NVOC_MINERS}/ewbf/${ewbf_ver} latest
+  update-symlink ${NVOC_MINERS}/ewbf/${ewbf_ver} latest
   update-symlink ${NVOC_MINERS}/ewbf/${ewbf_ver} recommended
   restart-if-needed
 else
@@ -414,7 +414,7 @@ then
   stop-if-needed "[z]_ewbf"
   tar -xvJf ${NVOC_MINERS}/z_ewbf/${z_ewbf_tarball} -C ${NVOC_MINERS}/z_ewbf/${z_ewbf_ver}/ --strip 1
   chmod a+x ${NVOC_MINERS}/z_ewbf/${z_ewbf_ver}/miner
- update-symlink ${NVOC_MINERS}/z_ewbf/${z_ewbf_ver} latest
+  update-symlink ${NVOC_MINERS}/z_ewbf/${z_ewbf_ver} latest
   update-symlink ${NVOC_MINERS}/z_ewbf/${z_ewbf_ver} recommended
   restart-if-needed
 else
@@ -436,7 +436,7 @@ then
   echo "Use ${KTccminer_ver_8} or recommended for KTccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "8" ]]
   then
-  update-symlink ${NVOC_MINERS}/KTccminer/${KTccminer_ver_8} recommended
+    update-symlink ${NVOC_MINERS}/KTccminer/${KTccminer_ver_8} recommended
   fi
   restart-if-needed
 else
@@ -455,8 +455,8 @@ then
   echo "Use latest or recommended or ${KTccminer_ver_9} for KTccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
-  update-symlink ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9} recommended
-  update-symlink ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9} latest
+    update-symlink ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9} recommended
+    update-symlink ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9} latest
   fi
   restart-if-needed
 else
@@ -479,7 +479,7 @@ then
   echo "Use ${KTccminer_cryptonight_ver_8} or recommended for KTccminer_cryptonight_VERSION in 1bash"
   if [[ $CUDA_VER == "8" ]]
   then
-  update-symlink ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_8} recommended
+    update-symlink ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_8} recommended
   fi
   restart-if-needed
 else
@@ -498,8 +498,8 @@ then
   echo "Use latest or recommended or ${KTccminer_cryptonight_ver_9} for KTccminer_cryptonight_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
-  update-symlink ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_9} recommended
-  update-symlink ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_9} latest
+    update-symlink ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_9} recommended
+    update-symlink ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_9} latest
   fi
   restart-if-needed
 else
@@ -620,38 +620,38 @@ echo
 echo
 
 echo "Checking tpruvot ccminer (TPccminer)"
-  if [[ ! -d ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8} ]]
-  then
-    echo "Extracting tpruvot ccminer ${TPccminer_ver_8} and making changes for CUDA-8"
-    mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/
-    tar -xvJf ${NVOC_MINERS}/TPccminer/${TPccminer_tarball_ver_8} -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ --strip 1
-    chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ccminer
-    stop-if-needed "[T]Pccminer"
-    echo "tpruvot ccminer for CUDA-8 updated"
-    echo "Use ${TPccminer_ver_8} or recommended for TPccminer_VERSION in 1bash"
+if [[ ! -d ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8} ]]
+then
+  echo "Extracting tpruvot ccminer ${TPccminer_ver_8} and making changes for CUDA-8"
+  mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/
+  tar -xvJf ${NVOC_MINERS}/TPccminer/${TPccminer_tarball_ver_8} -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ccminer
+  stop-if-needed "[T]Pccminer"
+  echo "tpruvot ccminer for CUDA-8 updated"
+  echo "Use ${TPccminer_ver_8} or recommended for TPccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "8.0" ]]
   then
-  update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8} recommended
-  fi    
-restart-if-needed
-  else
-    echo "tpruvot ccminer for CUDA-8 is already up-to-date"
-    echo "Use TPccminer_VERSION ${TPccminer_ver_8} or recommended in 1bash"
+    update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8} recommended
   fi
+  restart-if-needed
+else
+  echo "tpruvot ccminer for CUDA-8 is already up-to-date"
+  echo "Use TPccminer_VERSION ${TPccminer_ver_8} or recommended in 1bash"
+fi
 
-  if [[ ! -d ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} ]]
-  then
-    echo "Extracting tpruvot ccminer and making changes for CUDA-9.2"
-    mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/
-    tar -xvJf ${NVOC_MINERS}/TPccminer/${TPccminer_tarball_ver_9} -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ --strip 1
-    chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ccminer
-    stop-if-needed "[T]Pccminer"
-    echo "tpruvot ccminer for CUDA-9.2 updated"
-    echo "Use latest or recommended or ${TPccminer_ver_9} for TPccminer_VERSION in 1bash"
+if [[ ! -d ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} ]]
+then
+  echo "Extracting tpruvot ccminer and making changes for CUDA-9.2"
+  mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/
+  tar -xvJf ${NVOC_MINERS}/TPccminer/${TPccminer_tarball_ver_9} -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ccminer
+  stop-if-needed "[T]Pccminer"
+  echo "tpruvot ccminer for CUDA-9.2 updated"
+  echo "Use latest or recommended or ${TPccminer_ver_9} for TPccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
-  update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} recommended
-  update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} latest
+    update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} recommended
+    update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} latest
   fi
   restart-if-needed
 else
@@ -681,34 +681,35 @@ echo
 echo
 
 echo "Checking xmr_stak ${xmr_stak_ver_8}"
-if [[ ! -d ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}
+if [[ ! -d ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8} ]]
 then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/
   stop-if-needed "[x]mr-stak"
   tar -xvJf ${NVOC_MINERS}/xmr_stak/${xmr_stak_tarball_ver_8} -C ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/xmr_stak_miner
- if [[ $CUDA_VER == "8.0" ]]
+  if [[ $CUDA_VER == "8.0" ]]
   then
-  update-symlink ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8} recommended
-fi
+    update-symlink ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8} recommended
+  fi
   restart-if-needed
 else
   echo "xmr-stak is already up-to-date"
 fi
+
 echo "Checking xmr_stak ${xmr_stak_ver_9}"
-if [[ ! -d ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9}
+if [[ ! -d ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9} ]]
 then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9}/
   stop-if-needed "[x]mr-stak"
   tar -xvJf ${NVOC_MINERS}/xmr_stak/${xmr_stak_tarball_ver_9} -C ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9}/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/xmr_stak_miner
- if [[ $CUDA_VER == "9.2" ]]
+  if [[ $CUDA_VER == "9.2" ]]
   then
-  update-symlink ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9} recommended
-  update-symlink ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9} latest
-fi
+    update-symlink ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9} recommended
+    update-symlink ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9} latest
+  fi
   restart-if-needed
 else
   echo "xmr-stak is already up-to-date"
@@ -729,7 +730,7 @@ then
   echo "Use ${ZENEMYminer_ver_8} or recommended for ZENEMYminer_VERSION in 1bash"
   if [[ $CUDA_VER == "8" ]]
   then
-  update-symlink ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_ver_8} recommended
+    update-symlink ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_ver_8} recommended
   fi
   restart-if-needed
 else
@@ -748,8 +749,8 @@ then
   echo "Use latest or recommended or ${ZENEMYminer_ver_9} for ZENEMYminer_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
-  update-symlink ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_ver_9} recommended
-  update-symlink ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_ver_9} latest
+    update-symlink ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_ver_9} recommended
+    update-symlink ${NVOC_MINERS}/ZENEMYminer/${ZENEMYminer_ver_9} latest
   fi
   restart-if-needed
 else
@@ -788,7 +789,7 @@ function compile-TPccminer {
   if [[ $CUDA_VER == "8" ]]
   then
     get-sources TPccminer
-    cd ${NVOC_MINERS}/TPccminer/src_cuda_8
+    cd ${NVOC_MINERS}/TPccminer/{TPccminer_src_hash_ver_9}
     bash ${NVOC_MINERS}/TPccminer/src_cuda_8/autogen.sh
     bash ${NVOC_MINERS}/TPccminer/src_cuda_8/configure --with-cuda=/usr/local/cuda-8.0
     bash ${NVOC_MINERS}/TPccminer/src_cuda_8/build.sh
