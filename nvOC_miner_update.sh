@@ -84,15 +84,15 @@ SUPRminer_ver_8="1.5"
 SUPRminer_tarball_ver_8="SUPRminer-1.5.tar.xz"
 SUPRminer_src_hash_ver_8="c800f1a803e1b2074ed2a7c15023c096d0772048"
 
-TPccminer_repo="https://github.com/tpruvot/ccminer"
-
 TPccminer_ver_8="2.2.5"
-TPccminer_tarball_ver_8="TPccminer.tar.xz"
-TPccminer_src_hash_ver_8="a81ab0f7a557a12a21d716dd03537bc8633fd176"
+TPccminer_compiled_tarball_ver_8="TPccminer.tar.xz"
+TPccminer_release_tarball_ver_8="2.2.5-tpruvot.tar.gz"
+TPccminer_release_tarball_url_ver_8="https://github.com/tpruvot/ccminer/archive/2.2.5-tpruvot.tar.gz"
 
 TPccminer_ver_9="2.3"
-TPccminer_tarball_ver_9="TPccminer-2.3.tar.xz"
-TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
+TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
+TPccminer_release_tarball_ver_9="2.3-tpruvot.tar.gz"
+TPccminer_release_tarball_url_ver_9="https://github.com/tpruvot/ccminer/archive/2.3-tpruvot.tar.gz"
 
 vertminer_ver_8="1.0.2"
 vertminer_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
@@ -790,68 +790,48 @@ function compile-TPccminer {
   echo " This could take a while ..."
   if [[ $CUDA_VER == "8.0" ]]
   then
-    if [[ -d ${NVOC_MINERS}/TPccminer/src/ ]]
+    if [[ ! -f ${NVOC_MINERS}/TPccminer/$TPccminer_release_tarball_ver_8 ]]
     then
-      cd ${NVOC_MINERS}/TPccminer/src/ 
-      if [[ $(git config --get remote.origin.url) != $TPccminer_repo ]]
-      then
-        echo "Wrong repo, clean up"
-        rm -rf ${NVOC_MINERS}/TPccminer/src
-        echo "Clone tpruvot repo from $TPccminer_repo"
-        git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
-      fi
-    else
-      echo "Clone tpruvot repo from $TPccminer_repo"
-      git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+      wget -N $TPccminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/TPccminer/
     fi
-    if ! grep -q $TPccminer_src_hash_ver_8 ${NVOC_MINERS}/TPccminer/src/.git/ORIG_HEAD
+    # Make sure src folder is clean
+    if [[ -d ${NVOC_MINERS}/TPccminer/src ]]
     then
-      echo "Set tpruvot ccminer repo head to $TPccminer_src_hash_ver_8"
-      cd ${NVOC_MINERS}/TPccminer/src/
-      git reset --hard $TPccminer_src_hash_ver_8
-      git checkout $TPccminer_src_hash_ver_8    # is this needed?
-      git pull origin $TPccminer_src_hash_ver_8
+      rm -rf ${NVOC_MINERS}/TPccminer/src
     fi
+    mkdir -p ${NVOC_MINERS}/TPccminer/src/
+    tar -xvzf ${NVOC_MINERS}/TPccminer/$TPccminer_release_tarball_ver_8 -C ${NVOC_MINERS}/TPccminer/src/ --strip 1
     cd ${NVOC_MINERS}/TPccminer/src/
     bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
     bash ${NVOC_MINERS}/TPccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
     bash ${NVOC_MINERS}/TPccminer/src/build.sh
+    mkdir -p ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8/
     stop-if-needed "[T]Pccminer"
-    cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ccminer
+    cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8/ccminer
     cd ${NVOC_MINERS}
     echo
     echo "Finished compiling tpruvot ccminer"
     restart-if-needed
   elif [[ $CUDA_VER == "9.2" ]]
   then
-    if [[ -d ${NVOC_MINERS}/TPccminer/src/ ]]
+    if [[ ! -f ${NVOC_MINERS}/TPccminer/$TPccminer_release_tarball_ver_9 ]]
     then
-      cd ${NVOC_MINERS}/TPccminer/src/ 
-      if [[ $(git config --get remote.origin.url) != $TPccminer_repo ]]
-      then
-        echo "Wrong repo, clean up"
-        rm -rf ${NVOC_MINERS}/TPccminer/src
-        echo "Clone tpruvot repo from $TPccminer_repo"
-        git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
-      fi
-    else
-      echo "Clone tpruvot repo from $TPccminer_repo"
-      git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+      wget -N $TPccminer_release_tarball_url_ver_9 -P ${NVOC_MINERS}/TPccminer/
     fi
-    if ! grep -q $TPccminer_src_hash_ver_9 ${NVOC_MINERS}/TPccminer/src/.git/ORIG_HEAD
+    # Make sure src folder is clean
+    if [[ -d ${NVOC_MINERS}/TPccminer/src ]]
     then
-      echo "Set tpruvot ccminer repo head to $TPccminer_src_hash_ver_9"
-      cd ${NVOC_MINERS}/TPccminer/src/
-      git reset --hard $TPccminer_src_hash_ver_9
-      git checkout $TPccminer_src_hash_ver_9     # is this needed?
-      git pull origin $TPccminer_src_hash_ver_9
+      rm -rf ${NVOC_MINERS}/TPccminer/src
     fi
+    mkdir -p ${NVOC_MINERS}/TPccminer/src/
+    tar -xvzf ${NVOC_MINERS}/TPccminer/$TPccminer_release_tarball_ver_9 -C ${NVOC_MINERS}/TPccminer/src/ --strip 1
     cd ${NVOC_MINERS}/TPccminer/src/
     bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
     bash ${NVOC_MINERS}/TPccminer/src/configure.sh --with-cuda=/usr/local/cuda-9.2
     bash ${NVOC_MINERS}/TPccminer/src/build.sh
+    mkdir -p ${NVOC_MINERS}/TPccminer/"$TPccminer_ver_9"/
     stop-if-needed "[T]Pccminer"
-    cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ccminer
+    cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9/ccminer
     cd ${NVOC_MINERS}
     echo
     echo "Finished compiling tpruvot ccminer"
