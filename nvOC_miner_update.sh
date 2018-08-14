@@ -788,7 +788,6 @@ sleep 2
 function compile-TPccminer {
   echo "Compiling tpruvot ccminer"
   echo " This could take a while ..."
-  CUDA_VER="8.0"
   if [[ $CUDA_VER == "8.0" ]]
   then
     if ! grep -q $TPccminer_src_hash_ver_8 ${NVOC_MINERS}/TPccminer/src/.git/ORIG_HEAD
