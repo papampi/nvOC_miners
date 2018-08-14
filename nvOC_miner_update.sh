@@ -15,12 +15,14 @@ fi
 ## Miner versions and tarballs
 
 ANXccminer_ver_8="1.0"
-ANXccminer_tarball_ver_8="ANXccminer.tar.xz"
-ANXccminer_src_hash_ver_8="cd6fab68823e247bb84dd1fa0448d5f75ec4917d"
+ANXccminer_compiled_tarball_ver_8="ANXccminer.tar.xz"
+ANXccminer_release_tarball_ver_8="phi-1.0.tar.gz"
+ANXccminer_release_tarball_url_ver_8="https://github.com/anorganix/ccminer-phi/archive/ccminer/phi-1.0.tar.gz"
 
 ASccminer_ver_8="1.0"
-ASccminer_tarball_ver_8="ASccminer.tar.xz"
-ASccminer_src_hash_ver_8="aafe2d19b6d9eb07d942d70ced3049e9aed1c241"
+ASccminer_compiled_tarball_ver_8="ASccminer.tar.xz"
+ASccminer_release_tarball_ver_8="v1.0.tar.gz"
+ASccminer_release_tarball_url_ver_8="https://github.com/alexis78/ccminer/archive/v1.0.tar.gz"
 
 bminer_ver="9.1.0"
 bminer_tarball="bminer-v9.1.0.tar.xz"
@@ -32,12 +34,14 @@ dstm_ver="0.6.1"
 dstm_tarball="DSTM_0.6.1.tar.xz"
 
 ethminer_ver_8="0.14.0"
-ethminer_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
-ethminer_src_hash_ver_8="24c65cf166bbb3332d60e2baef859ceb604e5d49"
+ethminer_compiled_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
+ethminer_release_tarball_ver_8="ethminer-0.14.0-Linux.tar.gz"
+ethminer_release_tarball_url_ver_8="https://github.com/ethereum-mining/ethminer/releases/download/v0.14.0/ethminer-0.14.0-Linux.tar.gz"
 
 ethminer_ver_9="0.15.0"
-ethminer_tarball_ver_9="ethminer-0.15.0-Linux.tar.xz"
-ethminer_src_hash_ver_9="11d7e3c4c087f6c669013e360af84f6d617c02f4"
+ethminer_compiled_tarball_ver_9="ethminer-0.15.0-Linux.tar.xz"
+ethminer_release_tarball_ver_9="ethminer-0.15.0-Linux.tar.gz"
+ethminer_release_tarball_url_ver_9="https://github.com/ethereum-mining/ethminer/releases/download/v0.15.0/ethminer-0.15.0-Linux.tar.gz"
 
 ewbf_ver="3.4"
 ewbf_tarball="0.3.4b.tar.xz"
@@ -46,43 +50,53 @@ z_ewbf_ver="0.5"
 z_ewbf_tarball="z_ewbf_v0.5.tar.xz"
 
 KTccminer_ver_8="8.20"
-KTccminer_tarball_ver_8="KTccminer.tar.xz"
-KTccminer_src_hash_ver_8="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
+KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
+KTccminer_release_tarball_ver_8="8.20.tar.gz"
+KTccminer_release_tarball_url_ver_8="https://github.com/KlausT/ccminer/archive/8.20.tar.gz"
 
 KTccminer_ver_9="8.22"
-KTccminer_tarball_ver_9="KTccminer-8.22.tar.xz"
-KTccminer_src_hash_ver_9="2e457923f3125fbaedf5d8ba1f7d0fafc85b0ba8"
+KTccminer_compiled_tarball_ver_9="KTccminer-8.22.tar.xz"
+KTccminer_release_tarball_ver_9="8.22.tar.gz"
+KTccminer_release_tarball_url_ver_9="https://github.com/KlausT/ccminer/archive/8.22.tar.gz"
 
 KTccminer_cryptonight_ver_8="2.06"
-KTccminer_cryptonight_tarball_ver_8="KTccminer-cryptonight.tar.xz"
-KTccminer_cryptonight_src_hash_ver_8="bedaf007d4619fc4157aeafb59b44850f08d93f1"
+KTccminer_cryptonight_compiled_tarball_ver_8="KTccminer-cryptonight.tar.xz"
+KTccminer_cryptonight_release_tarball_ver_8="ccminer-cryptonight-206-x64-cuda8.zip"
+KTccminer_cryptonight_release_tarball_url_ver_8="https://github.com/KlausT/ccminer-cryptonight/releases/download/2.06/ccminer-cryptonight-206-x64-cuda8.zip"
 
 KTccminer_cryptonight_ver_9="3.05"
-KTccminer_cryptonight_tarball_ver_9="KTccminer-cryptonight-3.05.tar.xz"
-KTccminer_cryptonight_src_hash_ver_9="7061f3c78e52a03f7ff5d0743900312de5bb24fc"
+KTccminer_cryptonight_compiled_tarball_ver_9="KTccminer-cryptonight-3.05.tar.xz"
+KTccminer_cryptonight_release_tarball_ver_9="ccminer-cryptonight-305-x64-cuda92.zip"
+KTccminer_cryptonight_release_tarball_url_ver_9="https://github.com/KlausT/ccminer-cryptonight/releases/download/3.05/ccminer-cryptonight-305-x64-cuda92.zip"
 
 KXccminer_ver_8="0.1"
 KXccminer_tarball_ver_8="KXccminer.tar.xz"
-KXccminer_src_hash_ver_8="7d41d49b92db27b9ab80270adaa92f6b06d1ef78"
+KXccminer_compiled_tarball_ver_8="KXccminer.tar.xz"
+KXccminer_release_tarball_ver_8="0.1.tar.gz"
+KXccminer_release_tarball_url_ver_8="https://github.com/krnlx/ccminer-xevan/archive/0.1.tar.gz"
 
 MSFTccminer_ver_8="2.2.5"
-MSFTccminer_tarball_ver_8="MSFTccminer.tar.xz"
-MSFTccminer_src_hash_ver_8="78dad7dd659eae72a07d2448de62b1946c1f2b41"
+MSFTccminer_compiled_tarball_ver_8="MSFTccminer.tar.xz"
+MSFTccminer_release_tarball_ver_8="2.2.5-rvn.tar.gz"
+MSFTccminer_release_tarball_url_ver_8="https://github.com/MSFTserver/ccminer/archive/2.2.5-rvn.tar.gz"
 
 NAccminer_ver_8="2.2"
-NAccminer_tarball_ver_8="nanashi-ccminer-2.2-mod-r2.tar.xz"
-NAccminer_src_hash_ver_8="8affcb9cd09edd917d33c1ed450f23400f571bdb"
+NAccminer_compiled_tarball_ver_8="nanashi-ccminer-2.2-mod-r2.tar.xz"
+NAccminer_release_tarball_ver_8="v2.2-mod-r2.tar.gz"
+NAccminer_release_tarball_url_ver_8="https://github.com/Nanashi-Meiyo-Meijin/ccminer_v2.2_mod_r2/archive/v2.2-mod-r2.tar.gz"
 
 SILENTminer_ver_8="1.10"
 SILENTminer_tarball_ver_8="SILENTminer.v1.1.0.tar.xz"
 
 SPccminer_ver_8="1.8.2"
-SPccminer_tarball_ver_8="SPccminer.tar.xz"
-SPccminer_src_hash_ver_8="9e86bdd24ed7911b698f1d0ef61a4028fcbd13c5"
+SPccminer_compiled_tarball_ver_8="SPccminer.tar.xz"
+SPccminer_release_tarball_ver_8="1.5.81.tar.gz"
+SPccminer_release_tarball_url_ver_8="https://github.com/sp-hash/ccminer/archive/1.5.81.tar.gz"
 
 SUPRminer_ver_8="1.5"
-SUPRminer_tarball_ver_8="SUPRminer-1.5.tar.xz"
-SUPRminer_src_hash_ver_8="c800f1a803e1b2074ed2a7c15023c096d0772048"
+SUPRminer_compiled_tarball_ver_8="SUPRminer-1.5.tar.xz"
+SUPRminer_release_tarball_ver_8="1.5.tar.gz"
+SUPRminer_release_tarball_url_ver_8="https://github.com/ocminer/suprminer/archive/1.5.tar.gz"
 
 TPccminer_ver_8="2.2.5"
 TPccminer_compiled_tarball_ver_8="TPccminer.tar.xz"
@@ -95,16 +109,20 @@ TPccminer_release_tarball_ver_9="2.3-tpruvot.tar.gz"
 TPccminer_release_tarball_url_ver_9="https://github.com/tpruvot/ccminer/archive/2.3-tpruvot.tar.gz"
 
 vertminer_ver_8="1.0.2"
-vertminer_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
-vertminer_src_hash_ver_8="48b170a5828256600ca71e66d4c114af4e114236"
+vertminer_compiled_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
+vertminer_release_tarball_ver_8="v1.0-stable.2.tar.gz"
+vertminer_release_tarball_url_ver_8="https://github.com/vertcoin-project/vertminer-nvidia/archive/v1.0-stable.2.tar.gz"
 
 xmr_stak_ver_8="2.4.4"
-xmr_stak_tarball_ver_8="xmr-stak-2.4.4.tar.xz"
-xmr_stak_src_hash_ver_8="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
+xmr_stak_compiled_tarball_ver_8="xmr-stak-2.4.4.tar.xz"
+xmr_stak_release_tarball_ver_8="2.4.4.tar.gz"
+xmr_stak_release_tarball_url_ver_8="https://github.com/fireice-uk/xmr-stak/archive/2.4.4.tar.gz"
 
 xmr_stak_ver_9="2.4.7"
-xmr_stak_tarball_ver_9="xmr-stak-2.4.7.tar.xz"
-xmr_stak_src_hash_ver_9="c5f0505de039545585811585f2c189828dfc3ec2"
+xmr_stak_compiled_tarball_ver_9="xmr-stak-2.4.7.tar.xz"
+xmr_stak_release_tarball_ver_9="2.4.7.tar.gz"
+xmr_stak_release_tarball_url_ver_9="https://github.com/fireice-uk/xmr-stak/archive/2.4.7.tar.gz"
+
 
 ZENEMYminer_ver_8="1.10"
 ZENEMYminer_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
@@ -261,7 +279,7 @@ then
   echo "Extracting ASccminer"
   mkdir -p ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8}/
   stop-if-needed "[A]Sccminer"
-  tar -xvJf ${NVOC_MINERS}/ASccminer/${ASccminer_tarball_ver_8} -C ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ASccminer/${ASccminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8}/ccminer
   update-symlink ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8} recommended
   update-symlink ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8} latest
@@ -279,7 +297,7 @@ then
   echo "Extracting ANXccminer"
   mkdir -p ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8}/
   stop-if-needed "[A]NXccminer"
-  tar -xvJf ${NVOC_MINERS}/ANXccminer/${ANXccminer_tarball_ver_8} -C ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ANXccminer/${ANXccminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8}/ccminer
   update-symlink ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8} recommended
   update-symlink ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8} latest
@@ -350,7 +368,7 @@ if [[ ! -d ${NVOC_MINERS}/ethminer/${ethminer_ver_8} ]]
 then
   echo "Extracting Ethminer ${ethminer_ver_8} and making changes for CUDA-8"
   mkdir -p ${NVOC_MINERS}/ethminer/${ethminer_ver_8}/
-  tar -xvJf ${NVOC_MINERS}/ethminer/${ethminer_tarball_ver_8} -C ${NVOC_MINERS}/ethminer/${ethminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ethminer/${ethminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/ethminer/${ethminer_ver_8}/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ethminer/${ethminer_ver_8}/ccminer
   stop-if-needed "[e]thminer"
   echo "Ethminer for CUDA-8 updated"
@@ -369,7 +387,7 @@ if [[ ! -d ${NVOC_MINERS}/ethminer/${ethminer_ver_9} ]]
 then
   echo "Extracting Ethminer and making changes for CUDA-9.2"
   mkdir -p ${NVOC_MINERS}/ethminer/${ethminer_ver_9}/
-  tar -xvJf ${NVOC_MINERS}/ethminer/${ethminer_tarball_ver_9} -C ${NVOC_MINERS}/ethminer/${ethminer_ver_9}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ethminer/${ethminer_compiled_tarball_ver_9} -C ${NVOC_MINERS}/ethminer/${ethminer_ver_9}/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ethminer/${ethminer_ver_9}/ccminer
   stop-if-needed "[e]thminer"
   echo "Ethminer for CUDA-9.2 updated"
@@ -431,7 +449,7 @@ if [[ ! -d ${NVOC_MINERS}/KTccminer/${KTccminer_ver_8} ]]
 then
   echo "Extracting Klaust ccminer ${KTccminer_ver_8} and making changes for CUDA-8"
   mkdir -p ${NVOC_MINERS}/KTccminer/${KTccminer_ver_8}/
-  tar -xvJf ${NVOC_MINERS}/KTccminer/${KTccminer_tarball_ver_8} -C ${NVOC_MINERS}/KTccminer/${KTccminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/KTccminer/${KTccminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/KTccminer/${KTccminer_ver_8}/ --strip 1
   chmod a+x  ${NVOC_MINERS}/KTccminer/${KTccminer_ver_8}/ccminer
   stop-if-needed "[K]Tccminer"
   echo "Klaust ccminer for CUDA-8 updated"
@@ -450,7 +468,7 @@ if [[ ! -d ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9} ]]
 then
   echo "Extracting Klaust ccminer and making changes for CUDA-9.2"
   mkdir -p ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9}/
-  tar -xvJf ${NVOC_MINERS}/KTccminer/${KTccminer_tarball_ver_9} -C ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/KTccminer/${KTccminer_compiled_tarball_ver_9} -C ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9}/ --strip 1
   chmod a+x  ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9}/ccminer
   stop-if-needed "[K]Tccminer"
   echo "Klaust ccminer for CUDA-9.2 updated"
@@ -474,7 +492,7 @@ if [[ ! -d ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_8} ]
 then
   echo "Extracting KTccminer_cryptonight ${KTccminer_cryptonight_ver_8} and making changes for CUDA-8"
   mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_8}/
-  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_tarball_ver_8} -C ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_compiled_tarball_ver_8} -C ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_8}/ --strip 1
   chmod a+x  ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_8}/ccminer
   stop-if-needed "[K]Tccminer_cryptonight"
   echo "KTccminer_cryptonight for CUDA-8 updated"
@@ -493,7 +511,7 @@ if [[ ! -d ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_9} ]
 then
   echo "Extracting KTccminer_cryptonight and making changes for CUDA-9.2"
   mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_9}/
-  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_tarball_ver_9} -C ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_9}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_compiled_tarball_ver_9} -C ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_9}/ --strip 1
   chmod a+x  ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_9}/ccminer
   stop-if-needed "[K]Tccminer_cryptonight"
   echo "KTccminer_cryptonight for CUDA-9.2 updated"
@@ -518,7 +536,7 @@ then
   echo "Extracting KXccminer"
   mkdir -p ${NVOC_MINERS}/KXccminer/${KXccminer_ver_8}/
   stop-if-needed "[K]Xccminer"
-  tar -xvJf ${NVOC_MINERS}/KXccminer/${KXccminer_tarball_ver_8} -C ${NVOC_MINERS}/KXccminer/${KXccminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/KXccminer/${KXccminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/KXccminer/${KXccminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/KXccminer/${KXccminer_ver_8}/ccminer
   update-symlink ${NVOC_MINERS}/KXccminer/${KXccminer_ver_8} recommended
   update-symlink ${NVOC_MINERS}/KXccminer/${KXccminer_ver_8} latest
@@ -536,7 +554,7 @@ then
   echo "Extracting MSFT Tpruvot ccminer"
   mkdir -p ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_ver_8}/
   stop-if-needed "[M]SFTccminer"
-  tar -xvJf ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_tarball_ver_8} -C ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_ver_8}/ccminer
   update-symlink ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_ver_8} recommended
   update-symlink ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_ver_8} latest
@@ -554,7 +572,7 @@ then
   echo "Extracting nanashi ccminer"
   mkdir -p ${NVOC_MINERS}/NAccminer/${NAccminer_ver_8}/
   stop-if-needed "[N]Accminer"
-  tar -xvJf ${NVOC_MINERS}/NAccminer/${NAccminer_tarball_ver_8} -C ${NVOC_MINERS}/NAccminer/${NAccminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/NAccminer/${NAccminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/NAccminer/${NAccminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/NAccminer/${NAccminer_ver_8}/ccminer
   update-symlink ${NVOC_MINERS}/NAccminer/${NAccminer_ver_8} recommended
   update-symlink ${NVOC_MINERS}/NAccminer/${NAccminer_ver_8} latest
@@ -573,7 +591,7 @@ then
   echo "Extracting Silent Miner"
   mkdir -p ${NVOC_MINERS}/SILENTminer/${SILENTminer_ver_8}
   stop-if-needed "[S]ILENTminer"
-  tar -xvJf ${NVOC_MINERS}/SILENTminer/${SILENTminer_tarball_ver_8} -C ${NVOC_MINERS}/SILENTminer/${SILENTminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/SILENTminer/${SILENTminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/SILENTminer/${SILENTminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/SILENTminer/${SILENTminer_ver_8}/ccminer
   update-symlink ${NVOC_MINERS}/SILENTminer/${SILENTminer_ver_8} recommended
   update-symlink ${NVOC_MINERS}/SILENTminer/${SILENTminer_ver_8} latest
@@ -591,7 +609,7 @@ then
   echo "Extracting SPccminer"
   mkdir -p ${NVOC_MINERS}/SPccminer/${SPccminer_ver_8}/
   stop-if-needed "[S]Pccminer"
-  tar -xvJf ${NVOC_MINERS}/SPccminer/${SPccminer_tarball_ver_8} -C ${NVOC_MINERS}/SPccminer/${SPccminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/SPccminer/${SPccminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/SPccminer/${SPccminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/SPccminer/${SPccminer_ver_8}/ccminer
   update-symlink ${NVOC_MINERS}/SPccminer/${SPccminer_ver_8} recommended
   update-symlink ${NVOC_MINERS}/SPccminer/${SPccminer_ver_8} latest
@@ -609,7 +627,7 @@ then
   echo "Extracting SUPRminer"
   mkdir -p ${NVOC_MINERS}/SUPRminer/${SUPRminer_ver_8}/
   stop-if-needed "[S]UPRminer"
-  tar -xvJf ${NVOC_MINERS}/SUPRminer/${SUPRminer_tarball_ver_8} -C ${NVOC_MINERS}/SUPRminer/${SUPRminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/SUPRminer/${SUPRminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/SUPRminer/${SUPRminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/SUPRminer/${SUPRminer_ver_8}/ccminer
   update-symlink ${NVOC_MINERS}/SUPRminer/${SUPRminer_ver_8} recommended
   update-symlink ${NVOC_MINERS}/SUPRminer/${SUPRminer_ver_8} latest
@@ -622,43 +640,43 @@ echo
 echo
 
 echo "Checking tpruvot ccminer (TPccminer)"
-if [[ ! -d ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8 ]]
+if [[ ! -d ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8} ]]
 then
-  echo "Extracting tpruvot ccminer $TPccminer_ver_8 and making changes for CUDA-8"
-  mkdir -p ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8/
-  tar -xvJf ${NVOC_MINERS}/TPccminer/$TPccminer_compiled_tarball_ver_8 -C ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8/ccminer
+  echo "Extracting tpruvot ccminer ${TPccminer_ver_8} and making changes for CUDA-8"
+  mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/
+  tar -xvJf ${NVOC_MINERS}/TPccminer/${TPccminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ccminer
   stop-if-needed "[T]Pccminer"
   echo "tpruvot ccminer for CUDA-8 updated"
   echo "Use ${TPccminer_ver_8} or recommended for TPccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "8.0" ]]
   then
-    update-symlink ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8 recommended
+    update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8} recommended
   fi
   restart-if-needed
 else
   echo "tpruvot ccminer for CUDA-8 is already up-to-date"
-  echo "Use TPccminer_VERSION $TPccminer_ver_8 or recommended in 1bash"
+  echo "Use TPccminer_VERSION ${TPccminer_ver_8} or recommended in 1bash"
 fi
 
-if [[ ! -d ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9 ]]
+if [[ ! -d ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} ]]
 then
   echo "Extracting tpruvot ccminer and making changes for CUDA-9.2"
-  mkdir -p ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9/
-  tar -xvJf ${NVOC_MINERS}/TPccminer/$TPccminer_compiled_tarball_ver_9 -C ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9/ccminer
+  mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/
+  tar -xvJf ${NVOC_MINERS}/TPccminer/${TPccminer_compiled_tarball_ver_9} -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ccminer
   stop-if-needed "[T]Pccminer"
   echo "tpruvot ccminer for CUDA-9.2 updated"
-  echo "Use latest or recommended or $TPccminer_ver_9 for TPccminer_VERSION in 1bash"
+  echo "Use latest or recommended or ${TPccminer_ver_9} for TPccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
-    update-symlink ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9 recommended
-    update-symlink ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9 latest
+    update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} recommended
+    update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} latest
   fi
   restart-if-needed
 else
   echo "tpruvot ccminer for CUDA-9.2 is already up-to-date"
-  echo "Use TPccminer_VERSION latest or recommended or $TPccminer_ver_9 in 1bash"
+  echo "Use TPccminer_VERSION latest or recommended or ${TPccminer_ver_9} in 1bash"
 fi
 
 echo
@@ -670,7 +688,7 @@ then
   echo "Extracting vertminer"
   mkdir -p ${NVOC_MINERS}/vertminer/${vertminer_ver_8}/
   stop-if-needed "[v]ertminer"
-  tar -xvJf ${NVOC_MINERS}/vertminer/${vertminer_tarball_ver_8} -C ${NVOC_MINERS}/vertminer/${vertminer_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/vertminer/${vertminer_compiled_tarball_ver_8} -C ${NVOC_MINERS}/vertminer/${vertminer_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/vertminer/${vertminer_ver_8}/vertminer
   update-symlink ${NVOC_MINERS}/vertminer/${vertminer_ver_8} recommended
   update-symlink ${NVOC_MINERS}/vertminer/${vertminer_ver_8} latest
@@ -688,7 +706,7 @@ then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/
   stop-if-needed "[x]mr-stak"
-  tar -xvJf ${NVOC_MINERS}/xmr_stak/${xmr_stak_tarball_ver_8} -C ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/xmr_stak/${xmr_stak_compiled_tarball_ver_8} -C ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/xmr_stak_miner
   if [[ $CUDA_VER == "8.0" ]]
   then
@@ -705,7 +723,7 @@ then
   echo "Extracting xmr-stak"
   mkdir -p ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9}/
   stop-if-needed "[x]mr-stak"
-  tar -xvJf ${NVOC_MINERS}/xmr_stak/${xmr_stak_tarball_ver_9} -C ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/xmr_stak/${xmr_stak_compiled_tarball_ver_9} -C ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_9}/ --strip 1
   chmod a+x ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/xmr_stak_miner
   if [[ $CUDA_VER == "9.2" ]]
   then
@@ -842,88 +860,186 @@ function compile-TPccminer {
 function compile-ASccminer {
   echo "Compiling alexis ccminer"
   echo "This could take a while ..."
-  get-sources ASccminer
-  cd ${NVOC_MINERS}/ASccminer/src
+  if [[ ! -f ${NVOC_MINERS}/ASccminer/$ASccminer_release_tarball_ver_8 ]]
+  then
+    wget -N $ASccminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/ASccminer/
+  fi
+  # Make sure src folder is clean
+  if [[ -d ${NVOC_MINERS}/ASccminer/src ]]
+  then
+    rm -rf ${NVOC_MINERS}/ASccminer/src
+  fi
+  mkdir -p ${NVOC_MINERS}/ASccminer/src/
+  tar -xvzf ${NVOC_MINERS}/ASccminer/$ASccminer_release_tarball_ver_8 -C ${NVOC_MINERS}/ASccminer/src/ --strip 1
+  cd ${NVOC_MINERS}/ASccminer/src/
   bash ${NVOC_MINERS}/ASccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/ASccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/ASccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/ASccminer/src/build.sh
+  mkdir -p ${NVOC_MINERS}/ASccminer/$ASccminer_ver_8/
   stop-if-needed "[A]Sccminer"
-  cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/${ASccminer_ver_8}/ccminer
+  cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/$ASccminer_ver_8/ccminer
   cd ${NVOC_MINERS}
   echo "Finished compiling alexis ccminer"
   restart-if-needed
 }
 
 function compile-KTccminer {
-  echo "Compiling KlausT ccminer"
+  echo "Compiling Klaust ccminer"
   echo " This could take a while ..."
-  get-sources KTccminer
   if [[ $CUDA_VER == "8.0" ]]
   then
-    cd ${NVOC_MINERS}/KTccminer/cuda-8_src
-    bash ${NVOC_MINERS}/KTccminer/cuda-8_src/autogen.sh
-    bash ${NVOC_MINERS}/KTccminer/cuda-8_src/configure --with-cuda=/usr/local/cuda-8.0
-    bash ${NVOC_MINERS}/KTccminer/cuda-8_src/build.sh
+    if [[ ! -f ${NVOC_MINERS}/KTccminer/$KTccminer_release_tarball_ver_8 ]]
+    then
+      wget -N $KTccminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/KTccminer/
+    fi
+    # Make sure src folder is clean
+    if [[ -d ${NVOC_MINERS}/KTccminer/src ]]
+    then
+      rm -rf ${NVOC_MINERS}/KTccminer/src
+    fi
+    mkdir -p ${NVOC_MINERS}/KTccminer/src/
+    tar -xvzf ${NVOC_MINERS}/KTccminer/$KTccminer_release_tarball_ver_8 -C ${NVOC_MINERS}/KTccminer/src/ --strip 1
+    cd ${NVOC_MINERS}/KTccminer/src/
+    bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
+    bash ${NVOC_MINERS}/KTccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
+    bash ${NVOC_MINERS}/KTccminer/src/build.sh
+    mkdir -p ${NVOC_MINERS}/KTccminer/$KTccminer_ver_8/
     stop-if-needed "[K]Tccminer"
-    cp ${NVOC_MINERS}/KTccminer/cuda-8_src/ccminer ${NVOC_MINERS}/KTccminer/${KTccminer_ver_8}/ccminer
+    cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/$KTccminer_ver_8/ccminer
     cd ${NVOC_MINERS}
     echo
+    echo "Finished compiling tpruvot ccminer"
+    restart-if-needed
   elif [[ $CUDA_VER == "9.2" ]]
   then
-    cd ${NVOC_MINERS}/KTccminer/src
+    if [[ ! -f ${NVOC_MINERS}/KTccminer/$KTccminer_release_tarball_ver_9 ]]
+    then
+      wget -N $KTccminer_release_tarball_url_ver_9 -P ${NVOC_MINERS}/KTccminer/
+    fi
+    # Make sure src folder is clean
+    if [[ -d ${NVOC_MINERS}/KTccminer/src ]]
+    then
+      rm -rf ${NVOC_MINERS}/KTccminer/src
+    fi
+    mkdir -p ${NVOC_MINERS}/KTccminer/src/
+    tar -xvzf ${NVOC_MINERS}/KTccminer/$KTccminer_release_tarball_ver_9 -C ${NVOC_MINERS}/KTccminer/src/ --strip 1
+    cd ${NVOC_MINERS}/KTccminer/src/
     bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
-    bash ${NVOC_MINERS}/KTccminer/src/configure
+    bash ${NVOC_MINERS}/KTccminer/src/configure.sh --with-cuda=/usr/local/cuda-9.2
     bash ${NVOC_MINERS}/KTccminer/src/build.sh
+    mkdir -p ${NVOC_MINERS}/KTccminer/"$KTccminer_ver_9"/
     stop-if-needed "[K]Tccminer"
-    cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/${KTccminer_ver_9}/ccminer
+    cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/$KTccminer_ver_9/ccminer
     cd ${NVOC_MINERS}
+    echo
+    echo "Finished compiling Klaust ccminer"
+    restart-if-needed
   fi
-  echo "Finished compiling KlausT ccminer with cuda $CUDA_VER"
-  restart-if-needed
 }
 
 function compile-KTccminer_cryptonight {
-  echo "Compiling KlausT ccminer cryptonight"
+  echo "Compiling Klaust ccminer"
   echo " This could take a while ..."
-  get-sources KTccminer_cryptonight
-  cd ${NVOC_MINERS}/KTccminer_cryptonight/src
-  bash ${NVOC_MINERS}/KTccminer_cryptonight/src/autogen.sh
-  bash ${NVOC_MINERS}/KTccminer_cryptonight/src/configure
-  bash ${NVOC_MINERS}/KTccminer_cryptonight/src/build.sh
-  stop-if-needed "[K]Tccminer-cryptonight"
-  cp ${NVOC_MINERS}/KTccminer_cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer_cryptonight/${KTccminer_cryptonight_ver_8}/ccminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling KlausT ccminer cryptonight"
-  restart-if-needed
+  if [[ $CUDA_VER == "8.0" ]]
+  then
+    if [[ ! -f ${NVOC_MINERS}/KTccminer_cryptonight/$KTccminer_cryptonight_release_tarball_ver_8 ]]
+    then
+      wget -N $KTccminer_cryptonight_release_tarball_url_ver_8 -P ${NVOC_MINERS}/KTccminer_cryptonight/
+    fi
+    # Make sure src folder is clean
+    if [[ -d ${NVOC_MINERS}/KTccminer_cryptonight/src ]]
+    then
+      rm -rf ${NVOC_MINERS}/KTccminer_cryptonight/src
+    fi
+    mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/src/
+    tar -xvzf ${NVOC_MINERS}/KTccminer_cryptonight/$KTccminer_cryptonight_release_tarball_ver_8 -C ${NVOC_MINERS}/KTccminer_cryptonight/src/ --strip 1
+    cd ${NVOC_MINERS}/KTccminer_cryptonight/src/
+    bash ${NVOC_MINERS}/KTccminer_cryptonight/src/autogen.sh
+    bash ${NVOC_MINERS}/KTccminer_cryptonight/src/configure.sh --with-cuda=/usr/local/cuda-8.0
+    bash ${NVOC_MINERS}/KTccminer_cryptonight/src/build.sh
+    mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/$KTccminer_cryptonight_ver_8/
+    stop-if-needed "[KTccminer]_cryptonight"
+    cp ${NVOC_MINERS}/KTccminer_cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer_cryptonight/$KTccminer_cryptonight_ver_8/ccminer
+    cd ${NVOC_MINERS}
+    echo
+    echo "Finished compiling Klaust ccminer  cryptonight"
+    restart-if-needed
+  elif [[ $CUDA_VER == "9.2" ]]
+  then
+    if [[ ! -f ${NVOC_MINERS}/KTccminer_cryptonight/$KTccminer_cryptonight_release_tarball_ver_9 ]]
+    then
+      wget -N $KTccminer_cryptonight_release_tarball_url_ver_9 -P ${NVOC_MINERS}/KTccminer_cryptonight/
+    fi
+    # Make sure src folder is clean
+    if [[ -d ${NVOC_MINERS}/KTccminer_cryptonight/src ]]
+    then
+      rm -rf ${NVOC_MINERS}/KTccminer_cryptonight/src
+    fi
+    mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/src/
+    tar -xvzf ${NVOC_MINERS}/KTccminer_cryptonight/$KTccminer_cryptonight_release_tarball_ver_9 -C ${NVOC_MINERS}/KTccminer_cryptonight/src/ --strip 1
+    cd ${NVOC_MINERS}/KTccminer_cryptonight/src/
+    bash ${NVOC_MINERS}/KTccminer_cryptonight/src/autogen.sh
+    bash ${NVOC_MINERS}/KTccminer_cryptonight/src/configure.sh --with-cuda=/usr/local/cuda-9.2
+    bash ${NVOC_MINERS}/KTccminer_cryptonight/src/build.sh
+    mkdir -p ${NVOC_MINERS}/KTccminer_cryptonight/"$KTccminer_cryptonight_ver_9"/
+    stop-if-needed "[KTccminer]_cryptonight"
+    cp ${NVOC_MINERS}/KTccminer_cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer_cryptonight/$KTccminer_cryptonight_ver_9/ccminer
+    cd ${NVOC_MINERS}
+    echo
+    echo "Finished compiling Klaust ccminer cryptonight"
+    restart-if-needed
+  fi
 }
 
 function compile-KXccminer {
-  echo "Compiling krnlx ccminer"
+  echo "Compiling ccminer krnlx (KXccminer)"
   echo " This could take a while ..."
-  get-sources KXccminer
-  cd ${NVOC_MINERS}/KXccminer/src
+  if [[ ! -f ${NVOC_MINERS}/KXccminer/$KXccminer_release_tarball_ver_8 ]]
+  then
+    wget -N $KXccminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/KXccminer/
+  fi
+  # Make sure src folder is clean
+  if [[ -d ${NVOC_MINERS}/KXccminer/src ]]
+  then
+    rm -rf ${NVOC_MINERS}/KXccminer/src
+  fi
+  mkdir -p ${NVOC_MINERS}/KXccminer/src/
+  tar -xvzf ${NVOC_MINERS}/KXccminer/$KXccminer_release_tarball_ver_8 -C ${NVOC_MINERS}/KXccminer/src/ --strip 1
+  cd ${NVOC_MINERS}/KXccminer/src/
   bash ${NVOC_MINERS}/KXccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/KXccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/KXccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/KXccminer/src/build.sh
+  mkdir -p ${NVOC_MINERS}/KXccminer/$KXccminer_ver_8/
   stop-if-needed "[K]Xccminer"
-  cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/${KXccminer_ver_8}/ccminer
+  cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/$KXccminer_ver_8/ccminer
   cd ${NVOC_MINERS}
   echo
-  echo "Finished compiling Krnlx ccminer"
+  echo "Finished compiling KXccminer"
   restart-if-needed
 }
 
+
 function compile-NAccminer {
-  echo "Compiling Nanashi ccminer"
+  echo "Compiling Nanashi ccminer (NAccminer)"
   echo " This could take a while ..."
-  get-sources NAccminer
-  cd ${NVOC_MINERS}/NAccminer/src
+  if [[ ! -f ${NVOC_MINERS}/NAccminer/$NAccminer_release_tarball_ver_8 ]]
+  then
+    wget -N $NAccminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/NAccminer/
+  fi
+  # Make sure src folder is clean
+  if [[ -d ${NVOC_MINERS}/NAccminer/src ]]
+  then
+    rm -rf ${NVOC_MINERS}/NAccminer/src
+  fi
+  mkdir -p ${NVOC_MINERS}/NAccminer/src/
+  tar -xvzf ${NVOC_MINERS}/NAccminer/$NAccminer_release_tarball_ver_8 -C ${NVOC_MINERS}/NAccminer/src/ --strip 1
+  cd ${NVOC_MINERS}/NAccminer/src/
   bash ${NVOC_MINERS}/NAccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/NAccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/NAccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/NAccminer/src/build.sh
+  mkdir -p ${NVOC_MINERS}/NAccminer/$NAccminer_ver_8/
   stop-if-needed "[N]Accminer"
-  cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/${NAccminer_ver_8}/ccminer
+  cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/$NAccminer_ver_8/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling Nanashi ccminer"
@@ -931,31 +1047,53 @@ function compile-NAccminer {
 }
 
 function compile-SPccminer {
-  echo "Compiling SPccminer"
+  echo "Compiling ccminer sp-mod (SPccminer)"
   echo " This could take a while ..."
-  get-sources SPccminer
-  cd ${NVOC_MINERS}/SPccminer/src
+  if [[ ! -f ${NVOC_MINERS}/SPccminer/$SPccminer_release_tarball_ver_8 ]]
+  then
+    wget -N $SPccminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/SPccminer/
+  fi
+  # Make sure src folder is clean
+  if [[ -d ${NVOC_MINERS}/SPccminer/src ]]
+  then
+    rm -rf ${NVOC_MINERS}/SPccminer/src
+  fi
+  mkdir -p ${NVOC_MINERS}/SPccminer/src/
+  tar -xvzf ${NVOC_MINERS}/SPccminer/$SPccminer_release_tarball_ver_8 -C ${NVOC_MINERS}/SPccminer/src/ --strip 1
+  cd ${NVOC_MINERS}/SPccminer/src/
   bash ${NVOC_MINERS}/SPccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/SPccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/SPccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/SPccminer/src/build.sh
+  mkdir -p ${NVOC_MINERS}/SPccminer/$SPccminer_ver_8/
   stop-if-needed "[S]Pccminer"
-  cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/${NAccminer_ver_8}/ccminer
+  cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/$SPccminer_ver_8/ccminer
   cd ${NVOC_MINERS}
   echo
-  echo "Finished compiling tpruvot ccminer"
+  echo "Finished compiling ccminer sp-mod (SPccminer)"
   restart-if-needed
 }
 
 function compile-vertminer {
-  echo "Compiling Vertminer"
+  echo "Compiling vertminer"
   echo " This could take a while ..."
-  get-sources vertminer
-  cd ${NVOC_MINERS}/vertminer/src
+  if [[ ! -f ${NVOC_MINERS}/vertminer/$vertminer_release_tarball_ver_8 ]]
+  then
+    wget -N $vertminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/vertminer/
+  fi
+  # Make sure src folder is clean
+  if [[ -d ${NVOC_MINERS}/vertminer/src ]]
+  then
+    rm -rf ${NVOC_MINERS}/vertminer/src
+  fi
+  mkdir -p ${NVOC_MINERS}/vertminer/src/
+  tar -xvzf ${NVOC_MINERS}/vertminer/$vertminer_release_tarball_ver_8 -C ${NVOC_MINERS}/vertminer/src/ --strip 1
+  cd ${NVOC_MINERS}/vertminer/src/
   bash ${NVOC_MINERS}/vertminer/src/autogen.sh
-  bash ${NVOC_MINERS}/vertminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/vertminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/vertminer/src/build.sh
+  mkdir -p ${NVOC_MINERS}/vertminer/$vertminer_ver_8/
   stop-if-needed "[v]ertminer"
-  cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/${vertminer_ver_8}/vertminer
+  cp ${NVOC_MINERS}/vertminer/src/ccminer ${NVOC_MINERS}/vertminer/$vertminer_ver_8/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling vertminer"
@@ -963,31 +1101,53 @@ function compile-vertminer {
 }
 
 function compile-ANXccminer {
-  echo "Compiling anorganix ccminer"
+  echo "Compiling ANXccminer"
   echo " This could take a while ..."
-  get-sources ANXccminer
-  cd ${NVOC_MINERS}/ANXccminer/src
+  if [[ ! -f ${NVOC_MINERS}/ANXccminer/$ANXccminer_release_tarball_ver_8 ]]
+  then
+    wget -N $ANXccminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/ANXccminer/
+  fi
+  # Make sure src folder is clean
+  if [[ -d ${NVOC_MINERS}/ANXccminer/src ]]
+  then
+    rm -rf ${NVOC_MINERS}/ANXccminer/src
+  fi
+  mkdir -p ${NVOC_MINERS}/ANXccminer/src/
+  tar -xvzf ${NVOC_MINERS}/ANXccminer/$ANXccminer_release_tarball_ver_8 -C ${NVOC_MINERS}/ANXccminer/src/ --strip 1
+  cd ${NVOC_MINERS}/ANXccminer/src/
   bash ${NVOC_MINERS}/ANXccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/ANXccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/ANXccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/ANXccminer/src/build.sh
+  mkdir -p ${NVOC_MINERS}/ANXccminer/$ANXccminer_ver_8/
   stop-if-needed "[A]NXccminer"
-  cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/${ANXccminer_ver_8}/ccminer
+  cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/$ANXccminer_ver_8/ccminer
   cd ${NVOC_MINERS}
   echo
-  echo "Finished compiling anorganix ccminer"
+  echo "Finished compiling ANXccminer"
   restart-if-needed
 }
 
 function compile-MSFTccminer {
   echo "Compiling MSFTccminer"
   echo " This could take a while ..."
-  get-sources MSFTccminer
-  cd ${NVOC_MINERS}/MSFTccminer/src
+  if [[ ! -f ${NVOC_MINERS}/MSFTccminer/$MSFTccminer_release_tarball_ver_8 ]]
+  then
+    wget -N $MSFTccminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/MSFTccminer/
+  fi
+  # Make sure src folder is clean
+  if [[ -d ${NVOC_MINERS}/MSFTccminer/src ]]
+  then
+    rm -rf ${NVOC_MINERS}/MSFTccminer/src
+  fi
+  mkdir -p ${NVOC_MINERS}/MSFTccminer/src/
+  tar -xvzf ${NVOC_MINERS}/MSFTccminer/$MSFTccminer_release_tarball_ver_8 -C ${NVOC_MINERS}/MSFTccminer/src/ --strip 1
+  cd ${NVOC_MINERS}/MSFTccminer/src/
   bash ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/MSFTccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/MSFTccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/MSFTccminer/src/build.sh
+  mkdir -p ${NVOC_MINERS}/MSFTccminer/$MSFTccminer_ver_8/
   stop-if-needed "[M]SFTccminer"
-  cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/${MSFTccminer_ver_8}/ccminer
+  cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/$MSFTccminer_ver_8/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling MSFTccminer"
@@ -997,13 +1157,24 @@ function compile-MSFTccminer {
 function compile-SUPRminer {
   echo "Compiling SUPRminer"
   echo " This could take a while ..."
-  get-sources SUPRminer
-  cd ${NVOC_MINERS}/SUPRminer/src
+  if [[ ! -f ${NVOC_MINERS}/SUPRminer/$SUPRminer_release_tarball_ver_8 ]]
+  then
+    wget -N $SUPRminer_release_tarball_url_ver_8 -P ${NVOC_MINERS}/SUPRminer/
+  fi
+  # Make sure src folder is clean
+  if [[ -d ${NVOC_MINERS}/SUPRminer/src ]]
+  then
+    rm -rf ${NVOC_MINERS}/SUPRminer/src
+  fi
+  mkdir -p ${NVOC_MINERS}/SUPRminer/src/
+  tar -xvzf ${NVOC_MINERS}/SUPRminer/$SUPRminer_release_tarball_ver_8 -C ${NVOC_MINERS}/SUPRminer/src/ --strip 1
+  cd ${NVOC_MINERS}/SUPRminer/src/
   bash ${NVOC_MINERS}/SUPRminer/src/autogen.sh
-  bash ${NVOC_MINERS}/SUPRminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/SUPRminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/SUPRminer/src/build.sh
-  stop-if-needed "[S]UPRminer"
-  cp ${NVOC_MINERS}/SUPRminer/src/ccminer ${NVOC_MINERS}/SUPRminer/${SUPRminer_ver_8}/ccminer
+  mkdir -p ${NVOC_MINERS}/SUPRminer/$SUPRminer_ver_8/
+  stop-if-needed "[S]UPRccminer"
+  cp ${NVOC_MINERS}/SUPRminer/src/ccminer ${NVOC_MINERS}/SUPRminer/$SUPRminer_ver_8/ccminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling SUPRminer"
@@ -1011,19 +1182,57 @@ function compile-SUPRminer {
 }
 
 function compile-xmr-stak {
-  echo "Compiling xmr-stak"
+  echo "Compiling xmr-stak ccminer"
   echo " This could take a while ..."
-  get-sources xmr-stak
-  mkdir ${NVOC_MINERS}/xmr_stak/src/build
-  cd ${NVOC_MINERS}/xmr_stak/src/build
-  cmake ..
-  make install
-  stop-if-needed "[x]mr-stak"
-  cp ${NVOC_MINERS}/xmr_stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr_stak/src/build/bin/*.so ${NVOC_MINERS}/xmr_stak/${xmr_stak_ver_8}/xmr-stak
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling xmr-stak"
-  restart-if-needed
+  if [[ $CUDA_VER == "8.0" ]]
+  then
+    if [[ ! -f ${NVOC_MINERS}/xmr_stak/$xmr_stak_release_tarball_ver_8 ]]
+    then
+      wget -N $xmr_stak_release_tarball_url_ver_8 -P ${NVOC_MINERS}/xmr_stak/
+    fi
+    # Make sure src folder is clean
+    if [[ -d ${NVOC_MINERS}/xmr_stak/src ]]
+    then
+      rm -rf ${NVOC_MINERS}/xmr_stak/src
+    fi
+    mkdir -p ${NVOC_MINERS}/xmr_stak/src/
+    tar -xvzf ${NVOC_MINERS}/xmr_stak/$xmr_stak_release_tarball_ver_8 -C ${NVOC_MINERS}/xmr_stak/src/ --strip 1
+    cd ${NVOC_MINERS}/xmr_stak/src/
+    bash ${NVOC_MINERS}/xmr_stak/src/autogen.sh
+    bash ${NVOC_MINERS}/xmr_stak/src/configure.sh --with-cuda=/usr/local/cuda-8.0
+    bash ${NVOC_MINERS}/xmr_stak/src/build.sh
+    mkdir -p ${NVOC_MINERS}/xmr_stak/$xmr_stak_ver_8/
+    stop-if-needed "[xmr]_stak"
+    cp ${NVOC_MINERS}/xmr_stak/src/xmr-stak ${NVOC_MINERS}/xmr_stak/$xmr_stak_ver_8/xmr-stak
+    cd ${NVOC_MINERS}
+    echo
+    echo "Finished compiling xmr-stak"
+    restart-if-needed
+  elif [[ $CUDA_VER == "9.2" ]]
+  then
+    if [[ ! -f ${NVOC_MINERS}/xmr_stak/$xmr_stak_release_tarball_ver_9 ]]
+    then
+      wget -N $xmr_stak_release_tarball_url_ver_9 -P ${NVOC_MINERS}/xmr_stak/
+    fi
+    # Make sure src folder is clean
+    if [[ -d ${NVOC_MINERS}/xmr_stak/src ]]
+    then
+      rm -rf ${NVOC_MINERS}/xmr_stak/src
+    fi
+    mkdir -p ${NVOC_MINERS}/xmr_stak/src/
+    tar -xvzf ${NVOC_MINERS}/xmr_stak/$xmr_stak_release_tarball_ver_9 -C ${NVOC_MINERS}/xmr_stak/src/ --strip 1
+    cd ${NVOC_MINERS}/xmr_stak/src/
+    bash ${NVOC_MINERS}/xmr_stak/src/autogen.sh
+    bash ${NVOC_MINERS}/xmr_stak/src/configure.sh --with-cuda=/usr/local/cuda-9.2
+    bash ${NVOC_MINERS}/xmr_stak/src/build.sh
+    mkdir -p ${NVOC_MINERS}/xmr_stak/"$xmr_stak_ver_9"/
+    stop-if-needed "[xmr]_stak"
+    cp ${NVOC_MINERS}/xmr_stak/src/xmr-stak ${NVOC_MINERS}/xmr_stak/$xmr_stak_ver_9/xmr-stak
+    cd ${NVOC_MINERS}
+    echo
+    echo "Finished compiling xmr-stak"
+    restart-if-needed
+  fi
 }
 
 function compile-cpuminer {
