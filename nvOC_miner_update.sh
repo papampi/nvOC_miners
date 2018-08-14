@@ -622,43 +622,43 @@ echo
 echo
 
 echo "Checking tpruvot ccminer (TPccminer)"
-if [[ ! -d ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8} ]]
+if [[ ! -d ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8 ]]
 then
-  echo "Extracting tpruvot ccminer ${TPccminer_ver_8} and making changes for CUDA-8"
-  mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/
-  tar -xvJf ${NVOC_MINERS}/TPccminer/${TPccminer_tarball_ver_8} -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ccminer
+  echo "Extracting tpruvot ccminer $TPccminer_ver_8 and making changes for CUDA-8"
+  mkdir -p ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8/
+  tar -xvJf ${NVOC_MINERS}/TPccminer/$TPccminer_compiled_tarball_ver_8 -C ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8/ccminer
   stop-if-needed "[T]Pccminer"
   echo "tpruvot ccminer for CUDA-8 updated"
   echo "Use ${TPccminer_ver_8} or recommended for TPccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "8.0" ]]
   then
-    update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8} recommended
+    update-symlink ${NVOC_MINERS}/TPccminer/$TPccminer_ver_8 recommended
   fi
   restart-if-needed
 else
   echo "tpruvot ccminer for CUDA-8 is already up-to-date"
-  echo "Use TPccminer_VERSION ${TPccminer_ver_8} or recommended in 1bash"
+  echo "Use TPccminer_VERSION $TPccminer_ver_8 or recommended in 1bash"
 fi
 
-if [[ ! -d ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} ]]
+if [[ ! -d ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9 ]]
 then
   echo "Extracting tpruvot ccminer and making changes for CUDA-9.2"
-  mkdir -p ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/
-  tar -xvJf ${NVOC_MINERS}/TPccminer/${TPccminer_tarball_ver_9} -C ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ccminer
+  mkdir -p ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9/
+  tar -xvJf ${NVOC_MINERS}/TPccminer/$TPccminer_compiled_tarball_ver_9 -C ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9/ --strip 1
+  chmod a+x  ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9/ccminer
   stop-if-needed "[T]Pccminer"
   echo "tpruvot ccminer for CUDA-9.2 updated"
-  echo "Use latest or recommended or ${TPccminer_ver_9} for TPccminer_VERSION in 1bash"
+  echo "Use latest or recommended or $TPccminer_ver_9 for TPccminer_VERSION in 1bash"
   if [[ $CUDA_VER == "9.2" ]]
   then
-    update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} recommended
-    update-symlink ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9} latest
+    update-symlink ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9 recommended
+    update-symlink ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9 latest
   fi
   restart-if-needed
 else
   echo "tpruvot ccminer for CUDA-9.2 is already up-to-date"
-  echo "Use TPccminer_VERSION latest or recommended or ${TPccminer_ver_9} in 1bash"
+  echo "Use TPccminer_VERSION latest or recommended or $TPccminer_ver_9 in 1bash"
 fi
 
 echo
