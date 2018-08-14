@@ -6,7 +6,7 @@ echo "Will check and restart miner if needed"
 echo
 export NVOC_MINERS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-CUDA_VER="8"
+CUDA_VER="8.0"
 if  nvcc --version | grep -v grep | grep -q "9.2"
 then
   CUDA_VER="9.2"
@@ -809,8 +809,8 @@ function compile-TPccminer {
       echo "Set tpruvot ccminer repo head to $TPccminer_src_hash_ver_8"
       cd ${NVOC_MINERS}/TPccminer/src/
       git reset --hard $TPccminer_src_hash_ver_8
-      git fetch origin $TPccminer_src_hash_ver_8
-      git pull
+      git checkout $TPccminer_src_hash_ver_8    # is this needed?
+      git pull origin $TPccminer_src_hash_ver_8
     fi
     cd ${NVOC_MINERS}/TPccminer/src/
     bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
@@ -843,8 +843,8 @@ function compile-TPccminer {
       echo "Set tpruvot ccminer repo head to $TPccminer_src_hash_ver_9"
       cd ${NVOC_MINERS}/TPccminer/src/
       git reset --hard $TPccminer_src_hash_ver_9
-      git fetch origin $TPccminer_src_hash_ver_9
-      git pull
+      git checkout $TPccminer_src_hash_ver_9     # is this needed?
+      git pull origin $TPccminer_src_hash_ver_9
     fi
     cd ${NVOC_MINERS}/TPccminer/src/
     bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
