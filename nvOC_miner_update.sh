@@ -792,6 +792,7 @@ function compile-TPccminer {
   then
     if [[ -d ${NVOC_MINERS}/TPccminer/src/ ]]
     then
+      cd ${NVOC_MINERS}/TPccminer/src/ 
       if [[ $(git config --get remote.origin.url) != $TPccminer_repo ]]
       then
         echo "Wrong repo, clean up"
@@ -825,6 +826,7 @@ function compile-TPccminer {
   then
     if [[ -d ${NVOC_MINERS}/TPccminer/src/ ]]
     then
+      cd ${NVOC_MINERS}/TPccminer/src/ 
       if [[ $(git config --get remote.origin.url) != $TPccminer_repo ]]
       then
         echo "Wrong repo, clean up"
