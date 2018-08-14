@@ -825,7 +825,7 @@ function compile-TPccminer {
     bash ${NVOC_MINERS}/TPccminer/src/configure.sh --with-cuda=/usr/local/cuda-9.2
     bash ${NVOC_MINERS}/TPccminer/src/build.sh
     stop-if-needed "[T]Pccminer"
-    cp ${NVOC_MINERS}/TPccminer/src_cuda_9/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ccminer
+    cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ccminer
     cd ${NVOC_MINERS}
     echo
     echo "Finished compiling tpruvot ccminer"
