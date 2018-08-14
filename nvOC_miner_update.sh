@@ -790,15 +790,28 @@ function compile-TPccminer {
   echo " This could take a while ..."
   if [[ $CUDA_VER == "8.0" ]]
   then
+    if [[ -d ${NVOC_MINERS}/TPccminer/src/ ]]
+    then
+      if [[ $(git config --get remote.origin.url) != $TPccminer_repo ]]
+      then
+        echo "Wrong repo, clean up"
+        rm -rf ${NVOC_MINERS}/TPccminer/src
+        echo "Clone tpruvot repo from $TPccminer_repo"
+        git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+      fi
+    else
+      echo "Clone tpruvot repo from $TPccminer_repo"
+      git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+    fi
     if ! grep -q $TPccminer_src_hash_ver_8 ${NVOC_MINERS}/TPccminer/src/.git/ORIG_HEAD
     then
-      rm -rf ${NVOC_MINERS}/TPccminer/src
-      git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+      echo "Set tpruvot ccminer repo head to $TPccminer_src_hash_ver_8"
       cd ${NVOC_MINERS}/TPccminer/src/
       git reset --hard $TPccminer_src_hash_ver_8
       git fetch origin $TPccminer_src_hash_ver_8
       git pull
     fi
+    cd ${NVOC_MINERS}/TPccminer/src/
     bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
     bash ${NVOC_MINERS}/TPccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
     bash ${NVOC_MINERS}/TPccminer/src/build.sh
@@ -810,16 +823,28 @@ function compile-TPccminer {
     restart-if-needed
   elif [[ $CUDA_VER == "9.2" ]]
   then
+    if [[ -d ${NVOC_MINERS}/TPccminer/src/ ]]
+    then
+      if [[ $(git config --get remote.origin.url) != $TPccminer_repo ]]
+      then
+        echo "Wrong repo, clean up"
+        rm -rf ${NVOC_MINERS}/TPccminer/src
+        echo "Clone tpruvot repo from $TPccminer_repo"
+        git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+      fi
+    else
+      echo "Clone tpruvot repo from $TPccminer_repo"
+      git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+    fi
     if ! grep -q $TPccminer_src_hash_ver_9 ${NVOC_MINERS}/TPccminer/src/.git/ORIG_HEAD
     then
-      rm -rf ${NVOC_MINERS}/TPccminer/src
-      git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+      echo "Set tpruvot ccminer repo head to $TPccminer_src_hash_ver_9"
       cd ${NVOC_MINERS}/TPccminer/src/
       git reset --hard $TPccminer_src_hash_ver_9
       git fetch origin $TPccminer_src_hash_ver_9
       git pull
     fi
-    cd ${NVOC_MINERS}/TPccminer/src
+    cd ${NVOC_MINERS}/TPccminer/src/
     bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
     bash ${NVOC_MINERS}/TPccminer/src/configure.sh --with-cuda=/usr/local/cuda-9.2
     bash ${NVOC_MINERS}/TPccminer/src/build.sh
