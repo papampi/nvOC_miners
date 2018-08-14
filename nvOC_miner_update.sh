@@ -84,6 +84,8 @@ SUPRminer_ver_8="1.5"
 SUPRminer_tarball_ver_8="SUPRminer-1.5.tar.xz"
 SUPRminer_src_hash_ver_8="c800f1a803e1b2074ed2a7c15023c096d0772048"
 
+TPccminer_repo="https://github.com/tpruvot/ccminer"
+
 TPccminer_ver_8="2.2.5"
 TPccminer_tarball_ver_8="TPccminer.tar.xz"
 TPccminer_src_hash_ver_8="a81ab0f7a557a12a21d716dd03537bc8633fd176"
@@ -786,26 +788,42 @@ sleep 2
 function compile-TPccminer {
   echo "Compiling tpruvot ccminer"
   echo " This could take a while ..."
+  CUDA_VER="8.0"
   if [[ $CUDA_VER == "8.0" ]]
   then
-    get-sources TPccminer
-    cd ${NVOC_MINERS}/TPccminer/src_cuda_8
-    bash ${NVOC_MINERS}/TPccminer/src_cuda_8/autogen.sh
-    bash ${NVOC_MINERS}/TPccminer/src_cuda_8/configure --with-cuda=/usr/local/cuda-8.0
-    bash ${NVOC_MINERS}/TPccminer/src_cuda_8/build.sh
+    if ! grep -q $TPccminer_src_hash_ver_8 ${NVOC_MINERS}/TPccminer/src/.git/ORIG_HEAD
+    then
+      rm -rf ${NVOC_MINERS}/TPccminer/src
+      git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+      cd ${NVOC_MINERS}/TPccminer/src/
+      git reset --hard $TPccminer_src_hash_ver_8
+      git fetch origin $TPccminer_src_hash_ver_8
+      git pull
+    fi
+    bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
+    bash ${NVOC_MINERS}/TPccminer/src/configure.sh --with-cuda=/usr/local/cuda-8.0
+    bash ${NVOC_MINERS}/TPccminer/src/build.sh
     stop-if-needed "[T]Pccminer"
-    cp ${NVOC_MINERS}/TPccminer/src_cuda_8/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ccminer
+    cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver_8}/ccminer
     cd ${NVOC_MINERS}
     echo
     echo "Finished compiling tpruvot ccminer"
     restart-if-needed
   elif [[ $CUDA_VER == "9.2" ]]
   then
-    get-sources TPccminer
-    cd ${NVOC_MINERS}/TPccminer/src_cuda_9
-    bash ${NVOC_MINERS}/TPccminer/src_cuda_9/autogen.sh
-    bash ${NVOC_MINERS}/TPccminer/src_cuda_9/configure --with-cuda=/usr/local/cuda-9.2
-    bash ${NVOC_MINERS}/TPccminer/src_cuda_9/build.sh
+    if ! grep -q $TPccminer_src_hash_ver_9 ${NVOC_MINERS}/TPccminer/src/.git/ORIG_HEAD
+    then
+      rm -rf ${NVOC_MINERS}/TPccminer/src
+      git clone $TPccminer_repo ${NVOC_MINERS}/TPccminer/src/
+      cd ${NVOC_MINERS}/TPccminer/src/
+      git reset --hard $TPccminer_src_hash_ver_9
+      git fetch origin $TPccminer_src_hash_ver_9
+      git pull
+    fi
+    cd ${NVOC_MINERS}/TPccminer/src
+    bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
+    bash ${NVOC_MINERS}/TPccminer/src/configure.sh --with-cuda=/usr/local/cuda-9.2
+    bash ${NVOC_MINERS}/TPccminer/src/build.sh
     stop-if-needed "[T]Pccminer"
     cp ${NVOC_MINERS}/TPccminer/src_cuda_9/ccminer ${NVOC_MINERS}/TPccminer/${TPccminer_ver_9}/ccminer
     cd ${NVOC_MINERS}
