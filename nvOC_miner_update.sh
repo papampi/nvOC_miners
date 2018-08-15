@@ -180,14 +180,19 @@ function update-symlink {
 ## To do
 #}
 
-
+uver8="_ver_8"
+uver9="_ver_9"
+uver="_ver"
+ucompiled8="_compiled_tarball_ver_8"
+ucompiled9="_compiled_tarball_ver_9"
+ucompiled="_compiled_tarball"
 
 pluggable_miners=$(find ${NVOC_MINERS}/helpers/miners/*/ -name .nvoc-miner.json -print | cut -d/ -f8 | sort -u )
 for miner in $pluggable_miners
 do
-  v8miner=$miner$ucuda_8
-  v9miner=$miner$ucuda_9
-  vminer=$miner$ucuda
+  v8miner=$miner$uver8
+  v9miner=$miner$uver9
+  vminer=$miner$uver
 
   if [[ ${!v8miner} != "" ]]
   then
@@ -247,12 +252,7 @@ do
   fi
 done
 
-uver8="_ver_8"
-uver9="_ver_9"
-uver="_ver"
-ucompiled8="_compiled_tarball_ver_8"
-ucompiled9="_compiled_tarball_ver_9"
-ucompiled="_compiled_tarball"
+
 ccminers="ANXccminer KTccminer MSFTccminer SUPRminer  ASccminer  KTccminer_cryptonight  NAccminer SILENTminer TPccminer ZENEMYminer KXccminer SPccminer"
 installed_miners=$(ls -d $NVOC_MINERS/*/ |  cut -d/ -f7 | sort -u)
 
