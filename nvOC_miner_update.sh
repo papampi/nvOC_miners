@@ -24,8 +24,8 @@ ASccminer_compiled_tarball_ver_8="ASccminer.tar.xz"
 ASccminer_release_tarball_ver_8="v1.0.tar.gz"
 ASccminer_release_tarball_url_ver_8="https://github.com/alexis78/ccminer/archive/v1.0.tar.gz"
 
-bminer_ver="9.1.0"
-bminer_tarball="bminer-v9.1.0.tar.xz"
+bminer_ver="10.1.0"
+bminer_tarball="bminer-v10.1.0.tar.xz"
 
 claymore_ver="11.9"
 claymore_tarball="Claymore-v11.9.tar.xz"
