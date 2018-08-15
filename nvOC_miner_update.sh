@@ -353,7 +353,7 @@ if [[ ! -d ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver ]]
 then
   echo "Extracting CryptoDredge"
   mkdir -p ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver/
-  stop-if-needed "[C]ryptoDredge"
+  stop-if-needed "[C]ryptoDredge_miner"
   tar -xvJf ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_tarball -C ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver/ --strip 1
   chmod a+x ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver/CryptoDredge
   update-symlink ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver/ recommended
