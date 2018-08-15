@@ -30,6 +30,9 @@ bminer_tarball="bminer-v9.1.0.tar.xz"
 claymore_ver="11.9"
 claymore_tarball="Claymore-v11.9.tar.xz"
 
+CryptoDredge_miner_ver="0.8.3"
+CryptoDredge_miner_tarball="CryptoDredge_0.8.3.tar.xz"
+
 dstm_ver="0.6.1"
 dstm_tarball="DSTM_0.6.1.tar.xz"
 
@@ -340,6 +343,24 @@ then
   restart-if-needed
 else
   echo "Claymore is already up-to-date"
+fi
+
+echo
+echo
+
+echo "Checking CryptoDredge v$CryptoDredge_miner_ver"
+if [[ ! -d ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver ]]
+then
+  echo "Extracting CryptoDredge"
+  mkdir -p ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver/
+  stop-if-needed "[C]ryptoDredge"
+  tar -xvJf ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_tarball -C ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver/ --strip 1
+  chmod a+x ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver/CryptoDredge
+  update-symlink ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver/ recommended
+  update-symlink ${NVOC_MINERS}/CryptoDredge_miner/$CryptoDredge_miner_ver/ latest
+  restart-if-needed
+else
+  echo "CryptoDredge is already up-to-date"
 fi
 
 echo
