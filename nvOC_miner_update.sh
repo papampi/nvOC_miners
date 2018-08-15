@@ -27,16 +27,16 @@ ASccminer_release_tarball_url_ver_8="https://github.com/alexis78/ccminer/archive
 ASccminer_src_hash_ver_8="baf6c9e4e36c9cc1b67698ee2977d445f598c573"
 
 BMINER_ver="10.1.0"
-BMINER_tarball="bminer-v10.1.0.tar.xz"
+BMINER_compiled_tarball="bminer-v10.1.0.tar.xz"
 
 CLAYMORE_ver="11.9"
-CLAYMORE_tarball="claymore-v11.9.tar.xz"
+CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
 
 CryptoDredge_ver="0.8.3"
-CryptoDredge_tarball="CryptoDredge_0.8.3.tar.xz"
+CryptoDredge_compiled_tarball="CryptoDredge_0.8.3.tar.xz"
 
 DSTM_ver="0.6.1"
-DSTM_tarball="dstm_0.6.1.tar.xz"
+DSTM_compiled_tarball="DSTM_0.6.1.tar.xz"
 
 ETHMINER_ver_8="0.14.0"
 ETHMINER_compiled_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
@@ -51,10 +51,10 @@ ETHMINER_release_tarball_url_ver_9="https://github.com/ethereum-mining/ethminer/
 ETHMINER_src_hash_ver_9="11d7e3c4c087f6c669013e360af84f6d617c02f4"
 
 EWBF_ver="3.4"
-EWBF_tarball="0.3.4b.tar.xz"
+EWBF_compiled_tarball="0.3.4b.tar.xz"
 
 Z_EWBF_ver="0.5"
-Z_EWBF_tarball="z_ewbf_v0.5.tar.xz"
+Z_EWBF_compiled_tarball="z_ewbf_v0.5.tar.xz"
 
 KTccminer_ver_8="8.20"
 KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
@@ -80,7 +80,6 @@ KTccminer_cryptonight_release_tarball_ver_9="ccminer-cryptonight-305-x64-cuda92.
 KTccminer_cryptonight_release_tarball_url_ver_9="https://github.com/KlausT/ccminer-cryptonight/releases/download/3.05/ccminer-cryptonight-305-x64-cuda92.zip"
 KTccminer_cryptonight_src_hash_ver_9="7061f3c78e52a03f7ff5d0743900312de5bb24fc"
 
-
 KXccminer_ver_8="0.1"
 KXccminer_tarball_ver_8="KXccminer.tar.xz"
 KXccminer_compiled_tarball_ver_8="KXccminer.tar.xz"
@@ -101,7 +100,7 @@ NAccminer_release_tarball_url_ver_8="https://github.com/Nanashi-Meiyo-Meijin/ccm
 NAccminer_src_hash_ver_8="8affcb9cd09edd917d33c1ed450f23400f571bdb"
 
 SILENTminer_ver_8="1.10"
-SILENTminer_tarball_ver_8="SILENTminer.v1.1.0.tar.xz"
+SILENTminer_compiled_tarball_ver_8="SILENTminer.v1.1.0.tar.xz"
 
 SPccminer_ver_8="1.8.2"
 SPccminer_compiled_tarball_ver_8="SPccminer.tar.xz"
@@ -147,13 +146,13 @@ XMR_Stak_src_hash_ver_9="c5f0505de039545585811585f2c189828dfc3ec2"
 
 
 ZENEMYminer_ver_8="1.10"
-ZENEMYminer_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
+ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
 
 ZENEMYminer_ver_9="1.14"
-ZENEMYminer_tarball_ver_9="z-enemy-1.14-cuda92.tar.xz"
+ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.14-cuda92.tar.xz"
 
 cpuOPT_ver="3.8.8.1"
-cpuOPT_tarball="cpuOPT.tar.xz"
+cpuOPT_compiled_tarball="cpuOPT.tar.xz"
 cpuOPT_src_ver=""
 
 function stop-if-needed {
@@ -331,7 +330,7 @@ then
   echo "Extracting BMINER"
   mkdir -p ${NVOC_MINERS}/BMINER/$BMINER_ver/
   stop-if-needed "[b]miner"
-  tar -xvJf ${NVOC_MINERS}/BMINER/$BMINER_tarball -C ${NVOC_MINERS}/BMINER/$BMINER_ver/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/BMINER/$BMINER_compiled_tarball -C ${NVOC_MINERS}/BMINER/$BMINER_ver/ --strip 1
   chmod a+x ${NVOC_MINERS}/BMINER/$BMINER_ver/bminer
   update-symlink ${NVOC_MINERS}/BMINER $BMINER_ver recommended
   update-symlink ${NVOC_MINERS}/BMINER $BMINER_ver latest
@@ -349,7 +348,7 @@ then
   echo "Extracting CLAYMORE"
   mkdir -p ${NVOC_MINERS}/CLAYMORE/$CLAYMORE_ver/
   stop-if-needed "[e]thdcrminer64"
-  tar -xvJf ${NVOC_MINERS}/CLAYMORE/$CLAYMORE_tarball -C ${NVOC_MINERS}/CLAYMORE/$CLAYMORE_ver/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/CLAYMORE/$CLAYMORE_compiled_tarball -C ${NVOC_MINERS}/CLAYMORE/$CLAYMORE_ver/ --strip 1
   chmod a+x ${NVOC_MINERS}/CLAYMORE/$CLAYMORE_ver/ethdcrminer64
   update-symlink ${NVOC_MINERS}/CLAYMORE $CLAYMORE_ver recommended
   update-symlink ${NVOC_MINERS}/CLAYMORE $CLAYMORE_ver latest
@@ -367,7 +366,7 @@ then
   echo "Extracting CryptoDredge"
   mkdir -p ${NVOC_MINERS}/CryptoDredge/$CryptoDredge_ver/
   stop-if-needed "[C]ryptoDredge_miner"
-  tar -xvJf ${NVOC_MINERS}/CryptoDredge/$CryptoDredge_tarball -C ${NVOC_MINERS}/CryptoDredge/$CryptoDredge_ver/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/CryptoDredge/$CryptoDredge_compiled_tarball -C ${NVOC_MINERS}/CryptoDredge/$CryptoDredge_ver/ --strip 1
   chmod a+x ${NVOC_MINERS}/CryptoDredge/$CryptoDredge_ver/CryptoDredge
   update-symlink ${NVOC_MINERS}/CryptoDredge $CryptoDredge_ver recommended
   update-symlink ${NVOC_MINERS}/CryptoDredge $CryptoDredge_ver latest
@@ -385,7 +384,7 @@ then
   echo "Extracting DSTM zm miner"
   mkdir -p ${NVOC_MINERS}/DSTM/$DSTM_ver/
   stop-if-needed "[z]m_miner"
-  tar -xvJf ${NVOC_MINERS}/DSTM/$DSTM_tarball -C ${NVOC_MINERS}/DSTM/$DSTM_ver/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/DSTM/$DSTM_compiled_tarball -C ${NVOC_MINERS}/DSTM/$DSTM_ver/ --strip 1
   chmod a+x ${NVOC_MINERS}/DSTM/$DSTM_ver/zm_miner
   update-symlink ${NVOC_MINERS}/DSTM $DSTM_ver recommended
   update-symlink ${NVOC_MINERS}/DSTM $DSTM_ver latest
@@ -445,7 +444,7 @@ if [[ ! -d ${NVOC_MINERS}/EWBF/$EWBF_ver ]]
 then
   echo "Extracting EWBF Equihash miner"
   mkdir -p ${NVOC_MINERS}/EWBF/{3.4,3.3}
-  tar -xvJf ${NVOC_MINERS}/EWBF/$EWBF_tarball -C ${NVOC_MINERS}/EWBF/$EWBF_ver/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/EWBF/$EWBF_compiled_tarball -C ${NVOC_MINERS}/EWBF/$EWBF_ver/ --strip 1
   tar -xvJf ${NVOC_MINERS}/EWBF/0.3.3b.tar.xz -C ${NVOC_MINERS}/EWBF/3.3/ --strip 1
   chmod a+x ${NVOC_MINERS}/EWBF/$EWBF_ver/miner
   chmod a+x ${NVOC_MINERS}/EWBF/3.3/miner
@@ -466,7 +465,7 @@ then
   echo "Extracting EWBF ZHASH miner"
   mkdir -p ${NVOC_MINERS}/Z_EWBF/$Z_EWBF_ver/
   stop-if-needed "[Z]_EWBF"
-  tar -xvJf ${NVOC_MINERS}/Z_EWBF/$Z_EWBF_tarball -C ${NVOC_MINERS}/Z_EWBF/$Z_EWBF_ver/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/Z_EWBF/$Z_EWBF_compiled_tarball -C ${NVOC_MINERS}/Z_EWBF/$Z_EWBF_ver/ --strip 1
   chmod a+x ${NVOC_MINERS}/Z_EWBF/$Z_EWBF_ver/miner
   update-symlink ${NVOC_MINERS}/Z_EWBF $Z_EWBF_ver latest
   update-symlink ${NVOC_MINERS}/Z_EWBF $Z_EWBF_ver recommended
@@ -625,7 +624,7 @@ then
   echo "Extracting Silent Miner"
   mkdir -p ${NVOC_MINERS}/SILENTminer/$SILENTminer_ver_8
   stop-if-needed "[S]ILENTminer"
-  tar -xvJf ${NVOC_MINERS}/SILENTminer/$SILENTminer_tarball_ver_8 -C ${NVOC_MINERS}/SILENTminer/$SILENTminer_ver_8/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/SILENTminer/$SILENTminer_compiled_tarball_ver_8 -C ${NVOC_MINERS}/SILENTminer/$SILENTminer_ver_8/ --strip 1
   chmod a+x ${NVOC_MINERS}/SILENTminer/$SILENTminer_ver_8/ccminer
   update-symlink ${NVOC_MINERS}/SILENTminer $SILENTminer_ver_8 recommended
   update-symlink ${NVOC_MINERS}/SILENTminer $SILENTminer_ver_8 latest
@@ -777,7 +776,7 @@ if [[ ! -d ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_8 ]]
 then
   echo "Extracting Z-ENEMY miner $ZENEMYminer_ver_8 and making changes for CUDA-8"
   mkdir -p ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_8/
-  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_tarball_ver_8 -C ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_8/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_compiled_tarball_ver_8 -C ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_8/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_8/ccminer
   stop-if-needed "[Z]ENEMYminer"
   echo "Z-ENEMY miner for CUDA-8 updated"
@@ -796,7 +795,7 @@ if [[ ! -d ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_9 ]]
 then
   echo "Extracting Z-ENEMY miner and making changes for CUDA-9.2"
   mkdir -p ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_9/
-  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_tarball_ver_9 -C ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_9/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_compiled_tarball_ver_9 -C ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_9/ --strip 1
   chmod a+x  ${NVOC_MINERS}/ZENEMYminer/$ZENEMYminer_ver_9/ccminer
   stop-if-needed "[Z]ENEMYminer"
   echo "Z-ENEMY miner for CUDA-9.2 updated"
@@ -822,7 +821,7 @@ then
   echo "Extracting cpuminer"
   mkdir -p ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/
   stop-if-needed "[c]puminer"
-  tar -xvJf ${NVOC_MINERS}/cpuOPT/${cpuOPT_tarball} -C ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/ --strip 1
+  tar -xvJf ${NVOC_MINERS}/cpuOPT/${cpuOPT_compiled_tarball} -C ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/ --strip 1
   chmod a+x ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/cpuminer
   update-symlink ${NVOC_MINERS}/cpuOPT ${cpuOPT_ver} recommended
   update-symlink ${NVOC_MINERS}/cpuOPT ${cpuOPT_ver} latest
