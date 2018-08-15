@@ -705,8 +705,8 @@ then
   if [[ $CUDA_VER == "9.2" ]]
   then
     update-symlink ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9 recommended
-    update-symlink ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9 latest
   fi
+  update-symlink ${NVOC_MINERS}/TPccminer/$TPccminer_ver_9 latest
   restart-if-needed
 else
   echo "tpruvot ccminer for CUDA-9.2 is already up-to-date"
