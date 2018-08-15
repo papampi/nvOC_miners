@@ -202,13 +202,13 @@ function get-sources {
 }
 
 function update-symlink {
-  if [[ -L "$1/$2" && -d "$1/$2" ]]
+  if [[ -L "$1/$3" && -d "$1/$3" ]]
   then
-    rm "$1/$2"
+    rm "$1/$3"
   else
-    rm -rf "$1/$2"
+    rm -rf "$1/$3"
   fi
-  ln -s "$1" "$1/$2"
+  ln -s "$1/$2" "$1/$3"
 }
 
 #function pluggable-installer {
@@ -239,7 +239,7 @@ do
       pluggable-installer "${NVOC_MINERS}/${miner}/${!v8miner}/"
       if [[ $CUDA_VER == "8.0" ]]
       then
-        update-symlink ${NVOC_MINERS}/${miner}/${!v8miner} recommended
+        update-symlink ${NVOC_MINERS}/${miner} ${!v8miner} recommended
       fi
       echo "${miner} updated to version ${!v8miner}"
       restart-if-needed
@@ -258,9 +258,9 @@ do
       pluggable-installer "${NVOC_MINERS}/${miner}/${!v9miner}/"
       if [[ $CUDA_VER == "9.2" ]]
       then
-        update-symlink ${NVOC_MINERS}/${miner}/${!v9miner} recommended
+        update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} recommended
       fi
-      update-symlink ${NVOC_MINERS}/${miner}/${!v9miner} latest
+      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} latest
       echo "${miner} updated to version ${!v9miner}"
       restart-if-needed
     else
@@ -276,8 +276,8 @@ do
       mkdir -p ${NVOC_MINERS}/${miner}/${!vminer}/
       cp ${NVOC_MINERS}/helpers/miners/${miner}/${!vminer}/.nvoc-miner.json ${NVOC_MINERS}/${miner}/${!vminer}/.nvoc-miner.json
       pluggable-installer "${NVOC_MINERS}/${miner}/${!vminer}/"
-      update-symlink ${NVOC_MINERS}/${miner}/${!v9miner} recommended
-      update-symlink ${NVOC_MINERS}/${miner}/${!v9miner} latest
+      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} recommended
+      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} latest
       echo "${miner} updated to version ${!vminer}"
       restart-if-needed
     fi
