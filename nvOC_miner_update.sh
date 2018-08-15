@@ -403,7 +403,7 @@ then
   echo "Extracting ETHMINER $ETHMINER_ver_8 and making changes for CUDA-8"
   mkdir -p ${NVOC_MINERS}/ETHMINER/$ETHMINER_ver_8/
   tar -xvJf ${NVOC_MINERS}/ETHMINER/$ETHMINER_compiled_tarball_ver_8 -C ${NVOC_MINERS}/ETHMINER/$ETHMINER_ver_8/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/ETHMINER/$ETHMINER_ver_8/ccminer
+  chmod a+x  ${NVOC_MINERS}/ETHMINER/$ETHMINER_ver_8/ethminer
   stop-if-needed "[e]thminer"
   echo "ETHMINER for CUDA-8 updated"
   echo "Use $ETHMINER_ver_8 or recommended for ETHMINER_VERSION in 1bash"
@@ -422,7 +422,7 @@ then
   echo "Extracting ETHMINER and making changes for CUDA-9.2"
   mkdir -p ${NVOC_MINERS}/ETHMINER/$ETHMINER_ver_9/
   tar -xvJf ${NVOC_MINERS}/ETHMINER/$ETHMINER_compiled_tarball_ver_9 -C ${NVOC_MINERS}/ETHMINER/$ETHMINER_ver_9/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/ETHMINER/$ETHMINER_ver_9/ccminer
+  chmod a+x  ${NVOC_MINERS}/ETHMINER/$ETHMINER_ver_9/ethminer
   stop-if-needed "[e]thminer"
   echo "ETHMINER for CUDA-9.2 updated"
   echo "Use latest or recommended or $ETHMINER_ver_9 for ETHMINER_VERSION in 1bash"
@@ -1048,7 +1048,7 @@ function compile-VERTMINER {
   bash ${NVOC_MINERS}/VERTMINER/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/VERTMINER/src/build.sh
   stop-if-needed "[v]ertminer"
-  cp ${NVOC_MINERS}/VERTMINER/src/VERTMINER ${NVOC_MINERS}/VERTMINER/VERTMINER
+  cp ${NVOC_MINERS}/VERTMINER/src/vertminer ${NVOC_MINERS}/VERTMINER/vertminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling VERTMINER"
@@ -1075,7 +1075,7 @@ function compile-XMR_Stak {
   fi
   bash ${NVOC_MINERS}/XMR_Stak/src/build.sh
   stop-if-needed "[xmr]-stak"
-  cp ${NVOC_MINERS}/XMR_Stak/src/ccminer ${NVOC_MINERS}/XMR_Stak/xmr-stak
+  cp ${NVOC_MINERS}/XMR_Stak/src/xmr-stak ${NVOC_MINERS}/XMR_Stak/xmr-stak
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling xmr-stak"
