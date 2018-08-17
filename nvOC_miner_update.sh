@@ -262,7 +262,7 @@ do
   if [[ $miner =~ $ccminers ]]
   then
     executable="ccminer"
-  elif [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM]]
+  elif [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM ]]
   then
     executable="miner"
   elif [[ $miner == ETHMINER ]]
