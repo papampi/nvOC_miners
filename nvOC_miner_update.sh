@@ -571,7 +571,7 @@ function compile-VERTMINER {
   restart-if-needed
 }
 
-
+# Cuda versions compile need checkup!!!!
 function compile-XMR_Stak {
   echo "Compiling  xmr-stak"
   echo " This could take a while ..."
@@ -582,16 +582,12 @@ function compile-XMR_Stak {
     get-sources ${NVOC_MINERS}/XMR_Stak src $XMR_Stak_src_hash_ver_9
   fi
   cd ${NVOC_MINERS}/XMR_Stak/src
-  bash ${NVOC_MINERS}/XMR_Stak/src/autogen.sh
-  if [[ $CUDA_VER == "8.0" ]]
-  then
-    bash ${NVOC_MINERS}/XMR_Stak/src/configure --with-cuda=/usr/local/cuda-8.0
-  else
-    bash ${NVOC_MINERS}/XMR_Stak/src/configure --with-cuda=/usr/local/cuda-9.2
-  fi
-  bash ${NVOC_MINERS}/XMR_Stak/src/build.sh
+  mkdir ${NVOC_MINERS}/XMR_Stak/src/build
+  cd ${NVOC_MINERS}/XMR_Stak/src/build
+  cmake ..
+  make install
   stop-if-needed "[xmr]-stak"
-  cp ${NVOC_MINERS}/XMR_Stak/src/xmr-stak ${NVOC_MINERS}/XMR_Stak/xmr-stak
+  cp ${NVOC_MINERS}/XMR_Stak/src/build/bin/xmr-stak ${NVOC_MINERS}/XMR_Stak/src/build/bin/*.so ${NVOC_MINERS}/XMR_Stak/xmr-stak
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling xmr-stak"
