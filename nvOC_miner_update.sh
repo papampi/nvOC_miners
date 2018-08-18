@@ -253,7 +253,7 @@ do
 done
 
 
-ccminers="ANXccminer KTccminer MSFTccminer SUPRminer  ASccminer  KTccminer_cryptonight  NAccminer SILENTminer TPccminer ZENEMYminer KXccminer SPccminer"
+ccminers="ANXccminer ASccminer  CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer ZENEMYminer"
 installed_miners=$(ls -d $NVOC_MINERS/*/ |  cut -d/ -f7 | sort -u)
 
 for miner in $installed_miners
@@ -277,9 +277,6 @@ do
   elif [[ $miner == cpuOPT ]]
   then
     executable="cpuminer"
-  elif [[ $miner == CryptoDredge ]]
-  then
-    executable="CryptoDredge"
   fi
 
   v8miner=$miner$uver8
