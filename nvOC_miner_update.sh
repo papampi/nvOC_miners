@@ -253,16 +253,11 @@ do
 done
 
 
-ccminers="ANXccminer ASccminer  CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer ZENEMYminer"
 installed_miners=$(ls -d $NVOC_MINERS/*/ |  cut -d/ -f7 | sort -u)
-
 for miner in $installed_miners
 do
-
-  if [[ $miner =~ $ccminers ]]
-  then
-    executable="ccminer"
-  elif [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM ]]
+  executable="ccminer"
+  if [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM ]]
   then
     executable="miner"
   elif [[ $miner == ETHMINER ]]
