@@ -121,8 +121,8 @@ function stop-if-needed {
   if ps ax | grep miner | grep -v grep | grep -q "$1"
   then
     echo "Stopping miner"
-    pkill -f 5watchdog
-    pkill -e screen
+    pkill -ef 5watchdog
+    pkill -ef screenrc
     NEED_RESTART="YES"
   fi
 }
@@ -131,7 +131,7 @@ function restart-if-needed {
   if [[ $NEED_RESTART == YES ]]
   then
     echo "Restarting nvOC..."
-    pkill -f 3main
+    pkill -ef 3main
     NEED_RESTART="NO"
   fi
 }
