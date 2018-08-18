@@ -39,7 +39,7 @@ ETHMINER_compiled_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
 ETHMINER_src_hash_ver_8="24c65cf166bbb3332d60e2baef859ceb604e5d49"
 
 ETHMINER_ver_9="0.15.0"
-ETHMINER_compiled_tarball_ver_9="ethminer-0.15.0-Linux.tar.xz"
+ETHMINER_compiled_tarball_ver_9="ethminer-0.15.0.tar.xz"
 ETHMINER_src_hash_ver_9="11d7e3c4c087f6c669013e360af84f6d617c02f4"
 
 EWBF_ver="3.4"
