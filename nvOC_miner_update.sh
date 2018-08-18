@@ -645,6 +645,11 @@ else
   cd ${NVOC_MINERS}
 fi
 
+if  apt list --installed | grep -q libcurl3 
+then 
+  sudo apt -y install cmake
+fi
+
 IFS=', '
 echo "Select miners to compile (multiple comma separated values: 1,6,7)"
 echo "1 - ASccminer"
@@ -745,4 +750,10 @@ for choice in "${array[@]}"; do
     [Ee]* ) echo "exited by user"; break;;
     * ) echo "Are you kidding me???";;
   esac
+ 
+  if ! apt list --installed | grep -q libcurl3 
+  then 
+    sudo apt -y install libcurl3
+  fi
+  
 done
