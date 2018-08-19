@@ -44,6 +44,20 @@ function get-sources {
   fi
 }
 
+echo "Checking CryptoDredge 0.8.3"
+if [ ! $(cat  ${NVOC_MINERS}/CryptoDredge/version | grep 0.8.3) ]
+then
+  echo "Extracting CryptoDredge"
+  mkdir -p ${NVOC_MINERS}/CryptoDredge
+  stop-if-needed "[C]ryptoDredge"
+  cat ${NVOC_MINERS}/CryptoDredge/CryptoDredge_0.8.3.tar.xz | tar -xJC ${NVOC_MINERS}/CryptoDredge/ --strip 1
+  chmod a+x ${NVOC_MINERS}/CryptoDredge/ccminer
+  restart-if-needed
+else
+  echo "CryptoDredge is already up-to-date"
+fi
+
+
 echo "Checking EWBF Equihash miner "
 if [ ! $(cat ${NVOC_MINERS}/ewbf/latest/version | grep 0.3.4b) ]
 then
