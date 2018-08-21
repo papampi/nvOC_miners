@@ -637,9 +637,10 @@ else
   cd ${NVOC_MINERS}
 fi
 
-if  apt list --installed | grep -q libcurl3 
+if ! apt list --installed | grep -q cmake 
 then 
   sudo apt -y install cmake
+  sudo apt -y autoremove  
 fi
 
 IFS=', '
@@ -743,9 +744,10 @@ for choice in "${array[@]}"; do
     * ) echo "Are you kidding me???";;
   esac
  
-  if ! apt list --installed | grep -q libcurl3 
+  if ! apt list --installed | grep -q "libcurl3/" 
   then 
     sudo apt -y install libcurl3
+    sudo apt -y autoremove  
   fi
   
 done
