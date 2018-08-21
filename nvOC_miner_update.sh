@@ -637,9 +637,9 @@ else
   cd ${NVOC_MINERS}
 fi
 
-if ! apt list --installed | grep -q cmake 
+if apt list --installed | grep -q "libcurl3/" 
 then 
-  sudo apt -y install cmake
+  sudo apt -y install cmake 
   sudo apt -y autoremove  
 fi
 
