@@ -266,6 +266,9 @@ do
   elif [[ $miner == CLAYMORE ]]
   then
     executable="ethdcrminer64"
+  elif [[ $miner == BMINER ]]
+  then
+    executable="bminer"  
   elif [[ $miner == XMR_Stak ]]
   then
     executable="xmr-stak"
