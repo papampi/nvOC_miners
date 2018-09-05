@@ -6,12 +6,123 @@ echo "Will check and restart miner if needed"
 echo
 export NVOC_MINERS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+CUDA_VER="8.0"
+if  nvcc --version | grep -v grep | grep -q "9.2"
+then
+  CUDA_VER="9.2"
+fi
+
+## Miner versions and tarballs
+
+ANXccminer_ver_8="1.0"
+ANXccminer_compiled_tarball_ver_8="ANXccminer.tar.xz"
+ANXccminer_src_hash_ver_8="cd6fab68823e247bb84dd1fa0448d5f75ec4917d"
+
+ASccminer_ver_8="1.0"
+ASccminer_compiled_tarball_ver_8="ASccminer.tar.xz"
+ASccminer_src_hash_ver_8="baf6c9e4e36c9cc1b67698ee2977d445f598c573"
+
+BMINER_ver="10.2.0"
+BMINER_compiled_tarball="bminer-v10.2.0.tar.xz"
+
+CLAYMORE_ver="11.9"
+CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
+
+CryptoDredge_ver="0.8.3"
+CryptoDredge_compiled_tarball="CryptoDredge_0.8.3.tar.xz"
+
+DSTM_ver="0.6.1"
+DSTM_compiled_tarball="DSTM_0.6.1.tar.xz"
+
+ETHMINER_ver_8="0.14.0"
+ETHMINER_compiled_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
+ETHMINER_src_hash_ver_8="24c65cf166bbb3332d60e2baef859ceb604e5d49"
+
+ETHMINER_ver_9="0.15.0"
+ETHMINER_compiled_tarball_ver_9="ethminer-0.15.0.tar.xz"
+ETHMINER_src_hash_ver_9="11d7e3c4c087f6c669013e360af84f6d617c02f4"
+
+EWBF_ver="3.4"
+EWBF_compiled_tarball="0.3.4b.tar.xz"
+
+Z_EWBF_ver="0.5"
+Z_EWBF_compiled_tarball="z_ewbf_v0.5.tar.xz"
+
+KTccminer_ver_8="8.20"
+KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
+KTccminer_src_hash_ver_8="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
+
+KTccminer_ver_9="8.22"
+KTccminer_compiled_tarball_ver_9="KTccminer-8.22.tar.xz"
+KTccminer_src_hash_ver_9="2e457923f3125fbaedf5d8ba1f7d0fafc85b0ba8"
+
+KTccminer_cryptonight_ver_8="2.06"
+KTccminer_cryptonight_compiled_tarball_ver_8="KTccminer-cryptonight.tar.xz"
+KTccminer_cryptonight_src_hash_ver_8="bedaf007d4619fc4157aeafb59b44850f08d93f1"
+
+KTccminer_cryptonight_ver_9="3.05"
+KTccminer_cryptonight_compiled_tarball_ver_9="KTccminer-cryptonight-3.05.tar.xz"
+KTccminer_cryptonight_src_hash_ver_9="7061f3c78e52a03f7ff5d0743900312de5bb24fc"
+
+KXccminer_ver_8="0.1"
+KXccminer_compiled_tarball_ver_8="KXccminer.tar.xz"
+KXccminer_src_hash_ver_8="7d41d49b92db27b9ab80270adaa92f6b06d1ef78"
+
+MSFTccminer_ver_8="2.2.5"
+MSFTccminer_compiled_tarball_ver_8="MSFTccminer.tar.xz"
+MSFTccminer_src_hash_ver_8="78dad7dd659eae72a07d2448de62b1946c1f2b41"
+
+NAccminer_ver_8="2.2"
+NAccminer_compiled_tarball_ver_8="nanashi-ccminer-2.2-mod-r2.tar.xz"
+NAccminer_src_hash_ver_8="8affcb9cd09edd917d33c1ed450f23400f571bdb"
+
+SILENTminer_ver_8="1.10"
+SILENTminer_compiled_tarball_ver_8="SILENTminer.v1.1.0.tar.xz"
+
+SPccminer_ver_8="1.8.2"
+SPccminer_compiled_tarball_ver_8="SPccminer.tar.xz"
+SPccminer_src_hash_ver_8="9e86bdd24ed7911b698f1d0ef61a4028fcbd13c5"
+
+SUPRminer_ver_8="1.5"
+SUPRminer_compiled_tarball_ver_8="SUPRminer-1.5.tar.xz"
+SUPRminer_src_hash_ver_8="c800f1a803e1b2074ed2a7c15023c096d0772048"
+
+TPccminer_ver_8="2.2.5"
+TPccminer_compiled_tarball_ver_8="TPccminer.tar.xz"
+TPccminer_src_hash_ver_8="a81ab0f7a557a12a21d716dd03537bc8633fd176"
+
+TPccminer_ver_9="2.3"
+TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
+TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
+
+VERTMINER_ver_8="1.0.2"
+VERTMINER_compiled_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
+VERTMINER_src_hash_ver_8="48b170a5828256600ca71e66d4c114af4e114236"
+
+XMR_Stak_ver_8="2.4.4"
+XMR_Stak_compiled_tarball_ver_8="xmr-stak-2.4.4.tar.xz"
+XMR_Stak_src_hash_ver_8="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
+
+XMR_Stak_ver_9="2.4.7"
+XMR_Stak_compiled_tarball_ver_9="xmr-stak-2.4.7.tar.xz"
+XMR_Stak_src_hash_ver_9="c5f0505de039545585811585f2c189828dfc3ec2"
+
+ZENEMYminer_ver_8="1.10"
+ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
+
+ZENEMYminer_ver_9="1.17"
+ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.17-cuda92.tar.xz"
+
+cpuOPT_ver="3.8.8.1"
+cpuOPT_compiled_tarball="cpuOPT.tar.xz"
+cpuOPT_src_ver="bfd1c002f98f2d63f2174618838afc28cf4ffffe"
+
 function stop-if-needed {
-  if ps ax | grep miner | grep -q "$1"
+  if ps ax | grep miner | grep -v grep | grep -q "$1"
   then
     echo "Stopping miner"
-    pkill -f 5watchdog
-    pkill -e screen
+    pkill -ef 5watchdog
+    pkill -ef screenrc
     NEED_RESTART="YES"
   fi
 }
@@ -20,535 +131,334 @@ function restart-if-needed {
   if [[ $NEED_RESTART == YES ]]
   then
     echo "Restarting nvOC..."
-    pkill -f 3main
+    pkill -ef 3main
     NEED_RESTART="NO"
   fi
 }
 
 function get-sources {
-  SU_CMD="git -C ${NVOC_MINERS}/$1 submodule update --init --force --depth 1 src"
-  if ! ${SU_CMD}
+  if [[ $3 == "" ]]
   then
-    echo "Update from shallow clone failed, fetching old commits..."
-    git -C "${NVOC_MINERS}/$1/src" fetch --unshallow
-    if ! ${SU_CMD}
+    chckt_cmd="git -C $1 submodule update --init --force --depth 1 $2"
+  else
+    git -C $1 submodule update --init --force --depth 1 $2
+    chckt_cmd="git -C $1/$2 checkout --force $3"
+  fi
+
+  if ! ${chckt_cmd}
+  then
+    echo "Checkout from shallow clone failed, fetching old commits..."
+    git -C "$1/$2" fetch --unshallow
+    if ! ${chckt_cmd}
     then
-      echo "Update from default branch failed, fetching other branches..."
-      git -C "${NVOC_MINERS}/$1/src" remote set-branches origin '*'
-      git -C "${NVOC_MINERS}/$1/src" fetch
-      if ! ${SU_CMD}
+      echo "Checkout from default branch failed, fetching other branches..."
+      git -C "$1/$2" remote set-branches origin '*'
+      git -C "$1/$2" fetch
+      if ! ${chckt_cmd}
       then
-        echo "Unable to update submodule, can't find target commit."
+        echo "Unable to checkout submodule, can't find target commit."
       fi
     fi
   fi
 }
 
-echo "Checking CryptoDredge 0.8.3"
-if [ ! $(cat  ${NVOC_MINERS}/CryptoDredge/version | grep 0.8.3) ]
-then
-  echo "Extracting CryptoDredge"
-  mkdir -p ${NVOC_MINERS}/CryptoDredge
-  stop-if-needed "[C]ryptoDredge"
-  cat ${NVOC_MINERS}/CryptoDredge/CryptoDredge_0.8.3.tar.xz | tar -xJC ${NVOC_MINERS}/CryptoDredge/ --strip 1
-  chmod a+x ${NVOC_MINERS}/CryptoDredge/ccminer
-  restart-if-needed
-else
-  echo "CryptoDredge is already up-to-date"
-fi
-
-
-echo "Checking EWBF Equihash miner "
-if [ ! $(cat ${NVOC_MINERS}/ewbf/latest/version | grep 0.3.4b) ]
-then
-  echo "Extracting EWBF Equihash miner"
-  mkdir -p ${NVOC_MINERS}/ewbf/{3_4,3_3}
-  cat ${NVOC_MINERS}/ewbf/0.3.4b.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/3_4/ --strip 1
-  cat ${NVOC_MINERS}/ewbf/0.3.3b.tar.xz | tar -xJC ${NVOC_MINERS}/ewbf/3_3/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ewbf/3_4/miner
-  chmod a+x ${NVOC_MINERS}/ewbf/3_3/miner
-  stop-if-needed "[e]wbf"
-  if [[ -L "${NVOC_MINERS}/ewbf/latest" && -d "${NVOC_MINERS}/ewbf/latest" ]]
+function update-symlink {
+  if [[ -L "$1/$3" && -d "$1/$3" ]]
   then
-    rm ${NVOC_MINERS}/ewbf/latest
+    rm "$1/$3"
   else
-    rm -rf ${NVOC_MINERS}/ewbf/latest
+    rm -rf "$1/$3"
   fi
-  ln -s ${NVOC_MINERS}/ewbf/3_4 "${NVOC_MINERS}/ewbf/latest"
-  restart-if-needed
-else
-  echo "EWBF Equihash miner is already up-to-date"
-fi
+  ln -s "$1/$2" "$1/$3"
+}
 
-echo
+#function pluggable-installer {
+## To do
+#}
 
-echo "Checking EWBF ZHASH miner "
-if [ ! $(cat ${NVOC_MINERS}/z_ewbf/latest/version | grep v0.5) ]
-then
-  echo "Extracting EWBF ZHASH miner"
-  mkdir -p ${NVOC_MINERS}/z_ewbf/latest/
-  stop-if-needed "[z]_ewbf"
-  cat ${NVOC_MINERS}/z_ewbf/z_ewbf_v0.5.tar.xz | tar -xJC ${NVOC_MINERS}/z_ewbf/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/z_ewbf/latest/miner
-  restart-if-needed
-else
-  echo "EWBF ZHASH miner is already up-to-date"
-fi
+#function pluggable-compiler {
+## To do
+#}
 
-echo
+uver8="_ver_8"
+uver9="_ver_9"
+uver="_ver"
+ucompiled8="_compiled_tarball_ver_8"
+ucompiled9="_compiled_tarball_ver_9"
+ucompiled="_compiled_tarball"
 
-echo "Checking Equihash DSTM zm miner 0.6.1"
-if [ ! $(cat ${NVOC_MINERS}/dstm/latest/version | grep 0.6.1) ]
-then
-  echo "Extracting DSTM zm miner"
-  mkdir -p ${NVOC_MINERS}/dstm/latest/
-  stop-if-needed "[z]m_miner"
-  cat ${NVOC_MINERS}/dstm/DSTM_0.6.1.tar.xz | tar -xJC ${NVOC_MINERS}/dstm/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/dstm/latest/zm_miner
-  restart-if-needed
-else
-  echo "DSTM zm miner is already up-to-date"
-fi
+pluggable_miners=$(find ${NVOC_MINERS}/helpers/miners/*/ -name .nvoc-miner.json -print | cut -d/ -f8 | sort -u )
+for miner in $pluggable_miners
+do
+  v8miner=$miner$uver8
+  v9miner=$miner$uver9
+  vminer=$miner$uver
 
-echo
-
-echo "Checking Z-Enemy 1.10"
-if [ ! $(cat  ${NVOC_MINERS}/ZENEMYminer/version | grep 1.10) ]
-then
-  echo "Extracting z-enemy"
-  mkdir -p ${NVOC_MINERS}/ZENEMYminer
-  stop-if-needed "[Z]ENEMYminer"
-  cat ${NVOC_MINERS}/ZENEMYminer/z-enemy-1.10-cuda80.tar.xz | tar -xJC ${NVOC_MINERS}/ZENEMYminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ZENEMYminer/ccminer
-  restart-if-needed
-else
-  echo "z-enemy is already up-to-date"
-fi
-
-echo
-
-echo "Checking xmr-stak 2.4.4"
-if [ ! $(cat  ${NVOC_MINERS}/xmr-stak/version | grep 2.4.4) ]
-then
-  echo "Extracting xmr-stak"
-  mkdir -p ${NVOC_MINERS}/xmr-stak
-  stop-if-needed "[x]mr-stak"
-  cat ${NVOC_MINERS}/xmr-stak/xmr-stak-2.4.4.tar.xz | tar -xJC ${NVOC_MINERS}/xmr-stak/ --strip 1
-  chmod a+x ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
-  restart-if-needed
-else
-  echo "xmr-stak is already up-to-date"
-fi
-
-echo
-
-echo "Checking Silent Miner 1.1.0"
-if [ ! $(cat  ${NVOC_MINERS}/SILENTminer/version | grep 1.1.0) ]
-then
-  echo "Extracting Silent Miner"
-  mkdir -p ${NVOC_MINERS}/SILENTminer
-  stop-if-needed "[S]ILENTminer"
-  cat ${NVOC_MINERS}/SILENTminer/SILENTminer.v1.1.0.tar.xz | tar -xJC ${NVOC_MINERS}/SILENTminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/SILENTminer/ccminer
-  restart-if-needed
-else
-  echo "Silent Miner is already up-to-date"
-fi
-
-echo
-
-echo "Checking Claymore v11.9"
-if [ ! $(cat ${NVOC_MINERS}/claymore/latest/version | grep 11.9) ]
-then
-  echo "Extracting Claymore"
-  mkdir -p ${NVOC_MINERS}/claymore/latest/
-  stop-if-needed "[e]thdcrminer64"
-  cat ${NVOC_MINERS}/claymore/Claymore-v11.9.tar.xz | tar -xJC ${NVOC_MINERS}/claymore/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/claymore/latest/ethdcrminer64
-  restart-if-needed
-else
-  echo "Claymore is already up-to-date"
-fi
-
-echo
-
-echo "Checking SP Mod ccminer-1.8.2"
-if [ ! $(cat ${NVOC_MINERS}/SPccminer/version | grep 1.8.2) ]
-then
-  echo "Extracting SPccminer"
-  mkdir -p ${NVOC_MINERS}/SPccminer/
-  stop-if-needed "[S]Pccminer"
-  cat ${NVOC_MINERS}/SPccminer/SPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/SPccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/SPccminer/ccminer
-  restart-if-needed
-else
-  echo "SPccminer is already up-to-date"
-fi
-
-echo
-
-echo "Checking alexis ccminer"
-if [ ! $(cat ${NVOC_MINERS}/ASccminer/version | grep 1.0) ]
-then
-  echo "Extracting ASccminer"
-  mkdir -p ${NVOC_MINERS}/ASccminer/
-  stop-if-needed "[A]Sccminer"
-  cat ${NVOC_MINERS}/ASccminer/ASccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ASccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ASccminer/ccminer
-  restart-if-needed
-else
-  echo "ASccminer is already up-to-date"
-fi
-
-echo
-
-echo "Checking Krnlx ccminer"
-if [ ! $(cat ${NVOC_MINERS}/KXccminer/version | grep skunk-krnlx) ]
-then
-  echo "Extracting KXccminer"
-  mkdir -p ${NVOC_MINERS}/KXccminer/
-  stop-if-needed "[K]Xccminer"
-  cat ${NVOC_MINERS}/KXccminer/KXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KXccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/KXccminer/ccminer
-  restart-if-needed
-else
-  echo "KXccminer is already up-to-date"
-fi
-
-echo
-
-echo "Checking Tpruvot ccminer-2.2.5"
-if [ ! $(cat ${NVOC_MINERS}/TPccminer/version | grep 2.2.5) ]
-then
-  echo "Extracting Tpruvot"
-  mkdir -p ${NVOC_MINERS}/TPccminer/
-  stop-if-needed "[T]Pccminer"
-  cat ${NVOC_MINERS}/TPccminer/TPccminer.tar.xz | tar -xJC ${NVOC_MINERS}/TPccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/TPccminer/ccminer
-  restart-if-needed
-else
-  echo "Tpruvot ccminer is already up-to-date"
-fi
-
-echo
-
-echo "Checking KlausT ccminer 8.20"
-if [ ! $( cat ${NVOC_MINERS}/KTccminer/version | grep 8.20) ]
-then
-  echo "Extracting Klaust ccminer"
-  mkdir -p ${NVOC_MINERS}/KTccminer/
-  stop-if-needed "[K]Tccminer"
-  cat ${NVOC_MINERS}/KTccminer/KTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/KTccminer/ccminer
-  restart-if-needed
-else
-  echo "KlausT ccminer is already up-to-date"
-fi
-
-echo
-
-echo "Checking Vertminer v1.0-stable.2 Release"
-if [ ! $( cat ${NVOC_MINERS}/vertminer/version | grep 1.0.2 ) ]
-then
-  echo "Extracting vertminer"
-  mkdir -p ${NVOC_MINERS}/vertminer/
-  stop-if-needed "[v]ertminer"
-  cat ${NVOC_MINERS}/vertminer/vertminer-nvidia-1.0-stable.2.tar.xz | tar -xJC ${NVOC_MINERS}/vertminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/vertminer/vertminer
-  if [[ -e ${NVOC_MINERS}/vertminer/ccminer ]]
+  if [[ ${!v8miner} != "" ]]
   then
-    rm ${NVOC_MINERS}/vertminer/ccminer
+    echo "Checking ${miner} version ${!v8miner}"
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v8miner} ]]
+    then
+      stop-if-needed "${miner}"
+      mkdir -p ${NVOC_MINERS}/${miner}/${!v8miner}/
+      cp ${NVOC_MINERS}/helpers/miners/${miner}/${!v8miner}/.nvoc-miner.json ${NVOC_MINERS}/${miner}/${!v8miner}/.nvoc-miner.json
+      pluggable-installer "${NVOC_MINERS}/${miner}/${!v8miner}/"
+      if [[ $CUDA_VER == "8.0" ]]
+      then
+        update-symlink ${NVOC_MINERS}/${miner} ${!v8miner} recommended
+      fi
+      echo "${miner} updated to version ${!v8miner}"
+      restart-if-needed
+    else
+      echo "${miner} already is on version ${!v8miner}"
+    fi
   fi
-  ln -s vertminer ${NVOC_MINERS}/vertminer/ccminer
-  restart-if-needed
-else
-  echo "Vertminer is already up-to-date"
-fi
-
-echo
-
-echo "Checking nanashi-ccminer-2.2-mod-r2"
-if [ ! $(cat ${NVOC_MINERS}/NAccminer/version | grep 2.2-mod-r2 ) ]
-then
-  echo "Extracting nanashi ccminer"
-  mkdir -p ${NVOC_MINERS}/NAccminer/
-  stop-if-needed "[N]Accminer"
-  cat ${NVOC_MINERS}/NAccminer/nanashi-ccminer-2.2-mod-r2.tar.xz | tar -xJC ${NVOC_MINERS}/NAccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/NAccminer/ccminer
-  restart-if-needed
-else
-  echo "nanashi-ccminer is already up-to-date"
-fi
-
-echo
-
-echo "Checking Ethminer 0.14.0"
-if [ ! $(cat ${NVOC_MINERS}/ethminer/latest/version | grep 0.14.0) ]
-then
-  echo "Extracting and making changes for Ethminer"
-  mkdir -p ${NVOC_MINERS}/ethminer/0.14.0/
-  cat ${NVOC_MINERS}/ethminer/ethminer-0.14.0-Linux.tar.xz | tar -xJC ${NVOC_MINERS}/ethminer/0.14.0/ --strip 1
-  chmod a+x  ${NVOC_MINERS}/ethminer/0.14.0/ethminer
-  stop-if-needed "[e]thminer"
-  if [[ -L "${NVOC_MINERS}/ethminer/latest" && -d "${NVOC_MINERS}/ethminer/latest" ]]
+  if [[ ${!v9miner} != "" ]]
   then
-    rm ${NVOC_MINERS}/ethminer/latest
+    echo "Checking ${miner} version ${!v9miner}"
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v9miner} ]]
+    then
+      stop-if-needed "${miner}"
+      mkdir -p ${NVOC_MINERS}/${miner}/${!v9miner}/
+      cp ${NVOC_MINERS}/helpers/miners/${miner}/${!v9miner}/.nvoc-miner.json ${NVOC_MINERS}/${miner}/${!v9miner}/.nvoc-miner.json
+      pluggable-installer "${NVOC_MINERS}/${miner}/${!v9miner}/"
+      if [[ $CUDA_VER == "9.2" ]]
+      then
+        update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} recommended
+      fi
+      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} latest
+      echo "${miner} updated to version ${!v9miner}"
+      restart-if-needed
+    else
+      echo "${miner} already is on version ${!v9miner}"
+    fi
+  fi
+  if [[ ${!vminer} != "" ]]
+  then
+    echo "Checking ${miner} version ${!vminer}"
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!vminer} ]]
+    then
+      stop-if-needed "${miner}"
+      mkdir -p ${NVOC_MINERS}/${miner}/${!vminer}/
+      cp ${NVOC_MINERS}/helpers/miners/${miner}/${!vminer}/.nvoc-miner.json ${NVOC_MINERS}/${miner}/${!vminer}/.nvoc-miner.json
+      pluggable-installer "${NVOC_MINERS}/${miner}/${!vminer}/"
+      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} recommended
+      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} latest
+      echo "${miner} updated to version ${!vminer}"
+      restart-if-needed
+    fi
   else
-    rm -rf ${NVOC_MINERS}/ethminer/latest
+    echo "${miner} already is on version ${!vminer}"
   fi
-  ln -s 0.14.0 "${NVOC_MINERS}/ethminer/latest"
-  restart-if-needed
-else
-  echo "ethminer is already up-to-date"
-fi
+done
 
-echo
 
-echo "Checking KTccminer-cryptonight v2.06"
-if [ ! $( cat ${NVOC_MINERS}/KTccminer-cryptonight/version | grep 2.06) ]
-then
-  echo "Extracting KTccminer-cryptonight"
-  mkdir -p ${NVOC_MINERS}/KTccminer-cryptonight/
-  stop-if-needed "[K]Tccminer-cryptonight"
-  cat ${NVOC_MINERS}/KTccminer-cryptonight/KTccminer-cryptonight.tar.xz | tar -xJC ${NVOC_MINERS}/KTccminer-cryptonight/ --strip 1
-  chmod a+x ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
-  restart-if-needed
-else
-  echo "KTccminer-cryptonight is already up-to-date"
-fi
+installed_miners=$(ls -d $NVOC_MINERS/*/ |  cut -d/ -f7 | sort -u)
+for miner in $installed_miners
+do
+  executable="ccminer"
+  if [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM ]]
+  then
+    executable="miner"
+  elif [[ $miner == ETHMINER ]]
+  then
+    executable="ethminer"
+  elif [[ $miner == CLAYMORE ]]
+  then
+    executable="ethdcrminer64"
+  elif [[ $miner == XMR_Stak ]]
+  then
+    executable="xmr-stak"
+  elif [[ $miner == cpuOPT ]]
+  then
+    executable="cpuminer"
+  fi
 
-echo
+  v8miner=$miner$uver8
+  v9miner=$miner$uver9
+  vminer=$miner$uver
+  x8compiled_tarball=$miner$ucompiled8
+  x9compiled_tarball=$miner$ucompiled9
+  xcompiled_tarball=$miner$ucompiled
 
-echo "Checking Bminer 10.1.0"
-if [ ! $(cat ${NVOC_MINERS}/bminer/latest/version | grep 10.1.0) ]
-then
-  echo "Extracting Bminer"
-  mkdir -p ${NVOC_MINERS}/bminer/latest/
-  stop-if-needed "[b]miner"
-  cat ${NVOC_MINERS}/bminer/bminer-v10.1.0.tar.xz | tar -xJC ${NVOC_MINERS}/bminer/latest/ --strip 1
-  chmod a+x ${NVOC_MINERS}/bminer/latest/bminer
-  restart-if-needed
-else
-  echo "Bminer is already up-to-date"
-fi
+  if [[ ${!v8miner} != "" ]]
+  then
+    echo "Checking ${miner} version ${!v8miner}"
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v8miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/recommended)" ]]
+    then
+      stop-if-needed "${miner}"
+      mkdir -p ${NVOC_MINERS}/${miner}/${!v8miner}/
+      tar -xvJf ${NVOC_MINERS}/${miner}/${!x8compiled_tarball} -C ${NVOC_MINERS}/$miner/${!v8miner}/ --strip 1
+      chmod a+x ${NVOC_MINERS}/$miner/${!v8miner}/$executable
+      update-symlink ${NVOC_MINERS}/${miner} ${!v8miner} recommended
+      echo "${miner} updated to version ${!v8miner}"
+      restart-if-needed
+    else
+      echo "${miner} already is on version ${!v8miner}"
+    fi
+  fi
 
-echo
+  if [[ ${!v9miner} != "" ]]
+  then
+    echo "Checking ${miner} version ${!v9miner}"
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v9miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest)" ]]
+    then
+      stop-if-needed "${miner}"
+      mkdir -p ${NVOC_MINERS}/${miner}/${!v9miner}/
+      tar -xvJf ${NVOC_MINERS}/${miner}/${!x9compiled_tarball} -C ${NVOC_MINERS}/$miner/${!v9miner}/ --strip 1
+      chmod a+x ${NVOC_MINERS}/$miner/${!v9miner}/$executable
+      if [[ $CUDA_VER == "9.2" ]]
+      then
+        update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} recommended
+      fi
+      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} latest
+      echo "${miner} updated to version ${!v9miner}"
+      restart-if-needed
+    else
+      echo "${miner} already is on version ${!v9miner}"
+    fi
+  fi
 
-echo "Checking ANXccminer (git@cd6fab68823e247bb84dd1fa0448d5f75ec4917d)"
-if [ ! $(cat ${NVOC_MINERS}/ANXccminer/version | grep cd6fab68823e247bb84dd1fa0448d5f75ec4917d) ]
-then
-  echo "Extracting ANXccminer"
-  mkdir -p ${NVOC_MINERS}/ANXccminer/
-  stop-if-needed "[A]NXccminer"
-  cat ${NVOC_MINERS}/ANXccminer/ANXccminer.tar.xz | tar -xJC ${NVOC_MINERS}/ANXccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/ANXccminer/ccminer
-  restart-if-needed
-else
-  echo "ANXccminer is already at up-to-date"
-fi
+  if [[ ${!vminer} != "" ]]
+  then
+    echo "Checking ${miner} version ${!vminer}"
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!vminer} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest)" ]]
+    then
+      stop-if-needed "${miner}"
+      mkdir -p ${NVOC_MINERS}/${miner}/${!vminer}/
+      tar -xvJf ${NVOC_MINERS}/${miner}/${!xcompiled_tarball} -C ${NVOC_MINERS}/$miner/${!vminer}/ --strip 1
+      chmod a+x ${NVOC_MINERS}/$miner/${!vminer}/$executable
+      update-symlink ${NVOC_MINERS}/${miner} ${!vminer} recommended
+      update-symlink ${NVOC_MINERS}/${miner} ${!vminer} latest
+      echo "${miner} updated to version ${!vminer}"
+      restart-if-needed
+    fi
+  else
+    echo "${miner} already is on version ${!vminer}"
+  fi
 
-echo
-
-echo "Checking MSFT Tpruvot ccminer-2.2.5 (RVN)"
-if [ ! $(cat ${NVOC_MINERS}/MSFTccminer/version | grep 2.2.5-rvn) ]
-then
-  echo "Extracting MSFT Tpruvot ccminer"
-  mkdir -p ${NVOC_MINERS}/MSFTccminer/
-  stop-if-needed "[M]SFTccminer"
-  cat ${NVOC_MINERS}/MSFTccminer/MSFTccminer.tar.xz | tar -xJC ${NVOC_MINERS}/MSFTccminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/MSFTccminer/ccminer
-  restart-if-needed
-else
-  echo "MSFTccminer is already up-to-date"
-fi
-
-echo
-
-echo "Checking SUPRminer 1.5"
-if [ ! $(cat ${NVOC_MINERS}/SUPRminer/version | grep 1.5) ]
-then
-  echo "Extracting SUPRminer"
-  mkdir -p ${NVOC_MINERS}/SUPRminer/
-  stop-if-needed "[S]UPRminer"
-  cat ${NVOC_MINERS}/SUPRminer/SUPRminer-1.5.tar.xz | tar -xJC ${NVOC_MINERS}/SUPRminer/ --strip 1
-  chmod a+x ${NVOC_MINERS}/SUPRminer/ccminer
-  restart-if-needed
-else
-  echo "SUPRminer is already up-to-date"
-fi
-
-echo
-
-echo "Checking cpuminer-opt "
-if [ ! $(cat ${NVOC_MINERS}/cpuOPT/version | grep 3.8.8.1) ]
-then
-  echo "Extracting cpuminer"
-  mkdir -p ${NVOC_MINERS}/cpuOPT/
-  stop-if-needed "[c]puminer"
-  cat ${NVOC_MINERS}/cpuOPT/cpuOPT.tar.xz | tar -xJC ${NVOC_MINERS}/cpuOPT/ --strip 1
-  chmod a+x ${NVOC_MINERS}/cpuOPT/cpuminer
-  restart-if-needed
-else
-  echo "cpuminer is already up-to-date"
-fi
+done
 
 echo
 echo
-echo "Extracting and checking new miners for nvOC-v0019-2.x finished"
+echo "Extracting and checking miners finished"
 echo
 echo
 sleep 2
 
-function compile-ASccminer {
-  echo "Compiling alexis ccminer"
-  echo "This could take a while ..."
-  get-sources ASccminer
-  cd ${NVOC_MINERS}/ASccminer/src
-  bash ${NVOC_MINERS}/ASccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/ASccminer/src/configure
-  bash ${NVOC_MINERS}/ASccminer/src/build.sh
-  stop-if-needed "[A]Sccminer"
-  cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
-  cd ${NVOC_MINERS}
-  echo "Finished compiling alexis ccminer"
-  restart-if-needed
-}
-
-function compile-KTccminer {
-  echo "Compiling KlausT ccminer"
-  echo " This could take a while ..."
-  get-sources KTccminer
-  cd ${NVOC_MINERS}/KTccminer/src
-  bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/KTccminer/src/configure
-  bash ${NVOC_MINERS}/KTccminer/src/build.sh
-  stop-if-needed "[K]Tccminer"
-  cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling KlausT ccminer"
-  restart-if-needed
-}
-
-function compile-KTccminer-cryptonight {
-  echo "Compiling KlausT ccminer cryptonight"
-  echo " This could take a while ..."
-  get-sources KTccminer-cryptonight
-  cd ${NVOC_MINERS}/KTccminer-cryptonight/src
-  bash ${NVOC_MINERS}/KTccminer-cryptonight/src/autogen.sh
-  bash ${NVOC_MINERS}/KTccminer-cryptonight/src/configure
-  bash ${NVOC_MINERS}/KTccminer-cryptonight/src/build.sh
-  stop-if-needed "[K]Tccminer-cryptonight"
-  cp ${NVOC_MINERS}/KTccminer-cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer-cryptonight/ccminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling KlausT ccminer cryptonight"
-  restart-if-needed
-}
-
-function compile-KXccminer {
-  echo "Compiling krnlx ccminer"
-  echo " This could take a while ..."
-  get-sources KXccminer
-  cd ${NVOC_MINERS}/KXccminer/src
-  bash ${NVOC_MINERS}/KXccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/KXccminer/src/configure
-  bash ${NVOC_MINERS}/KXccminer/src/build.sh
-  stop-if-needed "[K]Xccminer"
-  cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling Krnlx ccminer"
-  restart-if-needed
-}
-
-function compile-NAccminer {
-  echo "Compiling Nanashi ccminer"
-  echo " This could take a while ..."
-  get-sources NAccminer
-  cd ${NVOC_MINERS}/NAccminer/src
-  bash ${NVOC_MINERS}/NAccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/NAccminer/src/configure
-  bash ${NVOC_MINERS}/NAccminer/src/build.sh
-  stop-if-needed "[N]Accminer"
-  cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling Nanashi ccminer"
-  restart-if-needed
-}
-
-function compile-SPccminer {
-  echo "Compiling SPccminer"
-  echo " This could take a while ..."
-  get-sources SPccminer
-  cd ${NVOC_MINERS}/SPccminer/src
-  bash ${NVOC_MINERS}/SPccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/SPccminer/src/configure
-  bash ${NVOC_MINERS}/SPccminer/src/build.sh
-  stop-if-needed "[S]Pccminer"
-  cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling tpruvot ccminer"
-  restart-if-needed
-}
-
-function compile-TPccminer {
-  echo "Compiling tpruvot ccminer"
-  echo " This could take a while ..."
-  get-sources TPccminer
-  cd ${NVOC_MINERS}/TPccminer/src
-  bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/TPccminer/src/configure
-  bash ${NVOC_MINERS}/TPccminer/src/build.sh
-  stop-if-needed "[T]Pccminer"
-  cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling tpruvot ccminer"
-  restart-if-needed
-}
-
-function compile-vertminer {
-  echo "Compiling Vertminer"
-  echo " This could take a while ..."
-  get-sources vertminer
-  cd ${NVOC_MINERS}/vertminer/src
-  bash ${NVOC_MINERS}/vertminer/src/autogen.sh
-  bash ${NVOC_MINERS}/vertminer/src/configure
-  bash ${NVOC_MINERS}/vertminer/src/build.sh
-  stop-if-needed "[v]ertminer"
-  cp ${NVOC_MINERS}/vertminer/src/vertminer ${NVOC_MINERS}/vertminer/vertminer
-  cd ${NVOC_MINERS}
-  echo
-  echo "Finished compiling vertminer"
-  restart-if-needed
-}
 
 function compile-ANXccminer {
-  echo "Compiling anorganix ccminer"
+  echo "Compiling ANXccminer"
   echo " This could take a while ..."
-  get-sources ANXccminer
+  get-sources ${NVOC_MINERS}/ANXccminer src $ANXccminer_src_hash_ver_8
   cd ${NVOC_MINERS}/ANXccminer/src
   bash ${NVOC_MINERS}/ANXccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/ANXccminer/src/configure
+  bash ${NVOC_MINERS}/ANXccminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/ANXccminer/src/build.sh
   stop-if-needed "[A]NXccminer"
   cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
   cd ${NVOC_MINERS}
   echo
-  echo "Finished compiling anorganix ccminer"
+  echo "Finished compiling ANXccminer"
   restart-if-needed
 }
+
+
+function compile-ASccminer {
+  echo "Compiling Alexis ccminer"
+  echo " This could take a while ..."
+  get-sources ${NVOC_MINERS}/ASccminer src $ASccminer_src_hash_ver_8
+  cd ${NVOC_MINERS}/ASccminer/src
+  bash ${NVOC_MINERS}/ASccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/ASccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/ASccminer/src/build.sh
+  stop-if-needed "[A]Sccminer"
+  cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling Alexis ccminer"
+  restart-if-needed
+}
+
+
+function compile-KTccminer {
+  echo "Compiling klaust ccminer"
+  echo " This could take a while ..."
+  if [[ $CUDA_VER == "8.0" ]]
+  then
+    get-sources ${NVOC_MINERS}/KTccminer src $KTccminer_src_hash_ver_8
+  else
+    get-sources ${NVOC_MINERS}/KTccminer src $KTccminer_src_hash_ver_9
+  fi
+  cd ${NVOC_MINERS}/KTccminer/src
+  bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
+  if [[ $CUDA_VER == "8.0" ]]
+  then
+    bash ${NVOC_MINERS}/KTccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  else
+    bash ${NVOC_MINERS}/KTccminer/src/configure --with-cuda=/usr/local/cuda-9.2
+  fi
+  bash ${NVOC_MINERS}/KTccminer/src/build.sh
+  stop-if-needed "[K]Tccminer"
+  cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling klaust ccminer"
+  restart-if-needed
+}
+
+
+function compile-KTccminer_cryptonight {
+  echo "Compiling klaust ccminer cryptonight"
+  echo " This could take a while ..."
+  if [[ $CUDA_VER == "8.0" ]]
+  then
+    get-sources ${NVOC_MINERS}/KTccminer_cryptonight src $KTccminer_cryptonight_src_hash_ver_8
+  else
+    get-sources ${NVOC_MINERS}/KTccminer_cryptonight src $KTccminer_cryptonight_src_hash_ver_9
+  fi
+  cd ${NVOC_MINERS}/KTccminer_cryptonight/src
+  bash ${NVOC_MINERS}/KTccminer_cryptonight/src/autogen.sh
+  if [[ $CUDA_VER == "8.0" ]]
+  then
+    bash ${NVOC_MINERS}/KTccminer_cryptonight/src/configure --with-cuda=/usr/local/cuda-8.0
+  else
+    bash ${NVOC_MINERS}/KTccminer_cryptonight/src/configure --with-cuda=/usr/local/cuda-9.2
+  fi
+  bash ${NVOC_MINERS}/KTccminer_cryptonight/src/build.sh
+  stop-if-needed "[K]Tccminer_cryptonight"
+  cp ${NVOC_MINERS}/KTccminer_cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer_cryptonight/ccminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling klaust cryptonight ccminer"
+  restart-if-needed
+}
+
+
+function compile-KXccminer {
+  echo "Compiling ccminer krnlx"
+  echo " This could take a while ..."
+  get-sources ${NVOC_MINERS}/KXccminer src $KXccminer_src_hash_ver_8
+  cd ${NVOC_MINERS}/KXccminer/src
+  bash ${NVOC_MINERS}/KXccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/KXccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/KXccminer/src/build.sh
+  stop-if-needed "[K]Xccminer"
+  cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling ccminer krnlx"
+  restart-if-needed
+}
+
 
 function compile-MSFTccminer {
   echo "Compiling MSFTccminer"
   echo " This could take a while ..."
-  get-sources MSFTccminer
+  get-sources ${NVOC_MINERS}/MSFTccminer src $MSFTccminer_src_hash_ver_8
   cd ${NVOC_MINERS}/MSFTccminer/src
   bash ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/MSFTccminer/src/configure
+  bash ${NVOC_MINERS}/MSFTccminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/MSFTccminer/src/build.sh
   stop-if-needed "[M]SFTccminer"
   cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
@@ -558,15 +468,50 @@ function compile-MSFTccminer {
   restart-if-needed
 }
 
+
+function compile-NAccminer {
+  echo "Compiling Nanashi ccminer"
+  echo " This could take a while ..."
+  get-sources ${NVOC_MINERS}/NAccminer src $NAccminer_src_hash_ver_8
+  cd ${NVOC_MINERS}/NAccminer/src
+  bash ${NVOC_MINERS}/NAccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/NAccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/NAccminer/src/build.sh
+  stop-if-needed "[N]Accminer"
+  cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling Nanashi ccminer "
+  restart-if-needed
+}
+
+
+function compile-SPccminer {
+  echo "Compiling ccminer SP-Mod"
+  echo " This could take a while ..."
+  get-sources ${NVOC_MINERS}/SPccminer src $SPccminer_src_hash_ver_8
+  cd ${NVOC_MINERS}/SPccminer/src
+  bash ${NVOC_MINERS}/SPccminer/src/autogen.sh
+  bash ${NVOC_MINERS}/SPccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/SPccminer/src/build.sh
+  stop-if-needed "[N]Accminer"
+  cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling ccminer SP-Mod"
+  restart-if-needed
+}
+
+
 function compile-SUPRminer {
   echo "Compiling SUPRminer"
   echo " This could take a while ..."
-  get-sources SUPRminer
+  get-sources ${NVOC_MINERS}/SUPRminer src $SUPRminer_src_hash_ver_8
   cd ${NVOC_MINERS}/SUPRminer/src
   bash ${NVOC_MINERS}/SUPRminer/src/autogen.sh
-  bash ${NVOC_MINERS}/SUPRminer/src/configure
+  bash ${NVOC_MINERS}/SUPRminer/src/configure --with-cuda=/usr/local/cuda-8.0
   bash ${NVOC_MINERS}/SUPRminer/src/build.sh
-  stop-if-needed "[S]UPRminer"
+  stop-if-needed "[S]UPRccminer"
   cp ${NVOC_MINERS}/SUPRminer/src/ccminer ${NVOC_MINERS}/SUPRminer/ccminer
   cd ${NVOC_MINERS}
   echo
@@ -574,21 +519,73 @@ function compile-SUPRminer {
   restart-if-needed
 }
 
-function compile-xmr-stak {
-  echo "Compiling xmr-stak"
+
+function compile-TPccminer {
+  echo "Compiling tpruvot ccminer"
   echo " This could take a while ..."
-  get-sources xmr-stak
-  mkdir ${NVOC_MINERS}/xmr-stak/src/build
-  cd ${NVOC_MINERS}/xmr-stak/src/build
+  if [[ $CUDA_VER == "8.0" ]]
+  then
+    get-sources ${NVOC_MINERS}/TPccminer src $TPccminer_src_hash_ver_8
+  else
+    get-sources ${NVOC_MINERS}/TPccminer src $TPccminer_src_hash_ver_9
+  fi
+  cd ${NVOC_MINERS}/TPccminer/src
+  bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
+  if [[ $CUDA_VER == "8.0" ]]
+  then
+    bash ${NVOC_MINERS}/TPccminer/src/configure --with-cuda=/usr/local/cuda-8.0
+  else
+    bash ${NVOC_MINERS}/TPccminer/src/configure --with-cuda=/usr/local/cuda-9.2
+  fi
+  bash ${NVOC_MINERS}/TPccminer/src/build.sh
+  stop-if-needed "[T]Pccminer"
+  cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling tpruvot ccminer"
+  restart-if-needed
+}
+
+
+function compile-VERTMINER {
+  echo "Compiling VERTMINER"
+  echo " This could take a while ..."
+  get-sources ${NVOC_MINERS}/VERTMINER src $VERTMINER_src_hash_ver_8
+  cd ${NVOC_MINERS}/VERTMINER/src
+  bash ${NVOC_MINERS}/VERTMINER/src/autogen.sh
+  bash ${NVOC_MINERS}/VERTMINER/src/configure --with-cuda=/usr/local/cuda-8.0
+  bash ${NVOC_MINERS}/VERTMINER/src/build.sh
+  stop-if-needed "[v]ertminer"
+  cp ${NVOC_MINERS}/VERTMINER/src/vertminer ${NVOC_MINERS}/VERTMINER/vertminer
+  cd ${NVOC_MINERS}
+  echo
+  echo "Finished compiling VERTMINER"
+  restart-if-needed
+}
+
+# Cuda versions compile need checkup!!!!
+function compile-XMR_Stak {
+  echo "Compiling  xmr-stak"
+  echo " This could take a while ..."
+  if [[ $CUDA_VER == "8.0" ]]
+  then
+    get-sources ${NVOC_MINERS}/XMR_Stak src $XMR_Stak_src_hash_ver_8
+  else
+    get-sources ${NVOC_MINERS}/XMR_Stak src $XMR_Stak_src_hash_ver_9
+  fi
+  cd ${NVOC_MINERS}/XMR_Stak/src
+  mkdir ${NVOC_MINERS}/XMR_Stak/src/build
+  cd ${NVOC_MINERS}/XMR_Stak/src/build
   cmake ..
   make install
-  stop-if-needed "[x]mr-stak"
-  cp ${NVOC_MINERS}/xmr-stak/src/build/bin/xmr-stak ${NVOC_MINERS}/xmr-stak/src/build/bin/*.so ${NVOC_MINERS}/xmr-stak/xmr-stak_miner
+  stop-if-needed "[xmr]-stak"
+  cp ${NVOC_MINERS}/XMR_Stak/src/build/bin/xmr-stak ${NVOC_MINERS}/XMR_Stak/src/build/bin/*.so ${NVOC_MINERS}/XMR_Stak/xmr-stak
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling xmr-stak"
   restart-if-needed
 }
+
 
 function compile-cpuminer {
   echo "Compiling cpuminer"
@@ -597,7 +594,7 @@ function compile-cpuminer {
   cd ${NVOC_MINERS}/cpuOPT/src
   bash ${NVOC_MINERS}/cpuOPT/src/build.sh
   stop-if-needed "[c]puminer"
-  cp ${NVOC_MINERS}/cpuOPT/src/cpuminer ${NVOC_MINERS}/cpuOPT/cpuminer
+  cp ${NVOC_MINERS}/cpuOPT/src/cpuminer ${NVOC_MINERS}/cpuOPT/${cpuOPT_ver}/cpuminer
   cd ${NVOC_MINERS}
   echo
   echo "Finished compiling cpuminer"
@@ -607,7 +604,7 @@ function compile-cpuminer {
 if [[ $1 == "--no-recompile" ]]; then
   echo "Done."
   echo "Recompilation skipped."
-  # complete unattended script execution
+# complete unattended script execution
   exit 0
 else
   echo -n "Do you want to re-compile your miners (y/N)?  "
@@ -640,16 +637,22 @@ else
   cd ${NVOC_MINERS}
 fi
 
+if apt list --installed | grep -q "libcurl3/" 
+then 
+  sudo apt -y install cmake 
+  sudo apt -y autoremove  
+fi
+
 IFS=', '
 echo "Select miners to compile (multiple comma separated values: 1,6,7)"
 echo "1 - ASccminer"
 echo "2 - KTccminer"
-echo "3 - KTccminer-cryptonight"
+echo "3 - KTccminer_cryptonight"
 echo "4 - KXccminer"
 echo "5 - NAccminer"
 echo "6 - SPccminer"
 echo "7 - TPccminer"
-echo "8 - vertminer"
+echo "8 - VERTMINER"
 echo "9 - ANXccminer"
 echo "C - cpuminer"
 echo "R - MSFTccminer (RVN)"
@@ -666,14 +669,14 @@ for choice in "${array[@]}"; do
       compile-KTccminer
       echo
       echo
-      compile-KTccminer-cryptonight
+      compile-KTccminer_cryptonight
       echo
       echo
       compile-KXccminer
       echo
       echo
       compile-NAccminer
-      echo 
+      echo
       echo
       compile-SPccminer
       echo
@@ -681,7 +684,7 @@ for choice in "${array[@]}"; do
       compile-TPccminer
       echo
       echo
-      compile-vertminer
+      compile-VERTMINER
       echo
       echo
       compile-ANXccminer
@@ -705,7 +708,7 @@ for choice in "${array[@]}"; do
       compile-KTccminer
       ;;
     [3]* ) echo -e "$choice\n"
-      compile-KTccminer-cryptonight
+      compile-KTccminer_cryptonight
       ;;
     [4]* ) echo -e "$choice"
       compile-KXccminer
@@ -720,7 +723,7 @@ for choice in "${array[@]}"; do
       compile-TPccminer
       ;;
     [8]* ) echo -e "$choice"
-      compile-vertminer
+      compile-VERTMINER
       ;;
     [9]* ) echo -e "$choice"
       compile-ANXccminer
@@ -740,4 +743,11 @@ for choice in "${array[@]}"; do
     [Ee]* ) echo "exited by user"; break;;
     * ) echo "Are you kidding me???";;
   esac
+ 
+  if ! apt list --installed | grep -q "libcurl3/" 
+  then 
+    sudo apt -y install libcurl3
+    sudo apt -y autoremove  
+  fi
+  
 done
