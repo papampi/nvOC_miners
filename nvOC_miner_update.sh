@@ -111,7 +111,7 @@ ZENEMYminer_ver_8="1.10"
 ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
 
 ZENEMYminer_ver_9="1.18"
-ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.18-cuda92.tar.gz"
+ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.18-cuda92.tar.xz"
 
 cpuOPT_ver="3.8.8.1"
 cpuOPT_compiled_tarball="cpuOPT.tar.xz"
@@ -172,13 +172,78 @@ function update-symlink {
   ln -s "$1/$2" "$1/$3"
 }
 
-#function pluggable-installer {
-## To do
-#}
+function pluggable-installer {
+  pm="$1"
+  pm_path=$(dirname "$1")
+  pm_output="${pm_path}/nvoc-miner.json"
 
-#function pluggable-compiler {
-## To do
-#}
+  if [[ -f $pm && -f $pm_output && $(md5sum $pm | cut -d ' ' -f1) == $(md5sum $pm_output | cut -d ' ' -f1) ]]
+  then
+    echo "$(jq -r .friendlyname ${pm_output}) $(jq -r .version ${pm_output}) for $(jq -r .install.recommanded ${pm_output}) is already installed"
+    return
+  fi
+
+  echo "Extracting $(jq -r .friendlyname ${pm}) $(jq -r .version ${pm}) for $(jq -r .install.recommanded ${pm})"
+  mkdir -p "${pm_path}/"
+  tar -xvJf "${pm_path}/$(jq -r install.tarball ${pm})" -C "${pm_path}" --strip 1
+  chmod a+x "${pm_path}/$(jq -r install.executable ${pm})"
+  stop-if-needed "${pm_path}"
+  if [[ $CUDA_VER == $(jq -r install.recommanded ${pm}) ]]
+  then
+    update-symlink "${pm_path}" recommended    
+  fi
+  if [[ $(jq -r install.latest ${pm}) == true ]]
+  then
+    update-symlink "${pm_path}" latest    
+  fi
+  cp -f "$pm" "$pm_output"
+  restart-if-needed
+
+  echo "$(jq -r .friendlyname ${pm}) for $(jq -r install.recommanded ${pm}) updated"
+}
+
+function pluggable-compiler {
+  pm="$1"
+  pm_path=$(dirname "$1")
+  pm_src="$(jq -r .compile.src_path ${pm})"
+  pm_src_hash="$(jq -r .compile.src_commit_hash ${pm})"
+
+  if [[ $pm_src == false ]]
+  then
+    echo "${pm}: nothing to compile for $(jq -r .friendlyname ${pm})"
+    return
+  fi
+
+  echo "Initializing sources submodule"
+  if ! git submodule init "$1/$2"
+  then
+    git -C "${pm_path}" submodule add ${pm_src_repo} "${pm_src}"
+  fi
+
+  get-sources "${pm_path}" "${pm_src}" $pm_src_hash
+
+  if [[ ! -d $pm_src ]]
+    echo "${pm}: can't compile $(jq -r .friendlyname ${pm}), no sources available in '${pm_src}'"
+    return
+  fi
+
+  pushd "${pm_path}/${pm_src}"
+
+  echo "Compiling $(jq -r .friendlyname ${pm})"
+  echo " this will take a while ..."
+
+  eval $(jq -r .compile.command ${pm})
+
+  # TODO: detect compilation failure
+
+  stop-if-needed "${pm_path}"
+  cp $(jq -r .compile.output ${pm}) "${pm_path}/"
+  echo
+  echo "Finished compiling $(jq -r .friendlyname ${pm})"
+  restart-if-needed
+
+  popd
+}
 
 uver8="_ver_8"
 uver9="_ver_9"
@@ -187,74 +252,32 @@ ucompiled8="_compiled_tarball_ver_8"
 ucompiled9="_compiled_tarball_ver_9"
 ucompiled="_compiled_tarball"
 
-pluggable_miners=$(find ${NVOC_MINERS}/helpers/miners/*/ -name .nvoc-miner.json -print | cut -d/ -f8 | sort -u )
-for miner in $pluggable_miners
+if [[ -d ${NVOC_MINERS}/helpers ]]
+then
+  shipped_miners=$(find ${NVOC_MINERS}/helpers/miners/*/ -name .nvoc-miner.json -print | cut -d/ -f8 | sort -u )
+else
+  shipped_miners=
+fi
+for miner in $shipped_miners
 do
-  v8miner=$miner$uver8
-  v9miner=$miner$uver9
-  vminer=$miner$uver
-
-  if [[ ${!v8miner} != "" ]]
-  then
-    echo "Checking ${miner} version ${!v8miner}"
-    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v8miner} ]]
+  for _v in $uver8 $uver9 $uver
+    vminer=$miner$_v
+    if [[ -f ${NVOC_MINERS}/helpers/miners/${miner}/${!vminer}/.nvoc-miner.json ]]
     then
-      stop-if-needed "${miner}"
-      mkdir -p ${NVOC_MINERS}/${miner}/${!v8miner}/
-      cp ${NVOC_MINERS}/helpers/miners/${miner}/${!v8miner}/.nvoc-miner.json ${NVOC_MINERS}/${miner}/${!v8miner}/.nvoc-miner.json
-      pluggable-installer "${NVOC_MINERS}/${miner}/${!v8miner}/"
-      if [[ $CUDA_VER == "8.0" ]]
-      then
-        update-symlink ${NVOC_MINERS}/${miner} ${!v8miner} recommended
-      fi
-      echo "${miner} updated to version ${!v8miner}"
-      restart-if-needed
-    else
-      echo "${miner} already is on version ${!v8miner}"
-    fi
-  fi
-  if [[ ${!v9miner} != "" ]]
-  then
-    echo "Checking ${miner} version ${!v9miner}"
-    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v9miner} ]]
-    then
-      stop-if-needed "${miner}"
-      mkdir -p ${NVOC_MINERS}/${miner}/${!v9miner}/
-      cp ${NVOC_MINERS}/helpers/miners/${miner}/${!v9miner}/.nvoc-miner.json ${NVOC_MINERS}/${miner}/${!v9miner}/.nvoc-miner.json
-      pluggable-installer "${NVOC_MINERS}/${miner}/${!v9miner}/"
-      if [[ $CUDA_VER == "9.2" ]]
-      then
-        update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} recommended
-      fi
-      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} latest
-      echo "${miner} updated to version ${!v9miner}"
-      restart-if-needed
-    else
-      echo "${miner} already is on version ${!v9miner}"
-    fi
-  fi
-  if [[ ${!vminer} != "" ]]
-  then
-    echo "Checking ${miner} version ${!vminer}"
-    if [[ ! -d ${NVOC_MINERS}/${miner}/${!vminer} ]]
-    then
-      stop-if-needed "${miner}"
+      echo "Checking ${miner} version ${!vminer}"
       mkdir -p ${NVOC_MINERS}/${miner}/${!vminer}/
       cp ${NVOC_MINERS}/helpers/miners/${miner}/${!vminer}/.nvoc-miner.json ${NVOC_MINERS}/${miner}/${!vminer}/.nvoc-miner.json
-      pluggable-installer "${NVOC_MINERS}/${miner}/${!vminer}/"
-      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} recommended
-      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} latest
-      echo "${miner} updated to version ${!vminer}"
-      restart-if-needed
     fi
-  else
-    echo "${miner} already is on version ${!vminer}"
-  fi
+  done
 done
 
+for pm in $(find "${NVOC_MINERS}"/*/ -name .nvoc-miner.json  -not -path "${NVOC_MINERS}/helpers/*" -print)
+do
+  pluggable-installer "$pm"
+done
 
-installed_miners=$(ls -d $NVOC_MINERS/*/ |  cut -d/ -f7 | sort -u)
-for miner in $installed_miners
+builtin_miners="EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
+for miner in $builtin_miners
 do
   executable="ccminer"
   if [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM ]]
@@ -284,7 +307,7 @@ do
   x9compiled_tarball=$miner$ucompiled9
   xcompiled_tarball=$miner$ucompiled
 
-  if [[ ${!v8miner} != "" ]]
+  if [[ $uver8 != "" ]]
   then
     echo "Checking ${miner} version ${!v8miner}"
     if [[ ! -d ${NVOC_MINERS}/${miner}/${!v8miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/recommended)" ]]
@@ -301,7 +324,7 @@ do
     fi
   fi
 
-  if [[ ${!v9miner} != "" ]]
+  if [[ $uver9 != "" ]]
   then
     echo "Checking ${miner} version ${!v9miner}"
     if [[ ! -d ${NVOC_MINERS}/${miner}/${!v9miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest)" ]]
@@ -322,7 +345,7 @@ do
     fi
   fi
 
-  if [[ ${!vminer} != "" ]]
+  if [[ $uver != "" ]]
   then
     echo "Checking ${miner} version ${!vminer}"
     if [[ ! -d ${NVOC_MINERS}/${miner}/${!vminer} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest)" ]]
@@ -339,7 +362,8 @@ do
   else
     echo "${miner} already is on version ${!vminer}"
   fi
-
+  
+  echo && echo
 done
 
 echo
@@ -703,6 +727,13 @@ for choice in "${array[@]}"; do
       echo
       echo
       compile-cpuminer
+      echo
+      echo
+      for pm in $(find "${NVOC_MINERS}"/*/ -name nvoc-miner.json -print)
+      do
+        pluggable-compiler "$pm"
+        echo && echo
+      done
       ;;
     [1]* ) echo -e "$choice"
       compile-ASccminer
@@ -744,7 +775,15 @@ for choice in "${array[@]}"; do
       compile-xmr-stak
       ;;
     [Ee]* ) echo "exited by user"; break;;
-    * ) echo "Are you kidding me???";;
+    * ) echo -e "$choice"
+      pm=$(find "${NVOC_MINERS}/$choice" -name nvoc-miner.json -print)
+      if [[ -f $pm ]]
+      then
+        pluggable-compiler "$pm"
+      else
+        echo "Are you kidding me???"
+      fi
+      ;;
   esac
  
   if ! apt list --installed | grep -q "libcurl3/" 
