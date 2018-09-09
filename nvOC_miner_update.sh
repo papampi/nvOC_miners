@@ -223,6 +223,7 @@ function pluggable-compiler {
   get-sources "${pm_path}" "${pm_src}" $pm_src_hash
 
   if [[ ! -d $pm_src ]]
+  then
     echo "${pm}: can't compile $(jq -r .friendlyname ${pm}), no sources available in '${pm_src}'"
     return
   fi
@@ -261,6 +262,7 @@ fi
 for miner in $shipped_miners
 do
   for _v in $uver8 $uver9 $uver
+  do
     vminer=$miner$_v
     if [[ -f ${NVOC_MINERS}/helpers/miners/${miner}/${!vminer}/.nvoc-miner.json ]]
     then
@@ -307,9 +309,9 @@ do
   x9compiled_tarball=$miner$ucompiled9
   xcompiled_tarball=$miner$ucompiled
 
-  if [[ $uver8 != "" ]]
+  if [[ ${!v8miner} != "" ]]
   then
-    echo "Checking ${miner} version ${!v8miner}"
+    echo "Checking ${miner} (cuda 8) version ${!v8miner}"
     if [[ ! -d ${NVOC_MINERS}/${miner}/${!v8miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/recommended)" ]]
     then
       stop-if-needed "${miner}"
@@ -324,9 +326,9 @@ do
     fi
   fi
 
-  if [[ $uver9 != "" ]]
+  if [[ ${!v9miner} != "" ]]
   then
-    echo "Checking ${miner} version ${!v9miner}"
+    echo "Checking ${miner} (cuda 9.2) version ${!v9miner}"
     if [[ ! -d ${NVOC_MINERS}/${miner}/${!v9miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest)" ]]
     then
       stop-if-needed "${miner}"
@@ -345,7 +347,7 @@ do
     fi
   fi
 
-  if [[ $uver != "" ]]
+  if [[ ${!vminer} != "" ]]
   then
     echo "Checking ${miner} version ${!vminer}"
     if [[ ! -d ${NVOC_MINERS}/${miner}/${!vminer} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest)" ]]
@@ -358,9 +360,9 @@ do
       update-symlink ${NVOC_MINERS}/${miner} ${!vminer} latest
       echo "${miner} updated to version ${!vminer}"
       restart-if-needed
+    else
+      echo "${miner} already is on version ${!vminer}"
     fi
-  else
-    echo "${miner} already is on version ${!vminer}"
   fi
   
   echo && echo
@@ -371,7 +373,6 @@ echo
 echo "Extracting and checking miners finished"
 echo
 echo
-sleep 2
 
 
 function compile-ANXccminer {
@@ -634,8 +635,8 @@ if [[ $1 == "--no-recompile" ]]; then
 # complete unattended script execution
   exit 0
 else
+  sleep 2
   echo -n "Do you want to re-compile your miners (y/N)?  "
-  sleep 1
   read -n 1 ANSWER
   if [ ! "${ANSWER}" = "y" ] ; then
     echo
