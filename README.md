@@ -44,8 +44,8 @@ As you can see your branch will use `19-2.1` as base branch.
 
 ### Add binary package & installer
 - create the installer section in the first part of `nvOC_miner_update.sh`
-- create a coherent compressed tarball (in XZ format) with only the binaries needed to run and a `version` test file containing either the version number as it appears in the name of github release tag in the miner developer repository, or a specific commit reference (hash)
-- place this tarball in a new folder inside `miners`, for example `mienrs/NEWminer`
+- create a coherent compressed tarball (in XZ format) with only the binaries needed to run
+- place this tarball in a new folder inside `miners`, for example `miners/NEWminer`
 - if you think it's useful to keep also old binary versions of the same miner available in this repo look at the ethminer section in the update script to see how you can manage to do that
 
 ### Add source code submodule & compiler
@@ -54,7 +54,7 @@ If recompilation support is needed:
 
 `cd miners`
 
-- add the necessary compile function in the second part of `nvOC_mienr_update.sh`
+- add the necessary compile function in the second part of `nvOC_miner_update.sh`
 - add the source repo as submodule of this `nvOC_miners` repo:
 
 `git -C NEWminer submodule add https://repo_url src`
@@ -108,7 +108,7 @@ As you can see your branch will use `19-2.1` as base branch.
 
 ### Update binary package & installer
 - update the existing installer section in the first part of `nvOC_miner_update.sh` with new version numbers and paths
-- create a coherent compressed tarball (in XZ format) with only the updated binaries needed to run and a `version` test file containing either the updated version number as it appears in the name of github release tag in the miner developer repository, or a specific commit reference (hash)
+- create a coherent compressed tarball (in XZ format) with only the updated binaries needed to run
 - place this tarball in the same folder of that one for the previous release
 - if you think it's useful to keep also old binary versions of the same miner available in this repo look at the ethminer section in the update script to see how you can manage to do that
 
@@ -118,7 +118,7 @@ If recompilation support is needed:
 
 `cd miners`
 
-- check that necessary compile function in the second part of `nvOC_mienr_update.sh` is still compatible with updated sources
+- check that necessary compile function in the second part of `nvOC_miner_update.sh` is still compatible with updated sources
 - restore current submodule reference on clean workspace:
 
 `git -C NEWminer submodule update --init --force src`
