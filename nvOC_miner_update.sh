@@ -6,10 +6,10 @@ echo "Will check and restart miner if needed"
 echo
 export NVOC_MINERS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-CUDA_VER="8.0"
-if  nvcc --version | grep -v grep | grep -q "9.2"
+CUDA_VER="9.2"
+if  nvcc --version | grep -v grep | grep -q "8.0"
 then
-  CUDA_VER="9.2"
+  CUDA_VER="8.0"
 fi
 
 ## Miner versions and tarballs
