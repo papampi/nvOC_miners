@@ -68,6 +68,9 @@ KXccminer_ver_8="0.1"
 KXccminer_compiled_tarball_ver_8="KXccminer.tar.xz"
 KXccminer_src_hash_ver_8="7d41d49b92db27b9ab80270adaa92f6b06d1ef78"
 
+LOLMINER_ver="0.43"
+LOLMINER_compiled_tarball="lolMiner_v043_Lin64.tar.xz"
+
 MSFTccminer_ver_8="2.2.5"
 MSFTccminer_compiled_tarball_ver_8="MSFTccminer.tar.xz"
 MSFTccminer_src_hash_ver_8="78dad7dd659eae72a07d2448de62b1946c1f2b41"
@@ -278,7 +281,7 @@ do
   pluggable-installer "$pm"
 done
 
-builtin_miners="EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
+builtin_miners="LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
 for miner in $builtin_miners
 do
   executable="ccminer"
@@ -300,6 +303,9 @@ do
   elif [[ $miner == cpuOPT ]]
   then
     executable="cpuminer"
+  elif [[ $miner == LOLMINER ]]
+  then
+    executable="lolminer"    
   fi
 
   v8miner=$miner$uver8
