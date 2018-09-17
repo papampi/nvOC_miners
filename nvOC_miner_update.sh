@@ -305,7 +305,7 @@ do
     executable="cpuminer"
   elif [[ $miner == LOLMINER ]]
   then
-    executable="lolminer"    
+    executable="lolMiner"    
   fi
 
   v8miner=$miner$uver8
