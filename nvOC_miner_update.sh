@@ -113,8 +113,8 @@ XMR_Stak_src_hash_ver_9="c5f0505de039545585811585f2c189828dfc3ec2"
 ZENEMYminer_ver_8="1.10"
 ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
 
-ZENEMYminer_ver_9="1.19"
-ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.19-cuda92.tar.xz"
+ZENEMYminer_ver_9="1.20"
+ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.20-cuda92.tar.xz"
 
 cpuOPT_ver="3.8.8.1"
 cpuOPT_compiled_tarball="cpuOPT.tar.xz"
