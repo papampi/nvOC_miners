@@ -677,7 +677,7 @@ echo "9 - ANXccminer"
 echo "C - cpuminer"
 echo "R - MSFTccminer (RVN)"
 echo "U - SUPRminer"
-echo "X - xmr-stak"
+echo "X - XMR_Stak"
 echo
 read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [C] [R] [U] [X] [E]xit: " -a array
 for choice in "${array[@]}"; do
@@ -716,7 +716,7 @@ for choice in "${array[@]}"; do
       compile-SUPRminer
       echo
       echo
-      compile-xmr-stak
+      compile-XMR_Stak
       echo
       echo
       compile-cpuminer
@@ -765,7 +765,7 @@ for choice in "${array[@]}"; do
       compile-SUPRminer
       ;;
     [X]* ) echo -e "$choice"
-      compile-xmr-stak
+      compile-XMR_Stak
       ;;
     [Ee]* ) echo "exited by user"; break;;
     * ) echo -e "$choice"
