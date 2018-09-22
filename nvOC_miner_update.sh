@@ -646,7 +646,7 @@ then
   echo
 else
   cd ~/Downloads
-  wget -nv http://www.openssl.org/source/openssl-1.0.1e.tar.gz
+  wget -nv --no-check-certificate http://www.openssl.org/source/openssl-1.0.1e.tar.gz
   tar -xvzf openssl-1.0.1e.tar.gz
   cp /usr/local/include/openssl/bn.h ~/Downloads/openssl-1.0.1e/bn.h.backup
   sudo cp ~/Downloads/openssl-1.0.1e/crypto/bn/bn.h /usr/local/include/openssl/
