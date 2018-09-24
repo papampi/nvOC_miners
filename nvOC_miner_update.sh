@@ -79,6 +79,9 @@ NAccminer_ver_8="2.2"
 NAccminer_compiled_tarball_ver_8="nanashi-ccminer-2.2-mod-r2.tar.xz"
 NAccminer_src_hash_ver_8="8affcb9cd09edd917d33c1ed450f23400f571bdb"
 
+PhoenixMiner_ver="3.5d"
+PhoenixMiner_compiled_tarball="PhoenixMiner_3.5d_Linux.tar.xz"
+
 SILENTminer_ver_8="1.10"
 SILENTminer_compiled_tarball_ver_8="SILENTminer.v1.1.0.tar.xz"
 
@@ -281,7 +284,7 @@ do
   pluggable-installer "$pm"
 done
 
-builtin_miners="LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
+builtin_miners="PhoenixMiner LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
 for miner in $builtin_miners
 do
   executable="ccminer"
@@ -296,7 +299,7 @@ do
     executable="ethdcrminer64"
   elif [[ $miner == BMINER ]]
   then
-    executable="bminer"  
+    executable="bminer"
   elif [[ $miner == XMR_Stak ]]
   then
     executable="xmr-stak"
@@ -305,7 +308,10 @@ do
     executable="cpuminer"
   elif [[ $miner == LOLMINER ]]
   then
-    executable="lolMiner"    
+    executable="lolMiner"
+  elif [[ $miner == PhoenixMiner ]]
+  then
+    executable="PhoenixMiner"
   fi
 
   v8miner=$miner$uver8
