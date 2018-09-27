@@ -101,6 +101,9 @@ TPccminer_ver_9="2.3"
 TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
 TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
 
+T_REX_ver_8="0.6.10"
+T_REX_compiled_tarball="t-rex-0.6.10-linux-cuda9.2.tar.xz"
+
 VERTMINER_ver_8="1.0.2"
 VERTMINER_compiled_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
 VERTMINER_src_hash_ver_8="48b170a5828256600ca71e66d4c114af4e114236"
@@ -284,7 +287,7 @@ do
   pluggable-installer "$pm"
 done
 
-builtin_miners="PhoenixMiner LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
+builtin_miners="T_REX PhoenixMiner LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
 for miner in $builtin_miners
 do
   executable="ccminer"
