@@ -101,7 +101,7 @@ TPccminer_ver_9="2.3"
 TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
 TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
 
-T_Rex_ver_8="0.6.10"
+T_Rex_ver="0.6.10"
 T_Rex_compiled_tarball="t-rex-0.6.10-linux-cuda9.2.tar.xz"
 
 VERTMINER_ver_8="1.0.2"
