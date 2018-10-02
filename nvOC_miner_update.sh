@@ -45,8 +45,8 @@ ETHMINER_src_hash_ver_9="11d7e3c4c087f6c669013e360af84f6d617c02f4"
 EWBF_ver="3.4"
 EWBF_compiled_tarball="0.3.4b.tar.xz"
 
-Z_EWBF_ver="0.5"
-Z_EWBF_compiled_tarball="z_ewbf_v0.5.tar.xz"
+Z_EWBF_ver="0.6"
+Z_EWBF_compiled_tarball="z_ewbf_v0.6.tar.xz"
 
 KTccminer_ver_8="8.20"
 KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
