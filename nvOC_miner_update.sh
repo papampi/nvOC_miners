@@ -28,8 +28,8 @@ BMINER_compiled_tarball="bminer-v10.4.0.tar.xz"
 CLAYMORE_ver="11.9"
 CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
 
-CryptoDredge_ver="0.9.1"
-CryptoDredge_compiled_tarball="CryptoDredge_0.9.1.tar.xz"
+CryptoDredge_ver="0.9.2"
+CryptoDredge_compiled_tarball="CryptoDredge_0.9.2.tar.xz"
 
 DSTM_ver="0.6.1"
 DSTM_compiled_tarball="DSTM_0.6.1.tar.xz"
