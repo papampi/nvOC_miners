@@ -18,7 +18,7 @@ assuming no changes into local miners repo:
 
 `git fetch`
 
-`git checkout 19-2.1`
+`git checkout 3.0-miners`
 
 `git pull`
 
@@ -38,9 +38,9 @@ It's very easy:
 
 - create the branch (it is best if you choose a meaningful name):
 
-`git checkout --force -b add-NEWminer 19-2.1`
+`git checkout --force -b add-NEWminer 3.0-miners`
 
-As you can see your branch will use `19-2.1` as base branch.
+As you can see your branch will use `3.0-miners` as base branch.
 
 ### Add binary package & installer
 - create the installer section in the first part of `nvOC_miner_update.sh`
@@ -102,9 +102,9 @@ It's very easy:
 
 - create the branch (it is best if you choose a meaningful name):
 
-`git checkout --force -b update-NEWminer 19-2.1`
+`git checkout --force -b update-NEWminer 3.0-miners`
 
-As you can see your branch will use `19-2.1` as base branch.
+As you can see your branch will use `3.0-miners` as base branch.
 
 ### Update binary package & installer
 - update the existing installer section in the first part of `nvOC_miner_update.sh` with new version numbers and paths

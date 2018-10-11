@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Updating miners for nvOC V0019-2.1"
-echo "Will check and restart miner if needed"
+echo "nvOC Community Edition miners updater"
+echo "Updating miners, Will check and restart miner if needed"
 
 echo
 export NVOC_MINERS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
