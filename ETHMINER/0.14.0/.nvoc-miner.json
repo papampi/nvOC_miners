@@ -15,7 +15,7 @@
 
     "install":
     {
-      "latest": "true",
+      "latest": "false",
       "recommanded": "cuda-8.0",
       "tarball": "ethminer-0.14.0-Linux.tar.xz",
       "executable": "ethminer"
