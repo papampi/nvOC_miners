@@ -112,9 +112,9 @@ XMR_Stak_ver_8="2.4.4"
 XMR_Stak_compiled_tarball_ver_8="xmr-stak-2.4.4.tar.xz"
 XMR_Stak_src_hash_ver_8="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
 
-XMR_Stak_ver_9="2.4.7"
-XMR_Stak_compiled_tarball_ver_9="xmr-stak-2.4.7.tar.xz"
-XMR_Stak_src_hash_ver_9="c5f0505de039545585811585f2c189828dfc3ec2"
+XMR_Stak_ver_9="2.5.1"
+XMR_Stak_compiled_tarball_ver_9="xmr-stak-2.5.1.tar.xz"
+XMR_Stak_src_hash_ver_9="4e72408ff96003995af73b55bbb271f9984ca3d3"
 
 ZENEMYminer_ver_8="1.10"
 ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
