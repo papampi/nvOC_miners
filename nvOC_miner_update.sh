@@ -31,8 +31,8 @@ CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
 CryptoDredge_ver="0.9.2"
 CryptoDredge_compiled_tarball="CryptoDredge_0.9.2.tar.xz"
 
-DSTM_ver="0.6.1"
-DSTM_compiled_tarball="DSTM_0.6.1.tar.xz"
+DSTM_ver="0.6.2"
+DSTM_compiled_tarball="DSTM_0.6.2.tar.xz"
 
 ETHMINER_ver_8="0.14.0"
 ETHMINER_compiled_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
