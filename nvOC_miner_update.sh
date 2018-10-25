@@ -10,6 +10,9 @@ CUDA_VER="9.2"
 if  nvcc --version | grep -v grep | grep -q "8.0"
 then
   CUDA_VER="8.0"
+elif nvcc --version | grep -v grep | grep -q "10.0"
+then
+  CUDA_VER="10.0"
 fi
 
 ## Miner versions and tarballs
@@ -257,9 +260,11 @@ function pluggable-compiler {
 
 uver8="_ver_8"
 uver9="_ver_9"
+uver10="_ver_10"
 uver="_ver"
 ucompiled8="_compiled_tarball_ver_8"
 ucompiled9="_compiled_tarball_ver_9"
+ucompiled10="_compiled_tarball_ver_10"
 ucompiled="_compiled_tarball"
 
 if [[ -d ${NVOC_MINERS}/helpers ]]
@@ -319,9 +324,11 @@ do
 
   v8miner=$miner$uver8
   v9miner=$miner$uver9
+  v10miner=$miner$uver10
   vminer=$miner$uver
   x8compiled_tarball=$miner$ucompiled8
   x9compiled_tarball=$miner$ucompiled9
+  x10compiled_tarball=$miner$ucompiled10
   xcompiled_tarball=$miner$ucompiled
 
   if [[ ${!v8miner} != "" ]]
@@ -362,6 +369,27 @@ do
     fi
   fi
 
+  if [[ ${!v10miner} != "" ]]
+  then
+    echo "Checking ${miner} (cuda 10.0) version ${!v10miner}"
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v10miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest)" ]]
+    then
+      stop-if-needed "${miner}"
+      mkdir -p ${NVOC_MINERS}/${miner}/${!v10miner}/
+      tar -xvJf ${NVOC_MINERS}/${miner}/${!x10compiled_tarball} -C ${NVOC_MINERS}/$miner/${!v10miner}/ --strip 1
+      chmod a+x ${NVOC_MINERS}/$miner/${!v10miner}/$executable
+      if [[ $CUDA_VER == "10.0" ]]
+      then
+        update-symlink ${NVOC_MINERS}/${miner} ${!v10miner} recommended
+      fi
+      update-symlink ${NVOC_MINERS}/${miner} ${!v10miner} latest
+      echo "${miner} updated to version ${!v10miner}"
+      restart-if-needed
+    else
+      echo "${miner} already is on version ${!v10miner}"
+    fi
+  fi
+  
   if [[ ${!vminer} != "" ]]
   then
     echo "Checking ${miner} version ${!vminer}"
