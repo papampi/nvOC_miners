@@ -633,7 +633,7 @@ function compile-XMR_Stak {
   mkdir ${NVOC_MINERS}/XMR_Stak/src/build
   pushd ${NVOC_MINERS}/XMR_Stak/src/build
   cmake ..
-  make 
+  make
   popd
   stop-if-needed "[xmr]-stak"
   cp ${NVOC_MINERS}/XMR_Stak/src/build/bin/xmr-stak ${NVOC_MINERS}/XMR_Stak/src/build/bin/*.so ${NVOC_MINERS}/XMR_Stak/
