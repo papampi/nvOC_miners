@@ -31,8 +31,8 @@ BMINER_compiled_tarball="bminer-v10.5.0.tar.xz"
 CLAYMORE_ver="11.9"
 CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
 
-CryptoDredge_ver="0.9.2"
-CryptoDredge_compiled_tarball="CryptoDredge_0.9.2.tar.xz"
+CryptoDredge_ver="0.9.3"
+CryptoDredge_compiled_tarball="CryptoDredge_0.9.3.tar.xz"
 
 DSTM_ver="0.6.2"
 DSTM_compiled_tarball="DSTM_0.6.2.tar.xz"
@@ -115,9 +115,9 @@ XMR_Stak_ver_8="2.4.4"
 XMR_Stak_compiled_tarball_ver_8="xmr-stak-2.4.4.tar.xz"
 XMR_Stak_src_hash_ver_8="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
 
-XMR_Stak_ver_9="2.5.1"
-XMR_Stak_compiled_tarball_ver_9="xmr-stak-2.5.1.tar.xz"
-XMR_Stak_src_hash_ver_9="4e72408ff96003995af73b55bbb271f9984ca3d3"
+XMR_Stak_ver_9="2.5.2"
+XMR_Stak_compiled_tarball_ver_9="xmr-stak-2.5.2.tar.xz"
+XMR_Stak_src_hash_ver_9="752fd1e7e228cc488d77d771b4615a8eb9fa9c86"
 
 ZENEMYminer_ver_8="1.10"
 ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
@@ -633,7 +633,7 @@ function compile-XMR_Stak {
   mkdir ${NVOC_MINERS}/XMR_Stak/src/build
   pushd ${NVOC_MINERS}/XMR_Stak/src/build
   cmake ..
-  make install
+  make 
   popd
   stop-if-needed "[xmr]-stak"
   cp ${NVOC_MINERS}/XMR_Stak/src/build/bin/xmr-stak ${NVOC_MINERS}/XMR_Stak/src/build/bin/*.so ${NVOC_MINERS}/XMR_Stak/
