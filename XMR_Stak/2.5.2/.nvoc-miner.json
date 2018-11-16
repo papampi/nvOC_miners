@@ -2,7 +2,9 @@
   "friendlyname": "XMR-Stak Cryptonight",
   "version": "2.5.2",
   "hcd": "xmr-stak.nvoc.sh --config \"$my_path/config.txt\" --poolconf \"$my_path/pools.txt\" --nvidia \"$my_path/nvidia.txt\" --currency monero --noCPU --noAMD -o \"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\" -i 0",
-  "devlist_format": 0,
+  "devlist_argument": "",
+  "devlist_separator": "",
+  "devlist_format": "",
 
   "foreman":
   {

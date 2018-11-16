@@ -1,8 +1,10 @@
 {
     "friendlyname": "Ethminer",
     "version": "0.16.0",
-    "hcd": "ethminer -P ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -U ${!xext}",
-    "devlist_format": 0,
+    "hcd": "ethminer -P ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -U",
+    "devlist_argument": "--cuda_devices ",
+    "devlist_separator": " ",
+    "devlist_format": "N",
     
     "foreman":
     {

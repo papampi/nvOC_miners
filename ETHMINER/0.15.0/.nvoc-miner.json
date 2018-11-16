@@ -1,7 +1,7 @@
 {
     "friendlyname": "Ethminer",
     "version": "0.15.0",
-    "hcd": "ethminer -P ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -U ${!xext}",
+    "hcd": "ethminer -P ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -U",
     "devlist_format": 0,
 
     "minerinfo":

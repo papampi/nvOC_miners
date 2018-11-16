@@ -1,8 +1,10 @@
 {
   "friendlyname": "Klaust ccminer-cryptonight",
   "version": "3.05",
-  "hcd": "ccminer -o ${!xproto}://\"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\" ${!xext}",
-  "devlist_format": 0,
+  "hcd": "ccminer -o ${!xproto}://\"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\"",
+  "devlist_argument": "--devices ",
+  "devlist_separator": ",",
+  "devlist_format": "N",
 
   "minerinfo":
   {

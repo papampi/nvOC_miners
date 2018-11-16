@@ -1,7 +1,7 @@
 {
   "friendlyname": "Klaust ccminer-cryptonight",
   "version": "2.06",
-  "hcd": "ccminer -o ${!xproto}://\"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\" ${!xext}",
+  "hcd": "ccminer -o ${!xproto}://\"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\"",
   "devlist_format": 0,
 
   "minerinfo":
