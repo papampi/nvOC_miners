@@ -18,4 +18,7 @@ then
     fi
 fi
 
+# Large memory page support
+sudo sysctl -w vm.nr_hugepages=128
+
 "$my_path/xmr-stak" $@
