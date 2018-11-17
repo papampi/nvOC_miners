@@ -37,9 +37,6 @@ DSTM_compiled_tarball="DSTM_0.6.1.tar.xz"
 EWBF_ver="3.4"
 EWBF_compiled_tarball="0.3.4b.tar.xz"
 
-Z_EWBF_ver="0.6"
-Z_EWBF_compiled_tarball="z_ewbf_v0.6.tar.xz"
-
 KTccminer_ver_8="8.20"
 KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
 KTccminer_src_hash_ver_8="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
@@ -265,11 +262,11 @@ do
   pluggable-installer "$pm"
 done
 
-builtin_miners="ANXccminer ASccminer BMINER CLAYMORE cpuOPT CryptoDredge DSTM EWBF KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer T_Rex TPccminer VERTMINER Z_EWBF ZENEMYminer"
+builtin_miners="ANXccminer ASccminer BMINER CLAYMORE cpuOPT CryptoDredge DSTM EWBF KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer T_Rex TPccminer VERTMINER ZENEMYminer"
 for miner in $builtin_miners
 do
   executable="ccminer"
-  if [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM ]]
+  if [[ $miner == EWBF || $miner == DSTM ]]
   then
     executable="miner"
   elif [[ $miner == CLAYMORE ]]
