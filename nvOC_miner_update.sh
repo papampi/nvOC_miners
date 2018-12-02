@@ -22,14 +22,20 @@ ASccminer_ver_8="1.0"
 ASccminer_compiled_tarball_ver_8="ASccminer.tar.xz"
 ASccminer_src_hash_ver_8="baf6c9e4e36c9cc1b67698ee2977d445f598c573"
 
-BMINER_ver="10.5.0"
-BMINER_compiled_tarball="bminer-v10.5.0.tar.xz"
+BMINER_ver_8="10.5.0"
+BMINER_compiled_tarball_ver_8="bminer-v10.5.0.tar.xz"
+
+BMINER_ver_9="10.7.0"
+BMINER_compiled_tarball_ver_9="bminer-v10.7.0.tar.xz"
 
 CLAYMORE_ver="11.9"
 CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
 
-CryptoDredge_ver="0.13.0"
-CryptoDredge_compiled_tarball="CryptoDredge_0.13.0.tar.xz"
+CryptoDredge_ver_8="0.10.0"
+CryptoDredge_compiled_tarball_ver_8="CryptoDredge_0.10.0.tar.xz"
+
+CryptoDredge_ver_9="0.13.0"
+CryptoDredge_compiled_tarball_ver_9="CryptoDredge_0.13.0.tar.xz"
 
 DSTM_ver="0.6.2"
 DSTM_compiled_tarball="DSTM_0.6.2.tar.xz"
