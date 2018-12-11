@@ -8,6 +8,7 @@
 
   "foreman":
   {
+    "name": "ewbf",
     "api_ext": "--api 127.0.0.1:42000"
   },
 
