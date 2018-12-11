@@ -2,12 +2,13 @@
     "friendlyname": "Ethminer",
     "version": "0.16.0",
     "hcd": "ethminer -P ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -U",
-    "devlist_argument": "--cuda_devices ",
+    "devlist_argument": "--cuda-devices ",
     "devlist_separator": " ",
     "devlist_format": "N",
     
     "foreman":
     {
+      "name": "ethminer",
       "api_ext": "--api-port 3333"
     },
 
