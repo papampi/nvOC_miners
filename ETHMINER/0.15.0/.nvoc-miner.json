@@ -16,7 +16,7 @@
     "install":
     {
       "latest": "false",
-      "recommanded": "false",
+      "recommended": "false",
       "tarball": "ethminer-0.15.0.tar.xz",
       "executable": "ethminer"
     },
