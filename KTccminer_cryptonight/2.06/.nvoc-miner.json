@@ -16,7 +16,7 @@
   "install":
   {
     "latest": "false",
-    "recommanded": "cuda-8.0",
+    "recommended": "cuda-8.0",
     "tarball": "KTccminer-cryptonight.tar.xz",
     "executable": "ccminer"
   },
