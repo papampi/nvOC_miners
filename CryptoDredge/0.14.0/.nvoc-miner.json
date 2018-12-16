@@ -24,5 +24,12 @@
 		"recommended": "cuda-9.2",
 		"tarball": "CryptoDredge_0.14.0.tar.xz",
 		"executable": "CryptoDredge"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
 	}
 }
