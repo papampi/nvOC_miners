@@ -24,5 +24,12 @@
 		"recommended": "cuda-9.2",
 		"tarball": "z-enemy-1.28-cuda92.tar.xz",
 		"executable": "z-enemy"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
 	}
 }
