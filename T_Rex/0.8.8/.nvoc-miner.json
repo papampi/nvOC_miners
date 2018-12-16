@@ -24,5 +24,12 @@
 		"recommended": "cuda-9.2",
 		"tarball": "t-rex-0.8.8-linux-cuda9.2.tar.xz",
 		"executable": "t-rex"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
 	}
 }
