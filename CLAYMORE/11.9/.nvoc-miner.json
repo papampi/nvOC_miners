@@ -24,5 +24,12 @@
 		"recommended": "cuda-9.2",
 		"tarball": "Claymore-v11.9.tar.xz",
 		"executable": "ethdcrminer64"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
 	}
 }
