@@ -1,0 +1,40 @@
+{
+    "friendlyname": "ewbf",
+    "version": "0.3.4b",
+    "hcd": "miner --eexit 3 --fee $EWBF_PERCENT --pec --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --pass $MINER_PWD --port ${!xport} $OPTS"",
+    "devlist_argument": "--cuda-devices ",
+    "devlist_separator": " ",
+    "devlist_format": "N",
+    
+    "foreman":
+    {
+      "name": "ewbf",
+      "api_ext": "--api-port 42000"
+    },
+
+    "minerinfo":
+    {
+      "total_hash": "false",
+      "hash_count": "false",
+      "solution_speed_unit": "Mh/s",
+      "miner_error": "false",
+      "rejected_shares": "false"
+    },
+
+    "install":
+    {
+      "latest": "true",
+      "recommended": "cuda-9.2",
+      "tarball": "0.3.4b.tar.xz",
+      "executable": "miner"
+    },
+
+    "compile":
+    {
+      "src_path": "false",
+      "src_repo": "",
+      "src_commit_hash": "",
+      "command": "",
+      "output": ""
+    }
+}
