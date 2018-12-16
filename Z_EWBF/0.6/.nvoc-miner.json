@@ -27,5 +27,12 @@
     "recommended": "cuda-9.2",
     "tarball": "z_ewbf_v0.6.tar.xz",
     "executable": "miner"
-  }
+  },
+
+	"compile": {
+		"src_path": "false",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
+	}
 }
