@@ -28,8 +28,8 @@ BMINER_compiled_tarball_ver_8="bminer-v10.5.0.tar.xz"
 BMINER_ver_9="10.7.0"
 BMINER_compiled_tarball_ver_9="bminer-v10.7.0.tar.xz"
 
-CLAYMORE_ver="11.9"
-CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
+CLAYMORE_ver="12.0"
+CLAYMORE_compiled_tarball="Claymore-v12.0.tar.xz"
 
 CryptoDredge_ver_8="0.10.0"
 CryptoDredge_compiled_tarball_ver_8="CryptoDredge_0.10.0.tar.xz"
