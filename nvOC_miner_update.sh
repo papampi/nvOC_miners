@@ -22,25 +22,31 @@ ASccminer_ver_8="1.0"
 ASccminer_compiled_tarball_ver_8="ASccminer.tar.xz"
 ASccminer_src_hash_ver_8="baf6c9e4e36c9cc1b67698ee2977d445f598c573"
 
-BMINER_ver="10.4.0"
-BMINER_compiled_tarball="bminer-v10.4.0.tar.xz"
+BMINER_ver_8="10.5.0"
+BMINER_compiled_tarball_ver_8="bminer-v10.5.0.tar.xz"
+
+BMINER_ver_9="10.7.0"
+BMINER_compiled_tarball_ver_9="bminer-v10.7.0.tar.xz"
 
 CLAYMORE_ver="11.9"
 CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
 
-CryptoDredge_ver="0.9.2"
-CryptoDredge_compiled_tarball="CryptoDredge_0.9.2.tar.xz"
+CryptoDredge_ver_8="0.10.0"
+CryptoDredge_compiled_tarball_ver_8="CryptoDredge_0.10.0.tar.xz"
 
-DSTM_ver="0.6.1"
-DSTM_compiled_tarball="DSTM_0.6.1.tar.xz"
+CryptoDredge_ver_9="0.14.0"
+CryptoDredge_compiled_tarball_ver_9="CryptoDredge_0.14.0.tar.xz"
+
+DSTM_ver="0.6.2"
+DSTM_compiled_tarball="DSTM_0.6.2.tar.xz"
 
 ETHMINER_ver_8="0.14.0"
 ETHMINER_compiled_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
 ETHMINER_src_hash_ver_8="24c65cf166bbb3332d60e2baef859ceb604e5d49"
 
-ETHMINER_ver_9="0.16.0"
-ETHMINER_compiled_tarball_ver_9="ethminer-0.16.0.tar.xz"
-ETHMINER_src_hash_ver_9="11d7e3c4c087f6c669013e360af84f6d617c02f4"
+ETHMINER_ver_9="0.16.2"
+ETHMINER_compiled_tarball_ver_9="ethminer-0.16.2.tar.xz"
+ETHMINER_src_hash_ver_9="61ee230f32352782c55be1d7bf27d60044eb7e7b"
 
 EWBF_ver="3.4"
 EWBF_compiled_tarball="0.3.4b.tar.xz"
@@ -101,8 +107,8 @@ TPccminer_ver_9="2.3"
 TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
 TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
 
-T_Rex_ver="0.6.10"
-T_Rex_compiled_tarball="t-rex-0.6.10-linux-cuda9.2.tar.xz"
+T_Rex_ver="0.8.8"
+T_Rex_compiled_tarball="t-rex-0.8.8-linux-cuda9.2.tar.xz"
 
 VERTMINER_ver_8="1.0.2"
 VERTMINER_compiled_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
@@ -112,15 +118,15 @@ XMR_Stak_ver_8="2.4.4"
 XMR_Stak_compiled_tarball_ver_8="xmr-stak-2.4.4.tar.xz"
 XMR_Stak_src_hash_ver_8="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
 
-XMR_Stak_ver_9="2.5.1"
-XMR_Stak_compiled_tarball_ver_9="xmr-stak-2.5.1.tar.xz"
-XMR_Stak_src_hash_ver_9="4e72408ff96003995af73b55bbb271f9984ca3d3"
+XMR_Stak_ver_9="2.5.2"
+XMR_Stak_compiled_tarball_ver_9="xmr-stak-2.5.2.tar.xz"
+XMR_Stak_src_hash_ver_9="752fd1e7e228cc488d77d771b4615a8eb9fa9c86"
 
 ZENEMYminer_ver_8="1.10"
 ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
 
-ZENEMYminer_ver_9="1.22"
-ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.22-cuda92.tar.xz"
+ZENEMYminer_ver_9="1.28"
+ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.28-cuda92.tar.xz"
 
 cpuOPT_ver="3.8.8.1"
 cpuOPT_compiled_tarball="cpuOPT.tar.xz"
@@ -605,7 +611,7 @@ function compile-XMR_Stak {
   mkdir ${NVOC_MINERS}/XMR_Stak/src/build
   pushd ${NVOC_MINERS}/XMR_Stak/src/build
   cmake ..
-  make install
+  make
   popd
   stop-if-needed "[xmr]-stak"
   cp ${NVOC_MINERS}/XMR_Stak/src/build/bin/xmr-stak ${NVOC_MINERS}/XMR_Stak/src/build/bin/*.so ${NVOC_MINERS}/XMR_Stak/
