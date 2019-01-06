@@ -54,6 +54,9 @@ EWBF_compiled_tarball="0.3.4b.tar.xz"
 Z_EWBF_ver="0.6"
 Z_EWBF_compiled_tarball="z_ewbf_v0.6.tar.xz"
 
+GMINER_ver="1.14"
+GMINER_compiled_tarball="gminer_1_14_minimal_linux64.tar.xz"
+
 KTccminer_ver_8="8.20"
 KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
 KTccminer_src_hash_ver_8="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
@@ -293,11 +296,11 @@ do
   pluggable-installer "$pm"
 done
 
-builtin_miners="T_Rex PhoenixMiner LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
+builtin_miners="GMINER T_Rex PhoenixMiner LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
 for miner in $builtin_miners
 do
   executable="ccminer"
-  if [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM ]]
+  if [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM || $miner == GMINER ]]
   then
     executable="miner"
   elif [[ $miner == ETHMINER ]]
