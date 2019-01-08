@@ -54,8 +54,8 @@ EWBF_compiled_tarball="0.3.4b.tar.xz"
 Z_EWBF_ver="0.6"
 Z_EWBF_compiled_tarball="z_ewbf_v0.6.tar.xz"
 
-GMINER_ver="1.14"
-GMINER_compiled_tarball="gminer_1_14_minimal_linux64.tar.xz"
+GMINER_ver="1.15"
+GMINER_compiled_tarball="gminer_1_15_minimal_linux64.tar.xz"
 
 KTccminer_ver_8="8.20"
 KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
@@ -110,8 +110,8 @@ TPccminer_ver_9="2.3"
 TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
 TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
 
-T_Rex_ver="0.8.9"
-T_Rex_compiled_tarball="t-rex-0.8.9-linux-cuda9.2.tar.xz"
+T_Rex_ver="0.9.1"
+T_Rex_compiled_tarball="t-rex-0.9.1-linux-cuda9.2.tar.xz"
 
 VERTMINER_ver_8="1.0.2"
 VERTMINER_compiled_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
