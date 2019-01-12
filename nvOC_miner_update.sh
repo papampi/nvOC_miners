@@ -40,6 +40,9 @@ CryptoDredge_compiled_tarball_ver_9="CryptoDredge_0.15.1_linux_x64_cuda_9.2.tar.
 DSTM_ver="0.6.2"
 DSTM_compiled_tarball="DSTM_0.6.2.tar.xz"
 
+ENERGIMINER_ver="0.6.2"
+ENERGIMINER_compiled_tarball="energiminer-2.2.1-Linux.tar.xz	"
+
 ETHMINER_ver_8="0.14.0"
 ETHMINER_compiled_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
 ETHMINER_src_hash_ver_8="24c65cf166bbb3332d60e2baef859ceb604e5d49"
@@ -296,13 +299,16 @@ do
   pluggable-installer "$pm"
 done
 
-builtin_miners="GMINER T_Rex PhoenixMiner LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
+builtin_miners="ENERGIMINER GMINER T_Rex PhoenixMiner LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
 for miner in $builtin_miners
 do
   executable="ccminer"
   if [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM || $miner == GMINER ]]
   then
     executable="miner"
+  elif [[ $miner == ENERGIMINER ]]
+  then
+    executable="energiminer"
   elif [[ $miner == ETHMINER ]]
   then
     executable="ethminer"
