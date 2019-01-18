@@ -22,20 +22,11 @@ ASccminer_ver_8="1.0"
 ASccminer_compiled_tarball_ver_8="ASccminer.tar.xz"
 ASccminer_src_hash_ver_8="baf6c9e4e36c9cc1b67698ee2977d445f598c573"
 
-BMINER_ver="10.4.0"
-BMINER_compiled_tarball="bminer-v10.4.0.tar.xz"
-
-CLAYMORE_ver="11.9"
-CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
-
 CryptoDredge_ver="0.9.2"
 CryptoDredge_compiled_tarball="CryptoDredge_0.9.2.tar.xz"
 
 DSTM_ver="0.6.1"
 DSTM_compiled_tarball="DSTM_0.6.1.tar.xz"
-
-EWBF_ver="3.4"
-EWBF_compiled_tarball="0.3.4b.tar.xz"
 
 KTccminer_ver_8="8.20"
 KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
@@ -82,18 +73,9 @@ TPccminer_ver_9="2.3"
 TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
 TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
 
-T_Rex_ver="0.6.10"
-T_Rex_compiled_tarball="t-rex-0.6.10-linux-cuda9.2.tar.xz"
-
 VERTMINER_ver_8="1.0.2"
 VERTMINER_compiled_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
 VERTMINER_src_hash_ver_8="48b170a5828256600ca71e66d4c114af4e114236"
-
-ZENEMYminer_ver_8="1.10"
-ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
-
-ZENEMYminer_ver_9="1.22"
-ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.22-cuda92.tar.xz"
 
 cpuOPT_ver="3.8.8.1"
 cpuOPT_compiled_tarball="cpuOPT.tar.xz"
@@ -262,19 +244,13 @@ do
   pluggable-installer "$pm"
 done
 
-builtin_miners="ANXccminer ASccminer BMINER CLAYMORE cpuOPT CryptoDredge DSTM EWBF KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer T_Rex TPccminer VERTMINER ZENEMYminer"
+builtin_miners="ANXccminer ASccminer cpuOPT DSTM KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer TPccminer VERTMINER"
 for miner in $builtin_miners
 do
   executable="ccminer"
-  if [[ $miner == EWBF || $miner == DSTM ]]
+  if [[ $miner == DSTM ]]
   then
     executable="miner"
-  elif [[ $miner == CLAYMORE ]]
-  then
-    executable="ethdcrminer64"
-  elif [[ $miner == BMINER ]]
-  then
-    executable="bminer"
   elif [[ $miner == cpuOPT ]]
   then
     executable="cpuminer"
