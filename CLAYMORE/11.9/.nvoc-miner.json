@@ -1,0 +1,35 @@
+{
+	"friendlyname": "Claymore",
+	"version": "11.9",
+	"hcd": "ethdcrminer64 -epool ${!xpool}:${!xport} -ewal ${!xaddr}${!xwallet}${!xwork} -epsw $MINER_PWD -mode 1 -dbg -1 ${!xext} $CLAYMORE_OPTS",
+	"devlist_argument": "-di ",
+	"devlist_separator": "",
+	"devlist_format": "N",
+
+	"foreman": {
+		"name": "claymore",
+		"api_ext": "-mport -3333"
+	},
+
+	"minerinfo": {
+		"total_hash": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Total Speed:\" | grep -v grep |sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' | awk '{print $5}' | awk '{s+=$1} END {printf \"%.0f\", s}' ",
+		"hash_count": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Total Speed:\" | grep -v grep | wc -l | awk '{print $1}'",
+		"solution_speed_unit": "Mh/s",
+		"miner_error": "false",
+		"rejected_shares": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep -o \"Rejected: [0-9]*\" | tail -1 | awk '{print $2}"
+	},
+
+	"install": {
+		"latest": "true",
+		"recommended": "cuda-9.2",
+		"tarball": "Claymore-v11.9.tar.xz",
+		"executable": "ethdcrminer64"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
+	}
+}

@@ -1,0 +1,34 @@
+{
+  "friendlyname": "Klaust ccminer-cryptonight",
+  "version": "3.05",
+  "hcd": "ccminer -o ${!xproto}://\"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\"",
+  "devlist_argument": "--devices ",
+  "devlist_separator": ",",
+  "devlist_format": "N",
+
+  "minerinfo":
+  {
+    "total_hash": "false",
+    "hash_count": "false",
+    "solution_speed_unit": "false",
+    "miner_error": "false",
+    "rejected_shares": "false"
+  },
+
+  "install":
+  {
+    "latest": "true",
+    "recommended": "cuda-9.2",
+    "tarball": "KTccminer-cryptonight-3.05.tar.xz",
+    "executable": "ccminer"
+  },
+
+  "compile":
+  {
+    "src_path": "../src",
+    "src_repo": "https://github.com/KlausT/ccminer-cryptonight",
+    "src_commit_hash": "7061f3c78e52a03f7ff5d0743900312de5bb24fc",
+    "command": "bash autogen.sh && bash configure \"CFLAGS=-O3\" \"CXXFLAGS=-O3\" --with-cuda=/usr/local/cuda-9.2 && make -j4",
+    "output": "ccminer"
+  }
+}

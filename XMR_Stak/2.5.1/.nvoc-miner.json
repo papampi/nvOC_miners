@@ -1,0 +1,32 @@
+{
+  "friendlyname": "XMR-Stak Cryptonight",
+  "version": "2.5.1",
+  "hcd": "xmr-stak.nvoc.sh --currency cryptonight_v8 --noCPU --noAMD -o \"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\" -i 0",
+  "devlist_format": 0,
+
+  "minerinfo":
+  {
+    "total_hash": "false",
+    "hash_count": "false",
+    "solution_speed_unit": "false",
+    "miner_error": "false",
+    "rejected_shares": "false"
+  },
+
+  "install":
+  {
+    "latest": "true",
+    "recommended": "cuda-9.2",
+    "tarball": "xmr-stak-2.5.1.tar.xz",
+    "executable": "xmr-stak xmr-stak.nvoc.sh"
+  },
+
+  "compile":
+  {
+    "src_path": "../src",
+    "src_repo": "https://github.com/fireice-uk/xmr-stak",
+    "src_commit_hash": "4e72408ff96003995af73b55bbb271f9984ca3d3",
+    "command": "mkdir build && pushd build && cmake .. && make install && popd",
+    "output": "build/bin/xmr-stak build/bin/*.so"
+  }
+}

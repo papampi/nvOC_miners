@@ -1,0 +1,32 @@
+{
+  "friendlyname": "XMR-Stak Cryptonight",
+  "version": "2.4.7",
+  "hcd": "xmr-stak.nvoc.sh --currency monero7 --noCPU --noAMD -o \"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\" -i 0",
+  "devlist_format": 0,
+
+  "minerinfo":
+  {
+    "total_hash": "false",
+    "hash_count": "false",
+    "solution_speed_unit": "false",
+    "miner_error": "false",
+    "rejected_shares": "false"
+  },
+
+  "install":
+  {
+    "latest": "false",
+    "recommended": "false",
+    "tarball": "xmr-stak-2.4.7.tar.xz",
+    "executable": "xmr-stak xmr-stak.nvoc.sh"
+  },
+
+  "compile":
+  {
+    "src_path": "../src",
+    "src_repo": "https://github.com/fireice-uk/xmr-stak",
+    "src_commit_hash": "c0ab1734332d6472225d8ac7394f6fcba71aabc9",
+    "command": "mkdir build && pushd build && cmake .. && make install && popd",
+    "output": "build/bin/xmr-stak build/bin/*.so"
+  }
+}

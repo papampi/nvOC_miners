@@ -22,37 +22,8 @@ ASccminer_ver_8="1.0"
 ASccminer_compiled_tarball_ver_8="ASccminer.tar.xz"
 ASccminer_src_hash_ver_8="baf6c9e4e36c9cc1b67698ee2977d445f598c573"
 
-BMINER_ver_8="10.5.0"
-BMINER_compiled_tarball_ver_8="bminer-v10.5.0.tar.xz"
-
-BMINER_ver_9="10.7.0"
-BMINER_compiled_tarball_ver_9="bminer-v10.7.0.tar.xz"
-
-CLAYMORE_ver="11.9"
-CLAYMORE_compiled_tarball="Claymore-v11.9.tar.xz"
-
-CryptoDredge_ver_8="0.10.0"
-CryptoDredge_compiled_tarball_ver_8="CryptoDredge_0.10.0.tar.xz"
-
-CryptoDredge_ver_9="0.14.0"
-CryptoDredge_compiled_tarball_ver_9="CryptoDredge_0.14.0.tar.xz"
-
 DSTM_ver="0.6.2"
 DSTM_compiled_tarball="DSTM_0.6.2.tar.xz"
-
-ETHMINER_ver_8="0.14.0"
-ETHMINER_compiled_tarball_ver_8="ethminer-0.14.0-Linux.tar.xz"
-ETHMINER_src_hash_ver_8="24c65cf166bbb3332d60e2baef859ceb604e5d49"
-
-ETHMINER_ver_9="0.16.2"
-ETHMINER_compiled_tarball_ver_9="ethminer-0.16.2.tar.xz"
-ETHMINER_src_hash_ver_9="61ee230f32352782c55be1d7bf27d60044eb7e7b"
-
-EWBF_ver="3.4"
-EWBF_compiled_tarball="0.3.4b.tar.xz"
-
-Z_EWBF_ver="0.6"
-Z_EWBF_compiled_tarball="z_ewbf_v0.6.tar.xz"
 
 KTccminer_ver_8="8.20"
 KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
@@ -61,14 +32,6 @@ KTccminer_src_hash_ver_8="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
 KTccminer_ver_9="8.22"
 KTccminer_compiled_tarball_ver_9="KTccminer-8.22.tar.xz"
 KTccminer_src_hash_ver_9="2e457923f3125fbaedf5d8ba1f7d0fafc85b0ba8"
-
-KTccminer_cryptonight_ver_8="2.06"
-KTccminer_cryptonight_compiled_tarball_ver_8="KTccminer-cryptonight.tar.xz"
-KTccminer_cryptonight_src_hash_ver_8="bedaf007d4619fc4157aeafb59b44850f08d93f1"
-
-KTccminer_cryptonight_ver_9="3.05"
-KTccminer_cryptonight_compiled_tarball_ver_9="KTccminer-cryptonight-3.05.tar.xz"
-KTccminer_cryptonight_src_hash_ver_9="7061f3c78e52a03f7ff5d0743900312de5bb24fc"
 
 KXccminer_ver_8="0.1"
 KXccminer_compiled_tarball_ver_8="KXccminer.tar.xz"
@@ -107,26 +70,9 @@ TPccminer_ver_9="2.3"
 TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
 TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
 
-T_Rex_ver="0.8.8"
-T_Rex_compiled_tarball="t-rex-0.8.8-linux-cuda9.2.tar.xz"
-
 VERTMINER_ver_8="1.0.2"
 VERTMINER_compiled_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
 VERTMINER_src_hash_ver_8="48b170a5828256600ca71e66d4c114af4e114236"
-
-XMR_Stak_ver_8="2.4.4"
-XMR_Stak_compiled_tarball_ver_8="xmr-stak-2.4.4.tar.xz"
-XMR_Stak_src_hash_ver_8="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
-
-XMR_Stak_ver_9="2.5.2"
-XMR_Stak_compiled_tarball_ver_9="xmr-stak-2.5.2.tar.xz"
-XMR_Stak_src_hash_ver_9="752fd1e7e228cc488d77d771b4615a8eb9fa9c86"
-
-ZENEMYminer_ver_8="1.10"
-ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
-
-ZENEMYminer_ver_9="1.28"
-ZENEMYminer_compiled_tarball_ver_9="z-enemy-1.28-cuda92.tar.xz"
 
 cpuOPT_ver="3.8.8.1"
 cpuOPT_compiled_tarball="cpuOPT.tar.xz"
@@ -268,9 +214,11 @@ ucompiled8="_compiled_tarball_ver_8"
 ucompiled9="_compiled_tarball_ver_9"
 ucompiled="_compiled_tarball"
 
-if [[ -d ${NVOC_MINERS}/helpers ]]
+if [[ -d ${NVOC_MINERS}/helpers/miners ]]
 then
-  shipped_miners=$(find ${NVOC_MINERS}/helpers/miners/*/ -name .nvoc-miner.json -print | cut -d/ -f8 | sort -u )
+  pushd ${NVOC_MINERS}/helpers/miners
+  shipped_miners=$(find ./*/ -name .nvoc-miner.json -print | cut -d/ -f2 | sort -u )
+  popd
 else
   shipped_miners=
 fi
@@ -283,7 +231,7 @@ do
     then
       echo "Checking ${miner} version ${!vminer}"
       mkdir -p ${NVOC_MINERS}/${miner}/${!vminer}/
-      cp ${NVOC_MINERS}/helpers/miners/${miner}/${!vminer}/.nvoc-miner.json ${NVOC_MINERS}/${miner}/${!vminer}/.nvoc-miner.json
+      cp ${NVOC_MINERS}/helpers/miners/${miner}/${!vminer}/.nvoc-miner.json  ${NVOC_MINERS}/${miner}/${!vminer}/
     fi
   done
 done
@@ -293,25 +241,13 @@ do
   pluggable-installer "$pm"
 done
 
-builtin_miners="T_Rex PhoenixMiner LOLMINER EWBF Z_EWBF DSTM ETHMINER CLAYMORE BMINER XMR_Stak cpuOPT ASccminer ANXccminer CryptoDredge KTccminer KTccminer_cryptonight KXccminer MSFTccminer NAccminer SILENTminer SPccminer SUPRminer TPccminer VERTMINER ZENEMYminer"
+builtin_miners="ANXccminer ASccminer cpuOPT DSTM KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer TPccminer VERTMINER"
 for miner in $builtin_miners
 do
   executable="ccminer"
-  if [[ $miner == EWBF || $miner == Z_EWBF || $miner == DSTM ]]
+  if [[ $miner == DSTM ]]
   then
     executable="miner"
-  elif [[ $miner == ETHMINER ]]
-  then
-    executable="ethminer"
-  elif [[ $miner == CLAYMORE ]]
-  then
-    executable="ethdcrminer64"
-  elif [[ $miner == BMINER ]]
-  then
-    executable="bminer"
-  elif [[ $miner == XMR_Stak ]]
-  then
-    executable="xmr-stak"
   elif [[ $miner == cpuOPT ]]
   then
     executable="cpuminer"
@@ -451,29 +387,6 @@ function compile-KTccminer {
   restart-if-needed
 }
 
-
-function compile-KTccminer_cryptonight {
-  echo "Compiling klaust ccminer cryptonight"
-  echo " This could take a while ..."
-  if [[ $CUDA_VER == "8.0" ]]
-  then
-    get-sources ${NVOC_MINERS}/KTccminer_cryptonight src $KTccminer_cryptonight_src_hash_ver_8
-  else
-    get-sources ${NVOC_MINERS}/KTccminer_cryptonight src $KTccminer_cryptonight_src_hash_ver_9
-  fi
-  pushd ${NVOC_MINERS}/KTccminer_cryptonight/src
-  bash ${NVOC_MINERS}/KTccminer_cryptonight/src/autogen.sh
-  bash ${NVOC_MINERS}/KTccminer_cryptonight/src/configure "CFLAGS=-O3" "CXXFLAGS=-O3" --with-cuda=/usr/local/cuda-$CUDA_VER
-  make -j4
-  stop-if-needed "[K]Tccminer_cryptonight"
-  cp ${NVOC_MINERS}/KTccminer_cryptonight/src/ccminer ${NVOC_MINERS}/KTccminer_cryptonight/ccminer
-  popd
-  echo
-  echo "Finished compiling klaust cryptonight ccminer"
-  restart-if-needed
-}
-
-
 function compile-KXccminer {
   echo "Compiling ccminer krnlx"
   echo " This could take a while ..."
@@ -597,31 +510,6 @@ function compile-VERTMINER {
   restart-if-needed
 }
 
-# Cuda versions compile need checkup!!!!
-function compile-XMR_Stak {
-  echo "Compiling  xmr-stak"
-  echo " This could take a while ..."
-  if [[ $CUDA_VER == "8.0" ]]
-  then
-    get-sources ${NVOC_MINERS}/XMR_Stak src $XMR_Stak_src_hash_ver_8
-  else
-    get-sources ${NVOC_MINERS}/XMR_Stak src $XMR_Stak_src_hash_ver_9
-  fi
-  pushd ${NVOC_MINERS}/XMR_Stak/src
-  mkdir ${NVOC_MINERS}/XMR_Stak/src/build
-  pushd ${NVOC_MINERS}/XMR_Stak/src/build
-  cmake ..
-  make
-  popd
-  stop-if-needed "[xmr]-stak"
-  cp ${NVOC_MINERS}/XMR_Stak/src/build/bin/xmr-stak ${NVOC_MINERS}/XMR_Stak/src/build/bin/*.so ${NVOC_MINERS}/XMR_Stak/
-  popd
-  echo
-  echo "Finished compiling xmr-stak"
-  restart-if-needed
-}
-
-
 function compile-cpuminer {
   echo "Compiling cpuminer"
   echo " This could take a while ..."
@@ -682,7 +570,6 @@ IFS=', '
 echo "Select miners to compile (multiple comma separated values: 1,6,7)"
 echo "1 - ASccminer"
 echo "2 - KTccminer"
-echo "3 - KTccminer_cryptonight"
 echo "4 - KXccminer"
 echo "5 - NAccminer"
 echo "6 - SPccminer"
@@ -692,7 +579,6 @@ echo "9 - ANXccminer"
 echo "C - cpuminer"
 echo "R - MSFTccminer (RVN)"
 echo "U - SUPRminer"
-echo "X - XMR_Stak"
 echo
 read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [C] [R] [U] [X] [E]xit: " -a array
 for choice in "${array[@]}"; do
@@ -702,9 +588,6 @@ for choice in "${array[@]}"; do
       echo
       echo
       compile-KTccminer
-      echo
-      echo
-      compile-KTccminer_cryptonight
       echo
       echo
       compile-KXccminer
@@ -731,9 +614,6 @@ for choice in "${array[@]}"; do
       compile-SUPRminer
       echo
       echo
-      compile-XMR_Stak
-      echo
-      echo
       compile-cpuminer
       echo
       echo
@@ -748,9 +628,6 @@ for choice in "${array[@]}"; do
       ;;
     [2]* ) echo -e "$choice"
       compile-KTccminer
-      ;;
-    [3]* ) echo -e "$choice\n"
-      compile-KTccminer_cryptonight
       ;;
     [4]* ) echo -e "$choice"
       compile-KXccminer
@@ -778,9 +655,6 @@ for choice in "${array[@]}"; do
       ;;
     [U]* ) echo -e "$choice"
       compile-SUPRminer
-      ;;
-    [X]* ) echo -e "$choice"
-      compile-XMR_Stak
       ;;
     [Ee]* ) echo "exited by user"; break;;
     * ) echo -e "$choice"

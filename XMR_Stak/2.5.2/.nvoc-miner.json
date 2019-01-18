@@ -1,0 +1,40 @@
+{
+  "friendlyname": "XMR-Stak Cryptonight",
+  "version": "2.5.2",
+  "hcd": "xmr-stak.nvoc.sh --config \"$my_path/config.txt\" --poolconf \"$my_path/pools.txt\" --nvidia \"$my_path/nvidia.txt\" --currency monero --noCPU --noAMD -o \"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\" -i 0",
+  "devlist_argument": "",
+  "devlist_separator": "",
+  "devlist_format": "",
+
+  "foreman":
+  {
+    "name": "xmrstak",
+    "api_ext": "--httpd 3333"
+  },
+
+  "minerinfo":
+  {
+    "total_hash": "false",
+    "hash_count": "false",
+    "solution_speed_unit": "false",
+    "miner_error": "false",
+    "rejected_shares": "false"
+  },
+
+  "install":
+  {
+    "latest": "true",
+    "recommended": "cuda-9.2",
+    "tarball": "xmr-stak-2.5.2.tar.xz",
+    "executable": "xmr-stak xmr-stak.nvoc.sh"
+  },
+
+  "compile":
+  {
+    "src_path": "../src",
+    "src_repo": "https://github.com/fireice-uk/xmr-stak",
+    "src_commit_hash": "752fd1e7e228cc488d77d771b4615a8eb9fa9c86",
+    "command": "mkdir build && pushd build && cmake -DCMAKE_LINK_STATIC=ON .. && make && popd",
+    "output": "build/bin/xmr-stak build/bin/*.so build/bin/*.txt"
+  }
+}

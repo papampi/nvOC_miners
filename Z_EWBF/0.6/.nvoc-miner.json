@@ -1,0 +1,35 @@
+{
+	"friendlyname": "EWBF Equihash Cuda Miner",
+	"version": "0.6",
+	"hcd": "miner --fee 0 --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --pass $MINER_PWD --port ${!xport}",
+	"devlist_argument": "--cuda_devices ",
+	"devlist_separator": " ",
+	"devlist_format": "N",
+
+	"foreman": {
+		"name": "ewbf",
+		"api_ext": "--api 127.0.0.1:42000"
+	},
+
+	"minerinfo": {
+		"total_hash": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Total speed\" | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' | grep -o \"[0-9]*.[0-9]* Sol/s\" | awk '{print $1}'| awk '{s+=$1} END {printf \"%.0f\", s}'",
+		"hash_count": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Total speed\" | grep -v grep |  wc -l | awk '{print $1}'",
+		"solution_speed_unit": "Mh/s",
+		"miner_error": "false",
+		"rejected_shares": "false"
+	},
+
+	"install": {
+		"latest": "true",
+		"recommended": "cuda-9.2",
+		"tarball": "z_ewbf_v0.6.tar.xz",
+		"executable": "miner"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
+	}
+}
