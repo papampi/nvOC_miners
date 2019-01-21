@@ -140,16 +140,16 @@ function pluggable-installer {
 
   if [[ -f $pm && -f $pm_output && $(md5sum $pm | cut -d ' ' -f1) == $(md5sum $pm_output | cut -d ' ' -f1) ]]
   then
-    echo "$(jq -r .friendlyname ${pm_output}) $(jq -r .version ${pm_output}) for $(jq -r .install.recommanded ${pm_output}) is already installed"
+    echo "$(jq -r .friendlyname ${pm_output}) $(jq -r .version ${pm_output}) for $(jq -r .install.recommended ${pm_output}) is already installed"
     return
   fi
 
-  echo "Extracting $(jq -r .friendlyname ${pm}) $(jq -r .version ${pm}) for $(jq -r .install.recommanded ${pm})"
+  echo "Extracting $(jq -r .friendlyname ${pm}) $(jq -r .version ${pm}) for $(jq -r .install.recommended ${pm})"
   mkdir -p "${pm_path}/"
   tar -xvJf "${pm_path}/$(jq -r install.tarball ${pm})" -C "${pm_path}" --strip 1
   chmod a+x "${pm_path}/$(jq -r install.executable ${pm})"
   stop-if-needed "${pm_path}"
-  if [[ $CUDA_VER == $(jq -r install.recommanded ${pm}) ]]
+  if [[ $CUDA_VER == $(jq -r install.recommended ${pm}) ]]
   then
     update-symlink "${pm_path}" recommended    
   fi
@@ -160,7 +160,7 @@ function pluggable-installer {
   cp -f "$pm" "$pm_output"
   restart-if-needed
 
-  echo "$(jq -r .friendlyname ${pm}) for $(jq -r install.recommanded ${pm}) updated"
+  echo "$(jq -r .friendlyname ${pm}) for $(jq -r install.recommended ${pm}) updated"
 }
 
 function pluggable-compiler {
