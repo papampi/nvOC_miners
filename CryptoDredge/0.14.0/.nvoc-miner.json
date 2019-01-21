@@ -23,7 +23,7 @@
 		"latest": "true",
 		"recommended": "cuda-9.2",
 		"tarball": "CryptoDredge_0.14.0.tar.xz",
-		"executable": "CryptoDredge"
+		"executable": "ccminer"
 	},
 
 	"compile": {

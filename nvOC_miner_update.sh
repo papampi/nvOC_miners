@@ -147,9 +147,7 @@ function pluggable-installer {
   echo "Extracting $(jq -r .friendlyname ${pm}) $(jq -r .version ${pm}) for $(jq -r .install.recommended ${pm})"
   mkdir -p "${pm_path}/"
   tar -xvJf "${pm_path}/$(jq -r .install.tarball ${pm})" -C "${pm_path}" --strip 1
-  pushd "${pm_path}"
-  chmod a+x "$(jq -r .install.executable ${pm})"
-  popd
+  chmod a+x $(for ex in $(jq -r .install.executable ${pm}); do echo "${pm_path}/$ex"; done)
   stop-if-needed "${pm_path}"
   if [[ $CUDA_VER == $(jq -r .install.recommended ${pm}) ]]
   then
