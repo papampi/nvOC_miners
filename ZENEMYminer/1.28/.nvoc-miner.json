@@ -1,7 +1,7 @@
 {
 	"friendlyname": "z-enemy",
 	"version": "1.28",
-	"hcd": "  z-enemy $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity} $CCMINER_OPTS ${!xext}",
+	"hcd": "z-enemy $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity} $CCMINER_OPTS ${!xext}",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
 	"devlist_format": "N",
