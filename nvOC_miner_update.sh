@@ -269,7 +269,7 @@ do
   if [[ ${!v8miner} != "" ]]
   then
     echo "Checking ${miner} (cuda 8) version ${!v8miner}"
-    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v8miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/recommended)" ]]
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v8miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/recommended 2>/dev/null)" ]]
     then
       stop-if-needed "${miner}"
       mkdir -p ${NVOC_MINERS}/${miner}/${!v8miner}/
@@ -286,7 +286,7 @@ do
   if [[ ${!v9miner} != "" ]]
   then
     echo "Checking ${miner} (cuda 9.2) version ${!v9miner}"
-    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v9miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest)" ]]
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v9miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest 2>/dev/null)" ]]
     then
       stop-if-needed "${miner}"
       mkdir -p ${NVOC_MINERS}/${miner}/${!v9miner}/
@@ -307,7 +307,7 @@ do
   if [[ ${!vminer} != "" ]]
   then
     echo "Checking ${miner} version ${!vminer}"
-    if [[ ! -d ${NVOC_MINERS}/${miner}/${!vminer} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest)" ]]
+    if [[ ! -d ${NVOC_MINERS}/${miner}/${!vminer} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest 2>/dev/null)" ]]
     then
       stop-if-needed "${miner}"
       mkdir -p ${NVOC_MINERS}/${miner}/${!vminer}/
