@@ -146,21 +146,21 @@ function pluggable-installer {
 
   echo "Extracting $(jq -r .friendlyname ${pm}) $(jq -r .version ${pm}) for $(jq -r .install.recommended ${pm})"
   mkdir -p "${pm_path}/"
-  tar -xvJf "${pm_path}/$(jq -r install.tarball ${pm})" -C "${pm_path}" --strip 1
-  chmod a+x "${pm_path}/$(jq -r install.executable ${pm})"
+  tar -xvJf "${pm_path}/$(jq -r .install.tarball ${pm})" -C "${pm_path}" --strip 1
+  chmod a+x "${pm_path}/$(jq -r .install.executable ${pm})"
   stop-if-needed "${pm_path}"
-  if [[ $CUDA_VER == $(jq -r install.recommended ${pm}) ]]
+  if [[ $CUDA_VER == $(jq -r .install.recommended ${pm}) ]]
   then
     update-symlink "${pm_path}" recommended    
   fi
-  if [[ $(jq -r install.latest ${pm}) == true ]]
+  if [[ $(jq -r .install.latest ${pm}) == true ]]
   then
     update-symlink "${pm_path}" latest    
   fi
   cp -f "$pm" "$pm_output"
   restart-if-needed
 
-  echo "$(jq -r .friendlyname ${pm}) for $(jq -r install.recommended ${pm}) updated"
+  echo "$(jq -r .friendlyname ${pm}) for $(jq -r .install.recommended ${pm}) updated"
 }
 
 function pluggable-compiler {
