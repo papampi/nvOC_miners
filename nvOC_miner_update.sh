@@ -124,13 +124,13 @@ function get-sources {
 }
 
 function update-symlink {
-  if [[ -L "$1/$3" && -d "$1/$3" ]]
+  if [[ -L "$1/$2" && -d "$1/$2" ]]
   then
-    rm "$1/$3"
+    rm "$1/$2"
   else
-    rm -rf "$1/$3"
+    rm -rf "$1/$2"
   fi
-  ln -s "$1/$2" "$1/$3"
+  ln -s "$1/$3" "$1/$2"
 }
 
 function pluggable-installer {
@@ -275,7 +275,7 @@ do
       mkdir -p ${NVOC_MINERS}/${miner}/${!v8miner}/
       tar -xvJf ${NVOC_MINERS}/${miner}/${!x8compiled_tarball} -C ${NVOC_MINERS}/$miner/${!v8miner}/ --strip 1
       chmod a+x ${NVOC_MINERS}/$miner/${!v8miner}/$executable
-      update-symlink ${NVOC_MINERS}/${miner} ${!v8miner} recommended
+      update-symlink ${NVOC_MINERS}/${miner} recommended ${!v8miner}
       echo "${miner} updated to version ${!v8miner}"
       restart-if-needed
     else
@@ -294,9 +294,9 @@ do
       chmod a+x ${NVOC_MINERS}/$miner/${!v9miner}/$executable
       if [[ $CUDA_VER == "9.2" ]]
       then
-        update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} recommended
+        update-symlink ${NVOC_MINERS}/${miner} recommended ${!v9miner}
       fi
-      update-symlink ${NVOC_MINERS}/${miner} ${!v9miner} latest
+      update-symlink ${NVOC_MINERS}/${miner} latest ${!v9miner}
       echo "${miner} updated to version ${!v9miner}"
       restart-if-needed
     else
@@ -313,8 +313,8 @@ do
       mkdir -p ${NVOC_MINERS}/${miner}/${!vminer}/
       tar -xvJf ${NVOC_MINERS}/${miner}/${!xcompiled_tarball} -C ${NVOC_MINERS}/$miner/${!vminer}/ --strip 1
       chmod a+x ${NVOC_MINERS}/$miner/${!vminer}/$executable
-      update-symlink ${NVOC_MINERS}/${miner} ${!vminer} recommended
-      update-symlink ${NVOC_MINERS}/${miner} ${!vminer} latest
+      update-symlink ${NVOC_MINERS}/${miner} recommended ${!vminer}
+      update-symlink ${NVOC_MINERS}/${miner} latest ${!vminer}
       echo "${miner} updated to version ${!vminer}"
       restart-if-needed
     else
