@@ -151,11 +151,11 @@ function pluggable-installer {
   stop-if-needed "${pm_path}"
   if [[ $CUDA_VER == $(jq -r .install.recommended ${pm}) ]]
   then
-    update-symlink "${pm_path}" recommended    
+    update-symlink "${pm_path}" ../recommended    
   fi
   if [[ $(jq -r .install.latest ${pm}) == true ]]
   then
-    update-symlink "${pm_path}" latest    
+    update-symlink "${pm_path}" ../latest    
   fi
   cp -f "$pm" "$pm_output"
   restart-if-needed
