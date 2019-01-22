@@ -22,9 +22,6 @@ ASccminer_ver_8="1.0"
 ASccminer_compiled_tarball_ver_8="ASccminer.tar.xz"
 ASccminer_src_hash_ver_8="baf6c9e4e36c9cc1b67698ee2977d445f598c573"
 
-DSTM_ver="0.6.2"
-DSTM_compiled_tarball="DSTM_0.6.2.tar.xz"
-
 KTccminer_ver_8="8.20"
 KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
 KTccminer_src_hash_ver_8="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
@@ -241,7 +238,7 @@ do
   pluggable-installer "$pm"
 done
 
-builtin_miners="ANXccminer ASccminer cpuOPT DSTM KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer TPccminer VERTMINER"
+builtin_miners="ANXccminer ASccminer cpuOPT KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer TPccminer VERTMINER"
 for miner in $builtin_miners
 do
   executable="ccminer"
