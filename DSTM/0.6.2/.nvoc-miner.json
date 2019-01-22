@@ -1,0 +1,36 @@
+{
+	"friendlyname": "dstm",
+	"version": "0.6.2",
+	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD --time $DSTM_OPTS ${!xext}"",
+	"devlist_argument": "dev=",
+	"devlist_separator": ",",
+	"devlist_format": "N",
+
+	"foreman": {
+		"name": "dstm",
+		"api_ext": "telemetry=0.0.0.0:2222"
+	},
+
+	"minerinfo": {
+		"total_hash": "false",
+		"hash_count": "false",
+		"solution_speed_unit": "Mh/s",
+		"miner_error": "false",
+		"rejected_shares": "false"
+	},
+
+	"install": {
+		"latest": "true",
+		"recommended": "9.2",
+		"tarball": "DSTM_0.6.2.tar.xz",
+		"executable": "miner"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_repo": "",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
+	}
+}
