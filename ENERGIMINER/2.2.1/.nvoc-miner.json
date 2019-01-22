@@ -1,0 +1,40 @@
+{
+    "friendlyname": "Energiminer",
+    "version": "2.2.1",
+    "hcd": "energiminer ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} $ENERGIMINER_OPTS ${!xext} -U",
+    "devlist_argument": "--cuda-devices ",
+    "devlist_separator": " ",
+    "devlist_format": "N",
+    
+    "foreman":
+    {
+      "name": "energiminer",
+      "api_ext": "--api-port 3333"
+    },
+
+    "minerinfo":
+    {
+      "total_hash": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep Speed | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' | grep -o '[0-9]*.[0-9]* Mh/s' | awk '{print$1}' | awk '{s+=$1} END {printf \"%.0f\", s}'",
+      "hash_count": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep Speed | grep -v grep | wc -l | awk '{print $1}'",
+      "solution_speed_unit": "Mh/s",
+      "miner_error": "false",
+      "rejected_shares": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Speed\" | grep -o \"R[0-9]*+[0-9]*\" | sed 's/R//' | tail -1"
+    },
+
+    "install":
+    {
+      "latest": "true",
+      "recommended": "9.2",
+      "tarball": "energiminer-2.2.1-Linux.tar.xz",
+      "executable": "energiminer"
+    },
+
+    "compile":
+    {
+      "src_path": "false",
+      "src_repo": "",
+      "src_commit_hash": "",
+      "command": "",
+      "output": ""
+    }
+}
