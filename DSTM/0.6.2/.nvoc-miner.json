@@ -1,7 +1,7 @@
 {
 	"friendlyname": "dstm",
 	"version": "0.6.2",
-	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD --time $DSTM_OPTS ${!xext}"",
+	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD --time $DSTM_OPTS ${!xext}",
 	"devlist_argument": "dev=",
 	"devlist_separator": ",",
 	"devlist_format": "N",
