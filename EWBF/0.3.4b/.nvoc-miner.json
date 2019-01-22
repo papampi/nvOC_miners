@@ -21,7 +21,7 @@
 
 	"install": {
 		"latest": "true",
-		"recommended": "cuda-9.2",
+		"recommended": "9.2",
 		"tarball": "0.3.4b.tar.xz",
 		"executable": "miner"
 	},
