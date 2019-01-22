@@ -21,7 +21,7 @@
 
 	"install": {
 		"latest": "true",
-		"recommended": "cuda-9.2",
+		"recommended": "9.2",
 		"tarball": "z-enemy-1.28-cuda92.tar.xz",
 		"executable": "z-enemy"
 	},
