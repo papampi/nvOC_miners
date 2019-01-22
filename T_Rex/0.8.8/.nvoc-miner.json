@@ -21,7 +21,7 @@
 
 	"install": {
 		"latest": "false",
-		"recommended": "cuda-9.2",
+		"recommended": "false",
 		"tarball": "t-rex-0.8.8-linux-cuda9.2.tar.xz",
 		"executable": "ccminer"
 	},
