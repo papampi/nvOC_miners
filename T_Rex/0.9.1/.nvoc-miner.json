@@ -21,7 +21,7 @@
 
 	"install": {
 		"latest": "true",
-		"recommended": "cuda-9.2",
+		"recommended": "9.2",
 		"tarball": "t-rex-0.9.1-linux-cuda9.2.tar.xz",
 		"executable": "t-rex"
 	},
