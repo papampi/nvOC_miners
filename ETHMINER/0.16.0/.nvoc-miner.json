@@ -24,7 +24,7 @@
     "install":
     {
       "latest": "true",
-      "recommended": "cuda-9.2",
+      "recommended": "9.2",
       "tarball": "ethminer-0.16.0.tar.xz",
       "executable": "ethminer"
     },
