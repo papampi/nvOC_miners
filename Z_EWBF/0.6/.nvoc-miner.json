@@ -21,7 +21,7 @@
 
 	"install": {
 		"latest": "true",
-		"recommended": "cuda-9.2",
+		"recommended": "9.2",
 		"tarball": "z_ewbf_v0.6.tar.xz",
 		"executable": "miner"
 	},
