@@ -21,7 +21,7 @@
 
 	"install": {
 		"latest": "true",
-		"recommended": "cuda-9.2",
+		"recommended": "9.2",
 		"tarball": "CryptoDredge_0.16.1.tar.xz",
 		"executable": "CryptoDredge"
 	},
