@@ -20,7 +20,7 @@
 	},
 
 	"install": {
-		"latest": "true",
+		"latest": "false",
 		"recommended": "9.2",
 		"tarball": "bminer-v10.7.0.tar.xz",
 		"executable": "bminer"
