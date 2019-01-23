@@ -7,7 +7,7 @@
 	"devlist_format": "N",
 
 	"foreman": {
-		"name": "claymore",
+		"name": "claymore-eth",
 		"api_ext": "-mport -3333"
 	},
 
