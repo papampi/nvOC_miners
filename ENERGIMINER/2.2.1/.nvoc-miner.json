@@ -1,7 +1,7 @@
 {
     "friendlyname": "Energiminer",
     "version": "2.2.1",
-    "hcd": "energiminer ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} $ENERGIMINER_OPTS ${!xext} -U",
+    "hcd": "energiminer ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -U",
     "devlist_argument": "--cuda-devices ",
     "devlist_separator": " ",
     "devlist_format": "N",
