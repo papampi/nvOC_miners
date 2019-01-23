@@ -1,7 +1,8 @@
 {
 	"friendlyname": "gminer",
 	"version": "1.15",
-	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD --time $GMINER_OPTS ${!xext}",	"devlist_argument": "devices=",
+	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD --time $GMINER_OPTS ${!xext}",
+	"devlist_argument": "devices=",
 	"devlist_separator": " ",
 	"devlist_format": "N",
 
