@@ -1,7 +1,7 @@
 {
 	"friendlyname": "t-rex",
 	"version": "0.8.8",
-	"hcd": "ccminer $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity} $CCMINER_OPTS ${!xext}",
+	"hcd": "ccminer $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity} ",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
 	"devlist_format": "N",
