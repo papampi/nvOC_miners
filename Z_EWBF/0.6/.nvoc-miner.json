@@ -1,7 +1,7 @@
 {
 	"friendlyname": "EWBF Equihash Cuda Miner",
 	"version": "0.6",
-	"hcd": "miner --fee 0 --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --pass $MINER_PWD --port ${!xport} ",
+	"hcd": "miner --fee $Z_EWBF_PERCENT --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --pass $MINER_PWD --port ${!xport} ",
 	"devlist_argument": "--cuda_devices ",
 	"devlist_separator": " ",
 	"devlist_format": "N",
