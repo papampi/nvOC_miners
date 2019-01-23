@@ -1,7 +1,7 @@
 {
 	"friendlyname": "CryptoDredge",
 	"version": "0.14.0",
-	"hcd": "  CryptoDredge $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity} $CCMINER_OPTS ${!xext}",
+	"hcd": "  CryptoDredge $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity}",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
 	"devlist_format": "N",
