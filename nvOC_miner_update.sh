@@ -135,40 +135,40 @@ function pluggable-installer {
   pm_path=$(dirname "$1")
   pm_output="${pm_path}/nvoc-miner.json"
 
-  if [[ -f $pm && -f $pm_output && $(md5sum $pm | cut -d ' ' -f1) == $(md5sum $pm_output | cut -d ' ' -f1) ]]
+  if [[ -f "$pm" && -f "$pm_output" && $(md5sum "$pm" | cut -d ' ' -f1) == $(md5sum "$pm_output" | cut -d ' ' -f1) ]]
   then
-    echo "$(jq -r .friendlyname ${pm_output}) $(jq -r .version ${pm_output}) for $(jq -r .install.recommended ${pm_output}) is already installed"
+    echo "$(jq -r .friendlyname "${pm_output}") $(jq -r .version "${pm_output}") for $(jq -r .install.recommended "${pm_output}") is already installed"
     return
   fi
 
-  echo "Extracting $(jq -r .friendlyname ${pm}) $(jq -r .version ${pm}) for $(jq -r .install.recommended ${pm})"
+  echo "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}") for $(jq -r .install.recommended "${pm}")"
   mkdir -p "${pm_path}/"
-  tar -xvJf "${pm_path}/$(jq -r .install.tarball ${pm})" -C "${pm_path}" --strip 1
-  chmod a+x $(for ex in $(jq -r .install.executable ${pm}); do echo "${pm_path}/$ex"; done)
+  tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1
+  chmod a+x $(for ex in $(jq -r .install.executable "${pm}"); do echo "${pm_path}/$ex"; done)
   stop-if-needed "${pm_path}"
-  if [[ $CUDA_VER == $(jq -r .install.recommended ${pm}) ]]
+  if [[ $CUDA_VER == $(jq -r .install.recommended "${pm}") ]]
   then
     update-symlink "${pm_path}" ../recommended    
   fi
-  if [[ $(jq -r .install.latest ${pm}) == true ]]
+  if [[ $(jq -r .install.latest "${pm}") == true ]]
   then
     update-symlink "${pm_path}" ../latest    
   fi
   cp -f "$pm" "$pm_output"
   restart-if-needed
 
-  echo "$(jq -r .friendlyname ${pm}) for $(jq -r .install.recommended ${pm}) updated"
+  echo "$(jq -r .friendlyname "${pm}") for $(jq -r .install.recommended "${pm}") updated"
 }
 
 function pluggable-compiler {
   pm="$1"
   pm_path=$(dirname "$1")
-  pm_src="$(jq -r .compile.src_path ${pm})"
-  pm_src_hash="$(jq -r .compile.src_commit_hash ${pm})"
+  pm_src="$(jq -r .compile.src_path "${pm}")"
+  pm_src_hash="$(jq -r .compile.src_commit_hash "${pm}")"
 
   if [[ $pm_src == false ]]
   then
-    echo "${pm}: nothing to compile for $(jq -r .friendlyname ${pm})"
+    echo "${pm}: nothing to compile for $(jq -r .friendlyname "${pm}")"
     return
   fi
 
@@ -180,25 +180,25 @@ function pluggable-compiler {
 
   get-sources "${pm_path}" "${pm_src}" $pm_src_hash
 
-  if [[ ! -d $pm_src ]]
+  if [[ ! -d "$pm_src" ]]
   then
-    echo "${pm}: can't compile $(jq -r .friendlyname ${pm}), no sources available in '${pm_src}'"
+    echo "${pm}: can't compile $(jq -r .friendlyname "${pm}"), no sources available in '${pm_src}'"
     return
   fi
 
   pushd "${pm_path}/${pm_src}"
 
-  echo "Compiling $(jq -r .friendlyname ${pm})"
+  echo "Compiling $(jq -r .friendlyname "${pm}")"
   echo " this will take a while ..."
 
-  eval $(jq -r .compile.command ${pm})
+  eval $(jq -r .compile.command "${pm}")
 
   # TODO: detect compilation failure
 
   stop-if-needed "${pm_path}"
-  cp $(jq -r .compile.output ${pm}) "${pm_path}/"
+  cp $(jq -r .compile.output "${pm}") "${pm_path}/"
   echo
-  echo "Finished compiling $(jq -r .friendlyname ${pm})"
+  echo "Finished compiling $(jq -r .friendlyname "${pm}")"
   restart-if-needed
 
   popd
@@ -564,7 +564,11 @@ then
 fi
 
 IFS=', '
-echo "Select miners to compile (multiple comma separated values: 1,6,7)"
+echo "Miners to compile:"
+echo
+echo "A - Compile ALL opensouce miners"
+echo "E - Exit and do not compile anything"
+echo
 echo "1 - ASccminer"
 echo "2 - KTccminer"
 echo "4 - KXccminer"
@@ -577,7 +581,21 @@ echo "C - cpuminer"
 echo "R - MSFTccminer (RVN)"
 echo "U - SUPRminer"
 echo
-read -p "Do your Choice: [A]LL [1] [2] [3] [4] [5] [6] [7] [8] [9] [C] [R] [U] [X] [E]xit: " -a array
+for pm in $(find "${NVOC_MINERS}"/*/ -name nvoc-miner.json -print)
+do
+  pm_src="$(jq -r .compile.src_path "${pm}")"
+  if [[ $pm_src != false ]]
+  then
+    echo -e "$(dirname "$pm") \t- $(jq -r .friendlyname "${pm}")"
+
+    # pick last found pm compiler as example
+    pm_example=",$(dirname "$pm")"
+  fi
+done
+echo
+echo "  (multiple comma separated values, example: 1,6,R$pm_example)"
+echo
+read -p "Do your Choice: " -a array
 for choice in "${array[@]}"; do
   case "$choice" in
     [Aa]* ) echo "ALL"
