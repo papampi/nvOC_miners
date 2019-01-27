@@ -233,10 +233,12 @@ do
   done
 done
 
-for pm in $(find "${NVOC_MINERS}"/*/ -name .nvoc-miner.json  -not -path "${NVOC_MINERS}/helpers/*" -print)
+pushd "${NVOC_MINERS}"
+for pm in $(find ./*/ -name .nvoc-miner.json  -not -path "./helpers/*" -print)
 do
   pluggable-installer "$pm"
 done
+popd
 
 builtin_miners="ANXccminer ASccminer cpuOPT KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer TPccminer VERTMINER"
 for miner in $builtin_miners
@@ -581,17 +583,20 @@ echo "C - cpuminer"
 echo "R - MSFTccminer (RVN)"
 echo "U - SUPRminer"
 echo
-for pm in $(find "${NVOC_MINERS}"/*/ -name nvoc-miner.json -print)
+pushd "${NVOC_MINERS}"
+for pm in $(find ./*/ -name nvoc-miner.json -print)
 do
   pm_src="$(jq -r .compile.src_path "${pm}")"
   if [[ $pm_src != false ]]
   then
-    echo -e "$(dirname "$pm") \t- $(jq -r .friendlyname "${pm}")"
+    pm_nv="$(dirname "$pm" | cut -d/ -f1 --complement)"
+    echo -e "$pm_nv \t- $(jq -r .friendlyname "${pm}")"
 
     # pick last found pm compiler as example
-    pm_example=",$(dirname "$pm")"
+    pm_example=",$pm_nv"
   fi
 done
+popd
 echo
 echo "  (multiple comma separated values, example: 1,6,R$pm_example)"
 echo
@@ -632,11 +637,13 @@ for choice in "${array[@]}"; do
       compile-cpuminer
       echo
       echo
-      for pm in $(find "${NVOC_MINERS}"/*/ -name nvoc-miner.json -print)
+      pushd "${NVOC_MINERS}"
+      for pm in $(find ./*/ -name nvoc-miner.json -print)
       do
         pluggable-compiler "$pm"
         echo && echo
       done
+      popd
       ;;
     [1]* ) echo -e "$choice"
       compile-ASccminer
@@ -673,7 +680,9 @@ for choice in "${array[@]}"; do
       ;;
     [Ee]* ) echo "exited by user"; break;;
     * ) echo -e "$choice"
-      pms=$(find "${NVOC_MINERS}/$choice" -name nvoc-miner.json -print)
+      pushd "${NVOC_MINERS}"
+      pms=$(find "./$choice" -name nvoc-miner.json -print)
+      popd
       if [[ $pms != "" ]]
       then
         for pm in $pms
