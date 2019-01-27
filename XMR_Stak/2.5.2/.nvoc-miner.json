@@ -24,7 +24,7 @@
   "install":
   {
     "latest": "true",
-    "recommended": "cuda-9.2",
+    "recommended": "9.2",
     "tarball": "xmr-stak-2.5.2.tar.xz",
     "executable": "xmr-stak xmr-stak.nvoc.sh"
   },
