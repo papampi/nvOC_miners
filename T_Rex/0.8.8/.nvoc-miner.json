@@ -7,8 +7,8 @@
 	"devlist_format": "N",
 
 	"foreman": {
-		"name": "t-rex",
-		"api_ext": "-b 127.0.0.1:4068"
+		"name": "trex",
+		"api_ext": "--api-bind-http 127.0.0.1:4067"
 	},
 
 	"minerinfo": {

@@ -8,7 +8,7 @@
 
 	"foreman": {
 		"name": "dstm",
-		"api_ext": "telemetry=0.0.0.0:2222"
+		"api_ext": "--telemetry=0.0.0.0:2222"
 	},
 
 	"minerinfo": {

@@ -1,13 +1,13 @@
 {
 	"friendlyname": "CryptoDredge",
 	"version": "0.14.0",
-	"hcd": "  CryptoDredge $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity}",
+	"hcd": "ccminer $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity}",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
 	"devlist_format": "N",
 
 	"foreman": {
-		"name": "CryptoDredge",
+		"name": "cryptodredge",
 		"api_ext": "-b 127.0.0.1:4068"
 	},
 
