@@ -15,8 +15,8 @@
 
   "install":
   {
-    "latest": "true",
-    "recommended": "9.2",
+    "latest": "false",
+    "recommended": "false",
     "tarball": "xmr-stak-2.5.1.tar.xz",
     "executable": "xmr-stak xmr-stak.nvoc.sh"
   },
