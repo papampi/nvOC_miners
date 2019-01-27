@@ -655,10 +655,13 @@ for choice in "${array[@]}"; do
       ;;
     [Ee]* ) echo "exited by user"; break;;
     * ) echo -e "$choice"
-      pm=$(find "${NVOC_MINERS}/$choice" -name nvoc-miner.json -print)
-      if [[ -f $pm ]]
+      pms=$(find "${NVOC_MINERS}/$choice" -name nvoc-miner.json -print)
+      if [[ $pms != "" ]]
       then
-        pluggable-compiler "$pm"
+        for pm in $pms
+        do
+          pluggable-compiler "$pm"
+        done
       else
         echo "Are you kidding me???"
       fi
