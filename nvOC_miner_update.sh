@@ -145,7 +145,10 @@ function pluggable-installer {
   mkdir -p "${pm_path}/"
   tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1
   IFS=','
-  chmod a+x $(for ex in $(jq -r .install.executable "${pm}"); do echo "${pm_path}/$ex"; done)
+  for ex in $(jq -r .install.executable "${pm}")
+  do
+    chmod a+x "${pm_path}/$ex"
+  done
   unset IFS
   stop-if-needed "${pm_path}"
   if [[ $CUDA_VER == $(jq -r .install.recommended "${pm}") ]]
