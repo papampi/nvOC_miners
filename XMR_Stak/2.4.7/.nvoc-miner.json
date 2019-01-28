@@ -1,7 +1,7 @@
 {
   "friendlyname": "XMR-Stak Cryptonight",
   "version": "2.4.7",
-  "hcd": "xmr-stak.nvoc.sh --currency monero7 --noCPU --noAMD -o \"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\" -i 0",
+  "hcd": "xmr-stak.nvoc.sh --config \"${mpath}/${!xversion}/config.txt\" --poolconf \"${mpath}/${!xversion}/pools.txt\" --nvidia \"${mpath}/${!xversion}/nvidia.txt\" --currency monero7 --noCPU --noAMD -o \"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\" -i 0",
   "devlist_format": 0,
 
   "minerinfo":
