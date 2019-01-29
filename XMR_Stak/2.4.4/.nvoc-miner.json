@@ -18,7 +18,7 @@
     "latest": "false",
     "recommended": "8.0",
     "tarball": "xmr-stak-2.4.4.tar.xz",
-    "executable": "xmr-stak xmr-stak.nvoc.sh"
+    "executable": "xmr-stak,xmr-stak.nvoc.sh"
   },
 
   "compile":

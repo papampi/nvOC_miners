@@ -144,7 +144,12 @@ function pluggable-installer {
   echo "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}") for $(jq -r .install.recommended "${pm}")"
   mkdir -p "${pm_path}/"
   tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1
-  chmod a+x $(for ex in $(jq -r .install.executable "${pm}"); do echo "${pm_path}/$ex"; done)
+  IFS=','
+  for ex in $(jq -r .install.executable "${pm}")
+  do
+    chmod a+x "${pm_path}/$ex"
+  done
+  unset IFS
   stop-if-needed "${pm_path}"
   if [[ $CUDA_VER == $(jq -r .install.recommended "${pm}") ]]
   then
@@ -219,6 +224,7 @@ then
 else
   shipped_miners=
 fi
+unset IFS
 for miner in $shipped_miners
 do
   for _v in $uver8 $uver9 $uver
@@ -233,12 +239,12 @@ do
   done
 done
 
-pushd "${NVOC_MINERS}"
-for pm in $(find ./*/ -name .nvoc-miner.json  -not -path "./helpers/*" -print)
+IFS=','
+for pm in $(find "${NVOC_MINERS}"/*/ -name .nvoc-miner.json  -not -path "${NVOC_MINERS}/helpers/*" -printf "%h/%f,")
 do
   pluggable-installer "$pm"
 done
-popd
+unset IFS
 
 builtin_miners="ANXccminer ASccminer cpuOPT KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer TPccminer VERTMINER"
 for miner in $builtin_miners
@@ -565,7 +571,6 @@ then
   sudo apt -y autoremove  
 fi
 
-IFS=', '
 echo "Miners to compile:"
 echo
 echo "A - Compile ALL opensouce miners"
@@ -583,23 +588,24 @@ echo "C - cpuminer"
 echo "R - MSFTccminer (RVN)"
 echo "U - SUPRminer"
 echo
-pushd "${NVOC_MINERS}"
-for pm in $(find ./*/ -name nvoc-miner.json -print)
+IFS=','
+for pm_h in $(find "${NVOC_MINERS}"/*/ -name nvoc-miner.json -printf "%h,")
 do
-  pm_src="$(jq -r .compile.src_path "${pm}")"
+  pm_src="$(jq -r .compile.src_path "${pm_h}/nvoc-miner.json")"
   if [[ $pm_src != false ]]
   then
-    pm_nv="$(dirname "$pm" | cut -d/ -f1 --complement)"
-    echo -e "$pm_nv \t- $(jq -r .friendlyname "${pm}")"
+    pm_nv="$(realpath --relative-to="${NVOC_MINERS}" "${pm_h}")"
+    echo -e "${pm_nv} \t- $(jq -r .friendlyname "${pm_h}/nvoc-miner.json")"
 
     # pick last found pm compiler as example
-    pm_example=",$pm_nv"
+    pm_example=",${pm_nv}"
   fi
 done
-popd
+unset IFS
 echo
-echo "  (multiple comma separated values, example: 1,6,R$pm_example)"
+echo "  (multiple comma separated values, example: 1,6,R${pm_example})"
 echo
+IFS=', '
 read -p "Do your Choice: " -a array
 for choice in "${array[@]}"; do
   case "$choice" in
@@ -637,13 +643,13 @@ for choice in "${array[@]}"; do
       compile-cpuminer
       echo
       echo
-      pushd "${NVOC_MINERS}"
-      for pm in $(find ./*/ -name nvoc-miner.json -print)
+      IFS=','
+      for pm in $(find "${NVOC_MINERS}"/*/ -name nvoc-miner.json -printf "%h/%f,")
       do
         pluggable-compiler "$pm"
         echo && echo
       done
-      popd
+      unset IFS
       ;;
     [1]* ) echo -e "$choice"
       compile-ASccminer
@@ -680,15 +686,15 @@ for choice in "${array[@]}"; do
       ;;
     [Ee]* ) echo "exited by user"; break;;
     * ) echo -e "$choice"
-      pushd "${NVOC_MINERS}"
-      pms=$(find "./$choice" -name nvoc-miner.json -print)
-      popd
+      pms=$(find "${NVOC_MINERS}/$choice" -name nvoc-miner.json -printf "%h/%f,")
       if [[ $pms != "" ]]
       then
+        IFS=','
         for pm in $pms
         do
           pluggable-compiler "$pm"
         done
+        unset IFS
       else
         echo "Are you kidding me???"
       fi
@@ -702,3 +708,4 @@ for choice in "${array[@]}"; do
   fi
   
 done
+unset IFS
