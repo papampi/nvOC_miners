@@ -1,13 +1,13 @@
 {
 	"friendlyname": "Claymore",
 	"version": "11.9",
-	"hcd": "ethdcrminer64 -epool ${!xpool}:${!xport} -ewal ${!xaddr}${!xwallet}${!xwork} -epsw $MINER_PWD -mode 1 -dbg -1 ${!xext} $CLAYMORE_OPTS",
+	"hcd": "ethdcrminer64 -epool ${!xpool}:${!xport} -ewal ${!xaddr}${!xwallet}${!xwork} -epsw $MINER_PWD -mode 1 -dbg -1 ",
 	"devlist_argument": "-di ",
 	"devlist_separator": "",
 	"devlist_format": "N",
 
 	"foreman": {
-		"name": "claymore",
+		"name": "claymore-eth",
 		"api_ext": "-mport -3333"
 	},
 

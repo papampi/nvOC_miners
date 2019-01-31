@@ -8,7 +8,7 @@
 
 	"foreman": {
 		"name": "gminer",
-		"api_ext": "api=10555 "
+		"api_ext": "--api 10555"
 	},
 
 	"minerinfo": {
