@@ -34,8 +34,8 @@ CLAYMORE_compiled_tarball="Claymore-v12.0.tar.xz"
 CryptoDredge_ver_8="0.10.0"
 CryptoDredge_compiled_tarball_ver_8="CryptoDredge_0.10.0.tar.xz"
 
-CryptoDredge_ver_9="0.15.0"
-CryptoDredge_compiled_tarball_ver_9="CryptoDredge_0.15.1_linux_x64_cuda_9.2.tar.xz"
+CryptoDredge_ver_9="0.16.1"
+CryptoDredge_compiled_tarball_ver_9="CryptoDredge_0.16.1.tar.xz"
 
 DSTM_ver="0.6.2"
 DSTM_compiled_tarball="DSTM_0.6.2.tar.xz"
