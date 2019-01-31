@@ -1,14 +1,14 @@
 {
 	"friendlyname": "ewbf",
 	"version": "0.3.4b",
-	"hcd": "miner --eexit 3 --fee $EWBF_PERCENT --pec --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --pass $MINER_PWD --port ${!xport} $OPTS",
+	"hcd": "miner --eexit 3 --fee $EWBF_PERCENT --pec --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --pass $MINER_PWD --port ${!xport}",
 	"devlist_argument": "--cuda-devices ",
 	"devlist_separator": " ",
 	"devlist_format": "N",
 
 	"foreman": {
 		"name": "ewbf",
-		"api_ext": "--api-port 42000"
+		"api_ext": "--api 127.0.0.1:42000"
 	},
 
 	"minerinfo": {

@@ -1,14 +1,14 @@
 {
 	"friendlyname": "dstm",
 	"version": "0.6.2",
-	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD --time $DSTM_OPTS ${!xext}",
+	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD --time",
 	"devlist_argument": "dev=",
 	"devlist_separator": ",",
 	"devlist_format": "N",
 
 	"foreman": {
 		"name": "dstm",
-		"api_ext": "telemetry=0.0.0.0:2222"
+		"api_ext": "--telemetry=0.0.0.0:2222"
 	},
 
 	"minerinfo": {
