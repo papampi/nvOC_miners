@@ -14,50 +14,11 @@ fi
 
 ## Miner versions and tarballs
 
-ANXccminer_ver_8="1.0"
-ANXccminer_compiled_tarball_ver_8="ANXccminer.tar.xz"
-ANXccminer_src_hash_ver_8="cd6fab68823e247bb84dd1fa0448d5f75ec4917d"
-
-ASccminer_ver_8="1.0"
-ASccminer_compiled_tarball_ver_8="ASccminer.tar.xz"
-ASccminer_src_hash_ver_8="baf6c9e4e36c9cc1b67698ee2977d445f598c573"
-
-KTccminer_ver_8="8.20"
-KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
-KTccminer_src_hash_ver_8="c5ab73837c8024f1e6b8fe7ad46e6881fb8366e6"
-
-KTccminer_ver_9="8.22"
-KTccminer_compiled_tarball_ver_9="KTccminer-8.22.tar.xz"
-KTccminer_src_hash_ver_9="2e457923f3125fbaedf5d8ba1f7d0fafc85b0ba8"
-
-KXccminer_ver_8="0.1"
-KXccminer_compiled_tarball_ver_8="KXccminer.tar.xz"
-KXccminer_src_hash_ver_8="7d41d49b92db27b9ab80270adaa92f6b06d1ef78"
-
 LOLMINER_ver="0.43"
 LOLMINER_compiled_tarball="lolMiner_v043_Lin64.tar.xz"
 
-MSFTccminer_ver_8="2.2.5"
-MSFTccminer_compiled_tarball_ver_8="MSFTccminer.tar.xz"
-MSFTccminer_src_hash_ver_8="78dad7dd659eae72a07d2448de62b1946c1f2b41"
-
-NAccminer_ver_8="2.2"
-NAccminer_compiled_tarball_ver_8="nanashi-ccminer-2.2-mod-r2.tar.xz"
-NAccminer_src_hash_ver_8="8affcb9cd09edd917d33c1ed450f23400f571bdb"
-
 PhoenixMiner_ver="3.5d"
 PhoenixMiner_compiled_tarball="PhoenixMiner_3.5d_Linux.tar.xz"
-
-SILENTminer_ver_8="1.10"
-SILENTminer_compiled_tarball_ver_8="SILENTminer.v1.1.0.tar.xz"
-
-SPccminer_ver_8="1.8.2"
-SPccminer_compiled_tarball_ver_8="SPccminer.tar.xz"
-SPccminer_src_hash_ver_8="9e86bdd24ed7911b698f1d0ef61a4028fcbd13c5"
-
-SUPRminer_ver_8="1.5"
-SUPRminer_compiled_tarball_ver_8="SUPRminer-1.5.tar.xz"
-SUPRminer_src_hash_ver_8="c800f1a803e1b2074ed2a7c15023c096d0772048"
 
 TPccminer_ver_8="2.2.5"
 TPccminer_compiled_tarball_ver_8="TPccminer.tar.xz"
@@ -66,10 +27,6 @@ TPccminer_src_hash_ver_8="a81ab0f7a557a12a21d716dd03537bc8633fd176"
 TPccminer_ver_9="2.3"
 TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
 TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
-
-VERTMINER_ver_8="1.0.2"
-VERTMINER_compiled_tarball_ver_8="vertminer-nvidia-1.0-stable.2.tar.xz"
-VERTMINER_src_hash_ver_8="48b170a5828256600ca71e66d4c114af4e114236"
 
 cpuOPT_ver="3.8.8.1"
 cpuOPT_compiled_tarball="cpuOPT.tar.xz"
@@ -248,7 +205,7 @@ do
 done
 unset IFS
 
-builtin_miners="ANXccminer ASccminer cpuOPT KTccminer KXccminer LOLMINER MSFTccminer NAccminer PhoenixMiner SILENTminer SPccminer SUPRminer TPccminer VERTMINER"
+builtin_miners="cpuOPT LOLMINER PhoenixMiner TPccminer"
 for miner in $builtin_miners
 do
   executable="ccminer"
@@ -339,146 +296,6 @@ echo
 echo
 
 
-function compile-ANXccminer {
-  echo "Compiling ANXccminer"
-  echo " This could take a while ..."
-  get-sources ${NVOC_MINERS}/ANXccminer src $ANXccminer_src_hash_ver_8
-  pushd ${NVOC_MINERS}/ANXccminer/src
-  bash ${NVOC_MINERS}/ANXccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/ANXccminer/src/configure --with-cuda=/usr/local/cuda-8.0
-  bash ${NVOC_MINERS}/ANXccminer/src/build.sh
-  stop-if-needed "[A]NXccminer"
-  cp ${NVOC_MINERS}/ANXccminer/src/ccminer ${NVOC_MINERS}/ANXccminer/ccminer
-  popd
-  echo
-  echo "Finished compiling ANXccminer"
-  restart-if-needed
-}
-
-
-function compile-ASccminer {
-  echo "Compiling Alexis ccminer"
-  echo " This could take a while ..."
-  get-sources ${NVOC_MINERS}/ASccminer src $ASccminer_src_hash_ver_8
-  pushd ${NVOC_MINERS}/ASccminer/src
-  bash ${NVOC_MINERS}/ASccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/ASccminer/src/configure --with-cuda=/usr/local/cuda-8.0
-  bash ${NVOC_MINERS}/ASccminer/src/build.sh
-  stop-if-needed "[A]Sccminer"
-  cp ${NVOC_MINERS}/ASccminer/src/ccminer ${NVOC_MINERS}/ASccminer/ccminer
-  popd
-  echo
-  echo "Finished compiling Alexis ccminer"
-  restart-if-needed
-}
-
-
-function compile-KTccminer {
-  echo "Compiling klaust ccminer"
-  echo " This could take a while ..."
-  if [[ $CUDA_VER == "8.0" ]]
-  then
-    get-sources ${NVOC_MINERS}/KTccminer src $KTccminer_src_hash_ver_8
-  else
-    get-sources ${NVOC_MINERS}/KTccminer src $KTccminer_src_hash_ver_9
-  fi
-  pushd ${NVOC_MINERS}/KTccminer/src
-  bash ${NVOC_MINERS}/KTccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/KTccminer/src/configure --with-cuda=/usr/local/cuda-$CUDA_VER
-  bash ${NVOC_MINERS}/KTccminer/src/build.sh
-  stop-if-needed "[K]Tccminer"
-  cp ${NVOC_MINERS}/KTccminer/src/ccminer ${NVOC_MINERS}/KTccminer/ccminer
-  popd
-  echo
-  echo "Finished compiling klaust ccminer"
-  restart-if-needed
-}
-
-function compile-KXccminer {
-  echo "Compiling ccminer krnlx"
-  echo " This could take a while ..."
-  get-sources ${NVOC_MINERS}/KXccminer src $KXccminer_src_hash_ver_8
-  pushd ${NVOC_MINERS}/KXccminer/src
-  bash ${NVOC_MINERS}/KXccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/KXccminer/src/configure --with-cuda=/usr/local/cuda-8.0
-  bash ${NVOC_MINERS}/KXccminer/src/build.sh
-  stop-if-needed "[K]Xccminer"
-  cp ${NVOC_MINERS}/KXccminer/src/ccminer ${NVOC_MINERS}/KXccminer/ccminer
-  popd
-  echo
-  echo "Finished compiling ccminer krnlx"
-  restart-if-needed
-}
-
-
-function compile-MSFTccminer {
-  echo "Compiling MSFTccminer"
-  echo " This could take a while ..."
-  get-sources ${NVOC_MINERS}/MSFTccminer src $MSFTccminer_src_hash_ver_8
-  pushd ${NVOC_MINERS}/MSFTccminer/src
-  bash ${NVOC_MINERS}/MSFTccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/MSFTccminer/src/configure --with-cuda=/usr/local/cuda-8.0
-  bash ${NVOC_MINERS}/MSFTccminer/src/build.sh
-  stop-if-needed "[M]SFTccminer"
-  cp ${NVOC_MINERS}/MSFTccminer/src/ccminer ${NVOC_MINERS}/MSFTccminer/ccminer
-  popd
-  echo
-  echo "Finished compiling MSFTccminer"
-  restart-if-needed
-}
-
-
-function compile-NAccminer {
-  echo "Compiling Nanashi ccminer"
-  echo " This could take a while ..."
-  get-sources ${NVOC_MINERS}/NAccminer src $NAccminer_src_hash_ver_8
-  pushd ${NVOC_MINERS}/NAccminer/src
-  bash ${NVOC_MINERS}/NAccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/NAccminer/src/configure --with-cuda=/usr/local/cuda-8.0
-  bash ${NVOC_MINERS}/NAccminer/src/build.sh
-  stop-if-needed "[N]Accminer"
-  cp ${NVOC_MINERS}/NAccminer/src/ccminer ${NVOC_MINERS}/NAccminer/ccminer
-  popd
-  echo
-  echo "Finished compiling Nanashi ccminer "
-  restart-if-needed
-}
-
-
-function compile-SPccminer {
-  echo "Compiling ccminer SP-Mod"
-  echo " This could take a while ..."
-  get-sources ${NVOC_MINERS}/SPccminer src $SPccminer_src_hash_ver_8
-  pushd ${NVOC_MINERS}/SPccminer/src
-  bash ${NVOC_MINERS}/SPccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/SPccminer/src/configure --with-cuda=/usr/local/cuda-8.0
-  bash ${NVOC_MINERS}/SPccminer/src/build.sh
-  stop-if-needed "[N]Accminer"
-  cp ${NVOC_MINERS}/SPccminer/src/ccminer ${NVOC_MINERS}/SPccminer/ccminer
-  popd
-  echo
-  echo "Finished compiling ccminer SP-Mod"
-  restart-if-needed
-}
-
-
-function compile-SUPRminer {
-  echo "Compiling SUPRminer"
-  echo " This could take a while ..."
-  get-sources ${NVOC_MINERS}/SUPRminer src $SUPRminer_src_hash_ver_8
-  pushd ${NVOC_MINERS}/SUPRminer/src
-  bash ${NVOC_MINERS}/SUPRminer/src/autogen.sh
-  bash ${NVOC_MINERS}/SUPRminer/src/configure --with-cuda=/usr/local/cuda-8.0
-  bash ${NVOC_MINERS}/SUPRminer/src/build.sh
-  stop-if-needed "[S]UPRccminer"
-  cp ${NVOC_MINERS}/SUPRminer/src/ccminer ${NVOC_MINERS}/SUPRminer/ccminer
-  popd
-  echo
-  echo "Finished compiling SUPRminer"
-  restart-if-needed
-}
-
-
 function compile-TPccminer {
   echo "Compiling tpruvot ccminer"
   echo " This could take a while ..."
@@ -500,22 +317,6 @@ function compile-TPccminer {
   restart-if-needed
 }
 
-
-function compile-VERTMINER {
-  echo "Compiling VERTMINER"
-  echo " This could take a while ..."
-  get-sources ${NVOC_MINERS}/VERTMINER src $VERTMINER_src_hash_ver_8
-  pushd ${NVOC_MINERS}/VERTMINER/src
-  bash ${NVOC_MINERS}/VERTMINER/src/autogen.sh
-  bash ${NVOC_MINERS}/VERTMINER/src/configure --with-cuda=/usr/local/cuda-8.0
-  bash ${NVOC_MINERS}/VERTMINER/src/build.sh
-  stop-if-needed "[v]ertminer"
-  cp ${NVOC_MINERS}/VERTMINER/src/vertminer ${NVOC_MINERS}/VERTMINER/vertminer
-  popd
-  echo
-  echo "Finished compiling VERTMINER"
-  restart-if-needed
-}
 
 function compile-cpuminer {
   echo "Compiling cpuminer"
@@ -578,17 +379,8 @@ echo
 echo "A - Compile ALL opensouce miners"
 echo "E - Exit and do not compile anything"
 echo
-echo "1 - ASccminer"
-echo "2 - KTccminer"
-echo "4 - KXccminer"
-echo "5 - NAccminer"
-echo "6 - SPccminer"
-echo "7 - TPccminer"
-echo "8 - VERTMINER"
-echo "9 - ANXccminer"
-echo "C - cpuminer"
-echo "R - MSFTccminer (RVN)"
-echo "U - SUPRminer"
+echo "0 - TPccminer"
+echo "1 - cpuminer"
 echo
 IFS=','
 for pm_h in $(find "${NVOC_MINERS}"/*/ -name nvoc-miner.json -printf "%h,")
@@ -612,34 +404,7 @@ read -p "Do your Choice: " -a array
 for choice in "${array[@]}"; do
   case "$choice" in
     [Aa]* ) echo "ALL"
-      compile-ASccminer
-      echo
-      echo
-      compile-KTccminer
-      echo
-      echo
-      compile-KXccminer
-      echo
-      echo
-      compile-NAccminer
-      echo
-      echo
-      compile-SPccminer
-      echo
-      echo
       compile-TPccminer
-      echo
-      echo
-      compile-VERTMINER
-      echo
-      echo
-      compile-ANXccminer
-      echo
-      echo
-      compile-MSFTccminer
-      echo
-      echo
-      compile-SUPRminer
       echo
       echo
       compile-cpuminer
@@ -653,38 +418,11 @@ for choice in "${array[@]}"; do
       done
       unset IFS
       ;;
-    [1]* ) echo -e "$choice"
-      compile-ASccminer
-      ;;
-    [2]* ) echo -e "$choice"
-      compile-KTccminer
-      ;;
-    [4]* ) echo -e "$choice"
-      compile-KXccminer
-      ;;
-    [5]* ) echo -e "$choice"
-      compile-NAccminer
-      ;;
-    [6]* ) echo -e "$choice"
-      compile-SPccminer
-      ;;
-    [7]* ) echo -e "$choice"
+    [0]* ) echo -e "$choice"
       compile-TPccminer
       ;;
-    [8]* ) echo -e "$choice"
-      compile-VERTMINER
-      ;;
-    [9]* ) echo -e "$choice"
-      compile-ANXccminer
-      ;;
-    [C]* ) echo -e "$choice"
+    [1]* ) echo -e "$choice"
       compile-cpuminer
-      ;;
-    [R]* ) echo -e "$choice"
-      compile-MSFTccminer
-      ;;
-    [U]* ) echo -e "$choice"
-      compile-SUPRminer
       ;;
     [Ee]* ) echo "exited by user"; break;;
     * ) echo -e "$choice"
