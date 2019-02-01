@@ -14,8 +14,8 @@ fi
 
 ## Miner versions and tarballs
 
-LOLMINER_ver="0.43"
-LOLMINER_compiled_tarball="lolMiner_v043_Lin64.tar.xz"
+LOLMINER_ver="0.6"
+LOLMINER_compiled_tarball="lolMiner_v06_Lin64.tar.xz"
 
 PhoenixMiner_ver="3.5d"
 PhoenixMiner_compiled_tarball="PhoenixMiner_3.5d_Linux.tar.xz"
