@@ -99,20 +99,21 @@ function get-sources {
   then
     chckt_cmd="git -C $1 submodule update --init --force --depth 1 $2"
   else
-    git -C $1 submodule update --init --force --depth 1 $2
+    git -C "$1" submodule update --init --force --depth 1 $2
     chckt_cmd="git -C $1/$2 checkout --force $3"
   fi
 
-  if ! ${chckt_cmd}
+  echo "Checking out from branch tip..."
+  if ! eval ${chckt_cmd}
   then
     echo "Checkout from shallow clone failed, fetching old commits..."
     git -C "$1/$2" fetch --unshallow
-    if ! ${chckt_cmd}
+    if ! eval ${chckt_cmd}
     then
       echo "Checkout from default branch failed, fetching other branches..."
       git -C "$1/$2" remote set-branches origin '*'
       git -C "$1/$2" fetch
-      if ! ${chckt_cmd}
+      if ! eval ${chckt_cmd}
       then
         echo "Unable to checkout submodule, can't find target commit."
       fi
@@ -178,14 +179,15 @@ function pluggable-compiler {
   fi
 
   echo "Initializing sources submodule"
-  if ! git submodule init "$1/$2"
+  if ! git submodule init "${pm_path}/${pm_src}"
   then
+    echo "Registering new submodule in '${pm_path}'"
     git -C "${pm_path}" submodule add ${pm_src_repo} "${pm_src}"
   fi
 
   get-sources "${pm_path}" "${pm_src}" $pm_src_hash
 
-  if [[ ! -d "$pm_src" ]]
+  if [[ ! -d "${pm_path}/${pm_src}" ]]
   then
     echo "${pm}: can't compile $(jq -r .friendlyname "${pm}"), no sources available in '${pm_src}'"
     return
@@ -553,7 +555,7 @@ then
   echo "bn.h openssl already fixed for compiling miners"
   echo
 else
-  cd ~/Downloads
+  pushd ~/Downloads
   wget -nv --no-check-certificate http://www.openssl.org/source/openssl-1.0.1e.tar.gz
   tar -xvzf openssl-1.0.1e.tar.gz
   cp /usr/local/include/openssl/bn.h ~/Downloads/openssl-1.0.1e/bn.h.backup
@@ -562,7 +564,7 @@ else
   echo
   echo "bn.h openssl fixed for compiling miners"
   echo
-  cd ${NVOC_MINERS}
+  popd
 fi
 
 if apt list --installed | grep -q "libcurl3/" 
@@ -700,12 +702,6 @@ for choice in "${array[@]}"; do
       fi
       ;;
   esac
- 
-  if ! apt list --installed | grep -q "libcurl3/" 
-  then 
-    sudo apt -y install libcurl3
-    sudo apt -y autoremove  
-  fi
   
 done
 unset IFS
