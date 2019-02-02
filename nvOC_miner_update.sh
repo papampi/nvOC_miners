@@ -12,6 +12,16 @@ then
   CUDA_VER="8.0"
 fi
 
+# Installing Energiminer Dependencies"
+if [ ! -f /etc/apt/sources.list.d/ubuntu-toolchain-r-ubuntu-test-bionic.list ] 
+then 
+  echo "Installing Energiminer Dependencies"
+  sudo apt --assume-yes install software-properties-common 
+  sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  sudo apt --assume-yes install gcc-4.9 
+  sudo apt upgrade libstdc++6 
+fi
+
 ## Miner versions and tarballs
 
 LOLMINER_ver="0.6"
@@ -205,19 +215,13 @@ do
 done
 unset IFS
 
-builtin_miners="cpuOPT LOLMINER PhoenixMiner TPccminer"
+builtin_miners="cpuOPT PhoenixMiner TPccminer"
 for miner in $builtin_miners
 do
   executable="ccminer"
-  if [[ $miner == DSTM ]]
-  then
-    executable="miner"
-  elif [[ $miner == cpuOPT ]]
+  if [[ $miner == cpuOPT ]]
   then
     executable="cpuminer"
-  elif [[ $miner == LOLMINER ]]
-  then
-    executable="lolMiner"
   elif [[ $miner == PhoenixMiner ]]
   then
     executable="PhoenixMiner"
