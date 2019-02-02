@@ -1,7 +1,7 @@
 {
 	"friendlyname": "lolMiner",
 	"version": "0.6",
-	"hcd": "lolMiner --coin $COIN --pool ${!xpool} --port ${!xport} --user ${!xaddr}${!xwallet}${!xwork} --kernelsdir \${mpath}/${!xversion}/kernels\,
+	"hcd": "lolMiner --coin $COIN --pool ${!xpool} --port ${!xport} --user ${!xaddr}${!xwallet}${!xwork} --kernelsdir \"${mpath}/${!xversion}/kernels\"",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
 	"devlist_format": "N",
