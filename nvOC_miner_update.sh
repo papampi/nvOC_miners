@@ -57,8 +57,8 @@ EWBF_compiled_tarball="0.3.4b.tar.xz"
 Z_EWBF_ver="0.6"
 Z_EWBF_compiled_tarball="z_ewbf_v0.6.tar.xz"
 
-GMINER_ver="1.15"
-GMINER_compiled_tarball="gminer_1_15_minimal_linux64.tar.xz"
+GMINER_ver="1.25"
+GMINER_compiled_tarball="gminer_1_25_minimal_linux64.tar.xz"
 
 KTccminer_ver_8="8.20"
 KTccminer_compiled_tarball_ver_8="KTccminer.tar.xz"
