@@ -25,8 +25,8 @@ ASccminer_src_hash_ver_8="baf6c9e4e36c9cc1b67698ee2977d445f598c573"
 BMINER_ver_8="10.5.0"
 BMINER_compiled_tarball_ver_8="bminer-v10.5.0.tar.xz"
 
-BMINER_ver_9="10.7.0"
-BMINER_compiled_tarball_ver_9="bminer-v10.7.0.tar.xz"
+BMINER_ver_9="14.3.1"
+BMINER_compiled_tarball_ver_9="bminer-v14.3.1.tar.xz"
 
 CLAYMORE_ver="12.0"
 CLAYMORE_compiled_tarball="Claymore-v12.0.tar.xz"
