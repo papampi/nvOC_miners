@@ -91,8 +91,8 @@ NAccminer_ver_8="2.2"
 NAccminer_compiled_tarball_ver_8="nanashi-ccminer-2.2-mod-r2.tar.xz"
 NAccminer_src_hash_ver_8="8affcb9cd09edd917d33c1ed450f23400f571bdb"
 
-PhoenixMiner_ver="3.5d"
-PhoenixMiner_compiled_tarball="PhoenixMiner_3.5d_Linux.tar.xz"
+PhoenixMiner_ver="4.1c"
+PhoenixMiner_compiled_tarball="PhoenixMiner_4.1c_Linux.tar.xz"
 
 SILENTminer_ver_8="1.10"
 SILENTminer_compiled_tarball_ver_8="SILENTminer.v1.1.0.tar.xz"
