@@ -1,7 +1,7 @@
 {
 	"friendlyname": "Phoenix",
 	"version": "12.0",
-	"hcd": "PhoenixMiner -pool ${!xproto}://${!xpool}:${!xport} -wal ${!xaddr}  -worker ${!xwork} -pass $MINER_PWD -coin $UCCCOIN -wdog 1 -rmode 0 -nvidia",
+	"hcd": "PhoenixMiner -pool ${!xproto}://${!xpool}:${!xport} -wal ${!xaddr} -worker ${!xwork} -pass $MINER_PWD -coin $UCCCOIN -wdog 1 -rmode 0 -nvidia",
 	"devlist_argument": "-gpus",
 	"devlist_separator": "",
 	"devlist_format": "N",
