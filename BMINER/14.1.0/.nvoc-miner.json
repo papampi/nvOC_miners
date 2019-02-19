@@ -1,14 +1,14 @@
 {
 	"friendlyname": "bminer",
 	"version": "14.1.0",
-	"hcd": "bminer -uri ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport}",
+	"hcd": "bminer -uri ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -rmode 0 ",
 	"devlist_argument": "-devices ",
 	"devlist_separator": ",",
 	"devlist_format": "N",
 
 	"foreman": {
 		"name": "bminer",
-		"api_ext": "-api 127.0.0.1:1880"
+		"api_ext": "-cdmport 127.0.0.1:1880"
 	},
 
 	"minerinfo": {
