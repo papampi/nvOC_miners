@@ -1,0 +1,35 @@
+{
+	"friendlyname": "bminer",
+	"version": "15.0.0",
+	"hcd": "bminer -uri ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -watchdog=false",
+	"devlist_argument": "-devices ",
+	"devlist_separator": ",",
+	"devlist_format": "N",
+
+	"foreman": {
+		"name": "bminer",
+		"api_ext": "-api 127.0.0.1:1880"
+	},
+
+	"minerinfo": {
+		"total_hash": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep -o \"Total [0-9]*\" | awk '{print $2}' | awk '{s+=$1} END {printf \"%.0f\", s}'",
+		"hash_count": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep -o \"Total [0-9]*\" | awk '{print $2}' | grep -v grep | wc -l | awk '{print $1}'",
+		"solution_speed_unit": "Mh/s",
+		"miner_error": "false",
+		"rejected_shares": "false"
+	},
+
+	"install": {
+		"latest": "true",
+		"recommended": "9.2",
+		"tarball": "bminer-v15.0.0.tar.xz",
+		"executable": "bminer"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
+	}
+}
