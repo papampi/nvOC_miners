@@ -8,7 +8,7 @@
 
 	"foreman": {
 		"name": "bminer",
-		"api_ext": "-cdmport 127.0.0.1:1880"
+		"api_ext": "-api 127.0.0.1:1880"
 	},
 
 	"minerinfo": {
