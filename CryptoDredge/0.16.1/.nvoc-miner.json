@@ -20,8 +20,8 @@
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "9.2",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "CryptoDredge_0.16.1.tar.xz",
 		"executable": "CryptoDredge"
 	},
