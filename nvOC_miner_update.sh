@@ -19,7 +19,7 @@ then
   sudo apt --assume-yes install software-properties-common 
   sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   sudo apt --assume-yes install gcc-4.9 
-  sudo apt upgrade libstdc++6 
+  sudo apt upgrade libstdc++6 -y
 fi
 
 ## Miner versions and tarballs
