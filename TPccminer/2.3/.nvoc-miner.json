@@ -24,7 +24,7 @@
   {
     "latest": "true",
     "recommended": "9.2",
-    "tarball": "TPccminer2.3.tar.xz",
+    "tarball": "TPccminer-2.3.tar.xz",
     "executable": "ccminer"
   },
 
@@ -33,7 +33,7 @@
     "src_path": "../src",
     "src_repo": "https://github.com/tpruvot/ccminer/",
     "src_commit_hash": "370684f7435d1256cbabef4410a57ed5bc705fdc",
-    "command": "bash autogen.sh && bash configure && bash build.sh",
+    "command": "bash autogen.sh && bash configure --with-cuda=/usr/local/cuda-9.2 && bash build.sh",
     "output": "ccminer"
   }
 }
