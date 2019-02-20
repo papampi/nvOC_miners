@@ -127,11 +127,13 @@ function pluggable-compiler {
     return
   fi
 
+  pm_src_full=$(realpath --relative-to="${NVOC_MINERS}" "${pm_path}/${pm_src}")
+
   echo "Initializing sources submodule"
-  if ! git submodule init "${pm_path}/${pm_src}"
+  if ! git submodule init "${pm_src_full}"
   then
-    echo "Registering new submodule in '${pm_path}'"
-    git -C "${pm_path}" submodule add ${pm_src_repo} "${pm_src}"
+    echo "Registering new submodule in '${pm_src_full}'"
+    git -C "${NVOC_MINERS}" submodule add ${pm_src_repo} "${pm_src_full}"
   fi
 
   get-sources "${pm_path}" "${pm_src}" $pm_src_hash
