@@ -8,7 +8,7 @@
 
   "foreman": {
 		"name": "tpruvot",
-		"api_ext": "-b 127.0.0.1:1880"
+		"api_ext": "-b 127.0.0.1:4068"
 	},
   
   "minerinfo":
