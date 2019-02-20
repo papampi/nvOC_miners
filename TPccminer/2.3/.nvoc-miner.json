@@ -1,7 +1,7 @@
 {
   "friendlyname": "tpruvot ccminer",
   "version": "2.3",
-  "hcd": "ccminer -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD $UCCALGO",
+  "hcd": "ccminer -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD $UCCALGO -i ${!xintensity}",
   "devlist_argument": "--devices ",
   "devlist_separator": ",",
   "devlist_format": "N",
