@@ -7,7 +7,7 @@
   "devlist_format": "N",
 
   "foreman": {
-		"name": "tpruvot",
+		"name": "ccminer-tpruvot",
 		"api_ext": "-b 127.0.0.1:4068"
 	},
   
