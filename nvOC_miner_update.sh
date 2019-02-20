@@ -124,9 +124,9 @@ XMR_Stak_ver_8="2.4.4"
 XMR_Stak_compiled_tarball_ver_8="xmr-stak-2.4.4.tar.xz"
 XMR_Stak_src_hash_ver_8="c0ab1734332d6472225d8ac7394f6fcba71aabc9"
 
-XMR_Stak_ver_9="2.5.2"
-XMR_Stak_compiled_tarball_ver_9="xmr-stak-2.5.2.tar.xz"
-XMR_Stak_src_hash_ver_9="752fd1e7e228cc488d77d771b4615a8eb9fa9c86"
+XMR_Stak_ver_9="2.8.3"
+XMR_Stak_compiled_tarball_ver_9="xmr-stak-linux-2.8.3-cpu_cuda-nvidia.tar.xz	"
+XMR_Stak_src_hash_ver_9="e785ca1bc749e4d1684d7a69f18d43027f568c5e"
 
 ZENEMYminer_ver_8="1.10"
 ZENEMYminer_compiled_tarball_ver_8="z-enemy-1.10-cuda80.tar.xz"
