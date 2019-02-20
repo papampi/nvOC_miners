@@ -16,31 +16,13 @@ fi
 if [ ! -f /etc/apt/sources.list.d/ubuntu-toolchain-r-ubuntu-test-bionic.list ] 
 then 
   echo "Installing Energiminer Dependencies"
-  sudo apt --assume-yes install software-properties-common 
-  sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  sudo apt --assume-yes install gcc-4.9 
-  sudo apt upgrade libstdc++6 -y
+  sudo apt -y install software-properties-common 
+  sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  sudo apt -y install gcc-4.9 
+  sudo apt -y upgrade libstdc++6
 fi
 
 ## Miner versions and tarballs
-
-LOLMINER_ver="0.6"
-LOLMINER_compiled_tarball="lolMiner_v06_Lin64.tar.xz"
-
-PhoenixMiner_ver="3.5d"
-PhoenixMiner_compiled_tarball="PhoenixMiner_3.5d_Linux.tar.xz"
-
-TPccminer_ver_8="2.2.5"
-TPccminer_compiled_tarball_ver_8="TPccminer.tar.xz"
-TPccminer_src_hash_ver_8="a81ab0f7a557a12a21d716dd03537bc8633fd176"
-
-TPccminer_ver_9="2.3"
-TPccminer_compiled_tarball_ver_9="TPccminer-2.3.tar.xz"
-TPccminer_src_hash_ver_9="370684f7435d1256cbabef4410a57ed5bc705fdc"
-
-cpuOPT_ver="3.8.8.1"
-cpuOPT_compiled_tarball="cpuOPT.tar.xz"
-cpuOPT_src_ver="bfd1c002f98f2d63f2174618838afc28cf4ffffe"
 
 function stop-if-needed {
   if ps ax | grep miner | grep -v grep | grep -q "$1"
@@ -185,113 +167,12 @@ ucompiled8="_compiled_tarball_ver_8"
 ucompiled9="_compiled_tarball_ver_9"
 ucompiled="_compiled_tarball"
 
-if [[ -d ${NVOC_MINERS}/helpers/miners ]]
-then
-  pushd ${NVOC_MINERS}/helpers/miners
-  shipped_miners=$(find ./*/ -name .nvoc-miner.json -print | cut -d/ -f2 | sort -u )
-  popd
-else
-  shipped_miners=
-fi
-unset IFS
-for miner in $shipped_miners
-do
-  for _v in $uver8 $uver9 $uver
-  do
-    vminer=$miner$_v
-    if [[ -f ${NVOC_MINERS}/helpers/miners/${miner}/${!vminer}/.nvoc-miner.json ]]
-    then
-      echo "Checking ${miner} version ${!vminer}"
-      mkdir -p ${NVOC_MINERS}/${miner}/${!vminer}/
-      cp ${NVOC_MINERS}/helpers/miners/${miner}/${!vminer}/.nvoc-miner.json  ${NVOC_MINERS}/${miner}/${!vminer}/
-    fi
-  done
-done
-
 IFS=','
 for pm in $(find "${NVOC_MINERS}"/*/ -name .nvoc-miner.json  -not -path "${NVOC_MINERS}/helpers/*" -printf "%h/%f,")
 do
   pluggable-installer "$pm"
 done
 unset IFS
-
-builtin_miners="cpuOPT PhoenixMiner TPccminer"
-for miner in $builtin_miners
-do
-  executable="ccminer"
-  if [[ $miner == cpuOPT ]]
-  then
-    executable="cpuminer"
-  elif [[ $miner == PhoenixMiner ]]
-  then
-    executable="PhoenixMiner"
-  fi
-
-  v8miner=$miner$uver8
-  v9miner=$miner$uver9
-  vminer=$miner$uver
-  x8compiled_tarball=$miner$ucompiled8
-  x9compiled_tarball=$miner$ucompiled9
-  xcompiled_tarball=$miner$ucompiled
-
-  if [[ ${!v8miner} != "" ]]
-  then
-    echo "Checking ${miner} (cuda 8) version ${!v8miner}"
-    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v8miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/recommended 2>/dev/null)" ]]
-    then
-      stop-if-needed "${miner}"
-      mkdir -p ${NVOC_MINERS}/${miner}/${!v8miner}/
-      tar -xvJf ${NVOC_MINERS}/${miner}/${!x8compiled_tarball} -C ${NVOC_MINERS}/$miner/${!v8miner}/ --strip 1
-      chmod a+x ${NVOC_MINERS}/$miner/${!v8miner}/$executable
-      update-symlink ${NVOC_MINERS}/${miner} recommended ${!v8miner}
-      echo "${miner} updated to version ${!v8miner}"
-      restart-if-needed
-    else
-      echo "${miner} already is on version ${!v8miner}"
-    fi
-  fi
-
-  if [[ ${!v9miner} != "" ]]
-  then
-    echo "Checking ${miner} (cuda 9.2) version ${!v9miner}"
-    if [[ ! -d ${NVOC_MINERS}/${miner}/${!v9miner} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest 2>/dev/null)" ]]
-    then
-      stop-if-needed "${miner}"
-      mkdir -p ${NVOC_MINERS}/${miner}/${!v9miner}/
-      tar -xvJf ${NVOC_MINERS}/${miner}/${!x9compiled_tarball} -C ${NVOC_MINERS}/$miner/${!v9miner}/ --strip 1
-      chmod a+x ${NVOC_MINERS}/$miner/${!v9miner}/$executable
-      if [[ $CUDA_VER == "9.2" ]]
-      then
-        update-symlink ${NVOC_MINERS}/${miner} recommended ${!v9miner}
-      fi
-      update-symlink ${NVOC_MINERS}/${miner} latest ${!v9miner}
-      echo "${miner} updated to version ${!v9miner}"
-      restart-if-needed
-    else
-      echo "${miner} already is on version ${!v9miner}"
-    fi
-  fi
-
-  if [[ ${!vminer} != "" ]]
-  then
-    echo "Checking ${miner} version ${!vminer}"
-    if [[ ! -d ${NVOC_MINERS}/${miner}/${!vminer} || -z "$(ls -A ${NVOC_MINERS}/${miner}/latest 2>/dev/null)" ]]
-    then
-      stop-if-needed "${miner}"
-      mkdir -p ${NVOC_MINERS}/${miner}/${!vminer}/
-      tar -xvJf ${NVOC_MINERS}/${miner}/${!xcompiled_tarball} -C ${NVOC_MINERS}/$miner/${!vminer}/ --strip 1
-      chmod a+x ${NVOC_MINERS}/$miner/${!vminer}/$executable
-      update-symlink ${NVOC_MINERS}/${miner} recommended ${!vminer}
-      update-symlink ${NVOC_MINERS}/${miner} latest ${!vminer}
-      echo "${miner} updated to version ${!vminer}"
-      restart-if-needed
-    else
-      echo "${miner} already is on version ${!vminer}"
-    fi
-  fi
-  
-  echo && echo
-done
 
 echo
 echo
