@@ -180,29 +180,6 @@ echo "Extracting and checking miners finished"
 echo
 echo
 
-
-function compile-TPccminer {
-  echo "Compiling tpruvot ccminer"
-  echo " This could take a while ..."
-  if [[ $CUDA_VER == "8.0" ]]
-  then
-    get-sources ${NVOC_MINERS}/TPccminer src $TPccminer_src_hash_ver_8
-  else
-    get-sources ${NVOC_MINERS}/TPccminer src $TPccminer_src_hash_ver_9
-  fi
-  pushd ${NVOC_MINERS}/TPccminer/src
-  bash ${NVOC_MINERS}/TPccminer/src/autogen.sh
-  bash ${NVOC_MINERS}/TPccminer/src/configure --with-cuda=/usr/local/cuda-$CUDA_VER
-  bash ${NVOC_MINERS}/TPccminer/src/build.sh
-  stop-if-needed "[T]Pccminer"
-  cp ${NVOC_MINERS}/TPccminer/src/ccminer ${NVOC_MINERS}/TPccminer/ccminer
-  popd
-  echo
-  echo "Finished compiling tpruvot ccminer"
-  restart-if-needed
-}
-
-
 function compile-cpuminer {
   echo "Compiling cpuminer"
   echo " This could take a while ..."
@@ -264,7 +241,6 @@ echo
 echo "A - Compile ALL opensouce miners"
 echo "E - Exit and do not compile anything"
 echo
-echo "0 - TPccminer"
 echo "1 - cpuminer"
 echo
 IFS=','
@@ -289,9 +265,6 @@ read -p "Do your Choice: " -a array
 for choice in "${array[@]}"; do
   case "$choice" in
     [Aa]* ) echo "ALL"
-      compile-TPccminer
-      echo
-      echo
       compile-cpuminer
       echo
       echo
@@ -302,9 +275,6 @@ for choice in "${array[@]}"; do
         echo && echo
       done
       unset IFS
-      ;;
-    [0]* ) echo -e "$choice"
-      compile-TPccminer
       ;;
     [1]* ) echo -e "$choice"
       compile-cpuminer
