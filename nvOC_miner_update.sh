@@ -94,11 +94,11 @@ function pluggable-installer {
 
   if [[ -f "$pm" && -f "$pm_output" && $(md5sum "$pm" | cut -d ' ' -f1) == $(md5sum "$pm_output" | cut -d ' ' -f1) ]]
   then
-    echo "$(jq -r .friendlyname "${pm_output}") $(jq -r .version "${pm_output}")${pm_rec_text} is already installed"
+    echo -e "$(jq -r .friendlyname "${pm_output}") $(jq -r .version "${pm_output}")${pm_rec_text} is already installed"
     return
   fi
 
-  echo "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}")${pm_rec_text}"
+  echo -e "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}")${pm_rec_text}"
   mkdir -p "${pm_path}/"
   tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1 || pm_error=true
   IFS=','
