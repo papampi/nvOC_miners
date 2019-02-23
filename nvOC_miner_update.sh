@@ -86,10 +86,11 @@ function pluggable-installer {
   local pm_output="${pm_path}/nvoc-miner.json"
   local pm_error=false
   local pm_rec=$(jq -r .install.recommended "${pm}")
-  local pm_rec_text=" for \e[36m$(jq -r .install.recommended "${pm}")\e[0m"
 
   if [[ $pm_rec != false ]]
   then
+    local pm_rec_text=" for \e[36m$(jq -r .install.recommended "${pm}")\e[0m"
+  fi
 
   if [[ -f "$pm" && -f "$pm_output" && $(md5sum "$pm" | cut -d ' ' -f1) == $(md5sum "$pm_output" | cut -d ' ' -f1) ]]
   then
