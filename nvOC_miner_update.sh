@@ -81,10 +81,11 @@ function update-symlink {
 }
 
 function pluggable-installer {
-  pm="$1"
-  pm_path=$(dirname "$1")
-  pm_output="${pm_path}/nvoc-miner.json"
-  pm_error=false
+  local pm="$1"
+  local pm_path=$(dirname "$1")
+  local pm_output="${pm_path}/nvoc-miner.json"
+  local pm_error=false
+  local pm_rec pm_rec_text
 
   if [[ -f "$pm" && -f "$pm_output" && $(md5sum "$pm" | cut -d ' ' -f1) == $(md5sum "$pm_output" | cut -d ' ' -f1) ]]
   then
@@ -128,10 +129,10 @@ function pluggable-installer {
 }
 
 function pluggable-compiler {
-  pm="$1"
-  pm_path=$(dirname "$1")
-  pm_src="$(jq -r .compile.src_path "${pm}")"
-  pm_src_hash="$(jq -r .compile.src_commit_hash "${pm}")"
+  local pm="$1"
+  local pm_path=$(dirname "$1")
+  local pm_src="$(jq -r .compile.src_path "${pm}")"
+  local pm_src_hash="$(jq -r .compile.src_commit_hash "${pm}")"
 
   if [[ $pm_src == false ]]
   then
@@ -139,7 +140,7 @@ function pluggable-compiler {
     return
   fi
 
-  pm_src_full=$(realpath --relative-to="${NVOC_MINERS}" "${pm_path}/${pm_src}")
+  local pm_src_full=$(realpath --relative-to="${NVOC_MINERS}" "${pm_path}/${pm_src}")
 
   echo "Initializing sources submodule"
   if ! git submodule init "${pm_src_full}"
