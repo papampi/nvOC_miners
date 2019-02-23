@@ -101,24 +101,29 @@ function pluggable-installer {
     chmod a+x "${pm_path}/$ex" || pm_error=true
   done
   unset IFS
-  
+
   if [[ $pm_error == false ]]
   then
     stop-if-needed "${pm_path}"
-    if [[ $CUDA_VER == $(jq -r .install.recommended "${pm}") ]]
+    pm_rec=$(jq -r .install.recommended "${pm}")
+    if [[ $pm_rec != false ]]
     then
-      update-symlink "${pm_path}" ../recommended    
+      if [[ $CUDA_VER ==  $pm_rec ]]
+      then
+        update-symlink "${pm_path}" ../recommended
+      fi
+      pm_rec_text=" for \e[36m$(jq -r .install.recommended "${pm}")\e[0m"
     fi
     if [[ $(jq -r .install.latest "${pm}") == true ]]
     then
-      update-symlink "${pm_path}" ../latest    
+      update-symlink "${pm_path}" ../latest
     fi
     cp -f "$pm" "$pm_output"
     restart-if-needed
 
-    echo -e " \e[1m->\e[0m \e[32m$(jq -r .friendlyname "${pm}")\e[0m for $(jq -r .install.recommended "${pm}") updated"
+    echo -e " \e[1m->\e[0m \e[32m$(jq -r .friendlyname "${pm}")\e[0m${pm_rec_text} updated"
   else
-    echo -e " \e[1m-> \e[31m$(jq -r .friendlyname "${pm}")\e[0m for $(jq -r .install.recommended "${pm}") update failed"
+    echo -e " \e[1m-> \e[31m$(jq -r .friendlyname "${pm}")\e[0m${pm_rec_text} update failed"
   fi
 }
 
