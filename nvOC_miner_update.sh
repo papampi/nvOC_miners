@@ -84,6 +84,7 @@ function pluggable-installer {
   pm="$1"
   pm_path=$(dirname "$1")
   pm_output="${pm_path}/nvoc-miner.json"
+  pm_error=false
 
   if [[ -f "$pm" && -f "$pm_output" && $(md5sum "$pm" | cut -d ' ' -f1) == $(md5sum "$pm_output" | cut -d ' ' -f1) ]]
   then
@@ -93,26 +94,32 @@ function pluggable-installer {
 
   echo "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}") for $(jq -r .install.recommended "${pm}")"
   mkdir -p "${pm_path}/"
-  tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1
+  tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1 || pm_error=true
   IFS=','
   for ex in $(jq -r .install.executable "${pm}")
   do
-    chmod a+x "${pm_path}/$ex"
+    chmod a+x "${pm_path}/$ex" || pm_error=true
   done
   unset IFS
-  stop-if-needed "${pm_path}"
-  if [[ $CUDA_VER == $(jq -r .install.recommended "${pm}") ]]
+  
+  if [[ $pm_error == false ]]
   then
-    update-symlink "${pm_path}" ../recommended    
-  fi
-  if [[ $(jq -r .install.latest "${pm}") == true ]]
-  then
-    update-symlink "${pm_path}" ../latest    
-  fi
-  cp -f "$pm" "$pm_output"
-  restart-if-needed
+    stop-if-needed "${pm_path}"
+    if [[ $CUDA_VER == $(jq -r .install.recommended "${pm}") ]]
+    then
+      update-symlink "${pm_path}" ../recommended    
+    fi
+    if [[ $(jq -r .install.latest "${pm}") == true ]]
+    then
+      update-symlink "${pm_path}" ../latest    
+    fi
+    cp -f "$pm" "$pm_output"
+    restart-if-needed
 
-  echo "$(jq -r .friendlyname "${pm}") for $(jq -r .install.recommended "${pm}") updated"
+    echo -e " \e[1m->\e[0m \e[32m$(jq -r .friendlyname "${pm}")\e[0m for $(jq -r .install.recommended "${pm}") updated"
+  else
+    echo -e " \e[1m-> \e[31m$(jq -r .friendlyname "${pm}")\e[0m for $(jq -r .install.recommended "${pm}") update failed"
+  fi
 }
 
 function pluggable-compiler {
