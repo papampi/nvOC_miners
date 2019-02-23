@@ -85,15 +85,19 @@ function pluggable-installer {
   local pm_path=$(dirname "$1")
   local pm_output="${pm_path}/nvoc-miner.json"
   local pm_error=false
-  local pm_rec pm_rec_text
+  local pm_rec=$(jq -r .install.recommended "${pm}")
+  local pm_rec_text=" for \e[36m$(jq -r .install.recommended "${pm}")\e[0m"
+
+  if [[ $pm_rec != false ]]
+  then
 
   if [[ -f "$pm" && -f "$pm_output" && $(md5sum "$pm" | cut -d ' ' -f1) == $(md5sum "$pm_output" | cut -d ' ' -f1) ]]
   then
-    echo "$(jq -r .friendlyname "${pm_output}") $(jq -r .version "${pm_output}") for $(jq -r .install.recommended "${pm_output}") is already installed"
+    echo "$(jq -r .friendlyname "${pm_output}") $(jq -r .version "${pm_output}")${pm_rec_text} is already installed"
     return
   fi
 
-  echo "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}") for $(jq -r .install.recommended "${pm}")"
+  echo "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}")${pm_rec_text}"
   mkdir -p "${pm_path}/"
   tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1 || pm_error=true
   IFS=','
@@ -106,14 +110,10 @@ function pluggable-installer {
   if [[ $pm_error == false ]]
   then
     stop-if-needed "${pm_path}"
-    pm_rec=$(jq -r .install.recommended "${pm}")
-    if [[ $pm_rec != false ]]
+    pm_rec=
+    if [[ $CUDA_VER ==  $pm_rec ]]
     then
-      if [[ $CUDA_VER ==  $pm_rec ]]
-      then
-        update-symlink "${pm_path}" ../recommended
-      fi
-      pm_rec_text=" for \e[36m$(jq -r .install.recommended "${pm}")\e[0m"
+      update-symlink "${pm_path}" ../recommended
     fi
     if [[ $(jq -r .install.latest "${pm}") == true ]]
     then
