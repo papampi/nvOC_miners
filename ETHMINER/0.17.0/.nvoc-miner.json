@@ -31,7 +31,7 @@
 
     "compile":
     {
-      "src_path": "../src",
+      "src_path": "/src",
       "src_repo": "https://github.com/ethereum-mining/ethminer",
       "src_commit_hash": "4c529a80c09231893432f55ed4675b52f4df3d62",
       "command": "mkdir build && pushd build && cmake .. && cmake --build . && popd",
