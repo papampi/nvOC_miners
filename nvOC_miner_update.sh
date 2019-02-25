@@ -134,6 +134,7 @@ function pluggable-compiler {
   local pm_path=$(dirname "$1")
   local pm_src="$(jq -r .compile.src_path "${pm}")"
   local pm_src_hash="$(jq -r .compile.src_commit_hash "${pm}")"
+  local pm_src_repo="$(jq -r .compile.src_repo "${pm}")"
 
   if [[ $pm_src == false ]]
   then
