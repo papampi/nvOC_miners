@@ -147,7 +147,14 @@ function pluggable-compiler {
   echo "Initializing sources submodule"
   if ! git submodule init "${pm_src_full}"
   then
-    echo "Registering new submodule in '${pm_src_full}'"
+    if [[ $pm_src_repo != false ]]
+    then
+      echo -e "${pm}: can't register source submodule, remote repo is unkonwn"
+      return
+    fi
+    
+    echo -e "${pm}: source repo is '${pm_src_repo}'"
+    echo -e "${pm}: registering as new submodule in '${pm_src_full}'"
     git -C "${NVOC_MINERS}" submodule add ${pm_src_repo} "${pm_src_full}"
   fi
 
