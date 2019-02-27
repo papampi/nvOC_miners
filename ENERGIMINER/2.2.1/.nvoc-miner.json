@@ -4,7 +4,7 @@
     "hcd": "energiminer ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -U",
     "devlist_argument": "--cuda-devices ",
     "devlist_separator": " ",
-    "devlist_format": "N",
+    "devlist_format": "Z",
     
     "foreman":
     {

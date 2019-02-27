@@ -4,7 +4,7 @@
   "hcd": "ccminer -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD $UCCALGO -i ${!xintensity}",
   "devlist_argument": "--devices ",
   "devlist_separator": ",",
-  "devlist_format": "N",
+  "devlist_format": "Z",
 
   "foreman": {
 		"name": "ccminer-tpruvot",
