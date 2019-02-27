@@ -111,8 +111,7 @@ function pluggable-installer {
   if [[ $pm_error == false ]]
   then
     stop-if-needed "${pm_path}"
-    pm_rec=
-    if [[ $CUDA_VER ==  $pm_rec ]]
+    if [[ $CUDA_VER == $pm_rec ]]
     then
       update-symlink "${pm_path}" ../recommended
     fi
