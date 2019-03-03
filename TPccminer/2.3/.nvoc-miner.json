@@ -1,0 +1,39 @@
+{
+  "friendlyname": "tpruvot ccminer",
+  "version": "2.3",
+  "hcd": "ccminer -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD $UCCALGO -i ${!xintensity}",
+  "devlist_argument": "--devices ",
+  "devlist_separator": ",",
+  "devlist_format": "Z",
+
+  "foreman": {
+		"name": "ccminer-tpruvot",
+		"api_ext": "-b 127.0.0.1:4068"
+	},
+  
+  "minerinfo":
+  {
+    "total_hash": "false",
+    "hash_count": "false",
+    "solution_speed_unit": "false",
+    "miner_error": "false",
+    "rejected_shares": "false"
+  },
+
+  "install":
+  {
+    "latest": "true",
+    "recommended": "9.2",
+    "tarball": "TPccminer-2.3.tar.xz",
+    "executable": "ccminer"
+  },
+
+  "compile":
+  {
+    "src_path": "../src",
+    "src_repo": "https://github.com/tpruvot/ccminer/",
+    "src_commit_hash": "370684f7435d1256cbabef4410a57ed5bc705fdc",
+    "command": "bash autogen.sh && bash configure --with-cuda=/usr/local/cuda-9.2 && bash build.sh",
+    "output": "ccminer"
+  }
+}

@@ -4,7 +4,7 @@
 	"hcd": "t-rex $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity} ",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
-	"devlist_format": "N",
+	"devlist_format": "Z",
 
 	"foreman": {
 		"name": "trex",
@@ -20,8 +20,8 @@
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "9.2",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "t-rex-0.9.1-linux-cuda9.2.tar.xz",
 		"executable": "t-rex"
 	},

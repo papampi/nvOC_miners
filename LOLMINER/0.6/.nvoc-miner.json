@@ -1,14 +1,14 @@
 {
 	"friendlyname": "lolMiner",
 	"version": "0.6",
-	"hcd": "lolMiner -coin=$COIN -pool=${!xpool} -port=${!xport} -user=${!xaddr}${!xwallet}${!xwork}",
+	"hcd": "lolMiner --coin $COIN --pool ${!xpool} --port ${!xport} --user ${!xaddr}${!xwallet}${!xwork} --kernelsdir \"${mpath}/${!xversion}/kernels\"",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
-	"devlist_format": "N",
+	"devlist_format": "Z",
 
 	"foreman": {
-		"name": "lolMiner",
-		"api_ext": "--apiport 8080"
+		"name": "lolminer",
+		"api_ext": "--apiport 9999"
 	},
 
 	"minerinfo": {
@@ -20,8 +20,8 @@
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "0.6",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "lolMiner_v06_Lin64.tar.xz",
 		"executable": "lolMiner"
 	},

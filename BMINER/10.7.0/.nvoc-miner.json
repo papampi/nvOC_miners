@@ -4,7 +4,7 @@
 	"hcd": "bminer -uri ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport}",
 	"devlist_argument": "-devices ",
 	"devlist_separator": ",",
-	"devlist_format": "N",
+	"devlist_format": "Z",
 
 	"foreman": {
 		"name": "bminer",

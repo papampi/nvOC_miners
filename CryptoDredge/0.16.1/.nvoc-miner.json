@@ -4,7 +4,7 @@
 	"hcd": "CryptoDredge $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity}",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
-	"devlist_format": "N",
+	"devlist_format": "Z",
 
 	"foreman": {
 		"name": "cryptodredge",
@@ -20,8 +20,8 @@
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "9.2",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "CryptoDredge_0.16.1.tar.xz",
 		"executable": "CryptoDredge"
 	},

@@ -4,7 +4,7 @@
 	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD --time",
 	"devlist_argument": "dev=",
 	"devlist_separator": ",",
-	"devlist_format": "N",
+	"devlist_format": "Z",
 
 	"foreman": {
 		"name": "dstm",
