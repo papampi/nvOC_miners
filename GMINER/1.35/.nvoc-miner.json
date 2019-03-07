@@ -12,9 +12,9 @@
 	},
 
 	"minerinfo": {
-		"total_hash": "false",
-		"hash_count": "false",
-		"solution_speed_unit": "Mh/s",
+                "total_hash": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Total Speed:\" | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' | grep -o '[0-9]*.[0-9]* G/s' | awk '{print$1}'  | awk '{s+=$1} END {printf \"%.0f\", s}'",
+                "hash_count": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Total Speed:\" | grep -v grep | wc -l | awk '{print $1}'",
+                "solution_speed_unit": "G/s",
 		"miner_error": "false",
 		"rejected_shares": "false"
 	},
