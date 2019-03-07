@@ -12,8 +12,9 @@ then
   CUDA_VER="8.0"
 fi
 
+
 # Installing Energiminer Dependencies"
-if [ ! -f /etc/apt/sources.list.d/ubuntu-toolchain-r-ubuntu-test-bionic.list ] 
+if [ ! -f /etc/apt/sources.list.d/ubuntu-toolchain-r-ubuntu-test-*.list ]
 then 
   echo "Installing Energiminer Dependencies"
   sudo apt -y install software-properties-common 
@@ -21,7 +22,6 @@ then
   sudo apt -y install gcc-4.9 
   sudo apt -y upgrade libstdc++6
 fi
-
 ## Miner versions and tarballs
 
 function stop-if-needed {
