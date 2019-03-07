@@ -3,7 +3,7 @@
 	"version": "12.0",
 	"hcd": "ethdcrminer64 -epool ${!xpool}:${!xport} -ewal ${!xaddr}${!xwallet}${!xwork} -epsw $MINER_PWD -mode 1 -dbg -1 ",
 	"devlist_argument": "-di ",
-	"devlist_separator": "",
+	"devlist_separator": ",",
 	"devlist_format": "Z",
 
 	"foreman": {
