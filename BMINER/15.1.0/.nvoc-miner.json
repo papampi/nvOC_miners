@@ -1,7 +1,7 @@
 {
 	"friendlyname": "bminer",
 	"version": "15.1.0",
-	"hcd": "bminer -uri ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -watchdog=false",
+	"hcd": "bminer -uri ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -watchdog false",
 	"devlist_argument": "-devices ",
 	"devlist_separator": ",",
 	"devlist_format": "Z",
