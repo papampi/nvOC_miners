@@ -12,7 +12,7 @@
 	},
 
 	"minerinfo": {
-		"total_hash": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep -o \"Total [0-9]*\" | awk '{print $2}' | awk '{s+=$1} END {printf \"%.0f\", s}'",
+		"total_hash": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep -o \"Total [0-9]*.[0-9]*\" | awk '{print $2}' | awk '{s+=$1} END {printf \"%.2f\", s}'",
 		"hash_count": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep -o \"Total [0-9]*\" | awk '{print $2}' | grep -v grep | wc -l | awk '{print $1}'",
 		"solution_speed_unit": "",
 		"miner_error": "false",
