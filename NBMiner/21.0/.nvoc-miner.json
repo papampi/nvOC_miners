@@ -15,15 +15,15 @@
                 "total_hash": "false",
                 "hash_count": "false",
                 "solution_speed_unit": "false",
-	             	"miner_error": "false",
-		            "rejected_shares": "false"
+	         "miner_error": "false",
+		 "rejected_shares": "false"
 	},
 
 	"install": {
 		"latest": "true",
 		"recommended": "9.2",
-		"tarball": "NBMiner_21.0_linux.tar.xz",
-		"executable": "miner"
+		"tarball": "NBMiner_21.0_Linux.tar.xz",
+		"executable": "nbminer"
 	},
 
 	"compile": {
