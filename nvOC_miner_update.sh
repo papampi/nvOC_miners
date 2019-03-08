@@ -110,7 +110,7 @@ function pluggable-installer {
 
   if [[ $pm_error == false ]]
   then
-    stop-if-needed "${pm_path}"
+    stop-if-needed "$(realpath --relative-to="${NVOC_MINERS}" "${pm_path}")"
     if [[ $CUDA_VER == $pm_rec ]]
     then
       update-symlink "${pm_path}" ../recommended
