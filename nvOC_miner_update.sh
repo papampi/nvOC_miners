@@ -113,10 +113,12 @@ function pluggable-installer {
     stop-if-needed "$(realpath --relative-to="${NVOC_MINERS}" "${pm_path}")"
     if [[ $CUDA_VER == $pm_rec ]]
     then
+      stop-if-needed "$(realpath --relative-to="${NVOC_MINERS}" "${pm_path}/../recommended")"
       update-symlink "${pm_path}" ../recommended
     fi
     if [[ $(jq -r .install.latest "${pm}") == true ]]
     then
+      stop-if-needed "$(realpath --relative-to="${NVOC_MINERS}" "${pm_path}/../latest")"
       update-symlink "${pm_path}" ../latest
     fi
     cp -f "$pm" "$pm_output"
