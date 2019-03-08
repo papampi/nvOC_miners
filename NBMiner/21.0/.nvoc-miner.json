@@ -23,7 +23,7 @@
 		"latest": "true",
 		"recommended": "9.2",
 		"tarball": "NBMiner_21.0_linux.tar.xz",
-		"executable": "miner"
+		"executable": "nbminer"
 	},
 
 	"compile": {
