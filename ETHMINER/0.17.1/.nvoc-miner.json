@@ -33,7 +33,7 @@
     {
       "src_path": "/src",
       "src_repo": "https://github.com/ethereum-mining/ethminer",
-      "src_commit_hash": "4c529a80c09231893432f55ed4675b52f4df3d62",
+      "src_commit_hash": "a8a603ea3370f35af78c642adf3db52991e77f86",
       "command": "mkdir build && pushd build && cmake .. && cmake --build . && popd",
       "output": "build/bin/ethminer"
     }
