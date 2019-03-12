@@ -19,6 +19,7 @@ then
   echo "Installing Energiminer Dependencies"
   sudo apt -y install software-properties-common 
   sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  sudo apt update
   sudo apt -y install gcc-4.9 
   sudo apt -y upgrade libstdc++6
 fi
