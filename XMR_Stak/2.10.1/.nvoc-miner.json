@@ -6,6 +6,11 @@
   "devlist_separator": "",
   "devlist_format": "",
 
+  "cpuminer":
+  {
+    "hcd": "xmr-stak.nvoc.sh --config \"${mpath}/${!xversion}/config.txt\" --currency monero --noNVIDIA -o \"${!xpool}\":\"${!xport}\" -u \"${!xaddr}\"\"${!xwallet}\"\"${!xwork}\" -p \"$MINER_PWD\" -r \"${!xwork}\" -i 0"
+  },
+
   "foreman":
   {
     "name": "xmrstak",
