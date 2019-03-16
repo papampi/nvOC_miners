@@ -1,7 +1,7 @@
 {
 	"friendlyname": "NBMiner",
 	"version": "21.0",
-	"hcd": "nbminer ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork}:$MINER_PWD ",
+	"hcd": "nbminer -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork}:$MINER_PWD ",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
 	"devlist_format": "Z",
