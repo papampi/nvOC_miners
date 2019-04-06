@@ -12,7 +12,6 @@ then
   CUDA_VER="8.0"
 fi
 
-
 # Installing Energiminer Dependencies"
 if [ ! -f /etc/apt/sources.list.d/ubuntu-toolchain-r-ubuntu-test-*.list ]
 then 
