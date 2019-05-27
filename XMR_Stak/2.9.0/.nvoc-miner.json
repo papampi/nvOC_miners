@@ -34,7 +34,7 @@
     "src_path": "../src",
     "src_repo": "https://github.com/fireice-uk/xmr-stak",
     "src_commit_hash": "61e997c3474734590e3f3788de9e8c125eebdeeb",
-    "command": "mkdir build && pushd build && cmake -DCMAKE_LINK_STATIC=ON .. && make && popd",
+    "command": "(mkdir -p build && pushd build && cmake -DCMAKE_LINK_STATIC=ON .. && make || true) && popd",
     "output": "build/bin/xmr-stak build/bin/*.so build/bin/*.txt"
   }
 }
