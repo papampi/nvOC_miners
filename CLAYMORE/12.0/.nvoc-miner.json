@@ -20,8 +20,8 @@
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "9.2",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "Claymore-v12.0.tar.xz",
 		"executable": "ethdcrminer64"
 	},
