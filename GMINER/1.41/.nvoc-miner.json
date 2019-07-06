@@ -20,7 +20,7 @@
 	},
 
 	"install": {
-		"latest": "true",
+		"latest": "false",
 		"recommended": "9.2",
 		"tarball": "gminer_1_41_linux64.tar.xz",
 		"executable": "miner"
