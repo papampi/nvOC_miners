@@ -1,0 +1,35 @@
+{
+	"friendlyname": "PhoenixMiner",
+	"version": "4.5b",
+	"hcd": "PhoenixMiner -pool ${!xproto}://${!xpool}:${!xport} -wal ${!xaddr} -worker ${!xwork} -pass $MINER_PWD -coin $UCCCOIN -wdog 1 -rmode 0 -nvidia",
+	"devlist_argument": "-gpus ",
+	"devlist_separator": ",",
+	"devlist_format": "N",
+
+	"foreman": {
+		"name": "phoenix",
+		"api_ext": "-cdmport -3333"
+	},
+
+	"minerinfo": {
+		"total_hash": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Eth speed:\" | grep -v grep |sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' | awk '{print $3}' | awk '{s+=$1} END {printf \"%.2f\", s}' ",
+		"hash_count": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Eth speed:\" | grep -v grep | wc -l | awk '{print $1}'",
+		"solution_speed_unit": "Mh/s",
+		"miner_error": "tail -n 100 ${NVOC}/nvoc_logs/screenlog.0 |  grep \"No new jobs\" | tail -n $TAIL_GPU_COUNT |  sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' | awk '{print $0,\"<br>\"}'",
+		"rejected_shares": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep -o \"Rejected: [0-9]*\" | tail -1 | awk '{print $2}"
+	},
+
+	"install": {
+		"latest": "true",
+		"recommended": "false",
+		"tarball": "PhoenixMiner_4.5b_Linux.tar.xz",
+		"executable": "PhoenixMiner"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
+	}
+}
