@@ -20,7 +20,7 @@
 	},
 
 	"install": {
-		"latest": "false",
+		"latest": "true",
 		"recommended": "false",
 		"tarball": "gminer_1_50_linux64.tar.xz",
 		"executable": "miner"
