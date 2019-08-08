@@ -23,8 +23,8 @@
 
     "install":
     {
-      "latest": "true",
-      "recommended": "9.2",
+      "latest": "false",
+      "recommended": "false",
       "tarball": "ethminer-0.17.1.tar.xz",
       "executable": "ethminer"
     },
