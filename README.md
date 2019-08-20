@@ -3,6 +3,7 @@
 Here is a quick how-to for reference.
 
 ## Init miners repo
+
 as nvOC submodule from nvOC installation path:
 
 `git submodule update --init --depth 1 --remote miners`
@@ -12,13 +13,16 @@ or alternatively init as standalone repo:
 `git clone https://github.com/papampi/nvOC_miners miners`
 
 ## Install or update miners
-assuming no changes into local miners repo:
+
+You can pull and install miners update manually, in place of the easy `nvOC miners-upgrade`. It is useful if you cloned this one as standalone repo outside of a full nvOC install.
+
+Assuming no changes into local miners repo:
 
 `cd miners`
 
 `git fetch`
 
-`git checkout 3.0-miners`
+`git checkout <MINERS_BRANCH>`
 
 `git pull`
 
@@ -27,11 +31,14 @@ assuming no changes into local miners repo:
 otherwise either revert or stash before
 
 ## For contributors: add a new miner to this repo
+
 In this example we assume you want to add a fictitious miner called "NEWminer" to this repository
 
 ### Create a new branch to work on
+
 To allow your changes to be shared with the nvOC community you need to create your own branch where you can do all your changes.
 It's very easy:
+
 - change your working directory to nvOC miners path if you are not there already:
 
 `cd miners`
@@ -43,13 +50,16 @@ It's very easy:
 As you can see your branch will use `3.0-miners` as base branch.
 
 ### Add binary package & installer
+
 - create the installer section in the first part of `nvOC_miner_update.sh`
 - create a coherent compressed tarball (in XZ format) with only the binaries needed to run
 - place this tarball in a new folder inside `miners`, for example `miners/NEWminer`
 - if you think it's useful to keep also old binary versions of the same miner available in this repo look at the ethminer section in the update script to see how you can manage to do that
 
 ### Add source code submodule & compiler
+
 If recompilation support is needed:
+
 - change your working directory to nvOC miners path if you are not there already:
 
 `cd miners`
@@ -91,11 +101,14 @@ You can now open a new Pull Request (PR) for your miner addition proposal to sha
 After your PR gets merged everyone who use `bash nvOC miners-upgrade` command will get the new miner.
 
 ## For contributors: update an existing miner to this repo
+
 In this example we assume you want to update a fictitious miner called "NEWminer" which is part of this repository to a different version
 
 ### Create a new branch to work on
+
 To allow your changes to be shared with the nvOC community you need to create your own branch where you can do all your changes.
 It's very easy:
+
 - change your working directory to nvOC miners path if you are not there already:
 
 `cd miners`
@@ -107,13 +120,16 @@ It's very easy:
 As you can see your branch will use `3.0-miners` as base branch.
 
 ### Update binary package & installer
+
 - update the existing installer section in the first part of `nvOC_miner_update.sh` with new version numbers and paths
 - create a coherent compressed tarball (in XZ format) with only the updated binaries needed to run
 - place this tarball in the same folder of that one for the previous release
 - if you think it's useful to keep also old binary versions of the same miner available in this repo look at the ethminer section in the update script to see how you can manage to do that
 
 ### Update source code submodule & compiler
+
 If recompilation support is needed:
+
 - change your working directory to nvOC miners path if you are not there already:
 
 `cd miners`
