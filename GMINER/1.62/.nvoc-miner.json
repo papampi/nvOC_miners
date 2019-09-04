@@ -20,9 +20,11 @@
 	},
 
 	"install": {
-		"latest": "false",
+		"latest": "true",
 		"recommended": "false",
-		"tarball": "gminer_1_55_linux64.tar.xz",
+		"tarball": "gminer_1_62_linux64.tar.xz",
+		"tarball_subpath": "",
+		"tarball_url": "https://github.com/develsoftware/GMinerRelease/releases/download/1.62/gminer_1_62_linux64.tar.xz",
 		"executable": "miner"
 	},
 
