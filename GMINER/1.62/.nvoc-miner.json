@@ -1,6 +1,6 @@
 {
 	"friendlyname": "gminer",
-	"version": "1.55",
+	"version": "1.62",
 	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD -w 0 --pec 0 ",
 	"devlist_argument": "devices=",
 	"devlist_separator": " ",
