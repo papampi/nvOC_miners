@@ -98,9 +98,24 @@ function pluggable-installer {
     return
   fi
 
-  echo -e "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}")${pm_rec_text}"
   mkdir -p "${pm_path}/"
-  tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1 || pm_error=true
+
+  if [[ $(jq -r .install.tarball_url "${pm}") != null ]]
+  then
+    echo -e "Downloading $(jq -r .install.tarball "${pm}")"
+    wget -O "${pm_path}/$(jq -r .install.tarball "${pm}")" "$(jq -r .install.tarball_url "${pm}")" || pm_error=true
+  fi
+
+  echo -e "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}")${pm_rec_text}"
+  if [[ $(jq -r .install.tarball_subpath "${pm}") != null ]]
+  then
+    tbs=/$(jq -r .install.tarball_subpath "${pm}")
+    tbs_slashes=${subpath//[!\/]}
+    tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip ${#tbs_slashes} $(jq -r .install.tarball_subpath "${pm}") || pm_error=true
+  else
+    tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1 || pm_error=true
+  fi
+
   IFS=','
   for ex in $(jq -r .install.executable "${pm}")
   do
