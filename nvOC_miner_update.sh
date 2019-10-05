@@ -111,9 +111,9 @@ function pluggable-installer {
   then
     tbs=/$(jq -r .install.tarball_subpath "${pm}")
     tbs_slashes=${subpath//[!\/]}
-    tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip ${#tbs_slashes} $(jq -r .install.tarball_subpath "${pm}") || pm_error=true
+    tar -xvf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip ${#tbs_slashes} $(jq -r .install.tarball_subpath "${pm}") || pm_error=true
   else
-    tar -xvJf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1 || pm_error=true
+    tar -xvf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1 || pm_error=true
   fi
 
   IFS=','
