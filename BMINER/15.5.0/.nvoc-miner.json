@@ -2,6 +2,7 @@
 	"friendlyname": "bminer",
 	"version": "15.5.0",
 	"hcd": "bminer -uri ${!xproto}://${!xaddr}${!xwallet}${!xwork}:$MINER_PWD@${!xpool}:${!xport} -watchdog=false",
+	"hcd_dual": "bminer -uri $MAIN_COIN_POOL_PROTOCOL://$MAIN_COIN_ADDRESS.$MAIN_COIN_WORKER:$MINER_PWD@$MAIN_COIN_POOL:$MAIN_COIN_PORT -uri2 $DUAL_COIN_POOL_PROTOCOL://$DUAL_COIN_ADDRESS.$DUAL_COIN_WORKER:$MINER_PWD@$DUAL_COIN_POOL:$DUAL_COIN_PORT ",
 	"devlist_argument": "-devices ",
 	"devlist_separator": ",",
 	"devlist_format": "Z",
