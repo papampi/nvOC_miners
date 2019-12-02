@@ -21,7 +21,7 @@
 	},
 
 	"install": {
-		"latest": "true",
+		"latest": "false",
 		"recommended": "false",
 		"tarball": "CryptoDredge_0.22.0.tar.xz",
  		"tarball_subpath": "",
