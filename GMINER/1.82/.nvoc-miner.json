@@ -20,7 +20,7 @@
 	},
 
 	"install": {
-		"latest": "true",
+		"latest": "false",
 		"recommended": "false",
 		"tarball": "gminer_1_82_linux64.tar.xz",
 		"tarball_subpath": "",
