@@ -20,7 +20,7 @@
 	},
 
 	"install": {
-		"latest": "latest",
+		"latest": "true",
 		"recommended": "false",
 		"tarball": "PhoenixMiner_4.9c_Linux.tar.xz",
 		"executable": "PhoenixMiner"
