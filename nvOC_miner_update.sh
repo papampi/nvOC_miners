@@ -103,14 +103,14 @@ function pluggable-installer {
   if [[ $(jq -r .install.tarball_url "${pm}") != null ]]
   then
     echo -e "Downloading $(jq -r .install.tarball "${pm}")"
-    wget --quiet --show-progress -O "${pm_path}/$(jq -r .install.tarball "${pm}")" "$(jq -r .install.tarball_url "${pm}")" || pm_error=true
+    wget --quiet --no-check-certificate --show-progress -O "${pm_path}/$(jq -r .install.tarball "${pm}")" "$(jq -r .install.tarball_url "${pm}")" || pm_error=true
   fi
 
   echo -e "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}")${pm_rec_text}"
   if [[ $(jq -r .install.tarball_subpath "${pm}") != null ]]
   then
-    tbs=/$(jq -r .install.tarball_subpath "${pm}")
-    tbs_slashes=${subpath//[!\/]}
+    tbs=$(jq -r .install.tarball_subpath "${pm}")
+    tbs_slashes=${tbs//[!\/]}
     tar -xvf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip ${#tbs_slashes} $(jq -r .install.tarball_subpath "${pm}") || pm_error=true
   else
     tar -xvf "${pm_path}/$(jq -r .install.tarball "${pm}")" -C "${pm_path}" --strip 1 || pm_error=true
