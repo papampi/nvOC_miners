@@ -103,7 +103,7 @@ function pluggable-installer {
   if [[ $(jq -r .install.tarball_url "${pm}") != null ]]
   then
     echo -e "Downloading $(jq -r .install.tarball "${pm}")"
-    wget --quiet --no-check-certificate --show-progress -O "${pm_path}/$(jq -r .install.tarball "${pm}")" "$(jq -r .install.tarball_url "${pm}")" || pm_error=true
+    wget --quiet --no-check-certificate --tries=0 --timeout=2 --wait=1 --retry-connrefused --show-progress -O "${pm_path}/$(jq -r .install.tarball "${pm}")" "$(jq -r .install.tarball_url "${pm}")" || pm_error=true
   fi
 
   echo -e "Extracting $(jq -r .friendlyname "${pm}") $(jq -r .version "${pm}")${pm_rec_text}"

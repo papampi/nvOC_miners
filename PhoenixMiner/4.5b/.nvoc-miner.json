@@ -20,7 +20,7 @@
 	},
 
 	"install": {
-		"latest": "true",
+		"latest": "false",
 		"recommended": "false",
 		"tarball": "PhoenixMiner_4.5b_Linux.tar.xz",
 		"executable": "PhoenixMiner"

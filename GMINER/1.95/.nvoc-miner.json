@@ -1,0 +1,38 @@
+{
+	"friendlyname": "gminer",
+	"version": "1.95",
+	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD -w 0 --pec 0 ",
+	"devlist_argument": "--devices=",
+	"devlist_separator": " ",
+	"devlist_format": "Z",
+
+	"foreman": {
+		"name": "gminer",
+		"api_ext": "--api 10555"
+	},
+
+	"minerinfo": {
+        "total_hash": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Total Speed:\" | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' | grep -o '[0-9]*.[0-9]* G/s' | awk '{print$1}'  | awk '{s+=$1} END {printf \"%.2f\", s}'",
+        "hash_count": "tail -100 ${NVOC}/nvoc_logs/screenlog.0 | grep \"Total Speed:\" | grep -v grep | wc -l | awk '{print $1}'",
+        "solution_speed_unit": "G/s",
+		"miner_error": "false",
+		"rejected_shares": "false"
+	},
+
+	"install": {
+		"latest": "false",
+		"recommended": "false",
+		"tarball": "gminer_1_95_linux64.tar.xz",
+		"tarball_subpath": "",
+		"tarball_url": "https://github.com/develsoftware/GMinerRelease/releases/download/1.95/gminer_1_95_linux64.tar.xz",
+		"executable": "miner"
+	},
+
+	"compile": {
+		"src_path": "false",
+		"src_repo": "",
+		"src_commit_hash": "",
+		"command": "",
+		"output": ""
+	}
+}
