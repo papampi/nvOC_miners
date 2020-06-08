@@ -20,7 +20,7 @@
 	},
 
 	"install": {
-		"latest": "true",
+		"latest": "false",
 		"recommended": "false",
 		"tarball": "z-enemy-2.3-linux-cuda92.tar.gz",
 		"tarball_subpath": "",
