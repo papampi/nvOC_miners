@@ -1,7 +1,7 @@
 {
 	"friendlyname": "gminer",
-	"version": "1.96",
-	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD -w 0 --pec 0 ",
+	"version": "2.10",
+	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD -w 0 --pec 1 ",
 	"devlist_argument": "devices=",
 	"devlist_separator": " ",
 	"devlist_format": "Z",
@@ -22,9 +22,9 @@
 	"install": {
 		"latest": "true",
 		"recommended": "9.2",
-		"tarball": "gminer_1_96_linux64.tar.xz",
+		"tarball": "gminer_2_10_linux64.tar.xz",
 		"tarball_subpath": "",
-		"tarball_url": "https://github.com/develsoftware/GMinerRelease/releases/download/1.96/gminer_1_96_linux64.tar.xz",
+		"tarball_url": "https://github.com/develsoftware/GMinerRelease/releases/download/2.10/gminer_2_10_linux64.tar.xz",
 		"executable": "miner"
 	},
 

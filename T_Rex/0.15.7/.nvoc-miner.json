@@ -1,6 +1,6 @@
 {
 	"friendlyname": "t-rex",
-	"version": "0.14.6",
+	"version": "0.15.7",
 	"hcd": "t-rex $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity} ",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
@@ -20,11 +20,11 @@
 	},
 
 	"install": {
-		"latest": "false",
-		"recommended": "false",
-		"tarball": "t-rex-0.14.6-linux-cuda9.2.tar.gz",
+		"latest": "true",
+		"recommended": "9.2",
+		"tarball": "t-rex-0.15.7-linux-cuda9.2.tar.gz",
 		"tarball_subpath": "",
-		"tarball_url": "https://github.com/trexminer/T-Rex/releases/download/0.14.6/t-rex-0.14.6-linux-cuda9.2.tar.gz",
+		"tarball_url": "https://github.com/trexminer/T-Rex/releases/download/0.15.7/t-rex-0.15.7-linux-cuda9.2.tar.gz",
 		"executable": "t-rex"
 	},
 

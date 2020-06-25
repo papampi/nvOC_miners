@@ -1,6 +1,6 @@
 {
 	"friendlyname": "z-enemy",
-	"version": "2.3",
+	"version": "2.6.2",
 	"hcd": "z-enemy $UCCALGO -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork} -p $MINER_PWD -i ${!xintensity} ",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
@@ -20,11 +20,11 @@
 	},
 
 	"install": {
-		"latest": "false",
+		"latest": "true",
 		"recommended": "false",
-		"tarball": "z-enemy-2.3-linux-cuda92.tar.gz",
+		"tarball": "z-enemy-2.6.2-cuda92.tar.gz",
 		"tarball_subpath": "",
-		"tarball_url": "https://github.com/z-enemy/z-enemy/releases/download/ver-2.3/z-enemy-2.3-linux-cuda92.tar.gz",
+		"tarball_url": "https://github.com/zealot-rvn/z-enemy/releases/download/kawpow262/z-enemy-2.6.2-cuda92.tar.gz",
 		"executable": "z-enemy"
 	},
 
