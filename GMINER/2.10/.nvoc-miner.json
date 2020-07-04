@@ -20,8 +20,8 @@
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "9.2",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "gminer_2_10_linux64.tar.xz",
 		"tarball_subpath": "",
 		"tarball_url": "https://github.com/develsoftware/GMinerRelease/releases/download/2.10/gminer_2_10_linux64.tar.xz",
