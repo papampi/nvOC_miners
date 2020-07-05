@@ -20,7 +20,7 @@
 	},
 
 	"install": {
-		"latest": "true",
+		"latest": "false",
 		"recommended": "false",
 		"tarball": "lolMiner_v091_Lin64.tar.gz",
  		"tarball_subpath": "0.9.1/",
