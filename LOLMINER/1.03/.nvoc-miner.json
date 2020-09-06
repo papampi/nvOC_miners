@@ -20,8 +20,8 @@
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "9.2",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "lolMiner_v1.03_Lin64.tar.gz",
  		"tarball_subpath": "1.03/",
 		"tarball_url": "https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.03/lolMiner_v1.03_Lin64.tar.gz",
