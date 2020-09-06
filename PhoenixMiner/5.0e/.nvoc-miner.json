@@ -20,8 +20,8 @@
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "true",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "PhoenixMiner_5.0e_Linux.tar.xz",
 		"executable": "PhoenixMiner"
 	},
