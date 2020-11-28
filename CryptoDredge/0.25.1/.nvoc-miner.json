@@ -23,7 +23,7 @@
 		"latest": "true",
 		"recommended": "9.2",
 		"tarball": "CryptoDredge_0.25.1_cuda_9.2_linux.tar.gz",
- 		"tarball_subpath": "CryptoDredge_0.25.1/",
+ 		"tarball_subpath": "",
 		"tarball_url": "https://github.com/technobyl/CryptoDredge/releases/download/v0.25.1/CryptoDredge_0.25.1_cuda_9.2_linux.tar.gz",
 		"executable": "CryptoDredge"
 	},
