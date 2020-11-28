@@ -1,6 +1,6 @@
 {
 	"friendlyname": "lolMiner",
-	"version": "1.07",
+	"version": "1.12",
 	"hcd": "lolMiner --coin $COIN --pool ${!xpool} --port ${!xport} --user ${!xaddr}${!xwallet}${!xwork} --kernelsdir \"${mpath}/${!xversion}/kernels\"",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
@@ -20,11 +20,11 @@
 	},
 
 	"install": {
-		"latest": "false",
-		"recommended": "false",
-		"tarball": "lolMiner_v1.07_Lin64.tar.gz",
- 		"tarball_subpath": "1.07/",
-		"tarball_url": "https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.07/lolMiner_v1.07_Lin64.tar.gz",
+		"latest": "true",
+		"recommended": "9.2",
+		"tarball": "lolMiner_v1.12_Lin64.tar.gz",
+ 		"tarball_subpath": "1.12/",
+		"tarball_url": "https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.12/lolMiner_v1.12_Lin64.tar.gz",
 		"executable": "lolMiner"
 	},
 
