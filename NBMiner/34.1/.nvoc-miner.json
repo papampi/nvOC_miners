@@ -24,7 +24,7 @@
 		"recommended": "9.2",
 		"tarball": "NBMiner_34.1_Linux.tgz",
  		"tarball_subpath": "NBMiner_Linux/",
-		"tarball_url": "https://github.com/NebuTech/NBMiner/releases/download/v33.4/NBMiner_34.1_Linux.tgz",
+		"tarball_url": "https://github.com/NebuTech/NBMiner/releases/download/v34.1/NBMiner_34.1_Linux.tgz",
 		"executable": "nbminer"
 	},
 
