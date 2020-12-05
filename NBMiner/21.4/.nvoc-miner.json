@@ -12,11 +12,11 @@
 	},
 
 	"minerinfo": {
-                "total_hash": "false",
-                "hash_count": "false",
-                "solution_speed_unit": "false",
-	         "miner_error": "false",
-		 "rejected_shares": "false"
+        "total_hash": "false",
+        "hash_count": "false",
+        "solution_speed_unit": "false",
+	    "miner_error": "false",
+		"rejected_shares": "false"
 	},
 
 	"install": {

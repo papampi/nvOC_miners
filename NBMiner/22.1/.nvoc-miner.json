@@ -12,16 +12,16 @@
 	},
 
 	"minerinfo": {
-                "total_hash": "false",
-                "hash_count": "false",
-                "solution_speed_unit": "false",
-	         "miner_error": "false",
-		 "rejected_shares": "false"
+        "total_hash": "false",
+        "hash_count": "false",
+        "solution_speed_unit": "false",
+	    "miner_error": "false",
+		"rejected_shares": "false"
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "9.2",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "NBMiner_22.1_Linux.tar.xz",
 		"executable": "nbminer"
 	},

@@ -2,6 +2,7 @@
 	"friendlyname": "Claymore",
 	"version": "15.0",
 	"hcd": "ethdcrminer64 -epool ${!xpool}:${!xport} -ewal ${!xaddr}${!xwallet}${!xwork} -epsw $MINER_PWD -mode 1 -dbg -1 ",
+	"hcd_dual": "ethdcrminer64 -epool $DUAL_EPOOL:$DUAL_EPORT -ewal $DUAL_EWAL$DUAL_EWAL_FORMAT$DUAL_EWORKER -epsw $DUAL_EPSW -dpool stratum+tcp://$DUAL_DPOOL:$DUAL_DPORT -dwal $DUAL_DWAL$DUAL_DWAL_FORMAT$DUAL_DWORKER -dpsw $DUAL_DPSW -dcoin $DUAL_DCOIN -allpools $ALL_POOLS -dbg -1 -mport $MPORT -mpsw $MPSW ",
 	"devlist_argument": "-di ",
 	"devlist_separator": "",
 	"devlist_format": "A",
