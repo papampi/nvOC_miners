@@ -1,6 +1,6 @@
 {
 	"friendlyname": "NBMiner",
-	"version": "35.0",
+	"version": "36.0",
 	"hcd": "nbminer -o ${!xproto}://${!xpool}:${!xport} -u ${!xaddr}${!xwallet}${!xwork}:$MINER_PWD ",
 	"devlist_argument": "--devices ",
 	"devlist_separator": ",",
@@ -20,11 +20,11 @@
 	},
 
 	"install": {
-		"latest": "false",
-		"recommended": "false",
-		"tarball": "NBMiner_35.0_Linux.tgz",
+		"latest": "true",
+		"recommended": "9.2",
+		"tarball": "NBMiner_36.0_Linux.tgz",
  		"tarball_subpath": "NBMiner_Linux/",
-		"tarball_url": "https://github.com/NebuTech/NBMiner/releases/download/v35.0/NBMiner_35.0_Linux.tgz",
+		"tarball_url": "https://github.com/NebuTech/NBMiner/releases/download/v36.0/NBMiner_36.0_Linux.tgz",
 		"executable": "nbminer"
 	},
 
