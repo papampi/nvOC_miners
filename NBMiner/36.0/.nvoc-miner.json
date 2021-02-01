@@ -20,8 +20,8 @@
 	},
 
 	"install": {
-		"latest": "true",
-		"recommended": "9.2",
+		"latest": "false",
+		"recommended": "false",
 		"tarball": "NBMiner_36.0_Linux.tgz",
  		"tarball_subpath": "NBMiner_Linux/",
 		"tarball_url": "https://github.com/NebuTech/NBMiner/releases/download/v36.0/NBMiner_36.0_Linux.tgz",
