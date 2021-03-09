@@ -21,7 +21,7 @@
 
 	"install": {
 		"latest": "false",
-		"recommended": "false",
+		"recommended": "9.2",
 		"tarball": "gminer_2_43_linux64.tar.xz",
 		"tarball_subpath": "",
 		"tarball_url": "https://github.com/develsoftware/GMinerRelease/releases/download/2.43/gminer_2_43_linux64.tar.xz",
