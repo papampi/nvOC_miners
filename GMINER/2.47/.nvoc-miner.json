@@ -2,7 +2,7 @@
 	"friendlyname": "gminer",
 	"version": "2.47",
 	"hcd": "miner --server ${!xpool} --user ${!xaddr}${!xwallet}${!xwork} --port ${!xport} --pass $MINER_PWD -w 0 --pec 1 ",
-	"devlist_argument": "devices=",
+	"devlist_argument": "--devices ",
 	"devlist_separator": " ",
 	"devlist_format": "Z",
 
