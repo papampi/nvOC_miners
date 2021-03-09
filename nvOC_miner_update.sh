@@ -100,7 +100,7 @@ function pluggable-installer {
 
   mkdir -p "${pm_path}/"
 
-  if [[ $(jq -r .install.tarball_url "${pm}") != null ]]
+  if [[ $(jq -r .install.tarball_url "${pm}") != null  && ! -f "${pm_path}/$(jq -r .install.tarball "${pm}")" ]]
   then
     echo -e "Downloading $(jq -r .install.tarball "${pm}")"
     wget --quiet --no-check-certificate --tries=0 --timeout=2 --wait=1 --retry-connrefused --show-progress -O "${pm_path}/$(jq -r .install.tarball "${pm}")" "$(jq -r .install.tarball_url "${pm}")" || pm_error=true
