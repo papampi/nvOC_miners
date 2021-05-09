@@ -1,6 +1,6 @@
 {
 	"friendlyname": "PhoenixMiner",
-	"version": "5.5c",
+	"version": "5.1c",
 	"hcd": "PhoenixMiner -pool ${!xproto}://${!xpool}:${!xport} -wal ${!xaddr} -worker ${!xwork} -pass $MINER_PWD -wdog 1 -rmode 0 -nvidia",
 	"devlist_argument": "-gpus ",
 	"devlist_separator": ",",
@@ -22,7 +22,7 @@
 	"install": {
 		"latest": "true",
 		"recommended": "9.2",
-		"tarball": "PhoenixMiner_5.5c_Linux.tar.xz",
+		"tarball": "PhoenixMiner_5.1c_Linux.tar.xz",
 		"executable": "PhoenixMiner"
 	},
 
